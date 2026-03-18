@@ -1,0 +1,256 @@
+\chapter{Sustainability, Equity, and Societal Impact Assessment}
+
+\section{Why This Chapter Exists}
+Engineering does not happen in a vacuum. Every design decision has consequences beyond the technical specification: materials are extracted from the earth, energy is consumed in manufacturing, products are used by people with different abilities and economic circumstances, and eventually everything becomes waste. This chapter equips you to evaluate those consequences systematically using industry-standard tools and to integrate sustainability and equity into your requirements rather than treating them as afterthoughts.
+
+CLO~5 requires you to evaluate your design using a project-appropriate tool (LEED, ENVISION, DFE, or the Engineering for Social Justice checklist). CLO~15 requires you to identify and analyze the ethical, environmental, societal, and economic impacts of your engineering intervention. This chapter covers both.
+
+These are not abstract exercises. In professional practice, sustainability assessments are increasingly required by clients, regulators, and investors. The ability to evaluate environmental and social impacts alongside technical performance is a core engineering competency, not an optional add-on.
+
+\section{The Triple Bottom Line}
+The Triple Bottom Line (TBL) framework, illustrated in Figure~\ref{fig:tbl}, evaluates sustainability across three dimensions that must be balanced simultaneously:
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    tblcircle/.style={circle, draw=MinesBlue, fill=LightBG, minimum size=2.8cm, align=center, font=\small\sffamily\bfseries, line width=0.8pt}
+]
+\node[tblcircle, fill=AccentTeal!15] (people) at (-2,0) {People\\{\scriptsize Social equity,}\\{\scriptsize health, safety,}\\{\scriptsize community}};
+\node[tblcircle, fill=MinesBlue!10] (planet) at (2,0) {Planet\\{\scriptsize Resources,}\\{\scriptsize emissions,}\\{\scriptsize waste, habitat}};
+\node[tblcircle, fill=WarnOrange!10] (profit) at (0,3) {Profit\\{\scriptsize Economic}\\{\scriptsize viability,}\\{\scriptsize lifecycle cost}};
+
+\draw[MinesBlue, line width=0.6pt, <->] (people) -- node[below, font=\tiny\sffamily, MinesSilver]{Equitable \& viable} (planet);
+\draw[MinesBlue, line width=0.6pt, <->] (people) -- node[left, font=\tiny\sffamily, MinesSilver]{Socially just} (profit);
+\draw[MinesBlue, line width=0.6pt, <->] (planet) -- node[right, font=\tiny\sffamily, MinesSilver]{Eco-efficient} (profit);
+
+\node[font=\sffamily\bfseries\color{MinesBlue}] at (0,1.2) {Sustainable};
+\end{tikzpicture}
+\caption{The Triple Bottom Line (TBL). Sustainable engineering designs balance social equity, environmental stewardship, and economic viability. A design that maximizes one dimension while ignoring the others is not sustainable.}\label{fig:tbl}
+\end{figure}
+
+\textbf{People} (social equity): who benefits from this design? Who bears the costs or risks? Are workers safe during manufacturing and maintenance? Can users of all abilities access the system? Does the design reinforce or reduce existing inequities?
+
+\textbf{Planet} (environmental stewardship): what natural resources does the design consume? What emissions, waste, or habitat disruption does it produce? Can materials be recycled at end-of-life? Is the design energy-efficient during the use phase (which typically dominates lifecycle energy for consumer and industrial products)?
+
+\textbf{Profit} (economic viability): can the design be manufactured, operated, and maintained at a cost the market or client can sustain? What is the total lifecycle cost (not just the build cost)? Does the design create economic value that justifies its resource consumption?
+
+A design that maximizes profit while dumping toxic waste is not sustainable. A design that minimizes environmental impact at ten times the client's budget will never be implemented and therefore has zero impact. Sustainability requires balancing all three dimensions within the constraints of your project.
+
+\section{Lifecycle Thinking}
+Every product has a lifecycle: raw material extraction $\to$ material processing $\to$ manufacturing $\to$ distribution $\to$ use phase $\to$ end-of-life (disposal, recycling, or reuse). \textbf{Cradle-to-grave} thinking accounts for impacts from extraction through disposal. \textbf{Cradle-to-cradle} thinking goes further, designing products so that end-of-life materials become inputs for new products, creating a closed loop.
+
+At capstone scale, a full quantitative Lifecycle Assessment (LCA) using tools like openLCA or SimaPro is typically beyond scope and budget. However, you can and should perform a \textbf{simplified lifecycle assessment}:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Identify the dominant lifecycle phase for your product category. For most consumer and industrial electronics, the use phase dominates energy consumption (the product uses more energy over its lifetime than was consumed in manufacturing). For construction materials and infrastructure, the materials phase dominates embodied energy and carbon.
+\item Estimate the environmental impact of that dominant phase using published data (embodied energy databases, utility emission factors, material impact factors).
+\item Design to reduce the impact of the dominant phase. If the use phase dominates, focus on energy efficiency. If the materials phase dominates, focus on material selection and material reduction.
+\end{enumerate}
+
+\begin{tipbox}[The 80/20 Rule of Sustainability]
+In most products, 80\% of the environmental impact comes from 20\% of the design decisions. Find the dominant contributor---usually the energy source, the primary structural material, or the single most resource-intensive component---and focus your sustainability effort there. Optimizing the color of the enclosure for recyclability while ignoring a 500\,W continuous power draw misses the point.
+\end{tipbox}
+
+\section{Sustainability Evaluation Tools}
+
+\subsection{LEED (Leadership in Energy and Environmental Design)}
+LEED is the most widely used green building rating system in the world. It evaluates buildings and infrastructure across categories: Sustainable Sites, Water Efficiency, Energy and Atmosphere, Materials and Resources, Indoor Environmental Quality, and Innovation. Projects earn credits in each category; total credits determine the certification level (Certified, Silver, Gold, Platinum).
+
+Even if your project is not a building, the LEED categories provide a structured framework for evaluating environmental impact. Use LEED when your project involves building systems, HVAC, lighting, water management, or site development. For capstone, apply the relevant LEED categories as a checklist: does your design address water efficiency? Energy consumption? Material selection? Indoor air quality?
+
+\subsection{ENVISION}
+ENVISION is the sustainability rating system for civil infrastructure projects: roads, bridges, water treatment systems, energy systems, transit, and public spaces. It evaluates projects across five categories: Quality of Life (purpose, community, well-being), Leadership (collaboration, planning, economy), Resource Allocation (materials, energy, water), Natural World (siting, conservation, ecology), and Climate and Resilience (emissions, resilience).
+
+Use ENVISION for civil and environmental engineering projects. It is particularly relevant for CE and EnvE capstone teams working on infrastructure, water systems, and site development.
+
+\subsection{Design for Environment (DFE)}
+DFE is a design philosophy that systematically considers environmental impacts as an integral part of the engineering design process. Key DFE strategies:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Minimize material variety}: fewer material types simplifies recycling. A product with 15 different plastics is nearly impossible to recycle economically; one with 2--3 types is viable.
+\item \textbf{Select lower-impact materials}: prefer recycled content, renewable materials, and materials with lower embodied energy. Aluminum has 8$\times$ the embodied energy of steel per kg but is infinitely recyclable.
+\item \textbf{Design for disassembly (DfD)}: use reversible fasteners (screws, snap-fits) instead of permanent bonds (adhesives, welding, overmolding). The requirement ``the system shall be fully disassembled into its base material categories using only standard hand tools in under 5 minutes'' is testable by demonstration at FDR.
+\item \textbf{Minimize packaging}: reduce material, use recycled content, design for reusable shipping.
+\item \textbf{Design for energy efficiency}: during the use phase, which is typically the dominant lifecycle phase for powered products.
+\item \textbf{Avoid hazardous materials}: eliminate or minimize lead, mercury, cadmium, hexavalent chromium, PBBs, and PBDEs (these are restricted by RoHS in the EU and many other jurisdictions).
+\end{itemize}
+
+DFE is applicable to all project tracks and all engineering disciplines. Even Paper Track projects should address DFE in their design package recommendations.
+
+\subsection{Engineering for Social Justice (ESJ) Checklist}
+The ESJ framework asks questions that traditional engineering analysis often overlooks:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Who benefits} from this design? Are the benefits distributed equitably, or do they accrue primarily to those who already have advantages?
+\item \textbf{Who bears the costs or risks?} Are the environmental, health, or safety burdens imposed on communities that did not have a voice in the design decision?
+\item \textbf{Who was not consulted?} Were all affected stakeholders engaged in the needs elicitation process? Were voices systematically excluded by language barriers, geographic isolation, or power dynamics?
+\item \textbf{Accessibility}: can people with different physical abilities, cognitive abilities, and technology access use this system? Does the design comply with ADA requirements where applicable?
+\item \textbf{Affordability}: can the intended users actually afford this solution? A technically excellent irrigation controller that costs \$2,000 is useless to a community garden with a \$200 budget.
+\item \textbf{Cultural appropriateness}: does the design respect local customs, practices, and preferences? A solution designed in Golden, Colorado may not transfer directly to a community in rural Guatemala.
+\end{itemize}
+
+These are not abstract philosophical questions. They are practical design considerations that affect whether your engineering solution actually solves the problem for the people who need it most. A water treatment system designed without consulting the community it serves may be technically excellent and socially useless.
+
+\section{Integrating Sustainability into the SDRD}
+Sustainability requirements belong in your SDRD as non-functional requirements, not in a separate ``sustainability'' appendix that gets ignored during design. Examples of testable sustainability requirements:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item ``The system shall be fully disassembled into base material categories using only standard hand tools in under 5 minutes.'' (TAID: Demonstration)
+\item ``The system shall consume $\leq$50\,W average power during normal operation.'' (TAID: Test)
+\item ``All structural materials shall be RoHS-compliant.'' (TAID: Inspection of material certifications)
+\item ``The system shall use $\leq 2$ gallons of water per irrigation cycle.'' (TAID: Test)
+\item ``The enclosure shall be manufactured from $\geq$50\% post-consumer recycled content.'' (TAID: Inspection of supplier certification)
+\end{itemize}
+
+By embedding sustainability in the requirements, it becomes part of the normal verification process and cannot be overlooked.
+
+\section{Design for End-of-Life}
+How will your system be decommissioned? Every product eventually reaches end-of-life, and the designer's choices determine whether that end-of-life is responsible or irresponsible. Consider:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Disassembly}: can the system be taken apart for recycling, or is it a monolithic block of mixed materials? (DfD, discussed above.)
+\item \textbf{Hazardous materials}: are there lithium batteries, solvents, lead, or other materials requiring special disposal? Who is responsible for disposal, and what regulatory requirements apply?
+\item \textbf{Component reuse}: can any subsystems (motors, sensors, controllers, enclosures) be reused in other applications or returned to the supply chain?
+\item \textbf{Documentation}: the O\&M manual (delivered at FDR) should include end-of-life instructions---how to safely decommission the system, what materials require special handling, and where to recycle or dispose of each component.
+\end{itemize}
+
+\section{Simplified LCA Methodology for Capstone}
+A full quantitative Lifecycle Assessment requires specialized software (openLCA, SimaPro, GaBi) and access to lifecycle inventory databases that are typically beyond capstone scope. However, you can perform a meaningful \textbf{simplified LCA} that demonstrates lifecycle thinking and satisfies CLO~5:
+
+\textbf{Step 1: Define the system boundary.} What is included? Typically for capstone: raw materials, manufacturing/fabrication, use phase, and end-of-life. Exclude transportation (unless your project involves logistics) and installation (unless your project is an installed system).
+
+\textbf{Step 2: Identify the dominant lifecycle phase.} Research published LCA data for products similar to yours:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Electronics and consumer products}: the use phase typically dominates energy consumption. A device that consumes 50\,W continuously for 5 years uses $\sim$2,200\,kWh---far more energy than was consumed in manufacturing the device. Focus on energy efficiency.
+\item \textbf{Construction materials and infrastructure}: the materials phase dominates embodied energy and carbon. Concrete produces $\sim$0.13\,kg CO$_2$/kg; steel produces $\sim$1.8\,kg CO$_2$/kg; aluminum produces $\sim$8.1\,kg CO$_2$/kg. Focus on material selection and material reduction.
+\item \textbf{Vehicles and mobile systems}: the use phase dominates (fuel consumption). Focus on weight reduction and powertrain efficiency.
+\item \textbf{Short-lived consumer goods}: the materials and end-of-life phases dominate. Focus on recyclability and material selection.
+\end{itemize}
+
+\textbf{Step 3: Estimate the dominant impact.} Use published data to estimate the primary environmental metric for your dominant phase. For energy consumption: estimate annual kWh and multiply by the local grid emission factor (Colorado: $\sim$0.6\,kg CO$_2$/kWh). For material impact: estimate mass of each material and multiply by the embodied energy or CO$_2$ factor from published databases (e.g., Granta Edupack, ICE Database).
+
+\textbf{Step 4: Identify design levers.} What design changes would reduce the dominant impact? Can you reduce power consumption by 30\% with a more efficient algorithm or a sleep mode? Can you reduce material mass by 20\% with topology optimization or material substitution? Can you increase product lifetime from 3 years to 10 years, spreading the embodied energy over a longer useful period?
+
+\textbf{Step 5: Document.} Present your simplified LCA in the PDR and FDR reports. Show the system boundary, the dominant phase, the estimated impact, the design levers you exercised, and the resulting improvement. Even a rough estimate demonstrates that you considered environmental impact systematically.
+
+\section{Environmental and Regulatory Compliance}
+Beyond voluntary sustainability assessment, your design may need to comply with mandatory environmental regulations:
+
+\textbf{RoHS} (Restriction of Hazardous Substances): restricts lead, mercury, cadmium, hexavalent chromium, PBBs, and PBDEs in electrical and electronic equipment sold in the EU. Most modern electronic components are RoHS-compliant; verify by checking datasheets.
+
+\textbf{REACH} (Registration, Evaluation, Authorization, and Restriction of Chemicals): EU regulation requiring registration of chemical substances. Relevant if your project uses specialty chemicals, coatings, or adhesives.
+
+\textbf{WEEE} (Waste Electrical and Electronic Equipment): EU directive requiring manufacturers to provide for collection and recycling of electronic products at end-of-life. Relevant for understanding your product's full lifecycle responsibility.
+
+\textbf{EPA regulations}: applicable to projects involving water treatment, air emissions, hazardous waste, or environmental monitoring. State and local regulations may be more restrictive than federal.
+
+\textbf{California Proposition~65}: requires warning labels for products containing chemicals known to cause cancer or reproductive harm. Relevant if your client is in California or sells products there.
+
+Identify applicable regulations during requirements engineering (Chapter~3) and incorporate them as non-functional requirements in the SDRD. Discovering a regulatory compliance issue at CDR or FDR is expensive and may require fundamental design changes.
+
+\section{The Broader Impacts Essay}
+In SDII, you will write an argumentative essay (1000--1500 words) analyzing the broader impacts of your specific capstone project on society, the environment, or ethics. This is not a generic essay about ``engineering and society.'' It must connect directly to \emph{your} project's hardware, software, or system design decisions.
+
+The essay follows a standard argumentative structure:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Introduction and Thesis}: hook the reader with a compelling opening. State your central claim clearly in the first paragraph. The thesis must be arguable---someone could reasonably disagree with your position.
+\item \textbf{Background}: briefly explain the technical context of your specific project (not a generic overview of the technology domain). The reader should understand what your system does and how it works in 2--3 paragraphs.
+\item \textbf{Proponent Arguments}: present the arguments supporting your thesis, buttressed by literature, data, and specific examples from your project. This is the core of the essay.
+\item \textbf{Opposing Viewpoints}: present the strongest counterarguments. You must take a stand; this is an argumentative essay, not a balanced report. Present the opposition honestly, then refute it.
+\item \textbf{Rebuttal}: address the opposing viewpoints with evidence and reasoning that supports your thesis.
+\item \textbf{Conclusion}: restate your thesis in light of the arguments presented. Discuss implications for future design decisions or policy.
+\end{enumerate}
+
+\begin{warningbox}[Common Essay Mistakes]
+The most common issues in student essays are:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item The essay does not follow argumentative format; reads like a book report or informative summary.
+\item Generic or ``robotic'' tone that lacks a distinct human voice or specific connection to the project, suggesting over-reliance on generative AI.
+\item No opposing viewpoints presented or challenged.
+\item Sources not cited, claims not supported by evidence, or references that do not exist (``hallucinated'' AI citations---this is an academic integrity violation).
+\item Spelling, grammar, and typographical errors suggesting lack of proofreading.
+\item The essay lacks a thesis or central argument stated in one of the first sentences.
+\end{enumerate}
+The best essays are provocative, well-researched, and deeply connected to the specific engineering decisions of the project.
+\end{warningbox}
+
+\section{Case Studies}
+Consider how sustainability and equity have played out in real engineering decisions:
+
+\textbf{Flint, Michigan water crisis}: a cost-cutting decision to change water sources without adequate corrosion control exposed a predominantly low-income, majority-Black community to lead contamination. Engineers who raised concerns were overruled. The ESJ framework would have flagged the equity dimensions before the switch.
+
+\textbf{Solar panel end-of-life}: first-generation solar panels approaching end-of-life contain cadmium, lead, and other hazardous materials. Panels designed without DfD are expensive and dangerous to recycle. Newer designs use DfD principles and less-hazardous materials.
+
+\textbf{Fast fashion supply chains}: products engineered for lowest cost shift environmental and labor burdens to communities with less regulatory protection. A lifecycle perspective reveals costs hidden from the consumer but borne by factory workers and local ecosystems.
+
+These are not hypothetical. Your capstone project---however small in scale---participates in the same system of material flows, energy consumption, and human impacts. The sustainability tools in this chapter help you evaluate and improve your contribution to that system.
+
+
+\section{Engineering for Social Justice (ESJ)}
+For projects involving community impact, underserved populations, or public infrastructure, the Engineering for Social Justice framework provides a structured approach to equity assessment:
+
+\textbf{Key questions}: Who benefits from this technology? Who is harmed or excluded? Who participated in defining the problem? Whose knowledge counts? Are there power asymmetries between the design team and the affected community? Will the technology be accessible to people with disabilities, low income, or limited technical literacy?
+
+\textbf{Application in capstone}: ESJ is particularly relevant for: water treatment systems deployed in underserved communities, agricultural technology for small farms, assistive devices for people with disabilities, infrastructure improvements in low-income areas, and environmental monitoring in communities disproportionately affected by pollution.
+
+\textbf{Avoiding the ``savior'' mindset}: engineering teams sometimes approach community-focused projects with the assumption that they know what the community needs. ESJ pushes back: the community is the expert on its own needs. Your role is to bring technical skills to problems defined by the community, not to impose solutions from the outside.
+
+\textbf{Practical actions}: (1)~include community members as stakeholders in the needs elicitation process (Chapter~2), (2)~design for the actual operating context (available infrastructure, local skills, cultural practices), not for an idealized context, (3)~consider the total cost of ownership (not just purchase price but installation, training, maintenance, and disposal), (4)~plan for technology transfer (the community must be able to operate and maintain the system without your ongoing involvement).
+
+
+\begin{keyconceptbox}[The Broader Impacts Essay (SDII)]
+The Broader Impacts Essay is a 1000--1500 word argumentative essay on societal impacts connected to your project. For detailed guidance on structure, common mistakes, and the argumentative format, see Chapter~22 (Section: The Broader Impacts Essay). The sustainability assessment tools in this chapter provide the analytical foundation for the essay.
+\end{keyconceptbox}
+
+\section{Equity Impact Assessment}
+Even projects that do not directly serve underserved communities can have equity implications. Assess:
+
+\textbf{Access}: who can use the system? Does it require technical skills, physical abilities, or financial resources that exclude certain populations? Can it be made more accessible without compromising performance?
+
+\textbf{Data and privacy}: does the system collect personal data? Who owns the data? How is it protected? Could the data be used in ways that disadvantage certain groups?
+
+\textbf{Environmental justice}: does the system's production, operation, or disposal disproportionately affect marginalized communities? (Example: battery production creates mining impacts in specific regions; electronic waste is often exported to developing countries.)
+
+\textbf{Economic impact}: does the system create or eliminate jobs? If it automates a task currently performed by workers, what happens to those workers? Is the economic benefit distributed equitably?
+
+Document your equity assessment in the sustainability section of the PDR and FDR reports. Even if the assessment concludes that equity impacts are minimal, demonstrating that you considered the question is important for CLO~5 compliance and professional development.
+
+
+
+\section{Design for Recyclability and Circular Economy}
+Beyond end-of-life considerations, design your system to participate in the circular economy:
+
+\textbf{Material labeling}: mark all plastic parts with the resin identification code (the recycling triangle with a number). This helps recyclers sort materials correctly. PLA: Code 7 (Other). PETG: Code 1 (PET family). ABS: Code 7 (Other). Acrylic: Code 7 (Other).
+
+\textbf{Minimize material variety}: a product made from 3 materials is easier to recycle than one made from 12 materials. Where functionally equivalent, choose the same material for multiple components. An enclosure made entirely from PLA with brass inserts is more recyclable than one made from PLA, acrylic, aluminum, and nylon.
+
+\textbf{Avoid permanent bonding where possible}: screws and snap-fits allow disassembly; adhesives and welds make disassembly difficult or impossible. Design for mechanical fastening as the default; use adhesives only when the joint requires it (sealing, vibration damping, thin material bonding).
+
+\textbf{Battery accessibility}: if the system contains a rechargeable battery, design the enclosure so the battery can be removed and replaced by the user. Batteries degrade over the system's lifetime and are hazardous waste---they must be separable from the rest of the product for proper disposal.
+
+\textbf{Modular electronics}: design the PCB for component-level repair rather than board-level replacement. Use socketed ICs where practical (DIP sockets for through-hole, or SMD sockets for BGA/QFP) so failed components can be replaced without discarding the entire board.
+
+
+
+\begin{examplebox}[Simplified LCA: Battery-Powered Environmental Monitor]
+\textbf{System}: ESP32-based temperature and humidity monitor deployed in a greenhouse. Battery powered (3.7\,V, 6000\,mAh LiPo), PLA enclosure, solar charging panel. 3-year deployment.
+
+\textbf{Dominant phase}: materials (solar panel and battery represent $>$80\% of embodied energy).
+
+\textbf{Design lever}: extending deployment life from 3 to 10 years reduces annualized embodied energy by 70\%. Alternatively, a smaller or higher-efficiency solar panel reduces the dominant material contribution.
+
+\textbf{End-of-life}: LiPo battery requires certified electronics recycler. PLA enclosure is commercially compostable. Solar panel recycled through e-waste program.
+
+This rough analysis took 30 minutes and revealed that panel selection and deployment lifetime are the most impactful design decisions---insight that a purely performance-focused analysis would miss.
+\end{examplebox}
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Your team is designing a solar-powered irrigation controller for a community garden in a low-income neighborhood. Using the ESJ checklist, identify at least four equity considerations that should influence your design decisions. For each, propose a specific design response.
+\item Write three sustainability-focused non-functional requirements for a battery-powered environmental monitoring station deployed in a Colorado mountain meadow. Make each requirement testable (specify the TAID method).
+\item A teammate argues that sustainability analysis is unnecessary because ``we're just building a prototype, not a production product.'' Construct a counterargument with at least three specific points.
+\item Compare LEED and ENVISION: for what types of projects is each most appropriate? Could a single project benefit from applying elements of both? Give an example.
+\item Your project uses a lithium-polymer battery. Evaluate the end-of-life implications using DFE principles. What design decisions can you make now (during CDR) that will make responsible end-of-life management easier?
+\end{enumerate}
+

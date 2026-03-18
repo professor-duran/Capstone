@@ -1,0 +1,236 @@
+\chapter{Concept Generation, Selection, and Early Design}
+
+\section{Divergent Before Convergent}
+The most common mistake in concept generation is converging too quickly on a single idea. The first idea that comes to mind is rarely the best; it is merely the most obvious. Effective concept generation requires a deliberate \textbf{divergent phase} (generate many ideas without judgment) followed by a \textbf{convergent phase} (evaluate and select systematically). Resist the temptation to skip the divergent phase because you think you already know the answer.
+
+Research in design methodology consistently shows that teams generating more concepts produce better final designs, even when the early concepts are impractical. The process of exploring impractical ideas exposes design constraints and triggers creative connections that would not emerge from a single-concept approach. Generate at least 15--20 concepts before evaluating any of them. The PDR requirement is to present a minimum of three distinct, developed concepts with graphical communication.
+
+\section{Ideation Techniques}
+
+\subsection{Brainstorming}
+The classic group ideation method. Rules: (1)~defer all judgment---no criticizing ideas during generation, (2)~encourage wild ideas---they trigger useful associations, (3)~build on others' ideas (``yes, and\ldots'' not ``no, but\ldots''), (4)~go for quantity over quality. A productive brainstorming session generates 30--50 ideas in 20 minutes. Most will be impractical; that is the point. The few gems are worth the pile of duds.
+
+Tips for effective sessions: set a timer (time pressure increases output), designate a facilitator who enforces the rules, use sticky notes or a whiteboard so ideas are visible to everyone, and do not allow laptops during brainstorming (they invite distraction and reduce participation).
+
+\subsection{SCAMPER}
+A structured creativity prompt that forces you to transform existing solutions. For each existing solution or concept, systematically ask:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{S}ubstitute: can you replace a component, material, or process?
+\item \textbf{C}ombine: can you merge two functions, systems, or ideas?
+\item \textbf{A}dapt: can you borrow a solution from a different domain or industry?
+\item \textbf{M}odify / Magnify / Minimize: can you change the size, shape, or intensity?
+\item \textbf{P}ut to another use: can you use this in a different context?
+\item \textbf{E}liminate: can you remove a component or step without losing function?
+\item \textbf{R}earrange / Reverse: can you change the sequence, orientation, or direction?
+\end{itemize}
+
+SCAMPER is particularly useful when you have one decent concept but need alternatives for the decision matrix. Apply each letter to your existing concept and see what emerges.
+
+\subsection{Morphological Chart}
+The morphological chart is the most systematic ideation technique. Decompose the system into independent functions (rows) and list multiple solution approaches for each function (columns). Then systematically combine solutions across functions to generate novel system-level concepts.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Example morphological chart for a soil moisture monitoring system.}\label{tab:morph-chart}
+\begin{tabularx}{\textwidth}{lXXXX}
+\toprule
+\textbf{Function} & \textbf{Option A} & \textbf{Option B} & \textbf{Option C} & \textbf{Option D} \\
+\midrule
+Sense moisture & Capacitive probe & Resistive probe & TDR sensor & Tensiometer \\
+Power source & Solar + battery & AA batteries & USB wired & Energy harvesting \\
+Data transmission & WiFi (ESP32) & LoRa radio & Bluetooth & Wired (RS-485) \\
+User display & Phone app & LCD on unit & LED indicators & Web dashboard \\
+Enclosure & IP67 molded & 3D-printed PLA & NEMA 4X box & Epoxy potted \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+A chart with 5 functions and 4 options per function yields $4^5 = 1{,}024$ possible combinations. Not all are viable, but the chart reveals combinations that no single brainstorming session would produce. Select 3--5 promising combinations for further development.
+
+\subsection{Biomimicry}
+Study how nature solves analogous problems. Natural systems have been optimized by billions of years of evolution for efficiency, resilience, and adaptability. Examples: gecko feet for reversible adhesion, shark skin for drag reduction, termite mounds for passive ventilation, bone structure for lightweight high-strength materials, spider silk for tensile strength. The AskNature database (\url{https://asknature.org}) catalogs biological strategies organized by function. Biomimicry is particularly useful for structural, thermal, fluid, and materials challenges.
+
+\section{Graphical Communication of Concepts}
+Every concept must be communicated visually. A verbal description of a concept is insufficient; your PA, client, and teammates need to \emph{see} how it works. For each concept, produce:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item An \textbf{annotated sketch} showing the major components, their arrangement, and how they interact. Label key features, approximate dimensions, and critical interfaces.
+\item A \textbf{block diagram} showing the functional architecture: inputs, processing elements, outputs, and signal/energy/material flows between them.
+\item Optionally, a \textbf{CAD model} if the concept is sufficiently developed. CAD is not required at this stage; clear hand sketches with proper annotations are fully acceptable for concept selection.
+\end{itemize}
+
+The PDR deliverable requires graphical communication of at least three distinct concepts. ``Distinct'' means fundamentally different approaches, not minor variations of the same idea. Three versions of the same concept with different sensors are not three concepts; they are one concept with a sensor trade study.
+
+\section{Concept Screening: Pugh Matrix}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    block/.style={trapezium, trapezium angle=75, draw=MinesBlue, fill=LightBG, minimum width=#1, minimum height=0.6cm, align=center, font=\scriptsize\sffamily\bfseries, line width=0.6pt},
+    arrow/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.6pt}
+]
+\node[block=5cm] (brain) at (0,2.4) {Brainstorming / SCAMPER / Morphological};
+\node[font=\tiny\sffamily\color{MinesSilver}, right=0.3cm of brain] {15+ ideas};
+\node[block=3.8cm] (pugh) at (0,1.2) {Pugh Screening Matrix};
+\node[font=\tiny\sffamily\color{MinesSilver}, right=0.3cm of pugh] {3--5 concepts};
+\node[block=2.6cm] (dm) at (0,0) {Weighted Decision Matrix};
+\node[font=\tiny\sffamily\color{MinesSilver}, right=0.3cm of dm] {1 selected};
+\draw[arrow] (brain.south) -- (pugh.north);
+\draw[arrow] (pugh.south) -- (dm.north);
+\end{tikzpicture}
+\caption{The concept selection funnel. Divergent thinking generates many ideas; systematic screening and scoring converge to a single, justified selection.}\label{fig:concept-funnel}
+\end{figure}
+
+The concept selection process (Figure~\ref{fig:concept-funnel}) is deliberately structured as a funnel: wide at the top (many ideas) and narrow at the bottom (one justified selection). The width of thinking at the top determines the quality of the selection at the bottom. Teams that start with 3 concepts and select one have not explored the design space adequately; teams that start with 15+ and screen to 3--5 before scoring have genuine confidence in their selection.
+
+The Pugh matrix is a quick, qualitative screening tool for reducing a large set of concepts to a manageable shortlist. Steps:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Select one concept as the \textbf{datum} (baseline for comparison). Choose a middling concept, not the one you think is best.
+\item Define evaluation criteria from your requirements (performance, cost, manufacturability, schedule risk, maintainability, safety, sustainability).
+\item Rate each concept against the datum on each criterion: better (+), same (S), or worse ($-$).
+\item Sum the pluses and minuses for each concept.
+\item Concepts with the most pluses advance to detailed evaluation. Concepts with many minuses are eliminated unless they have a single outstanding advantage that might be combinable with another concept.
+\end{enumerate}
+
+The Pugh matrix is fast and rough. It does not produce a final answer; it reduces 10 concepts to 3--4 for the weighted decision matrix.
+
+\section{Concept Selection: Weighted Decision Matrix}
+The weighted decision matrix is the formal, quantitative selection tool presented at PDR. It provides a transparent, defensible basis for the design direction.
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Define criteria} from your requirements: technical performance, cost, manufacturability, schedule risk, maintainability, sustainability, safety, client preference. Each criterion must be independently assessable.
+\item \textbf{Assign weights} to each criterion based on relative importance. Weights should sum to 1.0 (or 100\%). Weights are derived from MoSCoW priorities and client input. Must-have requirements get higher weights than Should-have.
+\item \textbf{Rate each concept} on each criterion using a consistent scale (1--5 or 1--10). Anchor the scale: 1 = does not meet the minimum, 3 = meets the requirement, 5 = exceeds the requirement significantly. Rate based on evidence (analysis, prototyping, data), not gut feeling.
+\item \textbf{Calculate scores}: multiply each rating by the criterion weight and sum across criteria. The concept with the highest weighted score is the recommended selection.
+\item \textbf{Sensitivity analysis}: vary the weights by $\pm$10--20\% and check whether the ranking changes. If a small change in one weight flips the winner, the decision is sensitive to that criterion and needs more data or discussion before committing.
+\end{enumerate}
+
+\begin{warningbox}[The Decision Matrix Is Not a Black Box]
+The decision matrix is a tool for organizing your engineering judgment, not a substitute for it. If the matrix recommends a concept that your team's collective experience says is problematic, examine the criteria and weights---the matrix is revealing \emph{where} the disagreement lies. This enables a focused technical discussion rather than an opinion battle. Present the matrix at PDR, explain the sensitivity analysis, and be prepared to defend the selection with engineering arguments.
+\end{warningbox}
+
+\section{Client Approval of the Selected Approach}
+Before proceeding to detailed design, present your selected concept (or top 2--3 with a recommendation) to the client for approval. This occurs in SDI Sprint~3 (Weeks~7--8). The client reviews the trade study, asks questions, and either approves the direction or requests modifications.
+
+Client approval is not a formality; it is a \textbf{scope commitment}. Once the client approves a concept, subsequent changes to the fundamental approach trigger a scope change that must be documented in the SOW with the reason, the impact on schedule and budget, and re-approval from the PA and client. This is why the trade study must be thorough: changing direction after Sprint~3 costs dearly.
+
+\section{Proof-of-Concept Prototyping}
+A proof-of-concept (PoC) is not a finished product or even a complete prototype. It is a targeted demonstration that the \textbf{riskiest aspect} of your design is feasible. Focus the PoC on retiring the highest-risk technical uncertainty identified in your risk register. Three types:
+
+\textbf{Looks-like prototype}: demonstrates the physical form, user interface, or ergonomics. Often built from 3D prints, foam core, or cardboard. It does not function; it helps the client and team evaluate the physical design before committing to expensive fabrication.
+
+\textbf{Works-like prototype}: demonstrates the critical function using bench-level hardware that may not resemble the final form. Example: a breadboard circuit that reads the correct temperature and displays it on a serial monitor, built before the PCB is designed or the enclosure is fabricated. The goal is proving the \emph{function}, not the \emph{form}.
+
+\textbf{Integration prototype}: demonstrates that two or more subsystems work together across an interface. Example: the sensor subsystem communicating with the MCU via I2C and displaying data on the LCD. This proves that the interface definition (protocol, voltage levels, timing) is correct.
+
+Choose the PoC type that retires the most risk. For Build Track projects, the SDI PoC must demonstrate at least one physical function. For Paper Track projects, the PoC must demonstrate clear analytical or computational goal attainment (e.g., a validated sub-model, a converging simulation, or a model that reproduces known benchmark results).
+
+\section{Risk Identification and Management}
+Risk management is not pessimism; it is preparation. Identify risks early so you can mitigate them before they become schedule-breaking crises.
+
+\subsection{Risk Matrix}
+Plot each identified risk on a Likelihood (1--5) vs. Impact (1--5) grid. Risks in the upper-right quadrant (high likelihood, high impact) require active mitigation before PDR. Risks in the lower-left (low likelihood, low impact) can be monitored with less urgency. The risk matrix is a visual communication tool; present it at every design review.
+
+\subsection{Risk Register}
+A living document listing each risk with: unique ID, description, likelihood rating, impact rating, risk score (L$\times$I), mitigation strategy, responsible team member, status (Open, Mitigated, Closed), and notes. Review the register at every sprint retrospective. Add new risks as they emerge; close risks that have been mitigated.
+
+\subsection{FMEA: Failure Modes and Effects Analysis}
+For each component or function in your design: how can it fail (failure mode)? What happens to the system if it fails (effect)? Three ratings:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Severity (S)}: 1--10. How bad is the effect? (1 = negligible, 10 = safety hazard without warning.)
+\item \textbf{Occurrence (O)}: 1--10. How likely is this failure mode? (1 = extremely unlikely, 10 = near-certain.)
+\item \textbf{Detection (D)}: 1--10. How likely is the failure to be detected \emph{before} it causes harm? (1 = always detected, 10 = undetectable.)
+\end{itemize}
+Risk Priority Number: $\text{RPN} = S \times O \times D$. Maximum RPN = 1000. Prioritize mitigation for the highest RPNs. In capstone, a simplified FMEA covering the top 10--15 failure modes is expected. Focus on: safety-critical failures (fire, shock, injury), mission-critical failures (system cannot perform its primary function), and high-probability failures (connectors, batteries, moving parts, firmware bugs).
+
+\subsection{Hazard Analysis}
+For safety-critical projects, a formal Hazard Analysis identifies each hazard, assesses severity and probability, and defines controls (engineering controls, administrative controls, PPE). The Hazard Analysis feeds directly into the SDII Hazard Assessment and Safety Plan (Chapter~6).
+
+\section{Architecture Definition}
+Once the concept is selected and approved, define the system architecture: how the system is organized into subsystems and how they interact.
+
+\textbf{Functional decomposition}: break the system into functions using verb-noun pairs (``measure temperature,'' ``transmit data,'' ``actuate valve,'' ``display status''). Functions are stable---they describe \emph{what} the system does regardless of \emph{how} it is implemented. A function tree with 3--4 levels of decomposition is typical for capstone projects.
+
+\textbf{Allocation matrix}: map each leaf-level function to a physical module (subsystem, PCB, software module, mechanical assembly). This mapping reveals integration complexity: modules that implement many functions are high-risk single points of failure. Modules that share functions with other modules require careful interface definition.
+
+\textbf{Interface Control Documents (ICDs)}: for each interface between subsystems, define what crosses the boundary (signals, power, data, fluid, mechanical force), in what format (voltage level, protocol, data rate, connector type), and with what constraints (maximum latency, impedance, temperature rating). Clear ICDs are what enable parallel development---team members can work on their subsystems independently if the interfaces are well-defined.
+
+\section{Documenting the Trade Study}
+The trade study---concept generation, screening, selection, and sensitivity analysis---is a PDR deliverable. It must be presented as a narrative engineering argument, not just a table of numbers. The trade study section of your PDR report should include:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Criteria definition}: where did the evaluation criteria come from? Trace each criterion to a requirement or client need. Justify the weights: why is cost weighted 25\% and performance 35\%? The weights reflect the client's priorities and the project's constraints.
+\item \textbf{Concept descriptions}: for each concept, provide a clear graphical representation (sketch, block diagram, or CAD rendering), a text description of how it works, a summary of its key advantages and disadvantages, and an honest assessment of its technical risk.
+\item \textbf{Screening results}: present the Pugh matrix showing which concepts advanced and which were eliminated. Explain why eliminated concepts failed.
+\item \textbf{Selection results}: present the weighted decision matrix with scores. Show the arithmetic. Highlight the winning concept and its margin of victory.
+\item \textbf{Sensitivity analysis}: show which weight variations change the outcome. Interpret the results: ``The selection is robust to $\pm$20\% changes in all criteria except manufacturability; if manufacturability weight exceeds 30\%, Concept~B becomes preferred. Since our client has emphasized ease of manufacture, we will specifically address manufacturability risk in the detailed design phase.''
+\item \textbf{Recommendation}: state your recommendation clearly and acknowledge the residual risks of the selected concept.
+\end{enumerate}
+
+\begin{tipbox}[The Trade Study Is Not a Formality]
+Reviewers at PDR can tell when the trade study was performed retroactively to justify a decision already made. Signs: criteria that perfectly align with the pre-selected concept, no sensitivity analysis, and competitors rated suspiciously low on subjective criteria. A genuine trade study may surprise you---the best concept is not always the one you initially favored.
+\end{tipbox}
+
+\section{Prototyping Materials and Methods}
+Different prototyping objectives call for different materials and methods:
+
+\textbf{Cardboard and foam core}: fast, cheap, excellent for form-factor mockups, user interface layouts, and spatial planning. Build a full-scale cardboard model of your enclosure before committing to CAD. It reveals ergonomic issues and spatial conflicts that are invisible on screen. Time: hours. Cost: nearly zero.
+
+\textbf{3D-printed PLA}: the default prototyping material. Good dimensional accuracy ($\pm$0.3\,mm), adequate strength for low-stress applications, and available for free from InnoHub (1,000\,g per team). Limitations: brittle under impact, poor heat resistance ($>$55\,\degC{} deformation), poor UV resistance for outdoor use.
+
+\textbf{3D-printed PETG}: better chemical resistance and heat tolerance than PLA. Slightly more flexible (less brittle). Good for functional parts that will see moderate stress or outdoor exposure. Available at cost from InnoHub.
+
+\textbf{3D-printed TPU}: flexible filament for gaskets, grips, vibration isolators, and compliant mechanisms. Requires a direct-drive extruder; not all InnoHub printers support it.
+
+\textbf{Laser-cut acrylic or wood}: excellent for flat parts, panels, enclosure faces, and structural frames. Fast turnaround. Dimensional accuracy better than FDM ($\pm$0.1\,mm in-plane). Acrylic is transparent---useful for visual access to internals.
+
+\textbf{CNC-machined aluminum}: for structural parts requiring high strength, tight tolerances ($\pm$0.05\,mm), or metal-to-metal interfaces. More expensive and slower than 3D printing. Requires InnoHub training.
+
+\textbf{Breadboard circuits}: for all initial electronics prototyping. Never solder a circuit that has not been verified on a breadboard first (unless you enjoy desoldering). Breadboard limitations: high parasitic capacitance, unreliable connections at high frequency ($>$1\,MHz), and maximum current $\sim$1\,A per bus.
+
+The general progression: cardboard $\to$ 3D-printed mockup $\to$ breadboard circuit $\to$ functional prototype $\to$ custom PCB + machined/printed enclosure. Each stage retires a specific type of risk: form factor $\to$ spatial fit $\to$ electrical function $\to$ integrated function $\to$ final implementation.
+
+
+\section{Advanced Ideation Techniques}
+Beyond traditional brainstorming and the morphological chart, these techniques help generate concepts that break out of conventional thinking:
+
+\textbf{SCAMPER}: a structured modification technique applied to an existing product or concept. For each letter, ask: \textbf{S}ubstitute (what component or material can be replaced?), \textbf{C}ombine (can two functions be merged into one component?), \textbf{A}dapt (can a solution from a different domain be applied here?), \textbf{M}odify/Magnify/Minimize (can dimensions, power, speed, or complexity be changed?), \textbf{P}ut to another use (can the system serve a secondary purpose?), \textbf{E}liminate (what can be removed without losing core functionality?), \textbf{R}everse/Rearrange (can the sequence, orientation, or layout be inverted?). Apply SCAMPER to your top 2--3 concepts from initial brainstorming to generate 10--20 variations.
+
+\textbf{Biomimicry}: nature has solved most engineering problems already. Ask: ``How does nature handle this function?'' Examples: thermal regulation (elephant ears = large-surface-area heat exchangers), structural efficiency (bone = optimized load-bearing with minimum material), water collection (Namibian beetle = fog harvesting through surface wettability gradients), vibration damping (woodpecker skull = layered energy absorption). Biomimicry produces concepts that are often lighter, more efficient, and more elegant than conventional engineering solutions.
+
+\textbf{Patent search}: before committing to a concept, search the US Patent Office (patents.google.com) for prior art. This serves two purposes: (1)~it reveals existing solutions that may inspire your design or provide proven sub-systems, and (2)~it identifies potential IP conflicts that could constrain your design freedom. In capstone, patent infringement is not a legal concern (educational use), but understanding the patent landscape demonstrates professional awareness.
+
+\textbf{Reverse engineering}: if a similar product exists, obtain one and disassemble it. Document: what materials are used, how components are fastened, what manufacturing processes were employed, what design decisions were made and why (infer from the physical evidence). This is not copying; it is learning from existing solutions to inform your own. Document your reverse engineering findings in the concept generation section of the PDR report.
+
+\section{From Concept to Architecture: The Decomposition Process}
+Once a concept is selected, decompose it into an implementable architecture:
+
+\textbf{Functional decomposition}: break the system function into sub-functions. A ``temperature controller'' decomposes into: sense temperature, compare to setpoint, compute control output, drive heater, display status, log data, and alarm on fault. Each sub-function maps to a physical implementation.
+
+\textbf{Physical decomposition}: map each sub-function to a hardware or software module. ``Sense temperature'' maps to: thermocouple + amplifier + ADC. ``Compute control output'' maps to: PID algorithm in ESP32 firmware. ``Drive heater'' maps to: MOSFET + PWM output.
+
+\textbf{Interface definition}: at every boundary between modules, define the signal, its format, and its constraints. Between ``sense temperature'' and ``compute control output'': the interface is a digital value in degrees Celsius, updated at 1\,Hz, with a range of 0--500\,\degC{} and resolution of 0.25\,\degC{}. These interface specifications become interface requirements in the SDRD and ICDs in the CDR documentation.
+
+
+
+\section{Intellectual Property Awareness in Concept Generation}
+During concept generation, be aware of intellectual property (IP) considerations:
+
+\textbf{Patent awareness}: searching patents.google.com reveals existing solutions and their claims. If your concept closely resembles a patented design, you have three options: (1)~design around the patent claims (modify your concept to avoid the specific claimed elements), (2)~use the patented concept (in capstone, educational use is generally protected, but discuss with your PA if the client intends to commercialize), or (3)~contact the patent holder for licensing (rare in capstone but relevant for commercialization-track projects).
+
+\textbf{Client-owned IP}: some clients require that all IP generated during the project belongs to the client. Others allow shared ownership or assign IP to the university. The IP agreement should be documented before the project begins (typically handled by the Capstone Program through the SOW or a separate IP agreement). Understand the terms: can you include the design in your portfolio? Can you publish the results? Can you use the techniques you developed in future work?
+
+\textbf{Open-source components}: many capstone projects use open-source hardware (Arduino, ESP32 ecosystem) and software (libraries, frameworks). Understand the license terms: MIT and BSD licenses allow commercial use with attribution. GPL licenses require derivative works to also be open-source. If the client intends to commercialize, GPL components may create licensing complications.
+
+\textbf{Documenting inventive contributions}: if your design includes a novel approach that could be patentable, document it in your engineering notebook with: the date of conception, a clear description, the names of all contributors, and a witness signature. This establishes priority. Discuss potential patents with your PA and the Mines Office of Technology Transfer.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Create a morphological chart for a portable water quality testing station with at least 5 functions and 3 solutions per function. How many total combinations exist? Select three promising combinations and explain why each might work.
+\item Your weighted decision matrix selects Concept~A, but when you increase the weight of ``manufacturability'' by 15\%, Concept~B wins. What does this tell you, and what should you do before committing to a direction?
+\item Your team has selected a concept and the client has approved it in Sprint~3. Two weeks later, a teammate discovers a patent that may be infringed. What are your options, and how do you communicate this to the client and PA?
+\item Create a simplified FMEA (5 failure modes minimum) for a solar-powered irrigation controller. Identify the highest-RPN failure mode and propose a mitigation strategy that would reduce the RPN by at least 50\%.
+\item Explain the difference between a ``looks-like,'' ``works-like,'' and ``integration'' prototype. For a project involving a robotic arm that picks up objects and sorts them by color, which type of PoC would retire the most technical risk, and why?
+\end{enumerate}
+

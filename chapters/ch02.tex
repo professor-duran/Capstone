@@ -1,0 +1,229 @@
+\chapter{Understanding Your Client and Defining the Problem}
+
+\section{The Client Relationship}
+Your client is not your instructor. They are a professional (or organization) who has a real problem and has engaged Mines to help solve it. The relationship is professional: you represent yourself, this program, and Colorado School of Mines. Respond to emails within 24 hours. Show up on time. Come prepared. Deliver what you promise. Dress appropriately for client meetings (business casual is the minimum). Address clients by their professional title unless they invite you to use first names.
+
+At the same time, the client is not your boss in the way a future employer will be. Your PA and the CF set the academic requirements. When client expectations and course requirements diverge (which happens), your PA is your guide. But in all client-facing interactions, conduct yourself as you would with a paying customer in industry.
+
+The relationship has natural tensions. The client wants maximum scope for minimum cost. You want a manageable scope that allows thorough engineering within the semester. The PA wants to see evidence of engineering rigor and professional growth. Navigating these tensions is a professional skill, and learning to do it well is one of the most valuable outcomes of capstone.
+
+\section{The Project Expo and Team Formation}
+SDI begins with the \textbf{Project Expo} (Week~1), where available projects are presented by clients, faculty sponsors, or CF. You will learn about each project's scope, client, and technical domain. After the Expo, you complete a \textbf{Project Selection Survey} indicating your preferences and relevant skills. Teams of 4--6 students are formed by the CF based on preferences, skills, disciplinary mix, and course logistics.
+
+By the end of Week~2, you will be assigned to a project, a PA, and a recitation section. Note: the recitation location and instructor shown on Trailhead may take several weeks to update after team assignments. Your PA will communicate your actual meeting location.
+
+\begin{tipbox}[Choosing a Project Wisely]
+Pick a project based on technical interest and learning opportunity, not just ease. The projects that challenge you the most produce the strongest resumes. If you have relevant technical skills (e.g., PCB design, FEA, programming), mention them in the survey; they help the CF build balanced teams. If you have a strong preference for a specific project, explain why in the survey comments.
+\end{tipbox}
+
+\section{The Client Kickoff Meeting}
+The kickoff meeting (Sprint~0, SDI Weeks~1--2) is your first formal interaction with the client. It sets the tone for the entire project. Figure~\ref{fig:kickoff-flow} shows the recommended workflow.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=0.6cm,
+    block/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=4.5cm, minimum height=0.7cm, align=center, font=\scriptsize\sffamily\bfseries, rounded corners=2pt, line width=0.6pt},
+    arrow/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.6pt},
+    lbl/.style={font=\tiny\sffamily\color{MinesSilver}, anchor=west}
+]
+\node[block] (prep) {Before: Research client \& domain\\Prepare discovery slides};
+\node[block, below=of prep] (during) {During: Listen, ask open-ended\\questions, take detailed notes};
+\node[block, below=of during] (after) {After: Send follow-up email\\within 24 hours};
+\node[block, below=of after] (sow) {Develop Statement of Work\\from kickoff findings};
+
+\draw[arrow] (prep) -- (during);
+\draw[arrow] (during) -- (after);
+\draw[arrow] (after) -- (sow);
+
+\node[lbl] at ($(prep.east)+(0.3,0)$) {Prepare slides for project discovery};
+\node[lbl] at ($(during.east)+(0.3,0)$) {Assign a meeting scribe};
+\node[lbl] at ($(after.east)+(0.3,0)$) {Summarize decisions \& open items};
+\node[lbl] at ($(sow.east)+(0.3,0)$) {Sprint 1 deliverable};
+\end{tikzpicture}
+\caption{Client kickoff meeting workflow. Each phase has specific actions and deliverables.}\label{fig:kickoff-flow}
+\end{figure}
+
+\textbf{Before the meeting}: research the client's organization, industry, and the problem domain. Prepare a slide deck for project discovery and discussion (this is a Sprint~0 deliverable). Identify what you know, what you do not know, and what you need to learn from the client. Prepare at least 10 open-ended questions. Assign team roles for the meeting: facilitator (drives the agenda), scribe (captures notes and decisions), and timekeeper.
+
+\textbf{During the meeting}: listen more than you talk. The meeting is for learning, not for impressing the client with your ideas. Ask open-ended questions that reveal the real problem:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item ``Walk me through how this system is used today.''
+\item ``What does success look like to you at the end of this project?''
+\item ``What constraints are absolutely non-negotiable?''
+\item ``What have you tried before? What worked and what didn't?''
+\item ``Who else interacts with this system on a daily basis?''
+\item ``What would happen if we could only deliver 80\% of what you want?''
+\end{itemize}
+
+\textbf{After the meeting}: send a follow-up email within 24 hours summarizing key decisions, open questions, and next steps. This email is critical; it serves as a de facto meeting record and gives the client an opportunity to correct misunderstandings while the conversation is still fresh. Copy your PA on this email.
+
+\begin{tipbox}[The Mom Test for Client Interviews]
+Never ask ``Would this feature be useful?''---people say yes to be polite. Instead ask about \emph{past behavior}: ``When did you last face this problem? What did you do? Why didn't that work?'' Past actions predict future needs far better than hypothetical opinions. This principle, from Rob Fitzpatrick's \emph{The Mom Test}, applies to every client conversation throughout the project.
+\end{tipbox}
+
+\section{The Re-engagement Email (SDII)}
+At the start of SDII (Sprint~7, Week~1), your first task is reconnecting with the client after the semester break. The client has been thinking about other things for a month; you need to bring them back up to speed and re-establish the working relationship.
+
+The Re-engagement Email should contain:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Reintroduce the team and note any roster changes.
+\item Summarize the current state of the design (what was accomplished in SDI).
+\item Outline proposed goals for SDII (aligned with the project completion plan).
+\item Request a meeting to review the Product Backlog and confirm priorities for the build/analysis phase.
+\item Attach the Group Reflection and Action Plan from the SDII Sprint~7 kickoff workshop.
+\end{enumerate}
+
+The re-engagement meeting is also the time to revisit the Product Backlog (Chapter~11). Priorities may have shifted over the break; the client may have new information, new constraints, or revised expectations. Update the backlog before Sprint~8 planning.
+
+\section{Needs Elicitation}
+The client tells you what they \emph{want}. Your job is to figure out what they \emph{need}. These are not always the same. A client who says ``I want a touchscreen interface'' may actually need ``quick access to real-time data without leaving the work area''---which might be better served by a heads-up display, voice interface, or even a simple LED indicator panel.
+
+\subsection{Interviews}
+Structured conversations with the client and end users. Prepare questions in advance organized by topic. Record the conversation (with permission) or assign a dedicated scribe. After each interview, synthesize the findings into a needs statement: ``The operator needs to check system status without interrupting the production process.'' A need is not a solution; it is a gap between the current state and the desired state.
+
+\subsection{Observation}
+Watch how the current system or process is used in its actual environment. Observation reveals unstated needs that interviews miss. When an operator says ``the system works fine'' but you observe them taping a sensor cable to the frame to prevent it from catching on passing carts, you have discovered a cable management need the operator never thought to mention.
+
+\subsection{Contextual Inquiry}
+Combine observation with real-time interviewing. Visit the site where the system will operate. Ask questions as the user performs their tasks: ``Why do you do it that way?'' ``What happens when this goes wrong?'' ``Is this step always the same, or does it vary?'' Contextual inquiry is the most powerful needs elicitation technique because it grounds the conversation in reality rather than abstraction.
+
+\subsection{AI-Assisted Persona Development}
+When direct stakeholder access is limited (the end user is in a remote facility, the population is too large to interview comprehensively, or the project involves future users who do not yet exist), AI tools can help generate customer personas. Describe the problem domain and ask the AI to role-play as different stakeholder types: the primary user, the maintenance technician, the safety officer, the purchasing manager. Conduct the same interview questions you would use with real stakeholders. This is a complement to real interviews, not a substitute. Document each persona with: description, key quotes, identified needs, and implications for requirements. Always disclose AI-generated content per the course GenAI policy (Chapter~22).
+
+\section{The Five-Element Problem Statement}
+Before you jump to solutions, articulate the problem clearly. A vague problem statement leads to a vague design. A precise problem statement constrains the solution space and focuses the team's effort. A good problem statement contains five elements:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{WHO} experiences the problem (the specific user or stakeholder, not ``people'' or ``society'').
+\item \textbf{WHAT} is the measurable gap between the current state and the desired state.
+\item \textbf{WHERE} does the problem occur (physical location, operational context, environmental conditions).
+\item \textbf{WHY IT MATTERS} (quantified consequences: cost, safety incidents, time lost, environmental impact).
+\item \textbf{CONSTRAINTS} that limit the solution space (budget, schedule, regulations, physical space, available infrastructure).
+\end{enumerate}
+
+If your problem statement implies only one possible solution, you have jumped into the solution space too early. A good problem statement lets someone propose a fundamentally different approach and still be addressing the same problem.
+
+\begin{examplebox}[Good vs. Bad Problem Statements]
+\textbf{Bad}: ``We need to build a soil moisture monitoring system for a garden.'' (This is a solution, not a problem.)
+
+\textbf{Good}: ``Home gardeners in Colorado's Front Range (WHO) lose 30--50\% of their water to over-irrigation because they have no way to assess soil moisture below the surface (WHAT) in their residential garden beds (WHERE). Over-irrigation wastes an estimated 15,000 gallons per household per summer season, contributing to municipal water stress during drought conditions (WHY). The solution must operate on battery power for an entire growing season, cost less than \$150 in materials, and withstand freeze-thaw cycles from October through April (CONSTRAINTS).''
+\end{examplebox}
+
+\section{Concept of Operations (ConOps)}
+The ConOps describes how the system will be used from the user's perspective. It is a narrative, not a specification. Walk through the primary use cases in plain language that the client can review and approve: who operates the system, in what sequence, under what conditions, what inputs they provide, what outputs they expect, and what happens when something goes wrong.
+
+The ConOps bridges the gap between the client's needs and the engineering requirements. A requirement like ``the system shall display soil moisture data updated every 15 minutes'' does not tell you how the user accesses that data, what they do with it, or what happens if the sensor fails. The ConOps does.
+
+A good ConOps includes:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Normal operation}: step-by-step walkthrough of the primary use case.
+\item \textbf{Startup and shutdown}: how the system is powered on, initialized, and safely powered off.
+\item \textbf{Maintenance}: routine maintenance tasks and their frequency.
+\item \textbf{Degraded operation}: what happens when a sensor fails, power is interrupted, or communication is lost.
+\item \textbf{Emergency}: what happens in a safety-critical failure mode and how the user responds.
+\end{itemize}
+
+\section{Competitive Benchmarking and Prior Art}
+Before defining your solution, understand what already exists. Competitive benchmarking answers three questions: Who else has tried to solve this problem? What did they build? Where are the opportunities to do better?
+
+\textbf{Product survey}: identify 3--5 competing products or existing solutions. For each, document: name, manufacturer, features, strengths, weaknesses, price point, and user reviews. Synthesize: What features are universally present (table stakes that your design must match)? What features are missing or poorly executed (your opportunity)? What do users complain about most (your value proposition)?
+
+\textbf{Patent landscape}: search Google Patents (\url{https://patents.google.com}) for relevant utility patents. Document: patent number, filing date (patents expire after 20 years), abstract, and key claims. Expired patents contain detailed engineering you can freely use. Active patents define design boundaries you must avoid. This is not a legal opinion; it is an engineering awareness exercise that reveals prior art and protected approaches.
+
+\textbf{Standards and regulations}: identify applicable codes early. UL/CSA for electrical safety, FCC Part~15 for radiated emissions, IP ratings for environmental protection, building codes for civil projects, EPA regulations for environmental projects, food-contact regulations if applicable. Standards become non-functional requirements in your SDRD. Discovering a regulatory requirement at CDR instead of PDR causes expensive, schedule-breaking redesign.
+
+\section{Working with Different Client Types}
+Not all clients are the same, and your approach should adapt to the client type:
+
+\textbf{External industry clients} are professionals with specific, often well-defined problems. They understand their domain deeply but may not speak engineering language. They expect professional communication, regular updates, and deliverables that they can use directly. Their time is valuable; come to every meeting prepared with an agenda and leave with documented action items.
+
+\textbf{Mines faculty clients} are engineering professors who sponsor projects related to their research or teaching needs. They understand the engineering process and can provide detailed technical guidance. However, their expectations for rigor may exceed what a typical external client demands. Faculty clients often care as much about your learning process as the project outcome.
+
+\textbf{Government and nonprofit clients} may have complex approval processes, strict regulatory requirements, and stakeholder structures that are larger than a single point of contact. Budget constraints may be tighter, and the definition of ``success'' may include equity, accessibility, and community impact dimensions that private-sector clients do not emphasize. Allow extra time for approvals and document everything.
+
+\textbf{Competition organizers} (SAE, ASCE, AIAA, etc.) are not traditional clients but function as the rule-making authority. Competition rules are non-negotiable requirements. The ``client meeting'' is replaced by the rulebook and the tech inspection at the event. Read the rules carefully and completely before Sprint~1; missed rules surface as failures at tech inspection.
+
+\section{Documenting Client Interactions}
+Every client interaction should produce a written record. At minimum:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Meeting minutes}: who attended, what was discussed, what decisions were made, and what action items were assigned (with owners and due dates). Distribute within 48 hours. Copy your PA.
+\item \textbf{Email summaries}: after phone calls or video meetings, send a follow-up email summarizing key decisions. This gives the client an opportunity to correct misunderstandings while the conversation is fresh.
+\item \textbf{Decision log}: maintain a running log of all client decisions---feature approvals, scope changes, priority changes, requirement modifications. This log becomes invaluable when, three months later, someone asks ``why did we design it this way?''
+\end{itemize}
+
+Documentation protects both you and the client. If a disagreement arises about what was agreed upon, the meeting minutes and decision log are the authoritative record.
+
+\section{AI-Assisted Persona Development}
+When direct stakeholder access is limited---the end user is at a remote facility, the population is too large to interview comprehensively, the users do not yet exist (e.g., designing for future occupants of a building), or cultural or language barriers limit direct engagement---AI tools can supplement (never replace) traditional needs elicitation.
+
+\textbf{How to use AI for persona development}: describe the problem domain, the operating environment, and the stakeholder type to the AI. Ask it to role-play as different stakeholder personas: the primary user, the maintenance technician, the safety officer, the purchasing manager, the regulatory inspector. Conduct the same interview questions you would use with real stakeholders. The AI will surface considerations you may not have thought of---accessibility needs, maintenance constraints, regulatory requirements, cultural preferences.
+
+\textbf{How to document AI-generated personas}: for each persona, record: persona name and description, key quotes from the AI interaction, identified needs and pain points, implications for requirements, and a clear disclosure that this persona was AI-generated. Always cross-validate AI-generated needs against real stakeholder data when possible.
+
+\textbf{Limitations}: AI personas reflect training data biases, may miss context-specific constraints, and cannot replace the insight that comes from observing real users in their actual environment. Use AI personas to broaden your thinking, not to shortcut your research. Always disclose AI-generated content per the course GenAI policy (Chapter~22).
+
+\begin{examplebox}[AI Persona Example]
+\textbf{Prompt}: ``You are a maintenance technician at a wastewater treatment plant in rural Colorado. Our team is designing an automated chemical dosing system. What are your biggest concerns about a new system being installed in your plant?''
+
+\textbf{Key needs surfaced}: easy access for calibration without confined space entry, compatibility with existing SCADA system, alarm notification to personal cell phone (plant is not continuously staffed), resistance to freeze-thaw cycles, clear labeling of all chemical connections to prevent cross-contamination.
+
+Several of these needs would not emerge from a specification-focused engineering discussion but are critical for operational success.
+\end{examplebox}
+
+\section{The Statement of Work}
+The Statement of Work (SOW) is the formal agreement between your team, the PA, and the client on what will be done, by when, and within what constraints. It is the foundation document for the entire project. Chapter~7 covers the SOW structure and content in detail. The SOW is developed during Sprint~1, incorporates findings from the kickoff meeting and needs elicitation, and is submitted to the PA and client for approval. It documents your track classification (Build, Paper, or Competition), team roles and responsibilities, project scope, deliverables, schedule, budget, and assumptions.
+
+
+\section{Contextual Inquiry: Observing Users in Their Environment}
+The richest source of requirements is watching people work in the actual environment where your system will be deployed. Contextual inquiry goes beyond interviews:
+
+\textbf{What to observe}: how do current users perform the task your system will address? What tools do they use? What workarounds have they developed? Where do they make errors? What takes the most time? What frustrates them? What do they do that they do not mention in interviews (because it is so habitual they do not think of it)?
+
+\textbf{How to conduct}: spend 1--2 hours observing the user performing their normal workflow. Take notes (timestamps, actions, observations). Ask clarifying questions only when the observation is ambiguous: ``I noticed you checked the gauge twice before adjusting the valve---why?'' Do not suggest improvements during observation; your job is to understand, not to redesign.
+
+\textbf{What it reveals}: contextual inquiry consistently reveals requirements that interviews miss. Users adapt to existing system limitations so thoroughly that they forget to mention them. The maintenance technician who carries a flashlight because the control panel is in a dark corner will not mention ``good lighting'' as a requirement---but you will notice it.
+
+\textbf{Capstone application}: not all projects allow site visits, but when they do, contextual inquiry is the highest-value use of your time. For projects where site access is limited, ask the client to record a video of their current process. Analyze the video with the same observational rigor.
+
+
+
+\section{The Five-Element Problem Statement}
+A well-constructed problem statement contains five elements that frame the design challenge precisely:
+
+\textbf{Element 1: The user/stakeholder}: who experiences the problem? Be specific: ``Colorado wheat farmers with $<$500 acres'' not ``farmers.'' The more precisely you define the user, the more precisely you can define the solution.
+
+\textbf{Element 2: The need}: what does the user need that they currently lack? Frame this as a need, not a solution: ``need real-time soil moisture data'' not ``need a moisture sensor.'' The need defines the problem; the solution comes later.
+
+\textbf{Element 3: The context}: under what conditions does the need arise? ``During the growing season (May--September) in semi-arid conditions with limited water rights and intermittent cellular connectivity.'' Context constrains the solution space.
+
+\textbf{Element 4: The consequence}: what happens if the need is not met? ``Crop yields decrease by 15--25\% due to over- or under-irrigation, costing the farmer \$10,000--25,000 annually.'' Quantified consequences justify the investment in a solution.
+
+\textbf{Element 5: The gap}: why do existing solutions fail to meet the need? ``Commercial irrigation controllers cost \$5,000+ and require reliable cellular service, pricing out small farmers and failing in areas with poor coverage.'' The gap defines the market opportunity and the design target.
+
+A complete Five-Element Problem Statement typically runs 3--5 sentences and provides enough context for any engineer to understand why the project matters, who it serves, and what success looks like. Draft it during Sprint~0 and refine it through client feedback in Sprint~1.
+
+
+
+\section{Distinguishing Needs from Wants}
+During client discussions, carefully distinguish between what the client \emph{needs} (essential for the system to deliver value) and what they \emph{want} (desirable but not essential):
+
+\textbf{Needs} are problems that must be solved for the system to be useful. ``I need to know the tank level without climbing the ladder'' is a need---without it, the system has no value. Needs become Must-Have requirements.
+
+\textbf{Wants} are features that enhance the system but are not essential. ``I'd like the data displayed on my phone'' is a want---the system is useful even with a local display. Wants become Should-Have or Could-Have requirements.
+
+\textbf{Unstated needs} are the most dangerous. These are things the client assumes are obvious and does not mention: ``Of course it needs to work in the rain---it's an outdoor system.'' Unstated needs are discovered through contextual inquiry (observing the operating environment), through systematic questioning (``What environmental conditions will the system encounter?''), and through experience (your PA has seen these gaps before).
+
+\textbf{The ``5 Whys'' technique}: when the client states a want, ask ``Why?'' five times to uncover the underlying need. Client: ``I want a touchscreen display.'' Why? ``So operators can see the data easily.'' Why is that important? ``Because the current gauge is hard to read from across the room.'' Why? ``Because the numbers are small and the gauge is behind a pipe.'' The real need is not a touchscreen; it is a display that is \textbf{readable from 3 meters away in an obstructed sightline}. This need could be met by a large LED display, a remote indicator, or a touchscreen---the touchscreen is one solution among several.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Your client is a local brewery that wants to automate grain silo level monitoring. Write a Five-Element Problem Statement for this project. Ensure that your problem statement does not imply a specific solution.
+\item You are starting SDII after a semester break. Draft a Re-engagement Email to your client that covers the five required elements described in this chapter. Assume the team completed a functional proof-of-concept in SDI.
+\item Your competitive benchmarking reveals three existing products that partially solve your client's problem. One product has 4.5 stars on Amazon with 2,000 reviews but costs \$800; another has 2.5 stars but costs \$150; the third is an academic research prototype with no commercial availability. How do you use this information in your problem statement, requirements, and concept generation?
+\item A teammate says ``We don't need to do a ConOps; we already know what the system does.'' Write a response explaining why the ConOps is still necessary, with a concrete example of what it reveals that a requirements list does not.
+\item You are conducting a contextual inquiry at a wastewater treatment plant. Describe three specific observations you might make that would reveal unstated needs the operator would not have mentioned in an interview.
+\end{enumerate}
+
+

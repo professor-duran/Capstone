@@ -1,0 +1,323 @@
+\chapter{Budgeting and Financial Management}
+
+\section{Why Budgets Matter}
+You are spending real money---from Capstone Purchasing funds, client accounts, or Mines institutional funds. Your team is accountable for every dollar. Overspending without authorization may result in \textbf{personal financial liability}. Professional engineers manage budgets on every project; capstone is your first practice.
+
+A budget serves three purposes: (1)~it forces realistic planning, (2)~it provides accountability to funders, and (3)~it documents resource usage for the project record.
+
+\section{Creating a Project Budget}
+Develop an estimated draft budget \emph{before} your first meeting with Capstone Purchasing:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Materials and components}: itemized list with vendor links, unit costs, quantities, total costs, and shipping estimates.
+\item \textbf{Fabrication services}: PCB fabrication, CNC machining, 3D printing beyond free allotment, laser cutting.
+\item \textbf{Test equipment/supplies}: calibration standards, consumables, specialized tools.
+\item \textbf{Travel} (if applicable): see Chapter~16.
+\item \textbf{Contingency}: \textbf{15--20\%} of total for unexpected costs, replacements, and design changes. Projects budgeting zero contingency always exceed their budget.
+\end{itemize}
+
+\section{The Budget Tracker}
+Maintain the Budget Tracker spreadsheet throughout the project. Upload to Canvas \textbf{monthly} by your PA's deadline. If late, PA and CLT Director are notified. The tracker shows: budgeted amount per category, committed costs (orders placed), actual costs (invoices received), remaining budget, and cumulative variance. Review at every retrospective and flag categories trending over budget.
+
+\section{Funding Sources}
+\textbf{Capstone Purchasing (CP)}: primary source for most teams. Route all purchases through CP when possible. \textbf{External client funds}: some clients provide direct funding or authorize their vendor accounts. \textbf{Mines faculty index}: for Mines-sponsored projects, funds may come from a faculty client's research account.
+
+\section{Cost Estimation Techniques}
+\textbf{Bottom-up}: itemize every component and sum. Most accurate; use for the BOM. \textbf{Analogous}: estimate from similar past projects. Ask your PA for precedent data. \textbf{Parametric}: cost-per-unit metrics (cost/board, cost/machined part).
+
+\subsection{Sample Budget Structure}
+Table~\ref{tab:sample-budget} shows a typical capstone budget structure. Your actual categories will vary by project.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Sample budget structure for a Build Track electronics project.}\label{tab:sample-budget}
+\begin{tabularx}{\textwidth}{Xrrr}
+\toprule
+\textbf{Category} & \textbf{Budgeted} & \textbf{Actual} & \textbf{Variance} \\
+\midrule
+Electronic components (sensors, ICs, passives) & \$350 & --- & --- \\
+PCB fabrication and assembly & \$120 & --- & --- \\
+Mechanical components (fasteners, bearings, brackets) & \$150 & --- & --- \\
+3D printing (beyond free allotment) & \$50 & --- & --- \\
+Enclosure and hardware & \$80 & --- & --- \\
+Wiring, connectors, cables & \$60 & --- & --- \\
+Power supply and battery & \$100 & --- & --- \\
+Shipping (estimated 5 orders $\times$ \$12 avg) & \$60 & --- & --- \\
+Miscellaneous/consumables & \$30 & --- & --- \\
+\midrule
+\textbf{Subtotal} & \$1,000 & --- & --- \\
+Contingency (20\%) & \$200 & --- & --- \\
+\midrule
+\textbf{Total} & \$1,200 & --- & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Tracking Actuals vs. Budget}
+At every sprint retrospective, review the budget tracker and compare actuals to the plan. Key questions: Are any categories trending over budget? If so, what can be reduced or deferred? Are there unspent categories that can absorb overruns? Has the contingency been used, and if so, for what?
+
+When actuals exceed the budget in a category by more than 15\%, flag it to your PA immediately. Do not wait until the end of the semester to discover that you are \$300 over budget with no path to recovery.
+
+\subsection{End-of-Project Reconciliation}
+At FDR, the final BOM should show actual costs alongside budgeted costs for every line item. The total variance (actual minus budgeted) should be explained: which items cost more than expected (and why), which cost less, and whether the contingency was used appropriately. This reconciliation is part of the FDR report and demonstrates financial management competence.
+
+\section{Tax-Exempt Status}
+Colorado School of Mines is tax-exempt. CRS~39-26-114 (State, RTD, Use Taxes), CRS~29-2-105 (Local Taxes). Certificate \#98-02565 (State), Federal \#84-730123K, F.E.I.N.\ \#84-6000551. \textbf{Taxes will not be reimbursed.} Provide the exemption certificate to vendors. If the vendor cannot process tax-exempt, route through CP. The certificate is available on Canvas.
+
+
+\begin{tipbox}[Student Guide Cross-Reference]
+For the CFO-specific purchasing workflow and form submission checklist, see the \textbf{Student Guide, CFO and Purchasing Survival Guide} section.
+\end{tipbox}
+
+\section{Budget Planning Timeline}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Sprint 1 (SDI)}: initial budget estimate in the SOW. Identify major cost categories.
+\item \textbf{Sprint 3--4 (SDI)}: refined budget as the design takes shape. Update component costs with actual vendor quotes.
+\item \textbf{Sprint 5 (PDR)}: budget presented with procurement timeline. Contingency allocated.
+\item \textbf{Sprint 8 (CDR)}: BOM-based budget with actual costs for ordered items. Track committed vs. actual.
+\item \textbf{Monthly (SDII)}: Budget Tracker uploaded to Canvas. Variance analysis at each sprint retrospective.
+\item \textbf{Sprint 14 (FDR)}: final budget reconciliation. Actual vs. planned comparison in FDR report.
+\end{itemize}
+
+\section{Variance Analysis and Corrective Action}
+At each budget review, calculate the variance for each category: $\text{Variance} = \text{Actual} - \text{Budgeted}$. Positive variance means over budget; negative means under budget.
+
+\textbf{If a category is trending over budget}, investigate: was the estimate wrong (update the estimate and adjust other categories), did the design change (document the change and its cost impact), or was there waste (identify and eliminate the source)?
+
+\textbf{Corrective actions}: substitute a lower-cost component, reduce the scope of a non-essential feature, negotiate with the client to defer a capability, or request additional funding from the client or CP. All corrective actions require PA awareness and, if scope-affecting, client approval.
+
+\begin{warningbox}[Do Not Hide Budget Problems]
+If you are trending over budget, tell your PA and CFO immediately. Budget problems get worse with time, not better. A team that reports a \$200 overrun in Sprint~10 can adjust; a team that reports a \$800 overrun in Sprint~14 is in crisis.
+\end{warningbox}
+
+\section{End-of-Project Financial Reconciliation}
+At FDR, the CFO presents the final budget reconciliation: budgeted amount per category, actual amount spent, variance, and explanation for significant variances. This is included in the FDR report and demonstrates financial accountability---a professional skill that employers value highly.
+
+
+
+\section{Typical Capstone Budget Ranges}
+Budget allocations vary widely by project type, but typical ranges for Mines capstone projects:
+
+\textbf{Build Track (electronics-focused)}: \$500--\$2,000. Major costs: PCB fabrication (\$50--200 for 2 revisions), electronic components (\$100--500), sensors and actuators (\$100--400), enclosure and mechanical parts (\$50--200), miscellaneous (wire, connectors, fasteners, consumables: \$50--150), contingency (15--20\%).
+
+\textbf{Build Track (mechanical-focused)}: \$1,000--\$4,000. Major costs: raw materials (metal stock, sheet metal, composites: \$200--1,000), machining services if outsourced (\$100--500), 3D printing beyond free allotment (\$50--200), fasteners and hardware (\$100--300), electronics and controls (\$200--500), contingency.
+
+\textbf{Paper Track}: \$100--\$500. Major costs: software licenses (often available through Mines), reference materials, printing, travel to site for surveys or data collection.
+
+\textbf{Competition Track}: \$2,000--\$10,000+. Major costs: registration fees (\$200--1,000), travel (\$1,000--5,000), materials and components (\$500--3,000), shipping (\$100--500).
+
+These are estimates only. Your actual budget depends on your specific project, client, and funding source. Develop your budget from the bottom up (itemized BOM) rather than from the top down (``we have \$2,000 to spend'').
+
+\section{Hidden Costs That Break Budgets}
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Shipping}: \$10--50 per order adds up fast when you are ordering from 8--10 vendors. Batch orders from the same vendor to reduce shipping charges.
+\item \textbf{PCB revisions}: if the first PCB has a design error (common), a second revision doubles the PCB cost and adds 2--3 weeks. Budget for at least one revision.
+\item \textbf{Replacement components}: a motor that burns out during testing, a sensor that is damaged during assembly, or a connector that is the wrong gender. Budget 10\% of component cost for replacements.
+\item \textbf{Consumables}: solder, flux, heat shrink, wire, zip ties, adhesive, sandpaper, tape, cleaning supplies. Individually cheap; collectively significant.
+\item \textbf{3D printing overruns}: the free 1,000\,g allotment goes fast when you are iterating enclosure designs. Each revision burns 100--300\,g.
+\item \textbf{Tax on personal purchases}: if you buy something personally and forget to use the tax exemption certificate, the tax is not reimbursable.
+\end{enumerate}
+
+
+
+\section{Working with Your PA on Budget Decisions}
+Your PA is your primary advisor for budget decisions that involve trade-offs between cost and technical performance. When facing a budget constraint:
+
+\textbf{Present options, not problems}: instead of ``We can't afford the good sensor,'' say ``We have two sensor options: Option~A meets the accuracy requirement and costs \$85; Option~B exceeds the requirement by 2$\times$ and costs \$350. Given our remaining budget of \$400, we recommend Option~A, which meets the requirement with adequate margin.''
+
+\textbf{Track the cost of design changes}: when the team decides to change a component, update the BOM and Budget Tracker immediately. A ``small'' change (\$20 different connector) multiplied by 10 design changes adds up to a significant budget impact.
+
+\textbf{Client-funded vs. CP-funded}: understand who is paying for what. Some clients provide materials directly; others fund through Mines accounts. The funding source affects the purchasing workflow. Clarify this in Sprint~1.
+
+\textbf{When you are over budget}: do not panic and do not hide it. Present the situation to your PA: how much over, what caused it, and what your options are (reduce scope, substitute cheaper components, request additional funding from client). Most budget issues can be resolved if caught early.
+
+
+
+\section{Presenting Budget Information at Design Reviews}
+Each design review should include a budget summary:
+
+\textbf{At PDR}: present the estimated budget by category, the funding source, and the contingency allocation. The reviewer wants to know: is the budget realistic for this scope? Are there any high-cost items that represent procurement risk? Is the contingency adequate?
+
+\textbf{At CDR}: present the BOM-based budget with actual costs for items already ordered. Show: budgeted vs. committed vs. received. Highlight any categories that are trending over budget and your corrective plan. The reviewer wants to know: is procurement on track? Are there surprises?
+
+\textbf{At FDR}: present the final budget reconciliation: budgeted, actual, and variance for each category. Explain significant variances. The reviewer wants to know: did the team manage its resources responsibly? What was the total project cost?
+
+\section{Budget Documentation for the Project Record}
+The budget is a project deliverable. Include in your FDR report:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Final BOM with actual unit costs and extended costs.
+\item Budget Tracker summary showing monthly actuals vs. budget.
+\item Variance analysis for categories that deviated $>$15\% from the original estimate.
+\item Lessons learned: what would you estimate differently next time?
+\end{itemize}
+
+This documentation serves two purposes: it demonstrates financial accountability for this project, and it provides cost data for future capstone teams working on similar projects.
+
+
+
+\section{Real-Time Cost Tracking}
+The CFO should update the Budget Tracker not just monthly but \textbf{at every purchase event}: when an order is submitted (committed cost), when the item is received (verify actual cost matches estimate), and when a reimbursement is processed. This real-time tracking prevents the common scenario where the team discovers at FDR that they overspent by \$400 because nobody tracked the last six orders.
+
+\textbf{Committed vs. actual}: a committed cost is an order that has been placed but not yet invoiced. An actual cost is a verified, received expenditure. The Budget Tracker should distinguish between these: committed costs are your best estimate of what will be spent; actual costs are confirmed. The difference matters when reconciling at FDR.
+
+\textbf{Budget review at retrospectives}: at each sprint retrospective, the CFO presents a 2-minute budget update: total budgeted, total committed, total actual, remaining budget, and any categories trending over budget. This takes minimal time but prevents budget surprises.
+
+\section{When Things Cost More Than Expected}
+Budget overruns happen. The professional response:
+
+\textbf{Immediate notification}: as soon as you realize a cost will exceed the budget, inform your PA and the team. Do not wait until the monthly Budget Tracker upload to reveal a problem.
+
+\textbf{Root cause analysis}: why did the cost exceed the estimate? Was the initial estimate unrealistic? Did the design change? Did a component fail and need replacement? Was shipping more expensive than budgeted? Understanding the cause prevents recurrence.
+
+\textbf{Corrective options}: (1)~reallocate budget from an under-spending category (e.g., travel came in under budget, redirect to materials), (2)~substitute a lower-cost component that still meets requirements, (3)~defer a non-essential feature to reduce material cost, (4)~request additional funding from the client or CP (with justification).
+
+
+
+\section{Budget Allocation by Project Phase}
+A well-structured budget allocates spending by phase, not just by category:
+
+\textbf{SDI phase} ($\sim$15--25\% of total budget): proof-of-concept materials, development boards, basic electronic components, initial 3D printing. Keep SDI spending low---the design is not yet finalized, and components ordered for a concept that changes at PDR are wasted money.
+
+\textbf{SDII pre-CDR} ($\sim$10--15\%): long-lead-time components ordered in Sprint 6--8, custom PCB fabrication (Rev 1), and specialized materials. This is ``investment spending'' based on the PDR-approved design direction.
+
+\textbf{SDII post-CDR} ($\sim$50--60\%): the bulk of materials, components, and fabrication services. The BOM drives this spending. Order as much as possible immediately after CDR to maximize build time.
+
+\textbf{Contingency} ($\sim$15--20\%): held in reserve for PCB revisions, component replacements, shipping surcharges, and design modifications discovered during testing. Do not plan to spend the contingency; plan to have it available when (not if) something goes wrong.
+
+\textbf{Late-stage spending} ($\sim$5--10\%): consumables during the build phase (wire, solder, filament, fasteners, adhesive), finishing materials (paint, labels, anti-slip feet), and any last-minute replacement parts.
+
+\section{Negotiating Budget with Clients and CP}
+If your project requires more funding than the standard CP allocation:
+
+\textbf{Prepare a business case}: document what additional funding is needed, why it is needed (specific components or services with costs), and what the impact would be of not receiving it (reduced performance, deferred features, inability to meet a requirement).
+
+\textbf{Present options}: ``With the standard \$1,500 allocation, we can deliver a system that meets 80\% of requirements. With an additional \$800 from the client, we can meet 100\% of requirements by adding [specific capability]. Which option do you prefer?''
+
+\textbf{Explore alternatives}: can the client provide materials or equipment directly? Can you borrow equipment from another lab? Can a faculty member provide access to a research account? Are there alternative components that meet the requirement at lower cost?
+
+\textbf{Document the agreement}: whatever funding arrangement is reached, document it in the SOW budget section with the amount, source, and any conditions (``Client will purchase the motor directly and ship to campus'').
+
+
+
+\section{Defending Budget Decisions at Design Reviews}
+At every design review, reviewers may challenge budget decisions. Prepare to defend them:
+
+\textbf{``Why didn't you choose the cheaper option?''}: present the cost-benefit analysis. ``The cheaper sensor (\$15) does not meet the accuracy requirement; the selected sensor (\$45) does. The \$30 difference avoids a redesign that would cost \$200+ in additional components and 3 weeks of schedule.''
+
+\textbf{``Your budget seems high for this project.''}: show the BOM line-by-line. Most capstone budgets are dominated by 5--10 high-cost items. Identify these and justify each: ``The motor (\$120) and driver (\$35) together represent 40\% of our materials budget. We evaluated three motor options (see trade study in Chapter~4) and selected this one because it is the only option that meets the torque requirement within the weight constraint.''
+
+\textbf{``What happens if you go over budget?''}: present the contingency plan. ``Our contingency reserve is \$300 (18\% of total). The highest-risk cost items are the PCB revision (\$50 if needed) and potential motor replacement (\$120). Even if both occur, we remain within the contingency reserve.''
+
+\textbf{``Can the client provide additional funding?''}: present the funding conversation status. ``We discussed additional funding with the client in Sprint~8. The client offered to purchase the motor directly from their vendor account, reducing our CP expenditure by \$120.''
+
+\section{Cost-Benefit Analysis for Design Decisions}
+When choosing between design options with different costs, perform a simple cost-benefit analysis:
+
+\textbf{Step 1}: identify the options and their costs (purchase price + shipping + installation time + testing time).
+
+\textbf{Step 2}: identify the benefits of each option in terms that matter: which requirements does it meet? What risks does it reduce? How much schedule margin does it provide?
+
+\textbf{Step 3}: calculate the cost per requirement met, or the cost per risk point reduced. The option with the lowest cost per benefit unit is the best engineering value---not necessarily the cheapest option.
+
+\textbf{Step 4}: present the analysis to the PA and client. ``Option~A costs \$80 and meets 4 of 5 performance requirements. Option~B costs \$140 and meets all 5. The incremental cost of the 5th requirement is \$60. Given that this is a Must-Have requirement, we recommend Option~B.''
+
+This structured approach to cost decisions builds engineering judgment and demonstrates to reviewers that your budget is not arbitrary.
+
+
+
+\section{Financial Lessons Learned from Past Capstone Projects}
+These financial lessons recur every semester:
+
+\textbf{The ``just one more order'' trap}: a team places 12 separate small orders from DigiKey over the semester. Each order has a \$4--8 shipping charge. Total shipping: \$60--96 that could have been saved by batching orders into 3--4 larger purchases. \emph{Lesson: batch orders by vendor. Place one large DigiKey order per sprint, not one per component.}
+
+\textbf{The ``it's only \$10'' accumulation}: individual small purchases seem insignificant, but 25 ``small'' purchases of \$10--20 each consume \$250--500 of the budget without any single item triggering budget concern. \emph{Lesson: track every purchase in the Budget Tracker immediately, no matter how small. Review the cumulative total at every retrospective.}
+
+\textbf{The ``free'' 3D printing illusion}: teams use their 1,000\,g free PLA allotment iterating enclosure designs---printing V1 (200\,g), V2 (250\,g), V3 (300\,g), V4 (280\,g). By the time the design is finalized, the free allotment is exhausted and the final production print must be purchased. \emph{Lesson: print rough test-fit versions at low quality and low infill. Save the free allotment for the final production print.}
+
+\textbf{The untracked client purchase}: a client offers to buy the motor directly from their vendor account. The team does not track this in the Budget Tracker because ``it's not our money.'' At FDR, the total project cost is unclear. \emph{Lesson: track all expenditures in the Budget Tracker, regardless of funding source. Separate the ``CP-funded'' and ``client-funded'' columns.}
+
+
+
+\section{Multi-Semester Financial Planning}
+The capstone budget spans two semesters with very different spending patterns:
+
+\textbf{SDI spending} is typically low: development boards (\$20--50), basic electronic components (\$30--80), 3D printing filament within the free allotment, and miscellaneous prototyping supplies (\$20--50). Total SDI expenditure: \$75--250 for most projects.
+
+\textbf{SDII spending} is front-loaded to CDR: the bulk of BOM items are ordered in Sprint~7--8. Custom PCB fabrication (\$50--200 for 2 revisions), motors and actuators (\$50--300), sensors (\$30--200), structural materials (\$50--300), and fasteners/hardware (\$50--100) all arrive in a 3--4 week window. Total SDII expenditure: \$400--3,000+ depending on the project.
+
+\textbf{Cash flow planning}: because most spending occurs in a short window around CDR, ensure your CP allocation is available when you need it. Submit purchase requests early in Sprint~8; CP processes orders in the order received, and the CDR window generates a surge of requests from all capstone teams simultaneously. Teams that submit early get their orders processed first.
+
+\textbf{Tracking across semesters}: maintain a single Budget Tracker that spans both semesters. The SDI ending balance becomes the SDII opening balance. This continuity ensures no expenditure is lost in the transition and the FDR budget reconciliation covers the entire project lifecycle.
+
+\section{The CFO Handoff}
+If the CFO role changes between SDI and SDII (or within a semester), execute a formal handoff:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item The outgoing CFO walks the incoming CFO through: the Budget Tracker (every column and formula), all pending orders and their status, the relationship with CP (contact names, preferred communication method), the tax exemption process, and any financial issues in progress.
+\item The incoming CFO emails CP to introduce themselves and confirm they are the new financial point of contact for the team.
+\item The incoming CFO presents the current budget status at the next sprint retrospective to demonstrate understanding.
+\end{enumerate}
+
+A handoff that consists of ``here's the spreadsheet'' without context is a handoff that will produce budget errors.
+
+
+
+\section{Budget Risk Scenarios and Responses}
+Anticipate these common budget risks and plan responses:
+
+\textbf{Scenario: PCB revision required.} Impact: +\$50--200 and +2--3 weeks. Response: budget for at least one revision in the contingency. Order Rev~1 as early as possible to maximize time for Rev~2 if needed.
+
+\textbf{Scenario: Motor burns out during testing.} Impact: +\$50--300 and +1--3 weeks (lead time for replacement). Response: if the motor is critical-path, order a spare with the initial purchase. If budget is tight, identify a lower-cost alternative that meets minimum requirements as a backup.
+
+\textbf{Scenario: Shipping costs higher than estimated.} Impact: +\$20--100 per order. Response: batch orders by vendor to amortize shipping. Use standard shipping (not expedited) for non-critical items. For international orders, budget explicitly for customs duties.
+
+\textbf{Scenario: Client requests additional scope.} Impact: +\$100--500+ depending on scope. Response: use the scope change process (Chapter~7). Present the cost impact and trade-offs. If the client provides additional funding, great. If not, identify what existing scope can be deferred to accommodate the new request within the current budget.
+
+\textbf{Scenario: InnoHub material costs exceed estimate.} Impact: variable. Response: check InnoHub pricing before CDR (prices are posted on the InnoHub materials page). For 3D printing beyond the free allotment, estimate filament usage based on slicer estimates (grams per part) and current InnoHub pricing per gram.
+
+
+
+\section{The End-of-Project Financial Summary}
+The FDR report includes a financial summary chapter demonstrating responsible resource stewardship:
+
+\textbf{Budget vs. actual table}: present a side-by-side comparison for each category (materials, fabrication, travel, consumables, contingency) showing: original budget, final actual, variance, and percent variance. Highlight any category that exceeded the budget by $>$15\% with an explanation.
+
+\textbf{Cost per requirement}: calculate the total project cost divided by the number of verified requirements. This metric helps future teams estimate budgets for similar projects and demonstrates cost-consciousness.
+
+\textbf{Return on contingency}: report how much of the contingency reserve was consumed and by what events. A team that budgeted 20\% contingency and used 12\% managed risk well. A team that budgeted 0\% contingency and overspent by 25\% learned a lesson worth documenting.
+
+\textbf{Recommendations for future teams}: based on your experience, recommend specific budget adjustments. ``We underestimated shipping costs by 40\%; future electronics-heavy projects should budget \$8--12 per vendor order for shipping rather than our initial estimate of \$5.'' These recommendations have direct practical value for the next cohort.
+
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=0.3cm,
+    block/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=2.2cm, minimum height=0.6cm, align=center, font=\tiny\sffamily\bfseries, rounded corners=2pt, line width=0.5pt},
+    arrow/.style={-{Stealth[length=1.5mm]}, MinesBlue, line width=0.5pt}
+]
+\node[block] (est) at (0,0) {Estimate\\{\tiny Sprint 1}};
+\node[block, right=0.8cm of est] (refine) {Refine\\{\tiny Sprint 3--4}};
+\node[block, right=0.8cm of refine] (commit) {Commit\\{\tiny CDR}};
+\node[block, right=0.8cm of commit] (track) {Track\\{\tiny Monthly}};
+\node[block, right=0.8cm of track] (close) {Reconcile\\{\tiny FDR}};
+
+\draw[arrow] (est) -- (refine);
+\draw[arrow] (refine) -- (commit);
+\draw[arrow] (commit) -- (track);
+\draw[arrow] (track) -- (close);
+\end{tikzpicture}
+\caption{The budget lifecycle. The budget evolves from a rough estimate (SOW) through progressive refinement (design development) to a committed BOM-based budget (CDR), then is tracked monthly and reconciled at FDR.}\label{fig:budget-lifecycle}
+\end{figure}
+
+The budget lifecycle (Figure~\ref{fig:budget-lifecycle}) illustrates that budgeting is not a one-time activity. The estimate accuracy improves at each stage: $\pm$50\% at the SOW stage (order-of-magnitude), $\pm$25\% at PDR (refined with vendor research), $\pm$10\% at CDR (BOM-based with actual quotes), and actual costs at FDR. Professional cost estimators call this the ``cone of uncertainty''---early estimates are inherently imprecise, and this is expected. What matters is that the estimate converges to reality as the design matures.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Create a preliminary budget for a Build Track project with an ESP32, 4 sensors, custom PCB, 3D-printed enclosure, and solar panel. Include all categories and contingency.
+\item Your tracker shows 75\% of materials budget spent at 40\% through the build. What corrective actions?
+\item Give three specific examples of unexpected costs that justify a 15--20\% contingency reserve.
+\end{enumerate}
+
+

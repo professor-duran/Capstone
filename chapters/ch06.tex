@@ -1,0 +1,253 @@
+\chapter{Verification, Validation, and Test Planning}
+
+\section{Verification vs. Validation}
+These terms are frequently confused, even by practicing engineers. The distinction matters because they answer fundamentally different questions and require different evidence.
+
+\textbf{Verification} answers ``Did we build the system right?''---does the system meet its specified requirements as written in the SDRD? Verification compares the system's measured performance to the requirements document. It is an engineering activity performed by the design team.
+
+\textbf{Validation} answers ``Did we build the right system?''---does the system satisfy the client's actual needs in its intended operating environment? Validation compares the system's behavior to the client's expectations and the ConOps. It requires the client's involvement and often occurs in the real operating context.
+
+A system can pass all verification tests and still fail validation. Example: your temperature controller meets every requirement in the SDRD (verification passes), but the client discovers that the mounting location you assumed is inaccessible in their facility, making the system unusable (validation fails). The requirements were correct; the ConOps was incomplete. Verification is necessary but not sufficient; validation closes the loop between what was built and what was needed.
+
+Figure~\ref{fig:vv-lifecycle} illustrates how verification and validation activities map to the project timeline.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=0.5cm,
+    phase/.style={rectangle, draw=MinesBlue, fill=LightBG, minimum width=2.4cm, minimum height=0.7cm, align=center, font=\scriptsize\sffamily\bfseries, rounded corners=2pt, line width=0.6pt},
+    status/.style={rectangle, draw=AccentTeal, fill=AccentTeal!8, minimum width=2.4cm, minimum height=0.5cm, align=center, font=\tiny\sffamily, rounded corners=1pt, line width=0.4pt},
+    arrow/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.6pt}
+]
+% Timeline
+\node[phase] (pdr) at (0,0) {PDR};
+\node[phase] (cdr) at (4,0) {CDR};
+\node[phase] (fdr) at (8,0) {FDR};
+\node[phase] (show) at (11,0) {Showcase};
+
+\draw[arrow] (pdr) -- (cdr);
+\draw[arrow] (cdr) -- (fdr);
+\draw[arrow] (fdr) -- (show);
+
+% VCRM status at each phase
+\node[status] (vpdr) at (0,-1.2) {VCRM: Plan\\All entries ``Open''};
+\node[status] (vcdr) at (4,-1.2) {VCRM: Partial\\Analysis verifications\\complete};
+\node[status] (vfdr) at (8,-1.2) {VCRM: Final\\All entries\\dispositioned};
+
+\draw[-{Stealth[length=1.5mm]}, AccentTeal, line width=0.4pt, dashed] (pdr) -- (vpdr);
+\draw[-{Stealth[length=1.5mm]}, AccentTeal, line width=0.4pt, dashed] (cdr) -- (vcdr);
+\draw[-{Stealth[length=1.5mm]}, AccentTeal, line width=0.4pt, dashed] (fdr) -- (vfdr);
+
+% V&V labels
+\node[font=\tiny\sffamily\color{MinesSilver}] at (2,0.5) {Analysis \& design};
+\node[font=\tiny\sffamily\color{MinesSilver}] at (6,0.5) {Build \& test};
+\node[font=\tiny\sffamily\color{MinesSilver}] at (9.5,0.5) {Final V\&V};
+
+% Validation
+\node[status, fill=WarnOrange!10, draw=WarnOrange] at (11,-1.2) {Client validates\\in operating context};
+\end{tikzpicture}
+\caption{VCRM lifecycle through the project milestones. The VCRM evolves from a plan at PDR to a partially complete record at CDR to a final scorecard at FDR. Validation occurs when the client assesses the system in its intended context.}\label{fig:vv-lifecycle}
+\end{figure}
+
+\section{The Four Verification Methods (TAID)}
+Not every requirement is verified by running a physical test. The four methods provide a spectrum of rigor and cost:
+
+\textbf{Test (T)}: measure performance under controlled conditions against quantitative pass/fail criteria. Test is the gold standard---it produces hard data---but it is also the most resource-intensive method. Example: ``Apply a 5.0\,V reference signal to the input. Measure the output with a calibrated multimeter. PASS if the output is $3.30 \pm 0.05$\,V. FAIL if outside this range.'' Use Test for critical performance requirements where analysis alone is insufficient.
+
+\textbf{Analysis (A)}: verify by calculation, simulation, or modeling. Example: ``Verify structural safety factor $\geq$2.0 by FEA under maximum load case per ASCE~7.'' Analysis is appropriate when physical testing is impractical (extreme conditions, destructive tests on expensive hardware), when the physics is well-understood and the model has been validated, or when the requirement is a design margin that can be verified by calculation. Analysis should be documented in the Engineering Calculation Package (CDR deliverable).
+
+\textbf{Inspection (I)}: verify by visual or dimensional examination without operating the system. Example: ``Verify all structural materials are RoHS-compliant by inspecting material certifications and supplier datasheets.'' Also used for dimensional tolerances (measure with calipers), workmanship standards (visual inspection of solder joints), and label compliance (verify safety labels are present and legible). Inspection is the least expensive method but provides the least information about actual performance.
+
+\textbf{Demonstration (D)}: verify by operating the system through its use cases without quantitative measurement. Example: ``Demonstrate that the system can be fully disassembled using only standard hand tools in under 5 minutes. Time the procedure.'' Demonstration is appropriate for functional and operational requirements where the pass/fail criterion is binary (it works or it does not) or where quantitative measurement is impractical.
+
+Assign a verification method to each requirement \emph{when you write it}. If you cannot assign a TAID method, the requirement is probably not testable and needs to be rewritten with specific, measurable acceptance criteria.
+
+\begin{keyconceptbox}[TAID Method Selection Guide]
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Method} & \textbf{Use When\ldots} & \textbf{Evidence} \\
+\midrule
+Test (T) & Quantitative performance must be measured & Data, plots, statistical analysis \\
+Analysis (A) & Physical test is impractical or insufficient alone & Calculations, simulation output \\
+Inspection (I) & Compliance is verified by examination & Photos, datasheets, measurements \\
+Demonstration (D) & Function is binary: works or does not & Video, witness signatures, time logs \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\end{keyconceptbox}
+
+\section{Writing Test Procedures}
+A test procedure is a step-by-step recipe that allows someone who did not design the system to verify a requirement independently. Every test procedure should include:
+
+\textbf{Header}: test procedure ID (TP-001), associated requirement IDs (FR-003, PR-007), date written, author, revision number.
+
+\textbf{Purpose}: which requirement(s) this test verifies, stated explicitly by ID.
+
+\textbf{Equipment}: all instruments, fixtures, power supplies, calibration standards, and software needed, with model numbers and calibration status where relevant. If a specific instrument is required (e.g., a calibrated Pt100 RTD reference), state its accuracy and calibration date.
+
+\textbf{Setup}: how to configure the system and test environment, including initial conditions. Diagrams are strongly encouraged---a wiring diagram showing how the test instruments connect to the DUT (device under test) prevents setup errors.
+
+\textbf{Preconditions}: what must be true before the test begins. Examples: ``System has been powered on for $\geq$15 minutes to reach thermal equilibrium.'' ``Ambient temperature is $22 \pm 3$\,\degC{}.'' ``Firmware version is v2.1.3 or later.''
+
+\textbf{Steps}: numbered, imperative instructions. Each step should produce an observable or measurable result. Be specific: ``Set the bench supply to 12.0\,V, 500\,mA limit'' not ``Turn on the power supply.'' Number every step so you can reference them in the results.
+
+\textbf{Acceptance criteria}: the quantitative or qualitative pass/fail threshold for each measured parameter. ``PASS if the measured temperature is within $\pm$1.0\,\degC{} of the reference at all 5 test points. FAIL if any single test point deviation exceeds 1.0\,\degC{}.'' The acceptance criteria must trace directly to the requirement.
+
+\textbf{Safety}: any hazards associated with the test and the precautions required. ``High voltage present at test point TP3. Do not touch exposed terminals. Use insulated probes.''
+
+\textbf{Data recording}: what to record (raw measurements, calculated values, environmental conditions), in what format (table, datasheet, electronic log), and where to store it (project repository, lab notebook).
+
+\begin{warningbox}[The Test Procedure Is a Legal Document]
+In professional practice, test procedures and their results are legal evidence of design compliance. They may be reviewed by regulators, auditors, or opposing counsel in litigation. Write test procedures as if someone with no knowledge of your project will read them five years from now and need to understand exactly what was tested, how, and what the results mean. In capstone, this standard of clarity is what distinguishes professional engineering documentation from lab reports.
+\end{warningbox}
+
+\section{The Engineering Calculation Package}
+In SDII, the CDR deliverables include an \textbf{Engineering Calculation Package}: a formal, documented set of analyses that demonstrate design feasibility. This package may include:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Hand calculations (structural stress, thermal analysis, circuit analysis, fluid flow, motor sizing)
+\item Simulation results (FEA, CFD, electromagnetic, circuit simulation)
+\item Modeling outputs (system dynamics, control system response, energy balance)
+\end{itemize}
+
+Every calculation must: (1) state its purpose (which requirement or design question it addresses), (2) list all assumptions explicitly, (3) show the complete derivation or methodology, (4) present results with appropriate units and significant figures, (5) draw a conclusion (``the safety factor is 3.2, which exceeds the required 2.0; the design is structurally adequate''), and (6) cite its sources (equations from textbooks, material properties from datasheets, load cases from standards).
+
+The Engineering Calculation Package is not a collection of MATLAB screenshots. It is a narrative engineering document that walks the reader through the analysis logic, demonstrates that the team understands the physics, and provides sufficient detail for an independent engineer to reproduce the results.
+
+\section{VCRM Management Through the Lifecycle}
+The VCRM evolves through three distinct phases:
+
+\textbf{At PDR}: the VCRM is a \textbf{plan}. Every requirement has an assigned verification method (TAID) and a planned verification phase (PDR, CDR, or FDR), but no results yet. Most entries show ``Open.'' The VCRM at PDR demonstrates that you have thought about how you will prove compliance for every requirement.
+
+\textbf{At CDR}: the VCRM is \textbf{partially complete}. Analysis-based verifications (A) should be complete, with references to the Engineering Calculation Package. Some test results (T) may be available from subsystem testing. Inspection-based verifications (I) for component selection should be complete. The VCRM shows a mix of ``Verified (by Analysis),'' ``Verified (by Inspection),'' ``In Progress,'' and ``Open.''
+
+\textbf{At FDR}: the VCRM is the \textbf{final scorecard}. Every entry must show a disposition: ``Verified'' (with evidence reference: test report number, calculation page, inspection record), ``Failed'' (with disposition: redesign, retest, waiver, or risk acceptance), ``Waived'' (with client approval and rationale), or ``Deferred'' (with plan for future completion). A VCRM with mostly ``Open'' entries at FDR indicates insufficient verification effort and will significantly affect the project grade.
+
+\section{Track-Specific V\&V}
+
+\textbf{Build Track}: verification is primarily by Test and Demonstration. Physical prototypes are tested against requirements under controlled conditions. Environmental testing (temperature cycling, humidity, vibration) may be required depending on the operating environment. Acceptance testing with the client validates the system in its intended context. Document all test results with data, photos, and video.
+
+\textbf{Paper Track}: verification is primarily by Analysis and Inspection. Models must be \textbf{verified} (mesh convergence studies showing results are grid-independent, code verification against analytical solutions or published benchmarks, sensitivity analysis showing results are robust to input uncertainty) and \textbf{validated} (comparison to experimental data or published results with stated acceptance thresholds). Documentation must be inspected for completeness: could a qualified engineer implement the design from this package alone, without contacting the team?
+
+\textbf{Competition Track}: tech inspection at the competition event serves as an additional verification point for safety and compliance requirements. However, passing or failing tech inspection does not automatically determine your course grade. Your VCRM and course deliverables must independently establish design feasibility and engineering rigor. A team whose prototype fails tech inspection \emph{and} whose deliverables do not independently demonstrate engineering quality will score poorly; a team that fails tech inspection due to a last-minute mechanical issue but has excellent documentation and analysis may still demonstrate strong engineering.
+
+\section{Hazard Assessment and Safety Plan}
+In SDII (Week~2), each team must complete a project-specific \textbf{Hazard Assessment and Safety Plan}. This document identifies:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item All hazards associated with your build, test, and demonstration activities
+\item The risk level of each hazard (likelihood $\times$ severity matrix)
+\item Engineering controls (guards, interlocks, fusing, ventilation, thermal cutoffs)
+\item Administrative controls (procedures, training requirements, signage, buddy system)
+\item Required PPE for each activity
+\item Emergency response procedures specific to your project's hazards
+\end{itemize}
+
+The PA must review and approve the safety plan before fabrication begins. The plan is a living document; update it as the project evolves and new hazards are identified. See Chapter~21 for the complete EHS framework.
+
+\section{Designing for Testability}
+Testability is a design property, not an afterthought. A system that is difficult to test is difficult to verify, and difficulty in verification translates directly to risk at FDR. Consider testability during the architecture phase (Sprint~3--4), not during the test phase (Sprint~11--13):
+
+\textbf{Test points}: include physical test points (solder pads, header pins, or banana jack connections) on every critical signal path. Being able to measure the sensor output, the amplifier output, the ADC input, and the MCU reading separately---without cutting wires or probing tiny SMD pads---saves hours of debugging.
+
+\textbf{Modular interfaces}: design subsystem interfaces with connectors that allow each subsystem to be tested independently. If the sensor module plugs into the main board via a header, you can test the sensor module on a separate test fixture with known inputs. If it is hard-wired, you must test it in the full system context, which makes fault isolation much harder.
+
+\textbf{Built-in diagnostics}: add firmware-level diagnostics that report ADC values, state machine state, communication status, and loop timing over the serial port. These diagnostic outputs turn the MCU into a test instrument. You can leave them active during development and disable (or reduce) them for the final demonstration.
+
+\textbf{Calibration access}: if your system requires calibration (sensor offset, gain adjustment, PID tuning), provide a user-accessible method for performing the calibration without opening the enclosure or modifying firmware. Potentiometers, DIP switches, calibration menus, or configuration files on an SD card are common approaches.
+
+\textbf{Environmental simulation}: if your system must operate in an environment you cannot easily replicate (extreme heat, high humidity, vibration), design the test setup to simulate the critical environmental condition. A heat gun and thermocouple can simulate thermal stress; a function generator driving a speaker can simulate vibration. Even crude environmental simulation is better than no environmental testing.
+
+\section{Statistical Confidence and Sample Size}
+A single test at a single condition does not prove a requirement is met. It proves that the system worked \emph{once}, under \emph{those} conditions. To claim with confidence that a performance requirement is met, you need:
+
+\textbf{Multiple measurements}: repeat each measurement at least 3--5 times and report the mean and standard deviation. If the standard deviation is large relative to the requirement margin, you need more repetitions.
+
+\textbf{Multiple conditions}: test at the extremes of the operating range, not just at the nominal point. If the requirement specifies $\pm$1.0\,\degC{} accuracy over 0--50\,\degC{}, test at 0\,\degC{}, 25\,\degC{}, and 50\,\degC{} at minimum. A system that meets the accuracy requirement at 25\,\degC{} but fails at 0\,\degC{} does not meet the requirement.
+
+\textbf{Acceptance criterion with margin}: if the requirement is $\pm$1.0\,\degC{} and your measurement uncertainty is $\pm$0.2\,\degC{}, your measured error must be $\leq$0.8\,\degC{} to claim compliance with confidence. The measurement uncertainty is subtracted from the requirement margin.
+
+For capstone, a full statistical treatment (confidence intervals, hypothesis testing) is appreciated but not always required. At minimum: report mean, standard deviation, number of samples, and the conditions under which measurements were taken. If the result is close to the acceptance threshold (within 2 standard deviations), flag it as a marginal pass and discuss the implications.
+
+\section{Common Testing Mistakes}
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Testing only the happy path}: verifying that the system works under ideal conditions but not testing edge cases, fault conditions, or environmental extremes. The system that works perfectly on the bench may fail in the field.
+\item \textbf{No baseline measurement}: testing without a calibrated reference. If your thermometer reads 22.5\,\degC{}, what is the actual temperature? Without a traceable reference, you are measuring precision but not accuracy.
+\item \textbf{Confirmation bias}: subconsciously discarding data points that do not support the desired result. Report all data, including outliers. If an outlier exists, investigate the cause rather than deleting the data point.
+\item \textbf{Testing too late}: leaving all testing until the last two weeks of the semester. When a test reveals a failure with two weeks remaining, there is no time for redesign. Start subsystem testing at CDR and system testing as early as Sprint~10.
+\item \textbf{Incomplete test documentation}: running a test but not recording the setup, conditions, and raw data. At FDR, you need to present the test results; if you did not document them, the test effectively did not happen.
+\item \textbf{Skipping regression testing}: after fixing a bug or modifying the design, re-run all previously passing tests to ensure the fix did not break something else. Regression testing catches unintended consequences.
+\end{enumerate}
+
+\section{Failure Disposition}
+Not every requirement will be met. When a verification activity produces a FAIL result, you have four options:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Redesign and retest}: fix the root cause of the failure and repeat the verification. This is the ideal outcome but requires sufficient schedule margin.
+\item \textbf{Retest only}: if the failure was due to a test setup error, instrumentation error, or procedural mistake (not a design deficiency), correct the test and repeat. Document what went wrong in the test.
+\item \textbf{Waiver}: the client formally agrees that the requirement is no longer necessary or that the current level of non-compliance is acceptable. Document the waiver with the client's signature and the rationale.
+\item \textbf{Risk acceptance}: the client accepts the non-compliance with full knowledge of the technical risk, operational impact, and potential consequences. Document the risk assessment and the client's informed acceptance.
+\end{enumerate}
+
+All failure dispositions must be documented in the VCRM, discussed at FDR, and included in the final design report. Hiding a failed test or omitting unfavorable results is an engineering integrity violation and will be treated as such.
+
+\begin{tipbox}[Failures Are Data, Not Disasters]
+A well-documented failure that is honestly reported and intelligently dispositioned demonstrates more engineering maturity than a perfect verification record that nobody believes. Your PA and client will respect honest reporting of problems far more than suspiciously flawless results. The question at FDR is not ``did everything work perfectly?'' but ``do you understand your system's performance, including its limitations?''
+\end{tipbox}
+
+
+\section{FMEA: Failure Mode and Effects Analysis}
+FMEA is a systematic technique for identifying potential failure modes, assessing their risk, and prioritizing mitigation actions. The methodology is covered in depth in MEGN~301; here is the capstone application.
+
+For each component or function in your system, identify:
+
+\textbf{Failure mode}: how could this component fail? Examples: sensor gives incorrect reading, motor does not start, solder joint breaks, software hangs in infinite loop, battery overheats.
+
+\textbf{Effect}: what happens to the system when this failure occurs? Does the system shut down? Does it produce incorrect output? Does it create a safety hazard? Does the user notice?
+
+\textbf{Severity (S)}: rate the worst-case effect on a 1--10 scale. 1 = no effect. 5 = performance degradation. 8 = system inoperable. 10 = safety hazard to user or public.
+
+\textbf{Occurrence (O)}: how likely is this failure? 1 = extremely unlikely. 5 = occasional. 10 = almost certain. Base this on: component reliability data (datasheets), your engineering judgment, and results from testing.
+
+\textbf{Detection (D)}: how likely is the failure to be detected before it reaches the user? 1 = certain detection (built-in diagnostic catches it). 5 = moderate (user might notice symptoms). 10 = undetectable (failure is silent and hidden).
+
+\textbf{Risk Priority Number (RPN)}: $\text{RPN} = S \times O \times D$. Range: 1--1000. Prioritize mitigation for the highest RPNs. There is no universal ``acceptable'' RPN threshold; focus on relative ranking and on any item with $S \geq 8$ (safety-critical) regardless of RPN.
+
+\textbf{Mitigation}: for high-RPN items, design a specific mitigation that reduces S, O, or D. After mitigation, re-score to verify the RPN has decreased. Document the before and after scores.
+
+\begin{tipbox}
+Present the FMEA as a table in the PDR and CDR reports, updated at each review. The PDR FMEA identifies potential failures in the proposed concept. The CDR FMEA reflects the detailed design with specific mitigations incorporated. The FDR FMEA shows the final state with test results confirming that mitigations are effective.
+\end{tipbox}
+
+
+
+\section{The Test Procedure Template}
+For each requirement verified by Test (T), write a formal test procedure:
+
+\textbf{Test ID}: TP-XXX (matching the requirement ID, e.g., TP-PR-004 tests PR-004).
+
+\textbf{Objective}: ``Verify that the system maintains temperature within $\pm$1.0\,\degC{} of the setpoint over the operating range of 20--200\,\degC{}.''
+
+\textbf{Equipment required}: list every piece of test equipment with model numbers and calibration status. ``Fluke 179 multimeter (calibrated 2026-01-15), Type~K thermocouple (NIST-traceable reference), Bench power supply (BK Precision 1672A).''
+
+\textbf{Test setup}: describe (and photograph) the physical configuration. How is the device under test connected to the measurement equipment? What is the ambient environment?
+
+\textbf{Procedure}: numbered steps that anyone on the team can follow to reproduce the test. Include: setup steps, measurement steps, data recording instructions, and cleanup steps.
+
+\textbf{Pass/fail criteria}: derived directly from the requirement. ``PASS: measured error $\leq \pm$1.0\,\degC{} at all 5 test points. FAIL: measured error $> \pm$1.0\,\degC{} at any test point.''
+
+\textbf{Data recording}: specify what data to record, in what format, and where to store it. Raw data files should be saved in the test data directory of the project repository with a naming convention: \texttt{TP-PR-004\_run01\_2026-04-10.csv}.
+
+\textbf{Results}: actual measured values, calculated error, and pass/fail determination. Sign and date.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Write a complete test procedure (header, purpose, equipment, setup, preconditions, steps, acceptance criteria, safety, data recording) for verifying the requirement: ``The system shall measure ambient temperature with an accuracy of $\pm$0.5\,\degC{} over the range 0--50\,\degC{} (PR-003).''
+\item Explain how a system can pass all verification tests but fail validation. Give a concrete capstone-relevant example involving a specific type of project.
+\item Your FDR VCRM shows 18 requirements Verified, 2 Failed, and 1 Waived. One failure is a ``Should'' requirement (data logging rate); the other is a ``Must'' requirement (emergency shutoff response time exceeds specification by 0.3 seconds). How should each be dispositioned, and what do you present at FDR?
+\item A Paper Track team says ``We don't need test procedures because we don't have hardware to test.'' Explain what verification and validation activities Paper Track projects do require, with specific examples.
+\item Your subsystem test shows that the sensor accuracy is $\pm$1.2\,\degC{}, but the requirement specifies $\pm$1.0\,\degC{}. The system is otherwise complete and the Showcase is in two weeks. Walk through the decision process: what information do you need, who do you consult, and what are the possible dispositions?
+\end{enumerate}
+
+

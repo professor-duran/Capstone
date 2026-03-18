@@ -1,0 +1,291 @@
+\chapter{Engineering Design as a Professional Practice}
+
+\section{What Makes Capstone Different}
+Capstone Design is the bridge between the classroom and professional practice. In previous courses, you solved well-defined problems with known solutions, working individually or in pairs, with a single instructor who provided both the problem and the evaluation criteria. Capstone inverts every one of those conditions. The problem is open-ended, ambiguous, and defined by a real client who may not be an engineer. The solution does not exist yet. You work on an interdisciplinary team where no single person has all the required skills. Your advisors guide but do not prescribe. And the evaluation criteria are not points on a rubric; they are whether your solution actually works, meets the client's needs, and can be justified through engineering analysis.
+
+This shift requires a fundamentally different set of skills: the ability to define the problem before solving it, to manage ambiguity and incomplete information, to negotiate scope with a client, to coordinate technical work across team members, to make engineering judgments under uncertainty, and to communicate results to audiences with varying levels of technical sophistication. These are the skills employers mean when they say they want ``engineering judgment,'' and they are the skills this course develops.
+
+Table~\ref{tab:coursework-vs-capstone} summarizes the key differences between traditional coursework and capstone.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Traditional coursework compared to capstone design.}\label{tab:coursework-vs-capstone}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Dimension} & \textbf{Traditional Coursework} & \textbf{Capstone Design} \\
+\midrule
+Problem definition & Given by instructor & Defined by team with client input \\
+Solution & Known; one correct answer & Unknown; multiple valid approaches \\
+Scope & Fixed, well-bounded & Negotiated, evolving \\
+Team size & Individual or pairs & 4--6 interdisciplinary members \\
+Timeline & Days to weeks & Two full semesters \\
+Evaluation & Points on a rubric & Client satisfaction, engineering evidence, peer assessment \\
+Stakeholders & One instructor & Client, PA, TA, CF, end users, public \\
+Resources & Provided & Budgeted, procured, managed \\
+Failure consequence & Lost points & Real impact on client, team, and schedule \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\section{The Engineering Design Process}
+The engineering design process is iterative, not linear. While we present it as a sequence of phases (problem definition $\to$ requirements $\to$ concept generation $\to$ detailed design $\to$ build $\to$ test), in practice you will revisit earlier phases as you learn more. A test result at CDR may force you to revise a requirement from PDR. A client conversation in Sprint~4 may redefine the problem statement you wrote in Sprint~0. This iteration is normal, expected, and healthy.
+
+The key is to make these iterations \emph{visible and documented}. Every requirement change should be captured in the SDRD with a change rationale. Every design decision should be recorded in the team's project repository with the alternatives considered, the criteria used, and the evidence that supported the choice. The difference between professional iteration and aimless wandering is \textbf{traceability}: can you explain what changed, when it changed, why it changed, and what evidence drove the change?
+
+Figure~\ref{fig:design-process} illustrates the iterative nature of the process. Notice that the arrows are bidirectional between adjacent phases; feedback from later phases routinely triggers refinement of earlier phases. The outer loop (from testing back to problem definition) represents the rare but important case where testing reveals that the fundamental problem was misunderstood.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.8cm,
+    phase/.style={rectangle, draw=MinesBlue, fill=LightBG, text=MinesBlue, minimum width=3.2cm, minimum height=0.9cm, font=\small\sffamily\bfseries, rounded corners=3pt, line width=0.8pt},
+    arrow/.style={-{Stealth[length=2.5mm]}, MinesBlue, line width=0.8pt},
+    backarrow/.style={-{Stealth[length=2mm]}, MinesSilver, line width=0.6pt, dashed}
+]
+\node[phase] (prob) {Problem Definition};
+\node[phase, right=of prob] (req) {Requirements};
+\node[phase, right=of req] (concept) {Concept Design};
+\node[phase, below=1.5cm of concept] (detail) {Detailed Design};
+\node[phase, left=of detail] (build) {Build / Model};
+\node[phase, left=of build] (test) {Test \& Verify};
+
+\draw[arrow] (prob) -- (req);
+\draw[arrow] (req) -- (concept);
+\draw[arrow] (concept) -- (detail);
+\draw[arrow] (detail) -- (build);
+\draw[arrow] (build) -- (test);
+
+\draw[backarrow] (req) -- ++(0,0.8) -| (prob);
+\draw[backarrow] (concept) -- ++(0,0.8) -| (req);
+\draw[backarrow] (detail) -- ++(0,-0.8) -| (build);
+\draw[backarrow] (test) -- ++(-1.2,0) |- (prob);
+\end{tikzpicture}
+\caption{The iterative engineering design process. Solid arrows show the primary flow; dashed arrows show feedback loops where later phases trigger refinement of earlier phases.}\label{fig:design-process}
+\end{figure}
+
+
+\section{The V-Model}
+The V-Model is the overarching framework for capstone. It connects the process of defining what a system should do (left side) with the process of verifying that it actually does it (right side), with the build phase at the bottom of the V. Figure~\ref{fig:v-model} illustrates this structure.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=0.5cm,
+    block/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=3cm, minimum height=0.8cm, align=center, font=\scriptsize\sffamily\bfseries, rounded corners=2pt, line width=0.7pt},
+    arrow/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.7pt},
+    dasharr/.style={-{Stealth[length=2mm]}, AccentTeal, line width=0.6pt, dashed}
+]
+% Left side (Definition)
+\node[block] (needs) at (0,0) {Client Needs \\ \& ConOps};
+\node[block] (req) at (-1.5,-1.3) {System \\ Requirements};
+\node[block] (arch) at (-3,-2.6) {Architecture \\ \& Design};
+\node[block] (detail) at (-4.5,-3.9) {Detailed Design \\ \& Analysis};
+
+% Bottom
+\node[block, fill=AccentTeal!15] (impl) at (0,-5.2) {Build / Model \\ / Code};
+
+% Right side (Verification)
+\node[block] (accept) at (0,0) {Client Needs \\ \& ConOps};
+\node[block] (unit) at (4.5,-3.9) {Component \\ Testing};
+\node[block] (integ) at (3,-2.6) {Integration \\ Testing};
+\node[block] (sys) at (1.5,-1.3) {System \\ Verification};
+\node[block] (val) at (0,0) {Validation \\ \& Acceptance};
+
+% Reposition top
+\node[block] (needs2) at (-4,0.4) {Client Needs};
+\node[block] (val2) at (4,0.4) {Validation};
+
+% Arrows down
+\draw[arrow] (needs2) -- (req);
+\draw[arrow] (req) -- (arch);
+\draw[arrow] (arch) -- (detail);
+\draw[arrow] (detail) -- (impl);
+
+% Arrows up
+\draw[arrow] (impl) -- (unit);
+\draw[arrow] (unit) -- (integ);
+\draw[arrow] (integ) -- (sys);
+\draw[arrow] (sys) -- (val2);
+
+% Horizontal traces
+\draw[dasharr] (needs2) -- node[above, font=\tiny\sffamily, AccentTeal]{validates} (val2);
+\draw[dasharr] (req) -- node[above, font=\tiny\sffamily, AccentTeal]{verifies} (sys);
+\draw[dasharr] (arch) -- node[above, font=\tiny\sffamily, AccentTeal]{verifies} (integ);
+\draw[dasharr] (detail) -- node[above, font=\tiny\sffamily, AccentTeal]{verifies} (unit);
+
+% Labels
+\node[font=\footnotesize\sffamily\color{MinesBlue}, rotate=55] at (-4.2,-2) {Definition};
+\node[font=\footnotesize\sffamily\color{MinesBlue}, rotate=-55] at (4.2,-2) {Verification};
+
+% Review labels
+\node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (-2.3,-0.3) {PDR};
+\node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (-3.8,-3.2) {CDR};
+\node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (2.8,-0.3) {FDR};
+\end{tikzpicture}
+\caption{The V-Model for capstone design. The left side defines requirements and design; the right side verifies compliance. Dashed horizontal lines show the traceability between definition and verification at each level. Design reviews (PDR, CDR, FDR) are positioned at their corresponding V-Model phases.}\label{fig:v-model}
+\end{figure}
+
+The three design reviews map directly to positions on the V-Model:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{PDR} (upper left): problem definition, requirements, preliminary architecture. The question at PDR is ``\emph{Should} this design work?'' You are demonstrating that the problem is understood, the requirements are sound, and the selected concept is feasible.
+\item \textbf{CDR} (lower left to bottom): detailed design, engineering analysis, build planning. The question at CDR is ``\emph{Will} this design work?'' You are demonstrating that the design is complete enough to build, every component is specified, and analysis confirms feasibility.
+\item \textbf{FDR} (right side): verification results, validation, documentation. The question at FDR is ``How \emph{well did} it work?'' You are demonstrating test results, comparing performance to requirements, and documenting lessons learned.
+\end{itemize}
+
+If you remember only one thing from this chapter, remember those three questions. They tell you what every deliverable is trying to demonstrate.
+
+
+\section{Design Thinking and Systems Engineering}
+Capstone uses two complementary frameworks. \textbf{Design thinking} emphasizes empathy with users, divergent ideation, rapid prototyping, and iterative refinement. It is excellent for understanding needs and generating creative solutions. \textbf{Systems engineering} emphasizes requirements traceability, interface control, verification planning, and configuration management. It is excellent for ensuring that creative solutions actually work and can be proven to work.
+
+In practice, design thinking drives the early sprints (understanding the problem, generating concepts, getting client feedback) while systems engineering drives the later sprints (detailed design, analysis, build, and verification). The transition is not abrupt; both mindsets operate throughout the project, but the emphasis shifts as the project matures from exploration to execution.
+
+\begin{keyconceptbox}[When to Use Which Framework]
+\textbf{Design thinking} when you are asking ``What should we build?''---user interviews, brainstorming, concept sketches, low-fidelity prototypes, client feedback loops.
+
+\textbf{Systems engineering} when you are asking ``How do we prove it works?''---requirements traceability, interface control documents, test procedures, configuration management, verification matrices.
+
+Both are always present. The question is which one is leading at any given moment.
+\end{keyconceptbox}
+
+
+\section{Stakeholder Identification and Management}
+Every project has stakeholders beyond the client: end users (who operate the system daily), maintainers (who repair it), regulators (who must approve it), adjacent system owners (whose systems interact with yours), the public (who may be affected by its operation or failure), and your own team (who must build and document it within the semester).
+
+Identifying stakeholders early prevents late-stage surprises that can derail a project. ``The fire marshal says your installation violates egress requirements'' or ``the maintenance technician cannot access the filter without removing the motor'' are real examples from past capstone projects that could have been avoided with early stakeholder mapping.
+
+Create a stakeholder map in Sprint~0 and revisit it at each design review. For each stakeholder, document: who they are, what they care about (their primary concern), how they interact with the system, and what their approval or acceptance means for your project.
+
+\begin{tipbox}[Stakeholders You Might Miss]
+Think beyond the obvious. Who delivers supplies to the site? Who cleans the space where the system operates? Who inherits the project after your team graduates? Who trains new users? Who disposes of the system at end-of-life? Every one of these stakeholders has needs that affect your design.
+\end{tipbox}
+
+
+\section{The Entrepreneurial Mindset}
+The KEEN framework emphasizes three C's that are directly relevant to capstone:
+
+\textbf{Curiosity}: investigate the problem space broadly before converging on a solution. Talk to users. Visit the site. Read the standards. Search the patent literature. The best solutions come from deeply understanding the problem, not from rushing to the first idea.
+
+\textbf{Connections}: link your technical knowledge to stakeholder needs and market realities. A technically elegant solution that costs ten times the client's budget or requires skills the end user does not have is not a good solution, no matter how clever the engineering.
+
+\textbf{Creating Value}: design solutions that deliver measurable benefit to someone. Value is not abstract; it is quantifiable. How much time does your solution save? How much does it reduce cost? How much does it improve safety, reliability, or user experience? If you cannot quantify the value, you cannot justify the design.
+
+Capstone is the ultimate expression of the entrepreneurial mindset: you are solving a real problem for a real client, with a real budget and a real deadline, and the value you create is tangible.
+
+
+\section{Who's Who in the Course}
+Understanding the roles in capstone prevents miscommunication and misplaced expectations. Figure~\ref{fig:whos-who} shows the relationship between the key roles.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    role/.style={rectangle, draw=MinesBlue, fill=LightBG, minimum width=2.5cm, minimum height=0.8cm, align=center, font=\small\sffamily\bfseries, rounded corners=2pt, line width=0.7pt},
+    arr/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.6pt},
+    lbl/.style={font=\tiny\sffamily, MinesSilver}
+]
+\node[role] (team) at (0,0) {Your Team};
+\node[role] (pa) at (0,2) {Project Advisor\\(PA)};
+\node[role] (client) at (-3.5,2) {Client};
+\node[role] (ta) at (3.5,2) {Technical\\Advisor (TA)};
+\node[role] (cf) at (0,4) {Course Faculty\\(CF)};
+
+\draw[arr] (pa) -- node[right, lbl]{grades, mentors} (team);
+\draw[arr] (client) -- node[above, lbl]{needs, feedback} (team);
+\draw[arr, dashed] (ta) -- node[above, lbl]{expertise} (team);
+\draw[arr] (cf) -- node[right, lbl]{curriculum, final grades} (pa);
+\draw[arr, <->] (client) -- node[above, lbl]{reports} (pa);
+\end{tikzpicture}
+\caption{Roles and relationships in capstone design. Solid arrows indicate formal reporting/grading relationships; dashed arrows indicate advisory relationships. The team interacts with all four roles throughout the project.}\label{fig:whos-who}
+\end{figure}
+
+\textbf{Course Faculty (CF)} lead lectures, develop professional development modules, and determine final course grades based on information from PAs, clients, and Feedback Loop peer evaluations. CF set the curriculum, ensure grading consistency across sections, and may apply correction factors if grading varies significantly between PA sections.
+
+\textbf{Project Advisors (PA)} are the faculty who guide your team directly. Each PA advises two or more teams. They attend your sprint reviews, grade your deliverables, assess your individual performance, and serve as your primary point of contact for all project-related questions. PAs are practicing or retired engineers and faculty members. They bring real-world engineering experience and professional judgment. Treat your PA meetings as you would a project review with a supervisor in industry: come prepared with an agenda, show progress, and ask specific questions.
+
+\textbf{Clients} are the external sponsors who define the problem. They may be companies, on-campus organizations, governmental agencies, nonprofits, community organizations, or private individuals. The client is the ``Product Owner'' in Scrum terminology (Chapter~11): they own the Product Backlog and prioritize what the system should do. Your relationship with the client is professional, not academic. They are not grading you; they are depending on you.
+
+\textbf{Technical Advisors (TA)} provide domain expertise that your team may lack. TAs are \emph{not assigned}; your team must identify, approach, and invite them. Faculty across all departments at Mines are available as TAs, and you are strongly encouraged to seek out domain experts relevant to your project. TAs attend design reviews if invited and review major deliverables. Building a relationship with a TA is a professional skill; approach them as you would a consultant in industry.
+
+
+\section{Project Tracks}
+All capstone projects are classified into one of three tracks at the start of SDI. Track classification is proposed by the team, confirmed by the PA, and approved by the client and CF. The classification is documented in the Statement of Work (Chapter~7) and cannot be changed after PDR without written approval from the Capstone Program Director.
+
+\textbf{Build Track}: the project produces a \textbf{physical artifact}---a functioning prototype, fabricated assembly, installed system, or constructed element. The SDI proof-of-concept must demonstrate at least one physical function. The SDII outcome must be a fully tested prototype or installation verified against client requirements. Most ME, EE, and some DE/CE projects fall into this category.
+
+\textbf{Paper Track}: the project produces a \textbf{non-physical deliverable}---an analytical model, simulation package, site/civil plan set, complete drawing and specification package, policy or systems engineering document, or equivalent knowledge product. Physical construction is outside scope. The SDI proof-of-concept must demonstrate clear analytical or computational goal attainment (e.g., a validated sub-model or converging simulation). The SDII outcome must be a complete, verified technical package that a qualified engineer could use to implement the design. Most CE, EnvE, and some DE projects fall into this category.
+
+\textbf{Competition Track}: the project is driven by an \textbf{external competition event} (SAE Collegiate Design Series, AIAA Design/Build/Fly, ASCE Steel Bridge, Formula SAE, EcoCAR, etc.) with a fixed, externally imposed competition schedule. Competition Track teams complete all requirements of the Build or Paper Track, as appropriate, with milestone dates adjusted to align with the competition calendar. The competition event serves as an additional public evidence point, but \textbf{competition outcomes (placement, awards) are not used in grading}. Engineering process and deliverable quality are assessed on the same standards as the corresponding base track.
+
+\begin{warningbox}[Track Rigor Equivalence]
+All three tracks are held to equivalent standards of engineering rigor and professional quality. The Paper Track is not a reduced-effort alternative; it substitutes physical fabrication and testing with \emph{analytical depth, simulation fidelity, and documentation completeness}. Paper Track teams are expected to produce deliverables of sufficient technical depth that a qualified engineer could use them directly to implement or fabricate the design. The Competition Track does not reduce requirements; it reorganizes their timing around an external schedule.
+\end{warningbox}
+
+
+\section{The Individual Design Log}
+You are expected to maintain a design log---a bound notebook, dedicated binder, or digital notebook (OneNote, Notion, etc.)---for the entire two-semester sequence. Record your concepts, engineering calculations, research notes, meeting notes, and design decisions with dates.
+
+The design log serves three critical purposes:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Individual contribution evidence}: during Feedback Loop peer evaluations, the design log provides contemporaneous evidence of what you personally contributed. A team member who claims to have done substantial analysis work but has an empty design log will find that claim difficult to support.
+\item \textbf{Knowledge capture}: calculations, decisions, and design rationale that are not recorded are lost. When you need to explain a design choice at FDR that was made in Sprint~2, the design log is your memory.
+\item \textbf{Legal and IP record}: in any intellectual property context, a contemporaneous design log with dated entries is a legal document. This may seem distant from your current concerns, but establishing the habit now will serve you throughout your career.
+\end{enumerate}
+
+Your PA or client may ask to see your design log at any time, and it may become part of your project deliverables depending on project requirements.
+
+
+\section{The Project Repository}
+Beyond individual design logs, your team must maintain a shared electronic repository containing all notes, documents, informal and formal deliverables, and project materials. The repository is the team's institutional memory: it consolidates individual research into a shared, organized collection that any team member (or your PA, or the client) can access.
+
+\textbf{Recommended platform}: Microsoft Teams group for Senior Design. Mines uses Microsoft~365 and Teams extensively, and creating a Team provides shared file storage, channels for discussion, and integration with other Microsoft tools.
+
+\textbf{Required organization}: at minimum, include folders for Status Reports, Project Management (Sprint Reviews and Retrospectives), Resources and References, Analysis and Calculations, Deliverables, Pictures and Graphics, a PA Folder (shared with your PA), a Client Folder (shared with your client), and project-specific folders as needed.
+
+Defer to your PA and client for preference of platform, format, and additional requirements. Some clients use Google Workspace; others require SharePoint. Adapt to their environment.
+
+\subsection{The Digital Design Archive}
+In SDII, the repository culminates in the \textbf{Digital Design Archive}: a final, organized submission of all project files. This includes CAD files (SolidWorks, AutoCAD), simulation source files, test results and raw data, code repositories, prototype photographs and videos, all course deliverables, cost/budget spreadsheets, and the project schedule. The archive is submitted during Final Checkout and ensures that the project knowledge persists after your team graduates.
+
+
+\section{The Two-Semester Structure}
+Capstone Design spans two consecutive semesters with distinct phases:
+
+\textbf{SDI (EDNS~491)} focuses on \textbf{definition and design}. You progress from project assignment through problem definition, requirements engineering, concept generation and selection, proof-of-concept prototyping, and Preliminary Design Review. SDI is intellectually front-loaded: the quality of your problem definition, requirements, and concept selection in SDI determines the quality of your build in SDII. Sprints~0--6 map to the left side of the V-Model.
+
+\textbf{SDII (EDNS~492)} focuses on \textbf{execution and verification}. You re-engage with the client, complete the Critical Design Review, build or model your design, test it against requirements, present at the Final Design Review, and exhibit at the Design Showcase. SDII is execution-loaded: the quality of your CDR analysis, your fabrication discipline, and your testing rigor determine the project outcome. Sprints~7--14 map to the bottom and right side of the V-Model.
+
+The transition between semesters is a critical vulnerability. During the break, momentum is lost, team dynamics shift (members may study abroad, drop the course, or disengage), and clients may have new priorities. The SDII Sprint~7 Re-engagement process (Chapter~2) and the Hazard Assessment and Safety Plan (Chapter~6) are specifically designed to bridge this gap.
+
+\begin{warningbox}[The SDI Trap: ``We'll Figure It Out in SDII'']
+The most common SDI failure is deferring hard decisions to SDII. Teams that arrive at PDR with vague requirements, a single unanalyzed concept, and a plan to ``figure out the details next semester'' consistently produce weak SDII outcomes. The design work you skip in SDI does not disappear; it reappears in SDII as redesign work that competes with fabrication and testing for the same limited schedule. Do the hard work in SDI; execute in SDII.
+\end{warningbox}
+
+\section{Common First-Semester Mistakes}
+Having taught capstone for multiple semesters, certain patterns recur predictably. Awareness of these patterns can help you avoid them:
+
+\textbf{Solution-first thinking}: jumping to a solution before understanding the problem. You cannot select the right sensor if you have not defined the measurement requirement. You cannot design the enclosure if you have not characterized the operating environment. Resist the urge to start building until the problem is defined.
+
+\textbf{Vague requirements}: ``the system shall be reliable'' is not a requirement. ``The system shall operate continuously for $\geq$720 hours (30 days) without requiring user intervention or maintenance'' is. Every vague requirement becomes a fight at FDR when someone asks ``how do you know this requirement is met?'' and you have no answer.
+
+\textbf{Single-concept design}: generating one concept and defending it instead of generating many concepts and selecting the best. The decision matrix only works if there are real alternatives to compare. Three variations of the same idea are not three concepts.
+
+\textbf{Ignoring the client}: designing what the team thinks is cool instead of what the client needs. Your technical interests are valuable, but the project belongs to the client. If the client needs a simple, robust solution and you deliver a complex, fragile one because it was more technically interesting, you have failed the project.
+
+\textbf{Procrastinating procurement}: every Build Track project has components with lead times longer than one sprint. Identify them in Sprint~1 and order them early. Waiting until Sprint~4 to discover that your specialty motor has a 6-week lead time is a self-inflicted schedule crisis.
+
+\textbf{Documentation debt}: leaving all writing until the week before PDR. The PDR report is not a one-week deliverable; it is the cumulative documentation of 10 weeks of engineering work. If you write as you go (updating the SDRD after each requirements discussion, documenting concept sketches when you create them, recording meeting minutes within 48 hours), the PDR report assembles itself.
+
+\textbf{Ignoring advisor feedback}: your PA has seen dozens of capstone projects. When they raise a concern, take it seriously. The feedback may seem premature (``you have not thought about testability yet and we are only in Sprint~2''), but it is almost always prescient.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Your client says ``I want a device that monitors soil moisture and waters my garden automatically.'' Identify at least five stakeholders beyond the client. For each, describe what they care about and how it might affect your design.
+\item Explain the difference between the left side and right side of the V-Model using a specific example (e.g., a temperature control system). What artifacts are produced on each side, and how does each design review (PDR, CDR, FDR) map to the V?
+\item Your team is assigned a Paper Track project involving site grading for a parking lot. A teammate says ``Paper Track is easier because we don't have to build anything.'' Write a response explaining why this is incorrect, with specific examples of what Paper Track rigor requires.
+\item Describe a situation where design thinking and systems engineering would recommend different next steps. How do you decide which framework to follow?
+\item You are starting a project for a brewery that wants automated grain silo monitoring. Create a stakeholder map with at least six stakeholders, their primary concerns, and one design implication for each.
+\end{enumerate}
+
+

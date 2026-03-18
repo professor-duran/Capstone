@@ -1,0 +1,323 @@
+\chapter{Critical Design Review (CDR)}
+
+\section{Purpose and Scope}
+
+\begin{tipbox}
+For the sprint-level CDR preparation timeline, see the \textbf{Student Guide, Sprint~8 section}.
+\end{tipbox}
+
+
+\begin{keyconceptbox}[CDR in 60 Seconds]
+CDR answers: ``Will this design work?'' By CDR, you must have: (1)~a complete detailed design with CAD and drawings, (2)~an Engineering Calculation Package proving feasibility, (3)~a BOM with all components ordered or received, (4)~a manufacturing plan with the InnoHub Manufacturing Review complete, and (5)~an updated FMEA with mitigations. The design freezes after CDR.
+\end{keyconceptbox}
+
+CDR answers: \emph{``Will this design work?''} The design must be complete enough to build or model in full fidelity. Every component specified with vendor part numbers. Every interface defined. Every critical analysis complete. Procurement in progress or complete. CDR is the \textbf{design freeze}---after CDR, architectural changes require formal change control.
+
+CDR separates the conceptual work of SDI from the execution work of SDII. If the design is not solid at CDR, the build phase will be a series of crises. The question is not ``is the design perfect?'' but ``is the design complete enough to build with confidence?''
+
+\section{Timeline}
+SDII Sprint~8 (Weeks~3--5):
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Sprint~7 (Week~1): re-engage with client, review Product Backlog, set SDII goals, complete Hazard Assessment and Safety Plan.
+\item Sprint~8 Weeks~1--2: finalize CDRt and Engineering Calculation Package. Send to client before CDRw.
+\item Sprint~8 Weeks~2--3: CDRw presentations (may span two weeks).
+\end{enumerate}
+Feedback Loop Peer Evaluation~1 occurs around this time.
+
+\section{CDR Report (CDRt)}
+Builds on updated PDR report and adds:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Complete detailed design}: CAD assembly with dimensions/tolerances, wiring diagrams with values and pin assignments, software architecture with state machines, piping layouts, structural drawings.
+\item \textbf{Bill of Materials}: every component with description, manufacturer, part number, vendor, unit cost, quantity, total cost, lead time, status (ordered/received/backordered).
+\item \textbf{Engineering Calculation Package}: formal analyses---hand calculations, FEA/CFD, circuit simulation, thermal analysis, structural analysis. Each calculation: purpose, assumptions, methodology, results with units, conclusion, and source citations. This is a narrative engineering document.
+\item \textbf{Updated FMEA}: showing mitigations since PDR and reduced RPNs.
+\item \textbf{Manufacturing plan}: fabrication sequence, tools and facilities needed, procurement status. InnoHub Manufacturing Review must be completed.
+\item \textbf{Updated VCRM}: analysis verifications complete. Some subsystem test results available.
+\item \textbf{Updated budget and schedule}: actuals vs. planned with projections.
+\end{itemize}
+
+\section{The Engineering Calculation Package in Detail}
+The Calculation Package is the engineering backbone of CDR. It demonstrates that the team has performed the analyses necessary to confirm design feasibility \emph{before} committing resources to fabrication.
+
+Every calculation must include:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Purpose}: which requirement or design question is being addressed (by ID).
+\item \textbf{Assumptions}: stated explicitly (e.g., ``ambient temperature assumed 25\,\degC{},'' ``material yield strength from vendor datasheet page 3'').
+\item \textbf{Methodology}: equations used, with textbook or standard references. For simulations: mesh settings, boundary conditions, convergence criteria.
+\item \textbf{Results}: numerical results with appropriate units and significant figures. Include plots, stress contour maps, or time-domain responses as applicable.
+\item \textbf{Conclusion}: ``The safety factor under maximum load is 3.2, exceeding the required 2.0. The design is structurally adequate.'' Or: ``The motor stall torque of 0.8\,N$\cdot$m is insufficient to meet the 1.2\,N$\cdot$m requirement. Recommend selecting a larger motor (see Section~4.3).''
+\end{enumerate}
+
+\section{Track-Specific CDR Expectations}
+\textbf{Build Track}: fabrication-ready drawings at manufacturing-quality detail. All critical components ordered or received. InnoHub Manufacturing Review Meeting completed and checkoff signed on purchasing form.
+
+\textbf{Paper Track}: complete model/simulation architecture with preliminary results demonstrating convergence or feasibility. Validation plan with identified benchmark data or experimental datasets. Documentation sufficient for another engineer to reproduce the analysis without contacting the team.
+
+\textbf{Competition Track}: competition compliance checklist showing how each rule is addressed. Registration confirmed. Travel plan (Chapter~16) with PA-approved budget.
+
+\begin{tipbox}[Student Guide Cross-Reference]
+For the sprint-level CDR timeline and deliverable checklist, see the \textbf{Student Guide, SDII Sprint~8} section.
+\end{tipbox}
+
+\section{CDR Presentation (CDRw)}
+The CDR presentation narrative answers ``will this design work?'':
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Design evolution since PDR} (2--3 min): summarize how the design changed based on PDR feedback.
+\item \textbf{Detailed design} (5--8 min): CAD assembly (exploded views help), wiring diagrams, software architecture, key subsystem details.
+\item \textbf{Engineering analysis} (5--8 min): walk through the key calculations from the Engineering Calculation Package. Focus on the analyses that prove feasibility: structural safety factors, thermal margins, power budgets, control stability.
+\item \textbf{BOM and procurement} (2--3 min): BOM summary with critical items highlighted. What is ordered, received, or backordered?
+\item \textbf{Manufacturing plan} (2--3 min): facilities, tools, fabrication sequence, quality checkpoints. InnoHub Manufacturing Review complete?
+\item \textbf{VCRM status} (2--3 min): which verifications are complete (analysis), which are planned (test), what is the test timeline?
+\item \textbf{Schedule and budget} (1--2 min): actuals vs. planned, projections through FDR.
+\item \textbf{Q\&A} (5--10 min).
+\end{enumerate}
+
+\section{BOM Management}
+The BOM is the financial and procurement backbone. Every entry must include: item number, description, manufacturer, part number, vendor, unit cost, quantity, extended cost, lead time, and procurement status (Not Ordered / Ordered / Received / Backordered).
+
+\textbf{Common BOM deficiencies at CDR}: missing fasteners (every bolt, nut, washer, standoff must be listed), missing wire, cable, and connectors, missing consumables (solder, heat shrink, adhesive, filament), and missing enclosure hardware. A BOM that lists only the ``exciting'' components but omits the ``boring'' ones is a budget bomb.
+
+The BOM total must reconcile with the Budget Tracker. If they differ, investigate: the BOM reflects what you need; the tracker reflects what you have spent. The gap is your remaining procurement obligation.
+
+\section{The Build Phase Transition}
+CDR marks the transition from design to execution. Common pitfalls:
+
+\textbf{Continuing to redesign}: the design is frozen after CDR. Teams that keep ``optimizing'' instead of building arrive at FDR with a beautiful CAD model and no working prototype.
+
+\textbf{Underestimating fabrication time}: assembly, wiring, debugging, and rework always take longer than estimated. Budget 2$\times$ your initial fabrication time estimate.
+
+\textbf{Big-bang integration}: assembling everything at once and hoping it works (see the debugging pyramid concept below). Build and test one subsystem at a time, then integrate incrementally.
+
+\textbf{Neglecting build documentation}: photograph every assembly step, every test setup, and every intermediate result. At FDR, you will need these images and they are impossible to recreate after the fact.
+
+\section{After CDR}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Next Steps Email (post-CDR)}: CDR outcome and build/test plan.
+\item Begin fabrication, assembly, and/or full-fidelity modeling in Sprint~9.
+\item Post-CDR changes: documented change control with rationale, impact, PA approval.
+\end{itemize}
+
+\begin{warningbox}[The Spring Break Shipping Trap]
+Spring Break falls after CDR. Campus facilities \textbf{closed for a full week}. Order replacement components \emph{before} break. Plan critical procurement to arrive one week before break. This is the most common procurement failure in capstone.
+\end{warningbox}
+
+
+\section{CDR Grading Criteria}
+CDR evaluation typically weighs:
+
+\textbf{Design completeness} ($\sim$30\%): Is the detailed design complete enough to build/model? Are all components specified with part numbers? Are interfaces defined? Are drawings at manufacturing quality?
+
+\textbf{Engineering analysis} ($\sim$25\%): Is the Engineering Calculation Package rigorous? Are assumptions stated? Are conclusions supported by the analysis? Do safety factors meet requirements?
+
+\textbf{Procurement and manufacturing readiness} ($\sim$15\%): Is the BOM complete with costs and lead times? Are critical items ordered? Is the Manufacturing Review Meeting complete? Is the fabrication plan realistic?
+
+\textbf{Risk and VCRM status} ($\sim$10\%): Has the FMEA been updated with design mitigations? Are analysis-based VCRM entries complete? Is the test plan realistic for the remaining schedule?
+
+\textbf{Communication quality} ($\sim$20\%): Report professionalism, presentation clarity, team coordination, Q\&A preparedness.
+
+\section{The CDR ``Gotcha'' List}
+Items that are frequently missing at CDR and cause immediate reviewer concern:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Incomplete BOM}: missing fasteners, wire, connectors, or consumables. If the reviewer can see components in the CAD model that are not in the BOM, credibility drops.
+\item \textbf{No procurement status}: the BOM lists items but does not indicate whether they have been ordered or received. At CDR, all critical items should be ordered.
+\item \textbf{Calculations without conclusions}: presenting a page of equations without stating ``therefore, the safety factor is 2.3, which exceeds the requirement of 2.0.'' The reviewer should not have to interpret your analysis.
+\item \textbf{Missing interface definitions}: the block diagram shows subsystems connected by arrows, but the arrows are not labeled with signal type, voltage level, protocol, or connector.
+\item \textbf{No test plan timeline}: the VCRM shows 20 requirements to be verified by Test, but the schedule does not allocate specific weeks for testing. When will each test occur?
+\item \textbf{Unrealistic schedule}: the Gantt chart shows fabrication, assembly, integration, and system testing compressed into 3 weeks. Reviewers know this is insufficient; plan realistically.
+\end{enumerate}
+
+
+
+\section{Engineering Calculation Package Best Practices}
+The Engineering Calculation Package is one of the most important CDR deliverables. It demonstrates that your design is based on engineering analysis, not guesswork. Best practices:
+
+\textbf{One calculation per section}: each analysis should be a self-contained section with: (1)~purpose (which requirement or design question it addresses), (2)~given information (loads, dimensions, material properties with sources), (3)~assumptions (stated explicitly; each assumption is a potential failure point), (4)~methodology (equations with variable definitions and sources), (5)~solution (showing the arithmetic or referencing the simulation), (6)~result with units and significant figures, and (7)~conclusion (``The safety factor is 2.3, exceeding the required 2.0. The bracket is structurally adequate under the specified load.'').
+
+\textbf{Show your work}: a single number without derivation is unverifiable. Even if you used MATLAB or Excel, show the equations and the input values so a reviewer can check your work.
+
+\textbf{Simulation documentation}: for FEA, CFD, or circuit simulation, include: the model description (geometry, boundary conditions, material properties), the mesh details and convergence study (show that the result does not change significantly when the mesh is refined), the results (stress contours, flow patterns, voltage waveforms), and the validation (comparison to hand calculation, published data, or experimental measurement). Screenshots without context are not engineering documentation.
+
+\textbf{Units consistency}: one of the most common calculation errors is mixing unit systems. State all inputs in consistent units (SI preferred). If converting between systems, show the conversion. Check dimensional analysis: the units on the left side of the equation must equal the units on the right.
+
+\textbf{Peer review}: have a teammate check every critical calculation before CDR. A second pair of eyes catches arithmetic errors, wrong unit conversions, and flawed assumptions that the original analyst has become blind to.
+
+
+
+\section{Design Freeze Discipline}
+CDR establishes the \textbf{design freeze}---the point at which the design is stable enough to build. After CDR, changes are permitted only through formal change control. This discipline is critical because:
+
+\textbf{Changes after CDR cascade}: modifying one component often affects adjacent components, interfaces, the BOM, the manufacturing plan, the test procedures, and the schedule. A ``small'' change to the sensor mounting bracket may require: new mechanical drawings, a revised enclosure design, new 3D print files, updated wiring routes, and modified test procedures. What seemed like a 2-hour task becomes a 2-week task.
+
+\textbf{Procurement is committed}: by CDR, critical components are ordered or received. Changing the design may mean components you already purchased are useless, and new components must be ordered with their own lead times.
+
+\textbf{Team paralysis}: a design that keeps changing demoralizes the team. Members who built a subsystem to the CDR specification only to learn that the specification changed will lose confidence in the design and the process. Freeze the design, build to the frozen design, and address shortcomings through tested improvements---not through untested redesign.
+
+\textbf{When changes ARE justified}: safety issues discovered after CDR are always justified. Client-directed scope changes with full impact assessment are justified. Test results that reveal a fundamental flaw (not just a marginal miss) are justified. In all cases, document the change through the change control process: what changed, why, what is the impact, and who approved.
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    phase/.style={rectangle, draw=MinesBlue, fill=#1, minimum width=1.8cm, minimum height=0.5cm, align=center, font=\tiny\sffamily\bfseries, rounded corners=1pt, line width=0.5pt},
+    label/.style={font=\tiny\sffamily\color{MinesSilver}}
+]
+% Timeline bar
+\draw[MinesSilver, line width=0.3pt] (0,0) -- (11,0);
+
+% Phases
+\node[phase=MinesBlue!15] at (1.0,0.5) {CDR};
+\node[phase=AccentTeal!15] at (3.0,0.5) {Fabricate};
+\node[phase=AccentTeal!15] at (5.0,0.5) {Integrate};
+\node[phase=MinesBlue!15, minimum width=1.2cm] at (6.5,0.5) {Break};
+\node[phase=AccentTeal!15] at (8.0,0.5) {Test V\&V};
+\node[phase=MinesBlue!15] at (10.0,0.5) {FDR};
+
+% Sprint labels below
+\node[label] at (1.0,-0.3) {Sp 8};
+\node[label] at (3.0,-0.3) {Sp 9};
+\node[label] at (5.0,-0.3) {Sp 10};
+\node[label] at (6.5,-0.3) {Break};
+\node[label] at (8.0,-0.3) {Sp 11--12};
+\node[label] at (10.0,-0.3) {Sp 13--14};
+\end{tikzpicture}
+\caption{The CDR-to-FDR build phase. Fabrication and subsystem testing overlap; system integration occurs before Spring Break; V\&V testing fills the remaining sprints. Start testing early to preserve redesign margin.}\label{fig:build-timeline}
+\end{figure}
+
+
+\section{Starting Subsystem Testing Before Full Assembly}
+Do not wait until the entire system is assembled to start testing. Begin testing individual subsystems as soon as they are built:
+
+\textbf{Sprint 9}: test individual subsystems in isolation. Does the sensor read correctly when connected to the amplifier and ADC? Does the motor spin at the correct speed with the driver? Does the firmware control the actuator correctly with a simulated sensor input?
+
+\textbf{Sprint 10}: test subsystem pairs across interfaces. Does the sensor subsystem communicate correctly with the control subsystem? Does the power distribution subsystem maintain voltage regulation under the actuator load?
+
+\textbf{Sprint 11}: system integration test. Connect all subsystems and verify end-to-end functionality. Test subsystems individually before connecting them.
+
+\textbf{Sprint 12--13}: V\&V testing against requirements. Execute formal test procedures from the VCRM. Record data. Disposition results.
+
+This progressive testing approach using the debugging pyramid approach (test components, then interfaces, then subsystems, then the full system) catches problems early when they are cheap to fix, rather than late when they are expensive and schedule-breaking.
+
+
+
+\section{The CDR-to-Build Transition Timeline}
+The weeks following CDR are the most schedule-critical period of the entire capstone. A realistic timeline for Build Track:
+
+\textbf{CDR Week} (Sprint 8, Week 3--5): design freeze. All remaining component orders submitted. Manufacturing Review Meeting completed if not already done.
+
+\textbf{Sprint 9} (Week 6--7): fabrication begins. 3D print enclosures, machine brackets, assemble PCBs, begin firmware development. Test each subsystem individually as it is built (debugging pyramid Level 1--2).
+
+\textbf{Sprint 10} (Week 8--9): continue fabrication. Begin subsystem integration testing (Level 3). Order replacement parts for anything that failed during subsystem testing. This is typically when the first ``this doesn't work as expected'' moments occur.
+
+\textbf{Sprint 11} (Week 9--11): system integration (Level 4). All subsystems connected. Begin system-level V\&V testing against requirements. Broader Impacts Essay and Peer Evaluation \#2 also fall in this window.
+
+\textbf{Sprint 12} (Week 12--13): continue V\&V testing. Address failed requirements (redesign, retest, or disposition). Begin writing FDR report sections.
+
+\textbf{Sprint 13} (Week 13--14): finalize FDR report. Submit poster for printing. Complete all VCRM entries. Write O\&M manual. Prepare FDR presentation.
+
+\textbf{Sprint 14} (Week 15--16): FDR presentation. Design Showcase. Final deliverables. Checkout.
+
+\begin{warningbox}[The Integration Squeeze]
+Most capstone teams underestimate the time between ``all subsystems work individually'' and ``the complete system works.'' Integration typically takes 2--3 weeks for a moderately complex system. If your first integration attempt occurs in Sprint 12, you have less than one week to debug integration issues before FDR documentation must begin. Plan integration for Sprint 10--11.
+\end{warningbox}
+
+
+
+\section{The Engineering Calculation Package: What Reviewers Expect}
+The Eng Calc Package is often the weakest CDR deliverable. Reviewers expect:
+
+\textbf{Structural analysis}: for any load-bearing component, show the free body diagram, the governing equation (bending stress, shear, buckling, fatigue), the material properties with source (datasheet, Matweb, textbook table number), the calculated stress/deflection, the allowable stress/deflection (from the requirement), and the safety factor. $\text{SF} = \sigma_{\text{allow}} / \sigma_{\text{actual}} \geq 2.0$ for most capstone applications.
+
+\textbf{Thermal analysis}: for any system with heat generation or temperature sensitivity, show the heat source (power dissipation from datasheets), the thermal path (conduction through materials, convection to air, radiation if significant), the thermal resistance model ($R_{\text{total}} = R_1 + R_2 + \ldots$), the calculated temperature rise ($\Delta T = P \times R_{\text{total}}$), and the comparison to the maximum operating temperature of the most temperature-sensitive component.
+
+\textbf{Electrical analysis}: for any power distribution design, show the voltage regulation chain (source $\to$ regulators $\to$ loads), the current budget (maximum current draw per rail, sum vs. regulator capacity), the power budget ($P = V \times I$ per rail, total system power vs. source capacity), and the battery life calculation (capacity in Ah / average current draw = runtime in hours).
+
+\textbf{Control analysis}: for any feedback control system, show the plant model (transfer function or state-space representation), the controller design rationale (PID gains with tuning method), the predicted closed-loop response (settling time, overshoot, steady-state error vs. requirements), and the stability margin (gain margin $>$6\,dB, phase margin $>$30\degC{}).
+
+Each analysis section concludes with a clear statement: ``The calculated [metric] is [value] with units, which [meets/does not meet] the requirement of [value]. The safety factor is [value].'' A calculation without a conclusion is incomplete.
+
+\section{SDII Week 1: The Re-engagement Sprint}
+The first week of SDII (Sprint~7) sets the tone for the entire semester. Key actions:
+
+\textbf{Re-engagement email to client}: this is a required deliverable. It must contain five elements: (1)~reintroduce the team (the client may not remember names after the break), (2)~summarize the SDI status (selected concept, PDR outcome, key open items), (3)~propose SDII goals and the plan to achieve them, (4)~request a meeting to align on priorities, and (5)~attach the Group Reflection and Action Plan.
+
+\textbf{Review and update the Product Backlog}: the client's priorities may have shifted during the break. Schedule a meeting within the first week to review the backlog, confirm SDII goals, and identify any new requirements or changes.
+
+\textbf{Set SDII semester goals}: document SMART goals with PA and client approval. Upload to Canvas. These goals become the benchmark for your Project Goal Attainment assessment at FDR.
+
+\textbf{Complete the Hazard Assessment and Safety Plan}: required before any fabrication begins. Use the template on Canvas. Identify all hazards, assess risks, and document controls. PA must approve.
+
+\textbf{Review team dynamics}: SDII teams may have different membership or different dynamics than SDI. Hold a team discussion: what worked in SDI? What needs to change? Update the Team Contract if needed.
+
+
+
+\section{Subsystem Testing Before CDR}
+While most V\&V testing occurs post-CDR, some subsystem testing should begin during PDR-to-CDR transition:
+
+\textbf{Analysis-based verification (A)}: these VCRM entries should be completed by CDR. If the structural analysis shows a safety factor of 2.3, mark that requirement as ``Verified by Analysis'' in the VCRM with a reference to the Engineering Calculation Package section.
+
+\textbf{Critical component testing}: if there is a single component whose performance is uncertain (e.g., a sensor in a harsh environment, a motor under the expected load, a communication link at the required distance), test it before CDR. A CDR that claims ``we will test this in Sprint~10'' when the result could change the entire design direction is a CDR with unretired risk.
+
+\textbf{Interface testing}: verify that key interfaces work before freezing the design. Can the MCU communicate with the sensor via I2C? Can the motor driver handle the expected current? Can the power supply maintain regulation under the expected load? Interface failures discovered after CDR require design changes that disrupt the build schedule.
+
+\textbf{Prototype demonstration}: if your proof-of-concept from Sprint~4 (SDI) demonstrated partial functionality, show the updated version at CDR with improved performance. A CDR that shows working hardware---even partial---is dramatically more convincing than one that shows only CAD models and calculations.
+
+The goal is not to complete V\&V before CDR; it is to retire the highest-risk uncertainties so that the post-CDR build phase proceeds with confidence.
+
+
+
+\section{BOM Validation Before CDR Submission}
+The BOM is the financial and procurement backbone of the build phase. Validate it before CDR:
+
+\textbf{Completeness check}: walk through the CAD assembly and verify that every component visible in the model has a corresponding BOM entry. Common omissions: fasteners (bolts, nuts, washers, standoffs---count them individually), wire and cable (estimate length, add 20\% margin), connectors (male and female), heat shrink tubing, thermal paste, adhesives, and consumables (solder, flux, filament).
+
+\textbf{Price verification}: check that BOM prices are current (vendor prices change). Verify: are these the unit prices or the total prices? Is shipping included? Is tax excluded (it should be---Mines is tax-exempt)?
+
+\textbf{Availability check}: for every BOM item, verify that the vendor shows ``In Stock'' with sufficient quantity. A component that was in stock when you added it to the BOM may be out of stock when you order 4 weeks later. For critical items, check availability at multiple vendors.
+
+\textbf{Lead time verification}: confirm that every item can arrive before the build start date. Items with lead times $>$2 weeks should already be ordered. Items with lead times $>$4 weeks should have been ordered in Sprint~6 of SDI.
+
+\textbf{Alternative identification}: for every critical component (any item whose absence would stall the build), identify a backup source or substitute component in the BOM notes column. This dual-source strategy (Chapter~15) protects against stock-outs and shipping delays.
+
+\section{The CDR Readiness Self-Assessment}
+Before presenting CDR, the team should assess readiness against this checklist:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item[$\square$] Detailed design complete: CAD assembly with all components, drawings with dimensions and tolerances, wiring diagrams with pin assignments and component values.
+\item[$\square$] Engineering Calculation Package complete: every critical analysis documented with assumptions, methodology, results, and conclusions.
+\item[$\square$] BOM complete and validated: every component listed with vendor, cost, lead time, and procurement status.
+\item[$\square$] Critical components ordered or received.
+\item[$\square$] Manufacturing Review Meeting completed (for InnoHub builds).
+\item[$\square$] Hazard Assessment and Safety Plan approved by PA.
+\item[$\square$] FMEA updated with design mitigations.
+\item[$\square$] VCRM updated: analysis-based verifications complete, test plan documented.
+\item[$\square$] CDR Report reviewed by team (integration meeting completed).
+\item[$\square$] CDR Presentation rehearsed at least once.
+\item[$\square$] Client received CDR Report at least 3 days before presentation.
+\end{itemize}
+
+If more than 2 items are unchecked, the team may not be ready for CDR. Discuss with your PA whether to request additional preparation time or present with documented gaps.
+
+
+
+\section{Post-CDR Change Management in Practice}
+After CDR, the design is frozen---but reality intrudes. Here is how to handle common post-CDR changes:
+
+\textbf{Component substitution}: the specified motor is out of stock. Process: (1)~identify an alternative that meets the same specifications (torque, speed, voltage, mounting dimensions), (2)~verify electrical compatibility (driver IC can handle the new motor's current), (3)~verify mechanical compatibility (shaft diameter, mounting pattern), (4)~update the BOM and wiring diagram, (5)~document the change with rationale, (6)~get PA approval. If the substitute has different performance characteristics, re-run the relevant analysis from the Engineering Calculation Package.
+
+\textbf{Design modification to fix a test failure}: a subsystem test reveals that the amplifier saturates at high signal levels. Process: (1)~diagnose the root cause (gain too high, input range exceeded), (2)~propose a specific fix (reduce gain resistor from 100\,k$\Omega$ to 47\,k$\Omega$), (3)~verify the fix does not create new problems (lower gain may reduce SNR below the requirement threshold), (4)~implement, test, and document. If the fix requires a PCB revision, factor the fabrication lead time into the schedule.
+
+\textbf{Scope reduction}: testing reveals that a Should-Have requirement cannot be met within the remaining schedule. Process: (1)~present the evidence to the PA and client, (2)~propose deferral to future work, (3)~document the deferral in the change log and the VCRM, (4)~adjust the Sprint Backlog to focus remaining effort on Must-Have requirements.
+
+All post-CDR changes, no matter how minor, must be documented in the change log. At FDR, the change log tells the complete story of how the design evolved from CDR to the final as-built configuration.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Create a CDR readiness checklist with 12+ items across design, analysis, procurement, and documentation.
+\item Your reviewer says the BOM has two critical components showing ``not yet ordered'' with 3-week lead times. CDR is today. What is the impact and corrective action?
+\item Write a 200-word Engineering Calculation narrative for a cantilever bracket with safety factor $\geq$2.0 under a 500\,N tip load.
+\item A teammate says ``We should wait until after CDR to order components since the design might change.'' Explain why this approach is risky.
+\end{enumerate}
+
+
