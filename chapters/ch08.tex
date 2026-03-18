@@ -1,0 +1,329 @@
+\chapter{Preliminary Design Review (PDR)}
+
+\section{Purpose and Scope}
+
+\begin{tipbox}
+For the sprint-level PDR preparation timeline and deliverable checklist, see the \textbf{Student Guide, Sprint~5 section}.
+\end{tipbox}
+
+PDR answers: \emph{``Should this design work?''} You demonstrate that you understand the problem, have well-defined requirements, have generated and evaluated multiple concepts, have selected a feasible approach with engineering justification, and have a credible plan to develop it further. PDR is not a final design; it is a \textbf{commitment to a direction}, backed by analysis and evidence.
+
+PDR is your first opportunity to receive formal, structured feedback from the PA, client, and TAs on the entirety of your engineering approach. Teams that treat PDR as a checkbox exercise produce weak designs; teams that use PDR as a genuine review emerge with stronger designs and clearer paths forward.
+
+\section{Timeline}
+PDR occurs during SDI Sprint~5 (Weeks~11--13):
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Week~1}: finalize PDRt. Send front-end material to client in advance.
+\item \textbf{Week~2}: conduct Mock PDR---practice presentation with PA or another team. Incorporate feedback.
+\item \textbf{Week~3}: deliver formal PDRw to PA, client, and TAs.
+\end{enumerate}
+
+\section{PDR Report (PDRt)}
+Formal written document submitted to PA and shared with client before the presentation:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Executive summary (1 page)
+\item Problem statement and stakeholder analysis
+\item Complete SDRD with IDs, SHALL/SHOULD, rationale, traceability, TAID, MoSCoW
+\item Competitive benchmarking and prior art (product survey, patents, standards)
+\item Concept generation: $\geq$3 distinct, graphically communicated concepts
+\item Concept selection: Pugh screening + weighted decision matrix + sensitivity analysis
+\item Preliminary architecture: functional decomposition, block diagram, allocation matrix, interfaces
+\item Risk register and initial FMEA
+\item Proof-of-concept results with data or analysis
+\item Sustainability assessment (CLO~5 tool applied)
+\item Engineering standards identified and mapped to requirements
+\item VCRM (plan): all requirements with assigned methods and phases
+\item Schedule and budget update with projections through SDII
+\end{itemize}
+
+\section{PDR Presentation (PDRw)}
+Structure as a narrative answering ``should this work?'':
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lXc}
+\toprule
+\textbf{Section} & \textbf{Content} & \textbf{Time} \\
+\midrule
+Problem & What are you solving, for whom, why does it matter? & 2--3 min \\
+Requirements & Key performance requirements, constraints, MoSCoW & 3--4 min \\
+Concepts \& Selection & Concepts considered, decision matrix, sensitivity & 5--7 min \\
+Architecture & Block diagram, interfaces, critical subsystems & 3--5 min \\
+Risk \& Feasibility & Top risks, mitigations, PoC results & 2--3 min \\
+Plan Forward & Schedule through SDII, procurement timeline & 2--3 min \\
+Q\&A & Listen, take notes, commit to follow-up & 5--10 min \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{tipbox}[The Mock PDR Is Not Optional]
+Teams that conduct a mock PDR consistently perform better. The mock reveals: dense slides, poor transitions, unsupported claims, timing problems, and questions you cannot answer. Schedule the mock $\geq$3 days before formal PDR to allow revision.
+\end{tipbox}
+
+\section{PDR Evaluation Criteria}
+Your PA evaluates PDR on:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Problem definition}: is the problem clearly stated, with measurable gaps and identified stakeholders?
+\item \textbf{Requirements quality}: are requirements testable, traceable, and appropriately prioritized?
+\item \textbf{Concept generation breadth}: were multiple distinct concepts developed and graphically communicated?
+\item \textbf{Selection rigor}: is the decision matrix defensible with sensitivity analysis?
+\item \textbf{Feasibility evidence}: does the PoC support the selected concept?
+\item \textbf{Risk assessment}: are risks comprehensive (technical, schedule, budget, team)?
+\item \textbf{Sustainability}: is the CLO~5 tool applied meaningfully?
+\item \textbf{Report quality}: organization, clarity, professionalism, proper citations?
+\item \textbf{Presentation quality}: narrative flow, visual aids, timing, Q\&A handling?
+\end{enumerate}
+
+\section{Common PDR Failure Patterns}
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Requirements that are not testable (``the system shall be reliable'').
+\item Only one concept generated---no evidence of divergent thinking.
+\item Decision matrix with criteria that obviously bias toward a predetermined choice.
+\item Risk register listing only technical risks.
+\item No PoC evidence---just claims of feasibility.
+\item Sustainability as an afterthought appendix.
+\item Running over time or poorly coordinated team transitions.
+\item Team members unable to answer questions about their own sections.
+\end{enumerate}
+
+\section{After PDR}
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Send \textbf{Next Steps Email} to client: outcome, feedback, plan for Sprint~6.
+\item \textbf{Baseline the SDRD}: freeze the document. All subsequent changes tracked under configuration management with change rationale and PA approval.
+\item Sprint~6 (Weeks~14--15): incorporate feedback, refine architecture, prepare SDII transition.
+\item Submit \textbf{PDRt Update} and \textbf{Next Steps Email} documenting how feedback was addressed.
+\end{enumerate}
+
+\section{The Review Culture: Feedback Is a Gift}
+Design reviews exist to improve the design, not to judge the team. The best PDRs are the ones where tough questions lead to real improvements. A reviewer who asks ``What happens if the sensor cable is severed during operation?'' has identified a failure mode you missed. A reviewer who says ``Your decision matrix weights seem arbitrary---how did you determine them?'' is pushing you toward a more defensible selection.
+
+Adopt this mindset: \textbf{every piece of feedback makes the design better}. Record every question and comment during the review. After the review, categorize feedback into: (1)~actions to take immediately (clear deficiencies), (2)~actions to investigate (questions that need analysis), and (3)~acknowledged but deferred (valid concerns that are out of scope or low priority). Report back to the reviewer on all three categories.
+
+Teams that respond defensively to feedback (``We already thought about that'' or ``That's not really an issue'') miss opportunities to improve and alienate the people who are trying to help them succeed.
+
+\section{What Distinguishes a Strong PDR from a Weak One}
+\textbf{Strong PDRs} share these characteristics:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Requirements are specific, testable, and traced to client needs.
+\item At least three genuinely different concepts were generated, graphically communicated, and systematically evaluated.
+\item The decision matrix includes sensitivity analysis and the team can articulate why the selected concept is best \emph{and} what its weaknesses are.
+\item Proof-of-concept evidence (data, photos, measurements) supports the feasibility claim.
+\item The risk register includes schedule, budget, and team risks---not just technical ones.
+\item Every team member can answer questions about the sections they are responsible for.
+\item The presentation has a clear narrative arc and respects the time limit.
+\end{itemize}
+
+\textbf{Weak PDRs} share these characteristics:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Requirements are vague (``the system shall be reliable'') or missing categories (no non-functional requirements).
+\item Only one concept was developed, with alternatives added retroactively.
+\item The decision matrix produces a ``winner'' that matches the team's initial preference, with no sensitivity analysis.
+\item No proof-of-concept evidence; feasibility is claimed but not demonstrated.
+\item Sustainability assessment is a one-paragraph afterthought.
+\item Team members cannot explain sections they did not write.
+\item The presentation runs over time and Q\&A reveals unprepared areas.
+\end{itemize}
+
+\section{Incorporating Feedback: The Sprint~6 Recovery}
+Sprint~6 (Weeks~14--15) exists specifically for incorporating PDR feedback and preparing the transition to SDII. This is not a ``relax after PDR'' sprint; it is a critical refinement period. Actions:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Categorize all PDR feedback} into action items with owners and deadlines.
+\item \textbf{Update the SDRD}: revise requirements flagged as vague, add missing non-functional requirements, update traceability.
+\item \textbf{Refine the architecture}: address any architectural concerns raised at PDR (interface ambiguities, single points of failure, unresolved technology selections).
+\item \textbf{Begin procurement planning}: identify long-lead-time components and initiate orders for SDII.
+\item \textbf{Prepare SDII transition}: document the current state of the design, open questions, and the plan for Sprint~7--14. This documentation ensures continuity if team dynamics shift over the break.
+\item \textbf{Complete Peer Evaluation~2} (SDI): provide honest feedback to teammates.
+\item \textbf{Submit End-of-Semester deliverables}: Final Course Survey, Individual Performance Evaluation, PDRt Update.
+\end{itemize}
+
+
+\section{PDR Grading Criteria}
+PDR evaluation typically weighs the following dimensions (see Canvas for the specific rubric):
+
+\textbf{Problem definition and requirements} ($\sim$25\%): Is the problem clearly stated? Are requirements testable, traceable, and prioritized? Are engineering standards identified?
+
+\textbf{Concept generation and selection} ($\sim$25\%): Were multiple distinct concepts generated? Is the selection methodology rigorous (decision matrix with sensitivity analysis)? Is the recommendation justified?
+
+\textbf{Feasibility and risk} ($\sim$20\%): Does the PoC evidence support the selected concept? Is the risk register comprehensive (technical, schedule, budget, team)? Are mitigations assigned?
+
+\textbf{Sustainability and broader impacts} ($\sim$10\%): Is a CLO~5 tool applied meaningfully? Are sustainability requirements integrated into the SDRD?
+
+\textbf{Communication quality} ($\sim$20\%): Is the report well-organized, clearly written, and professionally formatted? Is the presentation clear, on time, and well-coordinated? Can team members answer questions about their sections?
+
+Teams that score poorly at PDR almost always recover in SDII if they incorporate the feedback aggressively during Sprint~6. Teams that ignore PDR feedback carry the same weaknesses into CDR, where the consequences are more severe.
+
+
+
+\section{PDR Day Logistics}
+\textbf{Before the presentation}: arrive 15 minutes early. Test the projector, laptop connection, and any live demonstration equipment. Have a USB backup of your slides in PDF format. Assign one team member as the slide advancer and another as the scribe (to record reviewer feedback).
+
+\textbf{During the presentation}: speak to the audience, not to the screen. Make eye contact. When a reviewer asks a question, listen completely before responding. If the question is for a specific team member, the Scrum Master directs it: ``That is a sensor selection question; let me pass it to Jordan.'' Take notes on every question and comment; these become your Sprint~6 action items.
+
+\textbf{After the presentation}: thank the reviewers. Send the Next Steps Email to the client within 48 hours. Hold a team debrief within 24 hours: what feedback did we receive? What are the action items? Who owns each? When will they be complete?
+
+\textbf{If the presentation does not go well}: PDR is a learning experience, not a final exam. A tough PDR where reviewers identify significant weaknesses is more valuable than a smooth PDR where no one pushes back. The question is not whether you had a perfect PDR; the question is what you do with the feedback in Sprint~6. Teams that respond aggressively to tough feedback consistently produce the best FDR outcomes.
+
+
+
+\section{Writing the PDR Report: Tips from Reviewers}
+PA reviewers consistently identify these patterns in strong vs. weak PDR reports:
+
+\textbf{Strong executive summaries}: state the problem, the selected concept, the key feasibility evidence, and the plan forward in one page. A reviewer who reads only the executive summary should understand the entire project.
+
+\textbf{Requirements that tell a story}: organize requirements by functional area (sensing, processing, actuation, communication, power, safety), not by the order they were written. Each area should trace logically from a client need to a SHALL statement to a verification method. The requirements section should read as a coherent engineering argument, not a disconnected list.
+
+\textbf{Concept graphics that communicate}: the three concepts should be presented with annotated sketches or block diagrams, not walls of text. Each concept graphic should be self-contained: a reviewer should understand how the concept works from the figure and caption alone. Label key components, show signal/energy/material flows, and annotate dimensions or performance targets.
+
+\textbf{The trade study narrative}: do not just show the decision matrix; tell the story. ``We evaluated five criteria derived from our MoSCoW requirements. Performance and safety received the highest weights because they correspond to Must-Have requirements. Concept~A scored highest overall, with particular strength in manufacturability. However, the sensitivity analysis showed that if cost weight increases by 15\%, Concept~B becomes preferred. Because our budget has adequate margin, we recommend Concept~A with cost managed through detailed BOM tracking.''
+
+\textbf{Honest risk assessment}: a risk register that lists only ``sensor may not be accurate enough'' and ``schedule may slip'' is too generic. Good risks are specific: ``The ESP32 ADC has known nonlinearity at the extremes of its range, which may cause measurement error $>$1\,\degC{} at temperatures above 45\,\degC{}. Mitigation: use an external ADS1115 ADC with guaranteed linearity.''
+
+\textbf{PoC evidence that is evidence}: a photograph of a breadboard with the caption ``our proof-of-concept'' is not evidence. Evidence includes: measured data compared to expected values, a graph showing sensor response over a range, a video demonstrating a physical function, or a simulation result compared to an analytical solution. The PoC should retire the project's single largest technical risk.
+
+
+
+\section{Presenting Concepts Effectively at PDR}
+The concept generation and selection section is often the weakest part of student PDR presentations. Strengthen it:
+
+\textbf{Show the divergent thinking}: present all concepts generated, not just the final three. A slide showing ``we generated 15 concepts using brainstorming, SCAMPER, and morphological chart analysis, then screened to 3 using Pugh matrix'' demonstrates creative rigor. Show the morphological chart or the brainstorming results briefly.
+
+\textbf{Make each concept visually distinct}: use annotated sketches or block diagrams, not paragraphs of text. Each concept should be immediately visually distinguishable from the others. Side-by-side comparison on a single slide is powerful.
+
+\textbf{Be honest about weaknesses}: for the selected concept, state its weaknesses explicitly and your plan to mitigate them. ``Concept~A has the highest technical risk due to the unproven motor controller, but it also has the highest performance ceiling. We mitigate the motor risk with our Sprint~4 PoC, which demonstrated motor control at 80\% of the target speed.'' This builds credibility.
+
+\textbf{Show the sensitivity analysis}: a single slide showing ``when we vary the weight of [criterion] by $\pm$20\%, the selection changes / does not change'' tells the reviewer that your selection is robust (or identifies where it is fragile). If the selection is fragile, explain how you will manage the risk.
+
+\section{The Proof-of-Concept Presentation}
+The PoC is the evidence that your selected concept is feasible. Present it as evidence, not as a show-and-tell:
+
+\textbf{State the risk being retired}: ``The highest technical risk for our project is whether the thermocouple can measure accurately in the high-EMI environment near the motor. Our PoC specifically tested this.''
+
+\textbf{Show the test setup}: photograph or diagram of the PoC hardware configuration.
+
+\textbf{Present the data}: measured values compared to expected/required values. ``We measured $\pm$1.8\,\degC{} accuracy with the motor running, which is within the $\pm$2\,\degC{} requirement.''
+
+\textbf{State the conclusion}: ``The PoC demonstrates that thermocouple measurement is feasible in our operating environment. The primary technical risk is retired.''
+
+A PoC that does not clearly state what risk it retires, what was measured, and what the result means has not served its purpose.
+
+
+
+\section{The Sustainability Assessment at PDR}
+CLO~5 requires a sustainability, equity, or societal impact assessment. At PDR, this assessment should be integrated into the design rationale, not relegated to an afterthought appendix:
+
+\textbf{Tool selection}: choose the appropriate assessment framework based on your project type. LEED (building-related projects), ENVISION (infrastructure projects), Design for Environment (product design), or Engineering for Social Justice (community-focused projects). If none of these fits your project precisely, consult with your PA to select an appropriate framework or adapt one.
+
+\textbf{Integration with requirements}: the sustainability assessment should produce at least 2--3 non-functional requirements in your SDRD. Examples: ``The system shall consume $\leq$50\,W during normal operation'' (energy efficiency), ``All materials shall be RoHS-compliant'' (hazardous substance restriction), ``The enclosure shall be designed for disassembly using standard hand tools'' (end-of-life recyclability).
+
+\textbf{Presentation at PDR}: dedicate 2--3 slides to the sustainability assessment. Show: which framework you selected, the key findings, how the findings influenced your design decisions, and the sustainability-related requirements added to the SDRD. Reviewers should see that sustainability was a design driver, not a compliance exercise.
+
+\textbf{Common sustainability assessment mistakes}: (1)~selecting a framework but not actually applying it (``We chose LEED'' without any LEED analysis), (2)~treating sustainability as separate from the design (the assessment lives in an appendix disconnected from the design narrative), (3)~making generic claims (``our design is environmentally friendly'') without specific, quantified evidence.
+
+\section{Mock PDR Best Practices}
+The mock PDR is a rehearsal that dramatically improves the formal PDR. Schedule it 3--5 days before the formal review:
+
+\textbf{Audience}: invite your PA (ideal), another capstone team, or at minimum, run it with just your own team timing each section. Fresh eyes are the most valuable aspect.
+
+\textbf{Full simulation}: run the mock exactly as you would the formal review: timed, with transitions, with Q\&A. Do not stop and fix slides mid-presentation---note the problems and fix them afterward.
+
+\textbf{Feedback collection}: the mock audience should focus on: (1)~are the key messages clear? (2)~are there claims without evidence? (3)~are there sections that are confusing or too long? (4)~what questions would a hostile reviewer ask? (5)~is the time management on track?
+
+\textbf{Post-mock action items}: prioritize fixes by impact. Slide reorganization and content gaps are high priority. Font size adjustments and animation tweaks are low priority. You have 3 days; spend them on substance, not polish.
+
+
+
+\begin{tipbox}[Student Guide Cross-Reference]
+For the sprint-level PDR preparation timeline and deliverable checklist, see the \textbf{Student Guide, SDI Sprint~5} section.
+\end{tipbox}
+
+\section{SDRD Completeness Checklist for PDR}
+Before submitting the SDRD as part of the PDR package, verify:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Every requirement has a unique ID (FR-001, PR-001, NF-001 format).
+\item Every requirement uses SHALL (Must-Have) or SHOULD (Should-Have) language.
+\item Every requirement is a single, independently verifiable statement (no compound requirements).
+\item Every requirement has quantitative acceptance criteria where applicable (numbers, units, tolerances).
+\item Every requirement traces upward to a specific client need (forward traceability).
+\item Every requirement has a TAID verification method assigned (Test, Analysis, Inspection, or Demonstration).
+\item Every requirement has a MoSCoW priority (Must, Should, Could, Won't).
+\item The SDRD includes at least: functional requirements, performance requirements, interface requirements, environmental requirements, safety requirements, and regulatory/standards requirements.
+\item Rationale is documented for each requirement (why this specific value, why this priority).
+\item No requirement specifies a design solution (``shall use Arduino'') instead of a performance need (``shall provide $\geq$8 analog inputs'').
+\item The total number of Must-Have requirements is achievable within two semesters (typically 15--25 for a capstone project).
+\item The SDRD has been reviewed by at least one team member who did not write it.
+\end{itemize}
+
+An SDRD that passes this checklist is ready for PDR. An SDRD that fails multiple items will receive significant feedback from reviewers---feedback that is much more expensive to incorporate after PDR than before.
+
+
+
+\section{Proof-of-Concept Best Practices by Track}
+The PoC demonstration at PDR must retire the project's highest technical risk. What constitutes an effective PoC differs by track:
+
+\textbf{Build Track}: demonstrate at least one physical function with measured data. The PoC does not need to be pretty or complete; it needs to \emph{work}. A thermocouple reading correctly on a breadboard, a motor spinning at the target speed with a bench power supply, or a 3D-printed mechanism that articulates as designed. Show: the test setup (photo), the measurement method, the expected result, the actual result, and the conclusion (``risk retired'' or ``additional investigation needed'').
+
+\textbf{Paper Track}: demonstrate computational goal attainment. A converging FEA mesh study, a validated sub-model that matches published benchmark data, or a simulation that produces physically reasonable results under boundary conditions. Show: the model setup, the validation case, the comparison to reference data, and the convergence metrics.
+
+\textbf{Competition Track}: demonstrate compliance with the highest-risk competition rule. If the competition requires the vehicle to fit through a specific opening, demonstrate a mockup that fits. If the competition requires a specific sensor accuracy, demonstrate the sensor meeting that accuracy. The PoC should address the rule that is hardest to meet or most likely to cause a tech inspection failure.
+
+\begin{keyconceptbox}[The PoC Risk Retirement Question]
+Before presenting your PoC at PDR, answer this question: ``What was the single biggest uncertainty about whether our concept would work, and does the PoC resolve that uncertainty?'' If you cannot articulate the risk being retired, the PoC has not served its purpose. A PoC that demonstrates something easy (``the LED blinks'') while leaving the hard question unanswered (``can the motor maintain position under vibration?'') wastes Sprint~4 effort.
+\end{keyconceptbox}
+
+
+
+\section{The Top 10 PDR Reviewer Questions}
+Prepare answers for these questions---they are asked at nearly every PDR:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item ``How did you determine the weights in your decision matrix?'' (Trace each weight to a client priority or requirement category.)
+\item ``What happens if your selected concept does not work?'' (Describe your fallback plan---is there a second-ranked concept you could pivot to?)
+\item ``How will you verify this requirement?'' (Point to the TAID entry in the VCRM and describe the specific test or analysis.)
+\item ``What is your highest technical risk, and how are you mitigating it?'' (Reference the risk register and the PoC results.)
+\item ``What standards apply to your design?'' (Identify specific clauses, not just standard numbers.)
+\item ``How does your sustainability assessment influence the design?'' (Point to specific requirements or design decisions driven by the assessment.)
+\item ``What is your procurement plan for long-lead items?'' (Show the BOM items with lead times and when they will be ordered.)
+\item ``What did the client think of your concept selection?'' (Describe the client approval meeting and any concerns raised.)
+\item ``How do you plan to manage scope if the project falls behind?'' (Reference the MoSCoW priorities---which Could/Won't requirements would be deferred first?)
+\item ``What would you do differently if you started this project again today?'' (Demonstrate self-awareness and learning from the Sprint~0--5 experience.)
+\end{enumerate}
+
+
+
+\section{The PDR-to-CDR Transition: What Happens Next}
+After PDR, the team has 3--4 months before CDR. Use this time deliberately:
+
+\textbf{Sprint 6 (SDI Weeks 14--15)}: incorporate PDR feedback, refine architecture, begin long-lead procurement. Submit the PDRt Update and Next Steps Email. Complete Peer Evaluation~\#2 and end-of-semester deliverables.
+
+\textbf{Semester break}: maintain team communication. The Scrum Master sends a brief check-in email before SDII starts. Individual team members review PDR documentation to refresh their knowledge.
+
+\textbf{Sprint 7 (SDII Week 1)}: re-engage with client. Set SDII goals. Complete the Hazard Assessment and Safety Plan. Review and update the Product Backlog. This sprint sets the pace for the entire build semester.
+
+\textbf{Sprint 8 (SDII Weeks 2--5)}: complete the detailed design, Engineering Calculation Package, and BOM. Order all remaining components. Complete the Manufacturing Review Meeting. Prepare and deliver CDR.
+
+The teams that use this transition period productively---ordering components, completing training, refining the design---arrive at CDR with confidence. The teams that treat the semester break as a vacation arrive at CDR scrambling to catch up.
+
+
+
+\section{Concept Sketching for Engineers}
+You do not need to be an artist to communicate concepts visually. Effective concept sketches follow simple rules:
+
+\textbf{Use block diagrams for systems}: rectangles connected by labeled arrows showing signal/energy/material flow. Every block has a clear label. Every arrow has a label describing what crosses the boundary. This is the universal language of systems engineering and is expected at PDR.
+
+\textbf{Use annotated sketches for physical concepts}: draw the concept in 2D or isometric 3D. Label key components, dimensions, and materials. Use call-out lines to annotate features that are not obvious from the drawing. The sketch does not need to be to scale; it needs to communicate the concept clearly.
+
+\textbf{Use comparison layouts}: when presenting 3 concepts for selection, show them side-by-side on a single slide or page with the same visual style, same level of detail, and same orientation. This enables instant visual comparison and prevents the bias that occurs when Concept~A has a polished CAD rendering while Concept~B has a rough hand sketch.
+
+\textbf{Tools}: hand sketches (photographed or scanned) are perfectly acceptable at PDR. If you prefer digital tools: draw.io (free, web-based) for block diagrams, Inkscape (free) for technical illustrations, or PowerPoint/Keynote for quick annotated diagrams. CAD renderings are impressive but not required at the concept stage; spending 20 hours in SolidWorks on a concept that may be eliminated by the decision matrix is poor time management.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Your reviewer says ``All three concepts scored within 5\% of each other.'' What does this indicate and what should you do?
+\item Create a PDR preparation checklist: 10+ items organized as ``1 week before,'' ``3 days before,'' ``day of.''
+\item Three requirements were flagged as untestable. Rewrite each: (a) ``The system shall be efficient,'' (b) ``The system shall be easy to use,'' (c) ``The system shall be durable.''
+\item Your Mock PDR ran 8 minutes over time. Diagnose three causes and fix each.
+\end{enumerate}
+
+

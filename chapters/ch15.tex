@@ -1,0 +1,326 @@
+\chapter{Purchasing Procedures}
+
+\section{The Purchasing Workflow}
+All purchases follow: (1)~team identifies need and selects item/vendor, (2)~\textbf{PA approves} the purchase, (3)~team submits purchase form to CP, (4)~CP processes the order, (5)~delivery to campus (Labriola~204), (6)~team picks up. \textbf{PA approval is required for all purchases.} Failure to obtain prior approval may result in personal financial liability.
+
+\section{Capstone Purchasing Team}
+\textbf{Kirsten Kelly}, Finance and Operations Manager (kkelly@mines.edu). Graduate Purchasing Assistants (capstonepurchasing@mines.edu). Office: Labriola~204. Schedule meetings via the booking link on Canvas.
+
+When emailing CP, always include: team name/number, submission date, vendor name, and form used.
+
+\section{Purchase Forms}
+Three forms on Canvas:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Purchase Form}: standard orders from approved vendors.
+\item \textbf{Shopping List}: multiple items, same vendor.
+\item \textbf{Reimbursement Form}: student-made purchases (very limited---requires PA pre-approval, itemized receipt, no tax).
+\end{itemize}
+
+\section{Approved Vendor List}
+Only order from approved vendors. Unapproved vendors require a review process and may be denied. Check the list before selecting components. If you need an unapproved vendor, discuss with CP \emph{early}---do not discover this issue the week before CDR.
+
+\section{Lead Time Planning}
+Order early. Common lead times: Amazon/DigiKey standard (3--7 days), specialty sensors/actuators (2--4 weeks), custom PCBs from JLCPCB/PCBWay (1--2 weeks fab + 1--2 weeks shipping), machined parts from external vendors (2--4 weeks). Build a procurement timeline during Sprint~1 and update at every sprint.
+
+Figure~\ref{fig:procurement-timeline} shows a typical procurement timeline for a Build Track project.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    bar/.style={rectangle, draw=MinesBlue, fill=MinesBlue!20, minimum height=0.4cm, font=\tiny\sffamily},
+    label/.style={font=\tiny\sffamily, anchor=east},
+    milestone/.style={font=\tiny\sffamily\bfseries\color{WarnOrange}}
+]
+% Timeline axis
+\draw[MinesSilver, line width=0.5pt] (0,0) -- (10,0);
+\foreach \x/\w in {0/CDR, 2/Wk4, 4/Wk6, 5/Break, 7/Wk10, 9/Wk14, 10/FDR} {
+    \draw[MinesSilver] (\x,-0.1) -- (\x,0.1);
+    \node[font=\tiny\sffamily\color{MinesSilver}, below] at (\x,-0.1) {\w};
+}
+
+% Bars
+\node[label] at (-0.1,1.6) {Std components};
+\node[bar, minimum width=1.5cm] at (0.75,1.6) {};
+\node[label] at (-0.1,1.1) {Custom PCBs};
+\node[bar, minimum width=3cm, fill=WarnOrange!20, draw=WarnOrange] at (1.5,1.1) {};
+\node[label] at (-0.1,0.6) {Specialty parts};
+\node[bar, minimum width=2.5cm, fill=AccentTeal!20, draw=AccentTeal] at (1.25,0.6) {};
+
+% Spring Break block
+\fill[WarnOrange!10] (4.5,-0.3) rectangle (5.5,2.0);
+\node[font=\tiny\sffamily\color{WarnOrange}, rotate=90] at (5,0.8) {BREAK};
+
+% Milestones
+\node[milestone] at (0,2.2) {CDR};
+\node[milestone] at (10,2.2) {FDR};
+\end{tikzpicture}
+\caption{Procurement timeline for a Build Track project. Standard components (3--7 days) should be ordered at CDR. Custom PCBs (3--4 weeks) and specialty parts (2--4 weeks) must be ordered before Spring Break to avoid schedule-breaking delays.}\label{fig:procurement-timeline}
+\end{figure}
+
+\begin{warningbox}[The Spring Break Shipping Trap]
+Spring Break means campus shipping/receiving, InnoHub, and all lab facilities are \textbf{closed for an entire week}. If a critical component fails during testing and you need a replacement, order it \emph{before} break---not after. Plan all critical procurement to arrive at least one week before break begins. This is the single most common procurement failure in capstone---avoid it.
+\end{warningbox}
+
+\section{Manufacturing Review Checkoff}
+If building in any Labriola facility, the Manufacturing Review Meeting is a \textbf{required checkoff on the purchasing form}. CP will not process material orders for your build until this checkoff is signed. See Chapter~12.
+
+\section{Receiving and Inventory}
+Packages arrive at Labriola~204. Pick up promptly. Maintain an inventory list of all received components---this feeds the BOM and budget tracker. Report shipping errors, damaged items, or missing components immediately.
+
+\section{Common Purchasing Mistakes}
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Ordering without PA approval $\to$ personal liability.
+\item Waiting until after CDR to order critical components $\to$ schedule crisis.
+\item Forgetting the Manufacturing Review checkoff $\to$ order rejected by CP.
+\item Not checking the approved vendor list $\to$ weeks of delay for vendor review.
+\item Paying sales tax when Mines is tax-exempt $\to$ non-reimbursable loss.
+\item Not tracking inventory $\to$ cannot reconcile budget at FDR.
+\end{enumerate}
+
+
+\section{Purchasing Timeline for Build Track Projects}
+The following timeline assumes a Spring semester. Adjust dates for Fall semester accordingly.
+
+\textbf{Sprint 1 (Weeks 3--4)}: identify long-lead-time components. Begin researching vendors and prices. No orders yet (design not stable enough).
+
+\textbf{Sprint 3--4 (Weeks 7--10)}: order components needed for proof-of-concept prototyping. These are typically development boards, breakout sensors, basic electronic components, and 3D printing filament (if beyond free allotment).
+
+\textbf{Sprint 5--6 (Weeks 11--15, SDI)}: order long-lead-time components for SDII build: custom PCBs, specialty sensors, motors, mechanical stock. \textbf{This is critical}---items ordered in Sprint~6 of SDI arrive in time for Sprint~8 of SDII. Items ordered in Sprint~8 of SDII may not arrive until Sprint~10.
+
+\textbf{Sprint 8 (SDII Weeks 2--5)}: order all remaining components from the BOM. Manufacturing Review Meeting must be complete before ordering build materials. All critical components should be ordered by the end of Sprint~8.
+
+\textbf{Sprint 9 (SDII Weeks 6--7)}: verify all orders received. Order replacements for any missing, damaged, or incorrect items. This is your last comfortable procurement window before Spring Break.
+
+\textbf{After Spring Break}: emergency orders only. Every day spent waiting for parts is a day lost from testing.
+
+\section{Working with Capstone Purchasing (CP)}
+CP processes hundreds of orders per semester across all capstone teams. Help them help you:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Be organized}: fill out forms completely and accurately. Missing information means CP has to email you for clarification, adding days to the process.
+\item \textbf{Batch orders}: combine multiple items from the same vendor into one Shopping List rather than submitting five separate Purchase Forms. This reduces CP workload and shipping costs.
+\item \textbf{Plan ahead}: CP cannot expedite orders that were submitted late. A ``rush'' order submitted on Friday afternoon will not be processed faster than a normal order submitted on Monday morning.
+\item \textbf{Communicate changes}: if you need to cancel or modify an order, contact CP immediately. Once an order is placed with the vendor, cancellation may not be possible.
+\item \textbf{Be respectful of CP staff time}: schedule meetings during posted hours, respond to their emails promptly, and pick up your packages when notified.
+\end{itemize}
+
+
+
+\section{The Reimbursement Process}
+Sometimes a student must make a purchase directly (e.g., buying materials at a local hardware store for an urgent repair). Reimbursement is possible but limited:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Get PA pre-approval} before making the purchase. Document the approval (email is sufficient).
+\item \textbf{Use the Mines tax exemption}: show the certificate to the vendor. If the vendor does not accept it (some local stores will not), you will pay tax---and tax is \textbf{not reimbursable}.
+\item \textbf{Get an itemized receipt}: the receipt must show each item, its price, and the total. A credit card charge slip alone is not sufficient.
+\item \textbf{Submit the Reimbursement Form}: fill out the form on Canvas, attach the receipt and PA approval email, and submit to CP.
+\item \textbf{Wait}: reimbursement processing takes 2--4 weeks. Do not rely on reimbursement for urgent cash-flow situations.
+\end{enumerate}
+
+\begin{warningbox}[Route Through CP Whenever Possible]
+Reimbursement is the fallback, not the default. CP has established vendor accounts, tax-exempt purchasing authority, and institutional purchasing processes. Route orders through CP to avoid tax, get better pricing, maintain proper documentation, and protect yourself from personal financial exposure.
+\end{warningbox}
+
+\section{Vendor Selection Tips}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{DigiKey / Mouser}: electronic components. Huge selection, reliable datasheets, fast shipping. Use for ICs, passives, connectors, wire.
+\item \textbf{McMaster-Carr}: mechanical components. Extensive catalog with CAD models for every product. Premium pricing but guaranteed quality and fast shipping.
+\item \textbf{Amazon}: general supplies. Fast shipping, wide selection, but verify: (1)~the seller is reputable, (2)~the product is genuine (not counterfeit), and (3)~the product matches the datasheet specs.
+\item \textbf{JLCPCB / PCBWay}: PCB fabrication. Upload Gerber files, select options, order. 5--10 boards for \$2--20 + shipping. JLCPCB also offers SMD assembly.
+\item \textbf{McMaster / Online Metals / Metals Depot}: raw materials (aluminum, steel, plastic sheet/rod/tube).
+\item \textbf{Adafruit / SparkFun}: development boards, breakout modules, and tutorials. Higher cost than raw components but pre-assembled and well-documented. Good for prototyping; switch to raw components for production.
+\end{itemize}
+
+
+
+\section{International Shipping and Customs}
+Some components are only available from international vendors (especially specialty sensors, motors, and materials). International shipping adds complexity:
+
+\textbf{Lead time}: international shipping typically adds 1--3 weeks beyond domestic. Use expedited shipping if the component is on the critical path. Budget \$30--80 for expedited international shipping.
+
+\textbf{Customs and duties}: Mines' tax-exempt status covers US state and federal taxes but does not exempt you from import duties on international shipments. Budget 5--15\% of item cost for potential customs charges.
+
+\textbf{Vendor reliability}: verify the international vendor is reputable. Check reviews, shipping history, and whether they accept returns. For Chinese vendors (AliExpress, Banggood), quality varies widely; order early enough to return and reorder if the product does not match the listing.
+
+\textbf{CP handling}: CP has experience with international orders. Discuss international procurement with CP early in the process; they can advise on the best approach and any institutional restrictions.
+
+\section{Emergency Procurement}
+When a component fails during testing and you need an immediate replacement:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Check if the same component is available locally (Home Depot, Ace Hardware, local electronics shop, another team's spare parts).
+\item If not local: order from Amazon with 1--2 day shipping (verify the item is Prime-eligible and ships from a US warehouse).
+\item If not Amazon: order from DigiKey or Mouser with overnight shipping (\$20--40 premium, worth it if you are testing next week).
+\item Document the emergency purchase and submit the reimbursement form with a note explaining the urgency.
+\item Update the Budget Tracker immediately.
+\end{enumerate}
+
+For emergency purchases, get PA approval by phone or text if email response will take too long. Follow up with an email confirmation.
+
+
+
+\section{The Purchasing Decision Tree}
+When you need to buy something, follow this decision tree:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Is it available from the InnoHub?} Some materials and consumables are available from InnoHub inventory at cost. Check the InnoHub materials page first.
+\item \textbf{Is the vendor on the approved list?} If yes, submit a Purchase Form to CP. If no, contact CP to request vendor approval (allow 1--2 weeks for review).
+\item \textbf{Is this a build material order?} If yes, verify the Manufacturing Review Meeting checkoff is complete. CP will not process the order without it.
+\item \textbf{Is the cost within your remaining budget?} If yes, proceed with PA approval. If no, discuss with PA and CFO before committing.
+\item \textbf{Is this urgent?} If a component has failed during testing and you need a replacement immediately, consider local sources or Amazon Prime before the standard CP workflow (which takes 3--5 business days to process).
+\item \textbf{Does the vendor accept tax exemption?} If yes, provide the certificate. If no, route through CP or accept that tax is non-reimbursable.
+\end{enumerate}
+
+\section{Inventory Management}
+Maintain an inventory list (spreadsheet) of all components received. For each item: date received, description, quantity, location (which drawer/bin/shelf in your workspace), and status (unused, installed, spare, consumed). Benefits:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Prevents duplicate orders (``I didn't know we already had those resistors'').
+\item Enables quick substitution (``The motor failed; check inventory for the backup we ordered'').
+\item Supports the FDR BOM reconciliation (actual quantities used vs. ordered).
+\item Prevents loss (components scattered across multiple workspaces without tracking are components that disappear).
+\end{itemize}
+
+
+
+\section{Tracking Orders from Submission to Receipt}
+Maintain an order tracking log (spreadsheet or Trello board) with one row per order:
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lXXXXX}
+\toprule
+\textbf{Order \#} & \textbf{Vendor} & \textbf{Items} & \textbf{Date Submitted} & \textbf{Expected Arrival} & \textbf{Status} \\
+\midrule
+PO-001 & DigiKey & ICs, passives & 2/15 & 2/22 & Received \\
+PO-002 & JLCPCB & PCB Rev 1 & 2/18 & 3/4 & In transit \\
+PO-003 & McMaster & Bearings, bolts & 2/20 & 2/25 & Processing \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The CFO or Purchasing Lead updates this log when: the order is submitted to CP, CP confirms the order is placed, a tracking number is received, and the package is picked up from Labriola~204.
+
+\textbf{Chasing delayed orders}: if an order has not arrived by the expected date, contact CP. CP can check with the vendor for tracking information. Do not assume delayed orders will ``show up eventually''---proactive follow-up prevents schedule surprises.
+
+\textbf{Receiving inspection}: when packages arrive, immediately verify: correct items received (compare to the order), correct quantities, no shipping damage, and components match the datasheet specifications (correct package size, correct part number markings). Report discrepancies to CP within 24 hours.
+
+
+
+\section{Procurement Risk Management}
+Procurement is on the critical path for most Build Track projects. Manage it proactively:
+
+\textbf{Identify long-lead items in Sprint 1}: during the first SOW development, scan the preliminary BOM for items with lead times $>$2 weeks. These include: custom PCBs, specialty sensors, motors and gearboxes, structural materials, and anything shipping from overseas.
+
+\textbf{Dual-source critical components}: for components where a stock-out or shipping delay would stall the project, identify a backup source (different vendor, compatible alternative part). Document the backup in the BOM: ``Primary: Adafruit \#4871 (\$14.95, 3-day). Backup: SparkFun \#SEN-13770 (\$15.95, 3-day). Pin-compatible.''
+
+\textbf{Order in waves}: Wave 1 (Sprint 6/SDI or Sprint 7/SDII): long-lead-time and critical-path items. Wave 2 (Sprint 8): all remaining BOM items after CDR design freeze. Wave 3 (Sprint 9+): replacement parts and additional consumables as needed. This wave structure prevents both premature ordering (before the design is stable) and late ordering (after the schedule margin is consumed).
+
+\textbf{Track order status actively}: the CFO or Purchasing Lead checks order status weekly during the build phase. If an order has not shipped within the expected timeframe, contact CP immediately. Do not assume ``it will show up eventually''---proactive follow-up prevents schedule surprises.
+
+\textbf{The ``Will Call'' option}: for components available locally (Home Depot, Ace Hardware, local electronics shops), consider buying locally for urgent needs. This avoids the 3--5 day CP processing time. Remember: PA pre-approval is still required, and sales tax must be avoided using the exemption certificate.
+
+
+
+\section{Evaluating Vendor Reliability}
+Not all vendors are equal. Evaluate potential vendors before committing budget:
+
+\textbf{Delivery reliability}: does the vendor ship on time consistently? Check reviews on Reddit, EEVblog forums, and other engineering communities. For Chinese PCB vendors (JLCPCB, PCBWay), standard shipping is 7--14 days; express (DHL/FedEx) is 3--5 days. Factor the actual delivery time into your schedule, not the vendor's optimistic estimate.
+
+\textbf{Product quality}: for electronic components, buy from authorized distributors (DigiKey, Mouser, Newark, Arrow) whenever possible. Amazon and eBay sellers frequently sell counterfeit or substandard components---an ``Arduino Nano'' from an unknown seller may use a clone chip that is unreliable or incompatible with your libraries.
+
+\textbf{Return and warranty policies}: before ordering, understand the return policy. DigiKey and Mouser accept returns within 30 days for unopened items. Amazon return policies vary by seller. JLCPCB will re-fabricate boards with manufacturing defects but will not refund design errors (and should not---the design is your responsibility).
+
+\textbf{Technical support}: some vendors (Adafruit, SparkFun, Pololu) provide excellent documentation, tutorials, and community forums. This support can save hours of debugging. The component may cost \$5 more than a bare-bones alternative, but the documentation makes the \$5 investment pay for itself many times over.
+
+\section{Handling Incorrect or Damaged Shipments}
+When a shipment arrives with problems:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Document immediately}: photograph the packaging and contents before disturbing anything. Note the order number, shipping tracking number, and a description of the problem.
+\item \textbf{Contact CP}: report the issue to capstonepurchasing@mines.edu with: team name, order number, description of the problem, and photos. CP will initiate the return or replacement process with the vendor.
+\item \textbf{Do not discard anything}: keep all packaging, packing slips, and the incorrect/damaged items until CP confirms the resolution. The vendor may require the item to be returned.
+\item \textbf{Order the replacement immediately}: do not wait for the return to be processed before ordering the correct item. The schedule impact of waiting for a return cycle (1--2 weeks) plus a new order (1--2 weeks) is unacceptable on most capstone timelines.
+\end{enumerate}
+
+
+
+\section{Vendor-Specific Ordering Tips}
+\textbf{DigiKey/Mouser}: search by parametric filters (voltage, current, package, temperature range) rather than browsing categories. Use the ``In Stock'' filter. Check minimum order quantities (MOQ)---some components require ordering 100+ units. For passive components (resistors, capacitors), order from cut tape rather than reels to get small quantities.
+
+\textbf{JLCPCB}: use their online Gerber viewer to verify your board before ordering. Select ``HASL with lead'' for the cheapest option or ``ENIG'' for better surface finish (recommended for fine-pitch SMD). Standard green soldermask is cheapest; other colors cost \$1--3 more. Their SMD assembly service (PCBA) can populate common components from their parts library, saving hours of hand soldering.
+
+\textbf{McMaster-Carr}: their 3D CAD models are excellent---download the model for every purchased component and integrate it into your assembly to verify fit before ordering. McMaster ships same-day for in-stock items, making them ideal for urgent needs. Their prices are premium but the reliability and convenience justify the cost for critical items.
+
+\textbf{Amazon}: verify seller ratings and reviews. For electronic components, prefer Amazon-fulfilled listings over third-party sellers. \textbf{Beware of counterfeits}: Arduino boards, OLED displays, and sensor modules from unknown sellers may use clone chips with reliability or compatibility issues. If in doubt, buy from Adafruit or SparkFun for guaranteed quality.
+
+\textbf{Local hardware stores} (Home Depot, Ace, Harbor Freight): useful for hardware (bolts, nuts, washers), raw materials (aluminum bar, angle, sheet), tools, paint, adhesives, and electrical supplies. Bring the tax exemption certificate. Local purchases avoid shipping delays and costs.
+
+
+
+\section{Component Selection Best Practices}
+Selecting the right component is an engineering decision that balances performance, availability, cost, and risk:
+
+\textbf{Start with the requirement}: what does the component need to do? Translate the system-level requirement into component-level specifications. A ``temperature measurement accuracy of $\pm$1\,\degC{}'' translates into sensor specifications: accuracy, range, response time, output type, and operating environment.
+
+\textbf{Search parametrically}: use DigiKey or Mouser parametric search to filter components by the critical specifications. This narrows thousands of options to 10--20 candidates. Sort by: ``In Stock'' first, then by price or relevance.
+
+\textbf{Evaluate the datasheet}: for each candidate, read the datasheet---not just the first page, but the electrical characteristics, absolute maximum ratings, application circuit, and recommended PCB layout. The datasheet is the manufacturer's contract with you about what the component will do.
+
+\textbf{Check availability and lead time}: a perfect component that is backordered for 12 weeks is useless for your timeline. Verify in-stock quantity and expected lead time before finalizing the selection. Check multiple vendors; a component out of stock at DigiKey may be available at Mouser or Newark.
+
+\textbf{Prefer components with application notes}: manufacturers publish application notes (app notes) that show how to use the component in common circuits, with design equations, recommended values, and PCB layout guidance. A component with a 20-page app note saves hours of design time compared to one with only a basic datasheet.
+
+\textbf{Prefer components used by the maker community}: components with Arduino/ESP32 libraries, SparkFun or Adafruit breakout boards, and YouTube tutorials are dramatically easier to integrate. The community has already found and documented the common pitfalls. For capstone, this is a significant advantage.
+
+\section{When Components Are Discontinued or Unavailable}
+Supply chain disruptions affect capstone teams regularly. When your selected component becomes unavailable:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Check other vendors}: the component may be available from a different distributor (Mouser vs. DigiKey vs. Newark vs. Arrow).
+\item \textbf{Check the manufacturer's cross-reference}: most manufacturers publish a list of pin-compatible, spec-compatible replacements for discontinued parts.
+\item \textbf{Search for functional equivalents}: use parametric search with the critical specifications to find alternatives. Verify that the alternative meets \emph{all} critical specs, not just the primary one.
+\item \textbf{Use a breakout module}: if the bare IC is unavailable, a development module (Adafruit, SparkFun, Pololu) that uses the same IC may be in stock. The form factor is larger but the functionality is identical.
+\item \textbf{Redesign the circuit}: if no drop-in replacement exists, redesign the circuit around an available component. This is expensive (schedule and engineering time) but sometimes necessary.
+\end{enumerate}
+
+Document the substitution: original component, replacement component, reason for change, and verification that the replacement meets all affected requirements. This goes in the CDR change log.
+
+
+
+\section{Buying from International Vendors: Practical Guidance}
+Many capstone components are cheapest from Chinese vendors (AliExpress, Banggood, Taobao via agents). Practical considerations:
+
+\textbf{Quality variation}: Chinese marketplace vendors range from excellent to terrible. Components may be: genuine branded parts at a discount, compatible clones that work but have lower specifications, or outright counterfeits with falsified markings. For critical components (ICs, voltage regulators, power transistors), buy from authorized distributors only. For non-critical components (LEDs, generic passives, enclosures), marketplace sources are usually acceptable.
+
+\textbf{Shipping time}: standard free shipping from China takes 2--6 weeks. ePacket takes 1--3 weeks. Express (DHL, FedEx) takes 3--7 days at \$15--50 per shipment. Factor the \emph{actual} delivery time into your procurement timeline, not the vendor's optimistic estimate. Track every international shipment.
+
+\textbf{Customs and duties}: shipments valued $>$\$800 may incur customs duties (5--15\% of declared value). Shipments valued $<$\$800 are typically duty-free under the US de minimis threshold. The vendor's declared value may differ from the actual value---this is the vendor's practice, not something you control.
+
+\textbf{Returns}: returning items to China is usually impractical (return shipping costs more than the item). Most Chinese vendors offer refunds without returns for defective items if you provide photo evidence. Document any defects immediately with photos and contact the vendor within the dispute window (typically 15--60 days after delivery).
+
+\textbf{CP handling}: Capstone Purchasing may have restrictions on international vendors. Discuss international procurement with CP before placing orders. They may require the order to go through an approved US-based distributor instead.
+
+
+
+\section{End-of-Project Purchasing Closeout}
+At the end of the project, the CFO completes the purchasing closeout:
+
+\textbf{Final receipt reconciliation}: verify that every purchase has a corresponding receipt or purchase order in the Budget Tracker. Reconcile the CP records with your team's records. Flag any discrepancies.
+
+\textbf{Return unused items}: if the project purchased spare components that were not used, discuss with the PA and CP whether items can be returned for credit or stored for future capstone teams.
+
+\textbf{Return borrowed equipment}: if the team borrowed equipment from the InnoHub, ME labs, or other facilities, return everything during Final Checkout. Document what was returned and to whom.
+
+\textbf{Asset disposition}: some project deliverables (the prototype, test equipment, remaining materials) must be transferred to the client. Others remain with the program. The SOW should specify the disposition of all physical assets. During Final Checkout, verify that assets are transferred as agreed.
+
+\textbf{Final Budget Tracker upload}: the final version of the Budget Tracker, showing all actual costs reconciled against the budget, is submitted to Canvas as part of the FDR deliverables. This is the financial record of the project and serves as a reference for future capstone budget planning.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Map a procurement timeline for a project needing custom PCBs, specialty motors, and standard electronics. CDR is SDII Week~4, Spring Break is Week~10.
+\item Your PA is unavailable when you urgently need a replacement motor. What do you do?
+\item A teammate wants a component from an unapproved vendor at 30\% lower cost. Walk through the decision.
+\end{enumerate}
+
+

@@ -1,0 +1,260 @@
+\chapter{Requirements Engineering}
+
+\section{Why Requirements Matter}
+Requirements are the contract between the problem and the solution. They are the single most important set of documents in the entire project. A requirement that says ``the system shall be fast'' is useless; it cannot be tested, and two people will interpret ``fast'' differently. A requirement that says ``the system shall complete a measurement cycle in $\leq$2.0 seconds under normal operating conditions'' is testable, unambiguous, and traceable to a client need (``I need results quickly on the production floor'').
+
+Poorly written requirements are the single largest source of capstone project failure. If your requirements are vague, your design has no anchor. If they are wrong, your design solves the wrong problem. If they are missing, your design has gaps that surface at FDR when it is too late to fix them. If they are untraceable, you cannot prove that your design addresses the client's actual needs.
+
+The time you invest in writing clear, testable, traceable requirements during Sprint~1--2 will save you ten times that effort during build and test. Every hour spent refining requirements saves 10--100 hours of rework downstream. This is not a platitude; it is an empirically observed pattern across decades of engineering project data.
+
+\section{The Anatomy of a Good Requirement}
+Every requirement has four essential components:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Unique identifier}: a short, persistent label that allows traceability through the entire project. Convention: FR-001 (functional), PR-001 (performance), NF-001 (non-functional), IF-001 (interface), SF-001 (safety). The identifier never changes, even if the requirement text is revised.
+\item \textbf{SHALL statement}: the requirement itself, using ``shall'' for mandatory requirements and ``should'' for desirable goals. ``The system \textbf{shall} measure temperature with an accuracy of $\pm$1.0\,\degC{} over the range 0--200\,\degC{}.'' Every word matters; every number must be justified.
+\item \textbf{Rationale}: why this requirement exists and what client need it traces to. ``This requirement ensures that the system meets the client's stated need for laboratory-grade temperature measurement (Need N-003).''
+\item \textbf{Verification method}: how you will prove compliance---Test (T), Analysis (A), Inspection (I), or Demonstration (D). Assign the method when you write the requirement.
+\end{enumerate}
+
+\begin{warningbox}[Words That Kill Requirements]
+Avoid these words in SHALL statements: ``adequate,'' ``appropriate,'' ``approximately,'' ``as needed,'' ``best,'' ``effective,'' ``efficient,'' ``fast,'' ``flexible,'' ``good,'' ``high,'' ``improved,'' ``low,'' ``maximize,'' ``minimize,'' ``optimal,'' ``reasonable,'' ``reliable,'' ``robust,'' ``safe,'' ``significant,'' ``sufficient,'' ``suitable,'' ``timely,'' ``user-friendly.'' Every one of these is subjective and untestable. Replace them with numbers, units, and specific conditions.
+\end{warningbox}
+
+Figure~\ref{fig:req-hierarchy} shows how requirements flow from client needs through system requirements to design specifications.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    box/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=5cm, minimum height=0.8cm, align=center, font=\small\sffamily\bfseries, rounded corners=2pt, line width=0.7pt},
+    smallbox/.style={rectangle, draw=AccentTeal, fill=AccentTeal!8, text width=4cm, minimum height=0.6cm, align=center, font=\scriptsize\sffamily, rounded corners=2pt, line width=0.5pt},
+    arrow/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.6pt}
+]
+\node[box] (needs) {Client Needs \& ConOps};
+\node[box, below=of needs] (sysreq) {System Requirements (SDRD)};
+\node[box, below=of sysreq] (subsys) {Subsystem Specifications};
+\node[box, below=of subsys] (comp) {Component Specifications};
+
+\draw[arrow] (needs) -- node[right, font=\tiny\sffamily\color{MinesSilver}]{``what'' $\to$ ``how well''} (sysreq);
+\draw[arrow] (sysreq) -- node[right, font=\tiny\sffamily\color{MinesSilver}]{allocation} (subsys);
+\draw[arrow] (subsys) -- node[right, font=\tiny\sffamily\color{MinesSilver}]{detailed specs} (comp);
+
+\node[smallbox, right=1.5cm of needs] (rtm) {Requirements Traceability\\Matrix (RTM)};
+\node[smallbox, right=1.5cm of sysreq] (vcrm) {Verification Cross-Reference\\Matrix (VCRM)};
+
+\draw[-{Stealth[length=1.5mm]}, AccentTeal, line width=0.4pt, dashed] (needs) -- (rtm);
+\draw[-{Stealth[length=1.5mm]}, AccentTeal, line width=0.4pt, dashed] (sysreq) -- (vcrm);
+\draw[-{Stealth[length=1.5mm]}, AccentTeal, line width=0.4pt, dashed] (rtm) -- (vcrm);
+\end{tikzpicture}
+\caption{Requirements hierarchy and traceability. Client needs flow down through system requirements to component specifications. The RTM and VCRM provide bidirectional traceability and verification tracking at each level.}\label{fig:req-hierarchy}
+\end{figure}
+
+\section{Requirement Priority: MoSCoW}
+Not all requirements are equally critical. Classify each requirement using the MoSCoW framework:
+
+\textbf{Must Have} (M): the system fails without this capability. It is a hard constraint that cannot be negotiated away. If a Must requirement is not met, the project has not succeeded. These become SHALL statements. Example: ``The system shall shut off the heater if the temperature exceeds 200\,\degC{}.'' (Safety-critical; non-negotiable.)
+
+\textbf{Should Have} (S): important to the client but the system still functions without it. If schedule pressure forces trade-offs, Should requirements are deferred before Must requirements. These become SHOULD statements. Example: ``The system should log temperature data to an SD card at 1-second intervals.'' (Valuable but not safety-critical.)
+
+\textbf{Could Have} (C): nice-to-have features that add value if time and budget permit. Example: ``The system could display a temperature trend graph on a color LCD.'' (User convenience; not essential to core function.)
+
+\textbf{Won't Have} (W): explicitly excluded from this version. Documenting what you will \emph{not} do is as important as documenting what you will do; it prevents scope creep by making the boundary visible. Example: ``The system will not include wireless connectivity in this version.''
+
+MoSCoW prevents scope creep by forcing the team and client to agree on what is essential \emph{before} design begins. When schedule pressure mounts (and it will), the MoSCoW classification tells you which features to protect and which to defer. If everything is classified as ``Must,'' either the scope is too small or the team has not been honest about priorities.
+
+\section{Types of Requirements}
+
+\textbf{Functional requirements} describe \emph{what} the system does. Each functional requirement maps to a system function. Example: ``The system shall display the current soil moisture level on an LCD screen'' (FR-001). ``The system shall actuate the irrigation valve when soil moisture drops below the configured threshold'' (FR-002).
+
+\textbf{Performance requirements} describe \emph{how well} the system performs its functions. These are quantitative and testable. Example: ``The system shall measure soil moisture with an accuracy of $\pm$3\% volumetric water content over the range 0--60\%'' (PR-001). ``The system shall respond to a threshold crossing by actuating the valve within 5.0 seconds'' (PR-002).
+
+\textbf{Non-functional requirements} describe constraints on the design that are not directly related to specific functions. Categories include:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Environmental}: operating temperature range, IP rating, humidity tolerance, UV exposure, vibration, chemical resistance.
+\item \textbf{Regulatory}: UL/CSA listing, FCC compliance, building codes, EPA regulations, ADA accessibility.
+\item \textbf{Safety}: maximum surface temperature, emergency shutoff, overcurrent protection, mechanical guarding, fire resistance.
+\item \textbf{Maintainability}: mean time to repair (MTTR), tool-free access to serviceable components, standardized connectors.
+\item \textbf{Sustainability}: material recyclability, energy efficiency, design for disassembly (see Chapter~5).
+\item \textbf{Interface}: communication protocols (I2C, SPI, UART, CAN, Ethernet), connector types, mounting dimensions, power supply compatibility.
+\item \textbf{Usability}: setup time, training requirements, error message clarity, physical accessibility.
+\end{itemize}
+
+\section{The System Design Requirements Document (SDRD)}
+The SDRD is the single authoritative document that captures all system-level requirements. It is the foundational engineering document for the entire project. Standard structure:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Introduction}: system overview, scope, purpose, applicable documents, glossary of terms.
+\item \textbf{System Description}: ConOps summary, system boundary diagram, external interfaces, operating environment.
+\item \textbf{Requirements}: organized by category (functional, performance, non-functional). Each requirement includes: unique ID, SHALL/SHOULD statement, rationale, parent traceability (which need it addresses), verification method (T/A/I/D), and MoSCoW priority.
+\item \textbf{Traceability Matrix}: forward (need $\to$ requirement) and backward (requirement $\to$ need).
+\item \textbf{Verification Plan Summary}: method assignments and planned test phases.
+\end{enumerate}
+
+The SDRD is a \textbf{living document}. It is baselined at PDR (the first official version that the team, PA, and client agree represents the design intent) and updated under configuration management through CDR and FDR. Every change after baseline requires: a description of the change, the reason for the change, the impact on other requirements and design elements, and approval from the PA (and client, if the change affects scope or performance).
+
+\begin{tipbox}[Start Your RTM on Day 1]
+Maintain the Requirements Traceability Matrix from the first client meeting. A simple spreadsheet with columns for Need ID, Need Description, Requirement ID, Requirement Text, Verification Method, Status, and Notes is sufficient. Update it at every team meeting and after every design decision. By FDR, it becomes the single artifact that tells the complete project story. Teams that skip this step spend hours reconstructing traceability for the final report---and the reconstructed version is always less accurate than a continuously maintained one.
+\end{tipbox}
+
+\section{Requirements Traceability}
+Traceability ensures that every requirement has a \textbf{parent} (the client need it addresses) and a \textbf{child} (the design element or test that addresses it). Bidirectional traceability means you can answer two questions at any time:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Forward}: ``For each client need, which requirements address it?'' (No need is left unaddressed.)
+\item \textbf{Backward}: ``For each requirement, which need justifies it?'' (No requirement exists without justification---this catches ``gold plating,'' where the team adds features nobody asked for.)
+\end{itemize}
+
+The RTM is a table linking every requirement to its parent need, its verification method, and its current status. Open the RTM at every team meeting. By FDR, every entry should show: Verified (with evidence reference), Failed (with disposition), Waived (with client approval), or Deferred (with rationale and plan).
+
+\section{The Verification Cross-Reference Matrix (VCRM)}
+The VCRM extends the RTM by adding test procedure references and results. For each requirement, the VCRM records:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Requirement ID and text
+\item Verification method (T, A, I, or D)
+\item Test procedure ID (for requirements verified by Test)
+\item Planned verification phase (PDR, CDR, or FDR)
+\item Actual result: Open, Verified (with evidence reference), Failed (with disposition), Waived (with approval)
+\end{itemize}
+
+The VCRM evolves from a \textbf{plan} at PDR (all entries Open, methods assigned) to a \textbf{partially complete record} at CDR (analysis verifications complete, some test results available) to a \textbf{final scorecard} at FDR (all entries dispositioned). A VCRM with mostly ``Open'' entries at FDR indicates insufficient verification effort.
+
+\section{Engineering Standards}
+Identify applicable engineering standards early in the requirements process. Standards become non-functional requirements that are often non-negotiable. Common categories for capstone projects:
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Domain} & \textbf{Common Standards} \\
+\midrule
+Electrical safety & UL/CSA, IEC~61010 (lab equipment), NEC (wiring) \\
+EMC & FCC Part~15 Class~B (residential), IEC~61000 (EU) \\
+Environmental protection & IP ratings (IEC~60529), NEMA enclosure ratings \\
+Structural & AISC (steel), ACI~318 (concrete), ASCE~7 (loads) \\
+Civil/Environmental & local building codes, EPA regulations, stormwater permits \\
+Materials compliance & RoHS, REACH, California Prop~65 \\
+Accessibility & ADA (Americans with Disabilities Act) \\
+Pressure vessels & ASME BPVC \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Discovering a regulatory requirement at CDR rather than PDR is one of the most expensive mistakes in capstone. A single missed standard can invalidate an entire design approach and force a restart with weeks remaining in the semester.
+
+\section{Track-Specific Requirements}
+
+\textbf{Build Track}: requirements emphasize physical performance (force, speed, accuracy, temperature range), environmental survivability (IP rating, vibration, thermal shock), safety (emergency shutoff, fusing, mechanical guards), and interface compatibility (connectors, protocols, mounting). Verification is primarily by Test and Demonstration.
+
+\textbf{Paper Track}: requirements emphasize analytical fidelity (mesh convergence criteria, numerical error bounds, model assumptions documented), validation criteria (comparison to experimental data or published benchmarks with stated acceptance thresholds), documentation completeness (sufficient detail for a qualified engineer to implement the design), and simulation performance (convergence time, computational resource requirements). Verification is primarily by Analysis and Inspection.
+
+\textbf{Competition Track}: requirements include all Build or Paper requirements \emph{plus} competition rules as mandatory constraints. Competition rules are non-negotiable SHALL requirements that take precedence over team preferences. Schedule requirements must account for the competition calendar with margin for delays. Registration deadlines, tech inspection criteria, and safety requirements from the competition rulebook become formal requirements in your SDRD.
+
+\section{Requirements-Architecture Iteration}
+Requirements and architecture co-evolve. Initial requirements drive a candidate architecture. That architecture reveals implementation constraints (weight, power budget, thermal limits, cost) that feed back as new requirements or modified performance targets. This iteration is normal and healthy, but it must be documented. Each iteration produces a revised SDRD version with change rationale.
+
+\textbf{Convergence test}: when two consecutive iterations change fewer than 5\% of requirements, the design is stable enough to baseline at PDR. If requirements are still changing rapidly at PDR, the design is not ready for review.
+
+\section{Requirements Change Management After Baselining}
+The SDRD is baselined at PDR---meaning the team, PA, and client agree that this version represents the design intent. After baselining, \emph{every change must be formally documented}. A change request includes:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Change description}: exactly what is being changed (old text $\to$ new text).
+\item \textbf{Rationale}: why the change is needed (test results, client request, feasibility issue, cost constraint).
+\item \textbf{Impact assessment}: which other requirements, design elements, test procedures, and schedule milestones are affected by this change.
+\item \textbf{Approval}: PA signature. If the change affects scope or performance, client approval is also required.
+\end{enumerate}
+
+Maintain a change log in the SDRD. At FDR, the change log tells the story of how the requirements evolved from baseline to final state.
+
+Teams that skip change management arrive at FDR with a design that does not match their requirements document. This mismatch makes the VCRM meaningless (you are verifying against outdated requirements) and undermines the credibility of the entire project documentation.
+
+\section{Common Requirements Writing Mistakes}
+These mistakes appear in capstone SDRD documents every semester. Avoid them:
+
+\textbf{Solution masquerading as a requirement}: ``The system shall use an Arduino Mega 2560'' is a design decision, not a requirement. The requirement might be ``the system shall provide at least 8 analog input channels and 20 digital I/O pins with 5\,V logic levels.'' Multiple MCUs could meet this requirement; selecting the Arduino is a design choice that should be justified in the architecture section, not hardcoded in the SDRD.
+
+\textbf{Untestable requirement}: ``The system shall be user-friendly.'' How do you test this? With what acceptance criteria? A testable alternative: ``A first-time user shall be able to complete the primary measurement procedure without assistance in under 5 minutes, as verified by timed demonstration with 3 naive users.''
+
+\textbf{Compound requirement}: ``The system shall measure temperature with $\pm$1\,\degC{} accuracy and display the value on an LCD and log it to an SD card.'' This is three requirements bundled into one. If the temperature measurement works but the SD card logging fails, is this requirement met or failed? Split compound requirements into individual, independently verifiable statements.
+
+\textbf{Orphan requirement}: a requirement with no parent need. If you cannot trace a requirement back to a specific client need, it is either gold-plating (adding features nobody asked for) or an implicit need that should be explicitly captured in your needs analysis.
+
+\textbf{Missing non-functional requirements}: teams focus on functional and performance requirements and forget environmental constraints (operating temperature, IP rating), power constraints (maximum power consumption, battery life), maintainability requirements (access for filter replacement, calibration interval), and interface requirements (connector types, communication protocols). These omissions surface at CDR or FDR as ``I didn't think of that'' moments that require expensive redesign.
+
+\textbf{Requirement inflation}: specifying tighter performance than the client needs. If the client needs $\pm$5\,\degC{} and you specify $\pm$0.5\,\degC{}, you have increased cost, complexity, and risk by an order of magnitude for no benefit. Write requirements that meet the need, not requirements that showcase your ambition.
+
+\section{Requirements Review Checklist}
+Before submitting your SDRD for PDR, verify every requirement against this checklist:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Unique ID}: does it have a persistent identifier (FR-001, PR-001, NF-001)?
+\item \textbf{SHALL/SHOULD}: is the obligation level clear? Must-have = SHALL; Should-have = SHOULD.
+\item \textbf{Single requirement}: does it state exactly one verifiable condition? If ``and'' appears, consider splitting.
+\item \textbf{Testable}: can you write a test procedure (or analysis, inspection, demonstration) with specific pass/fail criteria?
+\item \textbf{Quantitative}: does it include numbers and units where applicable?
+\item \textbf{No ambiguous words}: does it avoid ``adequate,'' ``appropriate,'' ``fast,'' ``reliable,'' ``user-friendly,'' and other subjective terms?
+\item \textbf{Traceable upward}: does it trace to a specific client need?
+\item \textbf{Traceable downward}: is a TAID verification method assigned?
+\item \textbf{MoSCoW assigned}: is it classified as Must, Should, Could, or Won't?
+\item \textbf{Rationale documented}: does the rationale explain why this requirement exists?
+\item \textbf{Not a design solution}: does it specify \emph{what} the system must do, not \emph{how} to do it?
+\end{itemize}
+
+If any requirement fails this checklist, revise it before PDR. A SDRD full of vague, untestable, untraced requirements is the strongest predictor of a struggling project.
+
+\begin{tipbox}[The Requirements Peer Review]
+Before PDR, have your PA or another team review your SDRD. Fresh eyes catch ambiguities that the authoring team has become blind to. Ask the reviewer: ``Can you write a test for this requirement based solely on its text?'' If they cannot, the requirement needs revision.
+\end{tipbox}
+
+
+\section{Integrating Engineering Standards into Requirements}
+CLO~3 requires you to identify appropriate engineered systems standards and incorporate them into the design. Standards appear in the SDRD as non-functional requirements:
+
+\textbf{Identifying applicable standards}: start with the project domain. Electrical products: IEC~61010 (safety), IEC~61000 (EMC), UL~508A (industrial control panels). Mechanical products: ASME Y14.5 (GD\&T), ASME B31.1 (power piping), ASTM material standards. Software: IEC~62304 (medical device software), DO-178C (aviation software). Environmental: EPA regulations, ISO~14001. Construction: ASCE~7 (structural loads), IBC (building code), ADA (accessibility).
+
+\textbf{Incorporating standards into requirements}: do not simply list the standard in an appendix. Extract the specific clauses that apply to your design and write them as testable requirements. Example: instead of ``The system shall comply with IEC~61010,'' write ``The system shall withstand a 1500\,VAC hipot test between all mains-connected conductors and the enclosure for 60 seconds without breakdown, per IEC~61010 Section~6.3.'' The former is unverifiable; the latter has a specific test procedure.
+
+\textbf{Standards as design constraints}: some standards constrain the design space rather than specifying performance. ``All food-contact surfaces shall be 304 stainless steel or FDA-approved polymer, per FDA 21~CFR~177'' eliminates certain materials from consideration. Capture these as constraints in the SDRD.
+
+\textbf{Where to find standards}: Mines Library provides access to many standards through the ASTM Compass and IHS Standards databases. IEEE standards are available through IEEE Xplore. ASME, SAE, and ASCE standards may require purchase; consult your PA about department copies. For capstone, referencing the relevant standard and extracting the applicable requirements is sufficient; you do not need to purchase every standard cited.
+
+
+
+\section{Building the Traceability Matrix}
+The traceability matrix links every requirement to its origin (client need) and its verification (TAID method and test procedure). Construct it incrementally:
+
+\textbf{Forward traceability} (needs $\to$ requirements): for each client need identified during elicitation, show which requirement(s) address it. A need that has no corresponding requirement is an unmet need that should be either addressed (add a requirement) or explicitly documented as out of scope. A requirement that traces to no need is gold-plating and should be questioned.
+
+\textbf{Backward traceability} (requirements $\to$ verification): for each requirement, show how it will be verified. The VCRM provides this mapping. A requirement with no verification method will arrive at FDR without evidence of compliance---this is a documentation failure that undermines the entire verification effort.
+
+\textbf{The allocation matrix} (requirements $\to$ architecture): show which subsystem or component implements each requirement. This mapping reveals: requirements that are not allocated to any subsystem (orphans---who is responsible?), subsystems that implement too many requirements (complexity risk---single point of failure), and requirements that span multiple subsystems (interface requirements that need ICDs).
+
+Present the traceability matrix as a table in the PDR report. It need not be a separate document; it can be columns in the SDRD itself: Need ID $|$ Requirement ID $|$ SHALL Statement $|$ TAID $|$ Allocated Subsystem $|$ Status.
+
+
+
+\section{Requirements Elicitation Techniques Beyond Interviews}
+While client interviews are the primary elicitation method, supplement them with:
+
+\textbf{Questionnaires and surveys}: useful when the client represents a larger organization and you need input from multiple stakeholders who cannot all attend meetings. Design questions that are specific and closed-ended (``On a scale of 1--5, how important is wireless connectivity?'') to enable quantitative comparison across respondents. Follow up with interviews for the highest-priority responses.
+
+\textbf{Document analysis}: review existing documentation---previous designs, user manuals, maintenance logs, incident reports, regulatory filings, and competitor product specifications. These documents reveal requirements that stakeholders forget to mention because they take them for granted.
+
+\textbf{Competitive benchmarking}: identify 3--5 existing products or systems that address similar needs. Create a feature comparison matrix. Identify: what do all competitors do (baseline expectations), what do the best competitors do (stretch targets), and what does no competitor do (potential differentiators). This analysis grounds your requirements in market reality.
+
+\textbf{Use case analysis}: write detailed use cases (``The operator walks up to the system, presses the START button, waits for the green LED, reads the display value, and records it in the log'') that trace the complete user interaction. Each step in the use case generates interface requirements, performance requirements (how fast does the display update?), and environmental requirements (is the display readable in direct sunlight?).
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Your client says ``The system needs to be waterproof.'' This is not a testable requirement. Rewrite it as a proper SHALL statement with a specific IP rating, test method, and rationale. Then write the corresponding VCRM entry.
+\item Create a mini-SDRD for a battery-powered environmental monitoring station deployed in a Colorado mountain meadow. Write at least three functional requirements, three performance requirements, and three non-functional requirements. Assign a verification method (TAID) and MoSCoW priority to each.
+\item Your team has 30 requirements in the SDRD. Your PA says the design is too ambitious for one semester. Using MoSCoW, categorize the requirements and identify which Could/Won't requirements to defer. What criteria do you use, and how do you communicate the reduced scope to the client?
+\item Write the forward and backward traceability entries for the following chain: Client Need N-005 (``operator must know current tank level without leaving the control room'') $\to$ Requirement FR-012 (``the system shall transmit tank level data to the control room display via Ethernet'') $\to$ Test Procedure TP-012 (``verify data transmission from tank to display'').
+\item Your requirements include ``The system shall be safe.'' Rewrite this as three specific, testable non-functional requirements covering electrical safety, mechanical safety, and thermal safety.
+\end{enumerate}
+
+
+% ────────────────────────────────────────────────────────
+% PLACEHOLDER: Chapters 4-30 will be built in subsequent sessions
+% ────────────────────────────────────────────────────────
+

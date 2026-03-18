@@ -1,0 +1,264 @@
+\chapter{Environmental Health and Safety (EHS)}
+
+\section{Mines EHS Framework}
+Colorado School of Mines Environmental Health and Safety (EHS) provides policies, training, oversight, and resources for all activities conducted on campus and at field sites. EHS is not a bureaucratic obstacle; it is the institutional mechanism that protects you, your teammates, your clients, and the public from foreseeable hazards. Professional engineers are personally responsible for the safety of their designs and their work practices. Developing strong safety habits now will serve you for the entirety of your career.
+
+All capstone students must complete the required \textbf{EHS Safety Training module on Canvas} at the start of \textbf{each semester} (both SDI and SDII). This is not a one-time requirement; the SDII training includes content specific to the build and test phase. Completion is tracked by the CF and PA.
+
+\section{Hazard Assessment and Safety Plan}
+In SDII (Week~2), each team must complete a project-specific \textbf{Hazard Assessment and Safety Plan}. This is a formal document---not a checkbox exercise---that demonstrates your team has identified, evaluated, and planned controls for every significant hazard associated with your project's fabrication, testing, and demonstration activities.
+
+The safety plan must include:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Hazard identification}: systematic inventory of all hazards. Walk through every step of your build and test plan and ask: what could go wrong at each step? What energy sources are present (electrical, mechanical, thermal, chemical, pneumatic, potential)?
+\item \textbf{Risk assessment}: for each hazard, evaluate the \textbf{likelihood} (how often will the team be exposed to this hazard?) and \textbf{severity} (what is the worst credible outcome?). A 5$\times$5 risk matrix is standard: likelihood (1=rare to 5=frequent) vs. severity (1=negligible to 5=catastrophic). Risks in the upper-right quadrant (high likelihood, high severity) require active engineering controls.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    cell/.style={rectangle, minimum width=1.2cm, minimum height=0.8cm, align=center, font=\tiny\sffamily\bfseries, line width=0.3pt, draw=MinesSilver!50},
+    label/.style={font=\scriptsize\sffamily\bfseries\color{MinesBlue}}
+]
+% Grid
+\foreach \x in {0,...,4} {
+    \foreach \y in {0,...,4} {
+        \pgfmathtruncatemacro{\risk}{(\x+1)*(\y+1)}
+        \ifnum\risk>15
+            \node[cell, fill=red!25] at (\x*1.3, \y*0.9) {\risk};
+        \else\ifnum\risk>8
+            \node[cell, fill=orange!20] at (\x*1.3, \y*0.9) {\risk};
+        \else\ifnum\risk>3
+            \node[cell, fill=yellow!20] at (\x*1.3, \y*0.9) {\risk};
+        \else
+            \node[cell, fill=green!15] at (\x*1.3, \y*0.9) {\risk};
+        \fi\fi\fi
+    }
+}
+% Axis labels
+\node[label, rotate=90] at (-1.0, 1.8) {Likelihood};
+\node[label] at (2.6, -0.7) {Severity};
+% Tick labels
+\foreach \y/\lab in {0/1,1/2,2/3,3/4,4/5} {
+    \node[font=\tiny\sffamily, anchor=east] at (-0.5, \y*0.9) {\lab};
+}
+\foreach \x/\lab in {0/1,1/2,2/3,3/4,4/5} {
+    \node[font=\tiny\sffamily] at (\x*1.3, -0.35) {\lab};
+}
+\end{tikzpicture}
+\caption{The 5$\times$5 risk matrix. Risk score = Likelihood $\times$ Severity. Green (1--3): acceptable. Yellow (4--8): monitor. Orange (9--15): mitigate. Red (16--25): mitigate immediately or redesign.}\label{fig:risk-matrix}
+\end{figure}
+
+
+\item \textbf{Engineering controls}: design-level safety features. Examples: fuses on every power rail, current-limited bench supplies, thermal cutoffs on heaters, mechanical guards on rotating equipment, interlocks that disconnect power when enclosures are opened, ventilation for soldering and painting. Engineering controls are preferred because they do not depend on human behavior.
+\item \textbf{Administrative controls}: procedures, training, signage, and work practices. Examples: the buddy system for shop work (never operate power tools alone), mandatory safety briefing before each build session, posted hazard warnings at the workstation, lockout/tagout procedures for equipment maintenance. Administrative controls supplement engineering controls.
+\item \textbf{Required PPE}: personal protective equipment matched to each hazard. Safety glasses (all shop work), hearing protection ($>$85\,dBA), closed-toe shoes (all shop spaces), nitrile gloves (chemical handling, resin printing---\textbf{not} for rotating machinery, which can catch gloves and pull your hand in), face shield (grinding, cutting), welding helmet and gloves (welding), dust mask (sanding, cutting composites).
+\item \textbf{Emergency procedures}: specific to your project's hazards. Lithium battery thermal runaway: evacuate, place in metal container with sand, call 911. Chemical spill: evacuate, consult SDS, contact EHS. Electrical shock: de-energize before touching the victim, call 911. Injury: first aid, incident report, EHS notification.
+\end{enumerate}
+
+The PA must \textbf{review and approve} the safety plan before fabrication begins. The plan is a living document; update it as the project evolves and new hazards are identified. If your design changes significantly after CDR (new materials, new processes, higher voltages, larger forces), update the safety plan.
+
+\section{Electrical Safety}
+Electrical shock severity depends on current through the body, which is determined by voltage and body resistance ($\sim$1\,k$\Omega$ hand-to-hand with wet skin, $\sim$100\,k$\Omega$ dry skin). Below 30\,VDC or 25\,VAC RMS is generally considered safe for dry skin contact per IEC~61010. Above 48\,V, including all AC mains: \textbf{de-energize and lock out before touching any conductor}.
+
+Design-level controls: fuse every power rail (fuse rating = 150\% of maximum expected current), use current-limited bench supplies during development, include an emergency shutoff switch accessible without reaching into the enclosure, use connectors that cannot be reversed (keyed headers, Anderson Powerpole), and \textbf{never design your own AC-DC converter}---always use a UL/CE-listed wall adapter.
+
+\textbf{Lockout/tagout (LOTO)}: when working on energized equipment, disconnect the power source and apply a physical lock to prevent re-energization. In capstone, this means disconnecting the battery or unplugging the power supply before modifying wiring, not just turning off the switch.
+
+\section{Mechanical Safety}
+Rotating equipment (lathes, mills, drill presses, grinders) presents entanglement, pinch, and projectile hazards. Before operating any rotating machinery: tie back long hair, remove dangling jewelry, roll up loose sleeves, and remove gloves (counterintuitively, gloves increase the danger by providing a surface for the machine to grab). Wear safety glasses; a chip from a lathe can cause permanent eye damage.
+
+\textbf{Machine guards}: never remove or bypass a machine guard. If a guard prevents you from performing an operation, the operation requires a different approach, not a removed guard.
+
+\textbf{Clamping}: always clamp workpieces securely. A loose workpiece on a drill press becomes a spinning projectile. Use the correct chuck key and remove it before starting the machine.
+
+\section{Chemical Safety}
+Many capstone projects involve adhesives, solvents, paints, battery electrolyte, flux, and resin. Before using any chemical: read the \textbf{Safety Data Sheet (SDS)}. The SDS tells you: hazards, PPE requirements, first aid measures, storage requirements, and disposal procedures. SDS sheets are available online for every commercial chemical product.
+
+\textbf{Spray painting}: must use the designated paint booth in the InnoHub. Complete the paint booth pre-quiz on Canvas before your first use. Spray paint contains flammable propellants and toxic solvents; using it in open lab areas creates fire and inhalation hazards for everyone in the building.
+
+\textbf{Resin handling} (SLA/DLP 3D printing): uncured resin is a skin sensitizer (repeated exposure can cause permanent allergic reactions). Wear nitrile gloves when handling uncured prints. Do not pour resin down the drain---it is toxic to aquatic life. Use the designated wash and cure stations.
+
+\section{Lithium Battery Safety}
+Lithium-ion and lithium-polymer cells are energy-dense and present fire and explosion risks if mishandled. The energy stored in a fully charged 3S LiPo battery pack is sufficient to start a fire that can destroy a room.
+
+\textbf{Never}: short-circuit, overcharge, over-discharge, puncture, crush, or overheat cells. \textbf{Always}: use a Battery Management System (BMS) for charging and discharge protection, charge in a fireproof LiPo safety bag, never charge unattended, use a charger designed for the specific chemistry (LiPo/Li-ion), and inspect cells before each use (swelling, hissing, or heat are warning signs of imminent failure).
+
+If a cell swells, hisses, smokes, or begins to heat uncontrollably: \textbf{clear the area immediately}. If safe to do so, move the battery to a fireproof container (metal bucket with sand) using insulated tools. Call 911 if fire occurs. Do not attempt to extinguish a lithium battery fire with water---use a Class~D fire extinguisher, dry sand, or CO$_2$.
+
+\section{Compressed Gas and Pneumatic Safety}
+Compressed gas cylinders contain enormous stored energy. A cylinder that falls and breaks its valve becomes an unguided missile. \textbf{Always}: chain cylinders upright to a wall, cart, or bench; use the correct regulator for the gas type; close the valve when not in use; and transport with the protective cap installed.
+
+Pneumatic systems store energy in compressed air lines. Before disconnecting any fitting, \textbf{relieve all pressure} by closing the supply valve and exhausting the downstream line. Never direct compressed air at a person---even shop air at 90\,psi can cause serious injury.
+
+\section{Noise Exposure}
+Power tools, CNC machines, and compressed air tools can produce noise levels above 85\,dBA, which causes permanent hearing damage with prolonged exposure. Wear hearing protection (earplugs or earmuffs) when working near loud equipment. If you must shout to be heard at arm's length, the noise exceeds 85\,dBA.
+
+\section{Emergency Procedures}
+Before beginning any work in any facility, identify the location of: the nearest fire extinguisher (CO$_2$ or dry chemical for electrical fires---\textbf{never} use water on electrical equipment), the first aid kit, the nearest eyewash station (for chemical splashes---flush for 15 minutes minimum), the nearest emergency exit, and the emergency phone number (911 from any campus phone).
+
+\textbf{Incident reporting}: report all incidents, injuries, and near-misses to your PA, the InnoHub Operations Manager, and Mines EHS. Near-miss reporting is not a sign of weakness; it is a sign of professional safety culture. A near-miss report today prevents a real injury tomorrow.
+
+\section{InnoHub-Specific Safety}
+Labriola TAs have \textbf{authority in all InnoHub shops and workspaces}. If a TA asks you to stop an activity, comply immediately. TAs can require additional PPE, modify your approach, or deny access to equipment if safety concerns exist. If you disagree with a TA's decision, discuss it after complying---do not argue while standing next to running machinery.
+
+The InnoHub shops are available \textbf{only during posted hours with TA supervision}. No unsupervised shop access is granted, regardless of training level. This policy exists because even experienced machinists have accidents, and a second person present can call for help.
+
+
+\section{Field Work and Site Visit Safety}
+Some capstone projects require work at client sites, field locations, or outdoor environments. Additional safety considerations:
+
+\textbf{Site assessment}: before visiting a client site or field location, assess the hazards specific to that environment. Construction sites have fall hazards and heavy equipment. Wastewater treatment plants have confined space and chemical hazards. Agricultural sites have machinery and biological hazards. Ask the client about required PPE and safety orientation before arriving.
+
+\textbf{Travel safety}: follow the guidelines in Chapter~16 for vehicle travel. For remote field sites, ensure: (1)~someone knows your location and expected return time, (2)~you have cell phone coverage or a satellite communicator, (3)~you have a first aid kit, (4)~weather conditions are checked before departure.
+
+\textbf{Environmental hazards}: Colorado-specific considerations include: altitude sickness (stay hydrated, watch for headache and nausea at elevations $>$8,000\,ft), lightning (common in afternoon thunderstorms May--September; seek shelter if thunder is audible), hypothermia (mountain temperatures can drop rapidly), and wildlife (mountain lions, bears, rattlesnakes---know the appropriate response for each).
+
+\textbf{Buddy system}: never work alone at a field site or in the InnoHub shops. Always have at least one other person present who can call for help if something goes wrong. This is not a suggestion; it is a safety requirement.
+
+
+
+\section{PPE Selection Guide}
+Personal Protective Equipment (PPE) is the last line of defense---use it in conjunction with engineering and administrative controls, not as a substitute. Select PPE based on the specific hazard:
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Hazard} & \textbf{Required PPE} & \textbf{Notes} \\
+\midrule
+Flying chips/sparks & Safety glasses (ANSI Z87.1) & All shop work, no exceptions \\
+Grinding/cutting & Face shield + safety glasses & Shield alone is not sufficient \\
+Chemical splash & Splash goggles + nitrile gloves & Check glove compatibility with chemical \\
+Resin (SLA/DLP) & Nitrile gloves + safety glasses & Resin is a skin sensitizer \\
+Soldering & Safety glasses & Flux fumes: ventilate workspace \\
+Welding & Welding helmet + jacket + gloves & Shade $\geq$10 for arc welding \\
+Loud equipment & Earplugs or earmuffs ($\geq$25 dB NRR) & If shouting to be heard at arm's length \\
+Heavy lifting & Steel-toe boots & Required for loads $>$50 lbs \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{PPE that is NOT appropriate}: do \textbf{not} wear gloves when operating rotating machinery (lathes, mills, drill presses, grinders). The machine can catch the glove and pull your hand into the rotating component. Do \textbf{not} wear loose clothing, dangling jewelry, lanyards, or untied long hair near rotating equipment.
+
+\section{Incident Reporting and Near-Miss Culture}
+All incidents---injuries, property damage, chemical spills, and near-misses---must be reported to: (1)~your PA, (2)~the InnoHub Operations Manager, and (3)~Mines EHS. The purpose of reporting is not to assign blame; it is to prevent recurrence.
+
+\textbf{Near-miss reporting} is particularly important. A near-miss is an event that could have caused injury but did not---a dropped tool that barely missed a foot, a circuit that sparked and tripped the breaker before causing a fire, a chemical spill that was contained before anyone was exposed. Near-misses are free lessons: they reveal hazards without anyone getting hurt. Report them so the hazard can be controlled before a real injury occurs.
+
+\textbf{The incident report} should include: date, time, and location; who was involved; what happened (factual description); what injury or damage occurred (if any); what immediate action was taken; and what corrective action is recommended to prevent recurrence. Your PA and EHS will follow up on corrective actions.
+
+A team that reports near-misses and minor incidents is not a ``unsafe'' team---it is a team with a strong safety culture. The teams that never report anything are the ones that should concern us.
+
+\section{Colorado-Specific Environmental Hazards}
+For projects involving outdoor work in Colorado:
+
+\textbf{Altitude}: Golden is at 5,675 ft. Field sites in the mountains may be at 8,000--14,000 ft. Altitude reduces oxygen availability, causing headache, nausea, fatigue, and impaired judgment. Hydrate aggressively, ascend gradually, and do not perform strenuous or precision work until acclimated (24--48 hours at elevation).
+
+\textbf{Lightning}: Colorado has the highest lightning fatality rate of any state. Afternoon thunderstorms are common May--September. If you hear thunder, seek shelter immediately. The 30/30 rule: if the time between lightning flash and thunder is $<$30 seconds, seek shelter and stay sheltered for 30 minutes after the last thunder.
+
+\textbf{Temperature extremes}: Colorado temperatures can range from $-20$\,\degC{} in winter to $+38$\,\degC{} in summer, sometimes with 20\,\degC{} swings in a single day. Dress in layers. Carry water. Monitor team members for heat exhaustion and hypothermia symptoms.
+
+\textbf{Wildlife}: mountain lions (back away slowly, do not run, make yourself appear large), black bears (store food properly, make noise while hiking, do not approach), and rattlesnakes (watch where you step, do not reach into rock crevices). Encounters are rare on campus but possible at mountain field sites.
+
+
+
+\section{Lab-Specific Safety Protocols}
+Different project types have different dominant hazards. Identify your project's hazard profile and prioritize accordingly:
+
+\textbf{Electronics projects}: primary hazards are electrical shock (especially at voltages $>$48\,V), burns from soldering irons and hot components, chemical exposure from flux and solvents, and eye strain from fine-pitch work. Mitigation: current-limited bench supplies, proper ventilation for soldering, safety glasses, and adequate lighting.
+
+\textbf{Mechanical fabrication projects}: primary hazards are entanglement with rotating machinery, flying debris from cutting and grinding, noise exposure, and cuts from sharp edges and burrs. Mitigation: machine guards, PPE (glasses, hearing protection, closed-toe shoes), clamping all workpieces, and deburring all edges.
+
+\textbf{Fluid system projects}: primary hazards are pressure release (burst fittings), chemical exposure (process fluids, hydraulic oil), slip hazards (spilled fluids), and burns (hot fluids, steam). Mitigation: pressure testing before operation, secondary containment, spill response materials, and labeling all lines with contents and pressure.
+
+\textbf{Field projects}: primary hazards are environmental (altitude, weather, wildlife), transportation (vehicle accidents), and site-specific (construction hazards, confined spaces, chemical exposure). Mitigation: site assessment before every visit, buddy system, weather monitoring, and site-specific PPE.
+
+\textbf{Software/modeling projects}: primary hazards are ergonomic (repetitive strain, eye strain from extended screen time) and, if involving hardware interfaces, electrical hazards. Mitigation: proper workstation ergonomics, regular breaks (20-20-20 rule: every 20 minutes, look at something 20 feet away for 20 seconds), and standard electrical safety practices for any hardware interaction.
+
+\section{Safety Documentation for FDR}
+Your FDR report should include a safety section documenting:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item The Hazard Assessment and Safety Plan (updated from the Sprint~7 version to reflect any new hazards discovered during the build and test phase).
+\item All safety-related design features (fuses, current limiters, emergency stops, guards, interlocks, ventilation, labeling).
+\item Any incidents or near-misses that occurred during the project, with the corrective actions taken.
+\item Safety considerations for the end user documented in the O\&M manual: operating hazards, required PPE, emergency procedures, and safe decommissioning instructions.
+\item Compliance with applicable safety standards (IEC~61010, OSHA requirements, competition rules, site-specific requirements).
+\end{itemize}
+
+This documentation demonstrates that safety was integrated into the design process, not treated as an afterthought. Employers and PE boards view safety consciousness as a core engineering competency.
+
+
+
+\section{Lithium Battery Safety: A Detailed Protocol}
+Lithium-ion and lithium-polymer cells are common in capstone projects (portable devices, vehicles, drones) and present significant fire and explosion risks:
+
+\textbf{Charging safety}: always use a charger designed for the specific battery chemistry (LiPo, Li-ion, LiFePO4). Never charge cells unattended. Charge in a fireproof LiPo safety bag or on a non-flammable surface (metal tray, ceramic tile). Set the charger to the correct cell count (1S, 2S, 3S, etc.)---overcharging a 3S pack with a 4S charger setting will cause thermal runaway.
+
+\textbf{Storage safety}: store batteries at 50--60\% charge (storage voltage: 3.7--3.85\,V per cell). Do not store fully charged or fully depleted cells for extended periods---both accelerate degradation. Store in a fireproof container away from flammable materials.
+
+\textbf{Inspection before every use}: check for: swelling (puffy cells are damaged and must be retired), physical damage (dents, tears in the pouch), unusual odor (sweet chemical smell indicates electrolyte leakage), and hot spots (feel for localized heat). Any of these signs requires immediate retirement of the cell.
+
+\textbf{Battery Management System (BMS)}: every multi-cell battery pack must include a BMS that provides: overcharge protection (disconnects at $\sim$4.2\,V/cell), over-discharge protection (disconnects at $\sim$3.0\,V/cell), overcurrent protection (disconnects at the maximum safe discharge rate), and cell balancing (equalizes voltage across cells in series). Do not operate a multi-cell pack without a BMS---an unbalanced pack will overcharge the weakest cell, leading to thermal runaway.
+
+\textbf{Emergency response}: if a cell swells, hisses, smokes, or begins to heat uncontrollably: (1)~clear the area immediately, (2)~if safe to do so, move the battery to a metal container with sand using insulated tools, (3)~call 911 if fire occurs, (4)~do not use water on a lithium battery fire---use CO$_2$, dry sand, or a Class~D fire extinguisher, (5)~ventilate the area (lithium battery fires produce toxic hydrogen fluoride gas).
+
+\textbf{Disposal}: damaged or end-of-life lithium cells must not be placed in regular trash. Use the campus battery recycling program or a certified electronics recycler. Tape the terminals of used cells before disposal to prevent short circuits in the recycling bin.
+
+
+
+\section{First Aid Essentials for the Lab}
+Every team working in the InnoHub should know the location of the nearest first aid kit, eyewash station, fire extinguisher, and AED (Automated External Defibrillator). Key first aid actions:
+
+\textbf{Minor cuts and abrasions}: clean with soap and water, apply antibiotic ointment, and cover with a bandage. Report to the TA. Most shop cuts are minor but they must still be documented.
+
+\textbf{Burns}: for thermal burns (soldering iron, hot metal, heater contact): cool under running cold water for 10--20 minutes. Do not apply ice directly (causes frostbite on damaged tissue). Do not apply butter, toothpaste, or other home remedies. For chemical burns: flush with water for 15+ minutes while consulting the SDS for specific neutralization instructions. Seek medical attention for burns larger than a quarter or on the face, hands, or joints.
+
+\textbf{Chemical splash to eyes}: use the eyewash station immediately. Flush both eyes for at least 15 minutes, holding the eyelids open. Remove contact lenses during flushing if possible. Seek medical attention even if the irritation subsides---some chemical damage is delayed.
+
+\textbf{Electrical shock}: do not touch the victim if they are still in contact with the electrical source. De-energize the circuit first (disconnect the power supply, pull the plug, trip the breaker). Once the victim is separated from the source: check responsiveness and breathing. Call 911 if the victim is unresponsive or was exposed to $>$48\,V. Even if the victim feels fine, recommend medical evaluation---cardiac effects from electrical shock can be delayed.
+
+\textbf{Severe bleeding}: apply direct pressure with a clean cloth. Elevate the injured limb if possible. Call 911 for bleeding that does not stop with direct pressure or for any arterial bleeding (bright red, pulsing). Maintain pressure until emergency responders arrive.
+
+\section{Emergency Contact Numbers}
+Post these numbers at your workstation:
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Emergency} & 911 (from any phone) \\
+\textbf{Mines Police (non-emergency)} & 303-273-3333 \\
+\textbf{Mines EHS} & 303-273-3316 \\
+\textbf{InnoHub Operations} & Julia Roos, jroos@mines.edu \\
+\textbf{Poison Control} & 1-800-222-1222 \\
+\textbf{Capstone Program Director} & Dr.\ Kristy Csavina, kcsavina@mines.edu \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+In any emergency: (1)~ensure your own safety first, (2)~call 911 if there is any injury or immediate danger, (3)~administer first aid if trained and safe to do so, (4)~notify your PA and the InnoHub Operations Manager within 24 hours, and (5)~complete an incident report.
+
+
+
+\section{The Safety Mindset for Professional Engineers}
+Safety is not a checklist to complete; it is a mindset to internalize:
+
+\textbf{Anticipation}: before starting any task, mentally walk through the steps and identify what could go wrong. This mental rehearsal takes 30 seconds and prevents the most common injuries.
+
+\textbf{Questioning assumptions}: ``It was fine last time'' is not a safety justification. Conditions change. Check every time.
+
+\textbf{Stopping work}: if something does not feel right---an unusual sound, a smell, a vibration---stop immediately and investigate. You have the authority and obligation to stop work when safety is in question.
+
+\textbf{Reporting}: near-misses are learning opportunities. Every unreported near-miss is a missed opportunity to prevent a future injury. Teams with strong safety cultures report more near-misses because reporting is treated as a positive contribution, not a sign of failure.
+
+These principles apply equally to capstone and to your entire engineering career.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Your team's project involves a 24\,V, 10\,A motor controller, a 3S LiPo battery, and CNC-machined aluminum parts. Create a hazard assessment table with at least 6 hazards, their risk ratings, and the controls you would implement for each.
+\item A teammate proposes soldering a wire directly to a LiPo cell terminal instead of using a connector. Explain why this is dangerous and propose an alternative.
+\item Your safety plan was approved at CDR. Since then, you have added a pneumatic cylinder (80\,psi) to the design. What must you update, and who must approve the changes?
+\end{enumerate}
+
+

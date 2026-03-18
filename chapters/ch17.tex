@@ -1,0 +1,248 @@
+\chapter{Client Engagement and Management}
+
+\section{The Professional Client Relationship}
+Your client is a professional with a real problem who has partnered with Mines to find a solution. This is not an instructor-student relationship; it is a professional services engagement. The client does not grade you (your PA and CF do), but their satisfaction with your work, communication, and professionalism directly affects your PA's assessment and, ultimately, your grade.
+
+Treat every client interaction as you would treat a meeting with a paying customer in your first engineering job. Respond to emails within 24 hours. Show up on time, prepared, and professionally dressed (business casual minimum). Deliver what you promise by the date you promise it. If you cannot meet a commitment, communicate the delay \emph{before} the deadline, not after.
+
+\section{Setting Expectations}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    box/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=2.5cm, minimum height=0.6cm, align=center, font=\tiny\sffamily\bfseries, rounded corners=2pt, line width=0.5pt}
+]
+\node[box] at (0,2) {Status Email\\{\tiny Every 2 weeks}};
+\node[box] at (3.5,2) {Meeting Minutes\\{\tiny Within 48 hours}};
+\node[box] at (7,2) {Sprint Review\\{\tiny End of sprint}};
+\node[box] at (0,0.5) {Next Steps Email\\{\tiny After each review}};
+\node[box] at (3.5,0.5) {Advance Reports\\{\tiny 3 days before review}};
+\node[box] at (7,0.5) {Decision Log\\{\tiny Continuously}};
+\end{tikzpicture}
+\caption{The client communication cadence. Six communication touchpoints ensure the client is never surprised. The Communication Lead owns the cadence; every team member contributes content.}\label{fig:comm-cadence}
+\end{figure}
+
+
+At the kickoff meeting (Chapter~2), establish mutual expectations explicitly. Document them in the SOW.
+
+\textbf{What the client can expect from you}: regular status updates at an agreed frequency (biweekly is typical), meeting minutes sent within 48 hours, honest assessment of progress and problems (no sugar-coating), professional communication, and timely delivery of reports and presentations in advance of design reviews.
+
+\textbf{What you can expect from the client}: timely responses to questions (agree on a response window---48 hours is reasonable), access to the operating environment or data you need, feedback on deliverables within agreed timelines, attendance (or delegation) at design reviews, and availability for key decisions that block your progress.
+
+\begin{tipbox}[The Client Communication Cadence]
+At minimum, the client should hear from you: (1)~a brief status email before each sprint review summarizing progress, blockers, and upcoming milestones, (2)~meeting minutes within 48 hours of every client interaction, (3)~advance delivery of reports at least 3 days before presentations so the client can review, and (4)~Next Steps Emails after each design review. If the client has not heard from you in two weeks, they are worried---or worse, they have concluded you are not making progress.
+\end{tipbox}
+
+\section{Managing Scope Changes}
+Client needs evolve as the project progresses and as the client sees your work. New ideas emerge; priorities shift; external constraints change. This is normal. The professional response is not to simply agree or refuse, but to evaluate the impact systematically:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Document the request}: write down exactly what the client is asking for. Confirm your understanding with the client (``Let me make sure I understand: you would like us to add wireless data logging to the system. Is that correct?'').
+\item \textbf{Assess the impact}: how does this change affect the schedule? The budget? Other requirements? The risk profile? Be specific: ``Adding wireless logging requires an ESP32 module (\$8), antenna design (1 week), firmware development (2 weeks), and additional testing (1 week). Total impact: 4 weeks and \$50.''
+\item \textbf{Present the trade-off}: show the client what the change costs and what must be deferred or dropped to accommodate it. ``We can add wireless logging if we defer the color LCD display to a future version. Or we can add both, but FDR would slip by 3 weeks past the deadline.''
+\item \textbf{Get explicit approval}: the client and PA must agree before the team implements the change. Document the decision in the SOW under change control.
+\end{enumerate}
+
+Small changes accumulate. Without this discipline, you will arrive at FDR having built something substantially different from what was planned, with no documentation of why the scope shifted or who approved the changes.
+
+\section{Delivering Bad News}
+Delays happen. Components fail. Tests produce unexpected results. Analyses reveal fundamental problems. The professional response is \textbf{immediate, honest communication}: what happened, what the impact is, and what your plan is to address it. Structure the conversation:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item State the problem clearly and specifically: ``Our motor driver failed testing on Tuesday. The H-bridge IC overheats at the required current load.''
+\item State the impact: ``This means we cannot demonstrate motor control at CDR. The CDR presentation will show the analysis and the revised design, but not the physical demonstration.''
+\item State your plan: ``We have identified an alternative driver IC rated for higher current. It arrives Wednesday. We expect to have a working motor subsystem by Sprint~10.''
+\item Ask for input: ``Do you have any concerns about this approach, or suggestions for alternatives?''
+\end{enumerate}
+
+Never hide a problem hoping it will resolve itself. The worst client meeting is the one where they learn about a problem you have known about for three weeks. Early disclosure builds trust; late disclosure destroys it.
+
+\section{The Client as a Resource}
+Your client has domain expertise that your team lacks. They understand the operating environment, the end users, the regulatory landscape, and the practical constraints in ways that no amount of internet research can replicate. Leverage this expertise:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Ask the client to review your ConOps and requirements for accuracy (Chapter~2--3).
+\item Invite the client to suggest testing scenarios based on their operational experience.
+\item Ask for introductions to other domain experts (potential Technical Advisors).
+\item Request access to the operating site for contextual inquiry and validation testing.
+\end{itemize}
+
+\section{Intellectual Property and Confidentiality}
+Some clients require Non-Disclosure Agreements (NDAs) before sharing proprietary information. If your client provides confidential data, you are \textbf{legally and ethically obligated} to protect it. Do not share proprietary information with other teams, post it publicly (including in GitHub public repositories), or include it in materials shared beyond the project team, PA, and CF without explicit written permission. If uncertain about what you can share, ask your PA.
+
+\section{When the Client Is Wrong}
+Clients are domain experts but not always engineering experts. When a client requests something technically infeasible, unsafe, or contradictory to good engineering practice, it is your \textbf{professional obligation} to push back---respectfully, with evidence. Present data: cost estimates, risk analysis, simulation results, or test data that demonstrate why an alternative approach is preferable. The client may still choose their original direction (it is their project), but they should do so with full information about the technical consequences.
+
+\section{Tips for Productive Client Relationships}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Mirror their communication style}: some clients prefer formal emails; others prefer quick Slack messages. Adapt.
+\item \textbf{Come with options, not open-ended questions}: ``We have identified three approaches and recommend Option~B because [reasons]. Do you agree, or would you prefer Option~A or C?'' is far more productive than ``What should we do?''
+\item \textbf{Underpromise, overdeliver}: commit to what you are confident you can achieve by the deadline. Surprising a client with early delivery builds trust. Surprising them with a missed deadline erodes it.
+\item \textbf{Acknowledge feedback explicitly}: when the client gives feedback at a design review, write it down in front of them, confirm you understood it, and report back on how you addressed it at the next meeting.
+\item \textbf{Send a thank-you at the end}: a professional thank-you email after the project closes is a small gesture that maintains the relationship for future networking.
+\end{itemize}
+
+
+\section{Handling Difficult Client Situations}
+Not all client relationships are smooth. Common challenging scenarios and professional responses:
+
+\textbf{The unresponsive client}: the client does not return emails or attend meetings. Response: (1)~try alternative communication channels (phone call, PA-mediated introduction to a different client contact), (2)~document every contact attempt with dates and methods, (3)~escalate to your PA if two weeks pass without response, (4)~continue working based on the last documented agreement while awaiting response.
+
+\textbf{The scope-expanding client}: the client adds features at every meeting. Response: use the scope change process (Chapter~7). Acknowledge the request, assess the impact, present the trade-off, and get explicit approval before implementing. If the client insists on adding scope without removing anything, involve the PA in the conversation.
+
+\textbf{The technically directive client}: the client dictates specific implementation details (``Use this exact sensor, use this programming language, use this vendor'') that may not be the best engineering choice. Response: implement the client's direction unless it compromises safety, exceeds budget, or violates engineering best practice. If it does, present your analysis: ``We evaluated your recommended sensor and found that it does not meet the IP67 requirement. Here is an alternative that does. May we proceed with the alternative?''
+
+\textbf{The absent client}: the client attends the kickoff meeting and then disappears until FDR. Response: maintain the communication cadence (status emails, meeting minutes) even if the client does not respond. At FDR, you can demonstrate that you communicated consistently; the client cannot claim they were uninformed.
+
+\textbf{Conflicting client stakeholders}: two client contacts give you contradictory direction. Response: document both positions, present the conflict to the PA, and request a single point of contact with decision authority. Do not try to satisfy contradictory requirements simultaneously.
+
+
+
+\section{Working Across Organizations and Cultures}
+Some capstone clients are large organizations with complex internal structures. Navigating these requires cultural awareness:
+
+\textbf{Large companies}: your primary client contact may not have full decision authority. Decisions may require approval from their manager, legal department, or procurement. Allow extra time in the schedule for internal approvals. Do not be frustrated by slow responses; organizational processes take time.
+
+\textbf{Government agencies}: subject to procurement regulations, security requirements, and bureaucratic processes. Documentation requirements may be more formal. Access to government sites may require background checks or escort. Plan for these requirements in Sprint~0.
+
+\textbf{Nonprofits and community organizations}: may have limited technical sophistication but deep domain knowledge. Translate engineering terminology into plain language. Be sensitive to budget constraints---what seems like a small expenditure to you may be significant to a nonprofit.
+
+\textbf{International clients or partners}: be aware of time zone differences, communication style differences, and cultural norms. In some cultures, direct disagreement is considered rude; in others, silence does not mean agreement. When in doubt, confirm understanding in writing: ``Based on our discussion, my understanding is [summary]. Please confirm or correct.''
+
+\textbf{Academic clients} (Mines faculty): understand that faculty operate on academic timelines (semester cycles, grant deadlines, conference schedules). They may be less available during grant proposal season or conference travel. Communicate proactively about scheduling constraints.
+
+
+
+\section{Email Templates for Common Client Communications}
+Professional email communication follows consistent patterns. Here are templates for the most common client emails:
+
+\textbf{Meeting Request Email}: Subject: ``[Team XX] Meeting Request -- [Topic].'' Body: greeting, purpose of meeting, proposed dates/times (offer 3 options), expected duration, agenda items, and any pre-reads. Close with ``Please let me know which time works best for you.''
+
+\textbf{Meeting Follow-Up Email}: Subject: ``[Team XX] Meeting Summary -- [Date].'' Body: thank the client for their time, list key decisions made (numbered), list action items with owners and deadlines, note any open questions, and state the next scheduled touchpoint. Send within 48 hours. Copy your PA.
+
+\textbf{Status Update Email}: Subject: ``[Team XX] Sprint [N] Status Update.'' Body: brief summary of progress since last update (3--5 bullet points), any blockers or risks that need client input, upcoming milestones, and a note inviting questions or feedback.
+
+\textbf{Next Steps Email (post-review)}: Subject: ``[Team XX] [PDR/CDR/FDR] Summary and Next Steps.'' Body: thank reviewers, summarize key feedback received (categorized as: will address, will investigate, acknowledged and deferred), state the plan for the next sprint cycle, and attach the final version of the review report.
+
+\textbf{Bad News Email}: Subject: ``[Team XX] Update on [Specific Issue].'' Body: state the problem directly (do not bury it), describe the impact on schedule/budget/performance, present your plan to resolve it (with timeline), and request any client input needed. Never use a bad-news email as a substitute for a phone call or meeting for serious issues---call first, then follow up in writing.
+
+\begin{tipbox}
+Every client email should be: (1)~addressed to the client by name, (2)~professional in tone, (3)~specific about action items and deadlines, (4)~proofread for grammar and spelling, and (5)~copied to your PA. Treat every email as if it will be forwarded to the client's boss---because it might be.
+\end{tipbox}
+
+
+
+\section{Preparing for Client Meetings}
+Every client meeting should have a purpose, an agenda, and a desired outcome. The Communication Lead prepares:
+
+\textbf{Before the meeting}:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Circulate an agenda 24--48 hours in advance. Include: purpose, topics with time estimates, any documents the client should review, and the desired outcome for each topic.
+\item Assign roles: facilitator (keeps discussion on track), scribe (records decisions and actions), presenter (for any prepared material), and timekeeper.
+\item Review the decision log and open action items from the previous meeting. Be prepared to report on closed items.
+\item Prepare visual aids if presenting design work (slides, CAD renderings, test data plots). Do not walk into a client meeting with only words.
+\end{itemize}
+
+\textbf{During the meeting}:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Start on time. End on time or earlier.
+\item Take notes on every decision made and every action item assigned. Read back decisions: ``So we are agreeing that the system will use wireless data transmission rather than wired. Is that correct?'' Confirmation prevents misunderstandings.
+\item When disagreements arise, note them explicitly: ``The client prefers Option~A; the team recommends Option~B for [reasons]. We will present a trade-off analysis at the next meeting for a final decision.''
+\end{itemize}
+
+\textbf{After the meeting}:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Send meeting minutes within 48 hours. Include: attendees, date, key discussion points, all decisions made (numbered), all action items (owner, description, due date), and next meeting date.
+\item Copy your PA on all client correspondence.
+\item Update the decision log with any new client decisions.
+\item Add action items to the task board with owners and deadlines.
+\end{itemize}
+
+
+
+\section{Building Long-Term Client Trust}
+Client trust is built through consistent, reliable behavior over two semesters. The compounding effect:
+
+\textbf{Sprint 0--2}: trust is fragile. The client is evaluating whether your team is competent and professional. Every missed email, every late deliverable, and every unprepared meeting erodes trust at this stage. Invest heavily in professionalism: respond to emails within 24 hours, arrive on time, deliver meeting minutes promptly, and come prepared with questions and visual aids.
+
+\textbf{Sprint 3--5}: trust is developing. If you have been consistent through the first sprints, the client begins to rely on your team and share more openly. They may reveal constraints or preferences they did not mention initially. This is a sign that the relationship is working.
+
+\textbf{Sprint 5 (PDR)}: trust is tested. PDR is the first time the client sees the full scope of your engineering work. A strong PDR solidifies trust; a weak PDR raises concerns. Even if the PDR has weaknesses (it usually does), a team that responds to feedback aggressively in Sprint~6 restores confidence.
+
+\textbf{Sprint 7--14 (SDII)}: trust is deepened. Regular communication during the build phase---especially honest communication about challenges---builds the kind of professional trust that leads to job offers, references, and long-term career relationships. Clients who trust your team will advocate for you to their colleagues.
+
+\textbf{Post-FDR}: trust becomes a career asset. A client who had a positive capstone experience is a professional contact for life. They will provide references, make introductions, and potentially offer employment opportunities. A brief thank-you email after the project closes is a small investment that maintains this relationship.
+
+\section{When to Involve Your PA in Client Communications}
+Most client communication should be managed by the team directly. Involve your PA when:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item The client is requesting a scope change that significantly affects the project (Chapter~7).
+\item The client is unresponsive for more than 2 weeks despite multiple contact attempts.
+\item A disagreement has arisen between the team and client that cannot be resolved at the team level.
+\item The client requests something that conflicts with course requirements or academic integrity policies.
+\item Confidential or sensitive information (NDA, proprietary data) needs to be discussed.
+\item The team needs to deliver significant bad news (major delay, fundamental design flaw, budget overrun $>$25\%).
+\end{itemize}
+
+In all cases, the team should attempt direct resolution first. When escalating to the PA, bring: a summary of the situation, what the team has already tried, specific documentation (emails, meeting minutes), and a proposed resolution.
+
+
+
+\section{Professional Boundaries with Clients}
+While client relationships should be warm and productive, maintain professional boundaries:
+
+\textbf{Communication channels}: use professional channels (email, scheduled meetings, Teams) for all project communication. Avoid personal social media connections during the project. If the client contacts you via text or personal channels, respond professionally and suggest moving to email for documentation purposes.
+
+\textbf{Scope of the relationship}: the client is a professional partner, not a friend, employer, or professor. You owe them professional deliverables and honest communication; they owe you timely feedback and access to information. The power dynamic is different from a student-professor relationship: you are providing a service, and the client depends on your expertise.
+
+\textbf{Confidentiality}: some clients share proprietary information under NDA. Treat all client information as confidential unless explicitly told otherwise. Do not discuss client-specific details with other capstone teams, post project details on social media, or store client data on personal devices. When in doubt, ask: ``May I share this information with [specific audience] for [specific purpose]?''
+
+\textbf{Managing expectations about future availability}: after FDR and Showcase, the project is complete. You are not obligated to provide ongoing support, debugging, or maintenance after graduation. However, a brief ``transition document'' included in the O\&M manual---listing known issues, recommended improvements, and suggested next steps---is a professional courtesy that most clients appreciate.
+
+\textbf{When things go wrong}: if a client behaves unprofessionally (inappropriate comments, unreasonable demands outside the SOW, pressure to cut safety corners), document the behavior and involve your PA immediately. You have the right to a professional working environment, and the PA and capstone program exist to protect that.
+
+\section{The Client Satisfaction Metric}
+Your PA evaluates the project partly based on client satisfaction. While client satisfaction is not a formal grade component, it influences the PA's assessment of your professionalism and communication.
+
+Client satisfaction correlates most strongly with three factors: (1)~\textbf{predictable communication}---the client always knows what is happening and when the next update will arrive, (2)~\textbf{honest reporting}---the client trusts that what the team says is accurate, even when the news is bad, and (3)~\textbf{delivered promises}---the team does what it committed to do in the SOW, on the agreed schedule.
+
+Note what is \emph{not} on this list: a perfect prototype. Clients understand that student projects have limitations. What they do not accept is being surprised, misled, or ignored. A team that delivers a flawed prototype but communicated honestly throughout the project will have a more satisfied client than a team that delivers a beautiful prototype but went dark for 6 weeks.
+
+
+
+\section{Managing Virtual Client Relationships}
+Many capstone clients are not local to Golden, CO. Virtual client relationships require additional effort:
+
+\textbf{Technology setup}: agree on a video conferencing platform (Zoom, Teams, Google Meet) during Sprint~0 and verify that all parties can connect before the first substantive meeting. Test: video, audio, screen sharing, and recording (if the client consents to recording for the team's reference).
+
+\textbf{Time zone management}: if the client is in a different time zone, propose meeting times that are reasonable for both parties. A 9:00\,AM Mountain Time meeting is 11:00\,AM Eastern (reasonable) but 6:00\,AM Pacific (unreasonable). Use a shared scheduling tool (Doodle, When2Meet) for scheduling.
+
+\textbf{Compensating for reduced bandwidth}: virtual communication has less bandwidth than in-person. Compensate by: sending agendas and pre-reads farther in advance (48 hours instead of 24), using screen sharing to show visual aids during every discussion (never rely on verbal description alone), and sending more detailed follow-up emails (virtual meetings generate more misunderstandings than in-person meetings).
+
+\textbf{Building rapport remotely}: small talk at the beginning of virtual meetings builds the relationship. Ask about the client's week, mention relevant news from their industry, or share a brief project update before diving into the agenda. These 2--3 minutes of human connection pay dividends in client engagement throughout the semester.
+
+\textbf{Site visits}: for virtual clients, plan at least one in-person site visit if geography and budget permit. A single day at the client's facility provides more context than months of virtual meetings. If a visit is not possible, request a video tour of the operating environment.
+
+
+
+\section{The Client Thank-You and Project Closeout}
+After FDR and Showcase, close the client relationship professionally:
+
+\textbf{The thank-you email}: send within one week of FDR. Thank the client for their partnership, summarize the project outcome, reference specific contributions the client made (access to their facility, technical guidance, prompt feedback), and provide the location of all deliverables (Canvas links, shared drive, physical handoff).
+
+\textbf{The handoff meeting}: if the client will continue using or developing the system, schedule a brief handoff meeting. Walk them through: how to operate the system (O\&M manual), where all documentation is stored (Digital Design Archive), known limitations and recommended future work, and who to contact at Mines if questions arise after your graduation.
+
+\textbf{LinkedIn connections}: after the project is complete (not during), connect with the client on LinkedIn with a personalized message: ``Thank you for the opportunity to work on [project]. I learned a great deal about [domain] and appreciated your guidance throughout the semester.'' This maintains the professional relationship for future networking.
+
+\textbf{The reference conversation}: if you plan to list the client as a professional reference, ask permission explicitly: ``Would you be comfortable serving as a professional reference for me? If so, I'll send you my resume and a summary of the positions I'm applying for so you can speak to the most relevant aspects of our work together.'' Never assume permission; always ask.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Your client asks you to add a feature that was explicitly listed as ``Won't Have'' in the SOW. Walk through the scope change process, including the specific conversation you would have with the client.
+\item Your team has discovered a critical design flaw three weeks before CDR. The fix requires redesigning the power subsystem. Draft the key points of your communication to the client.
+\item Your client has not responded to your last two emails (sent 5 and 12 days ago). What steps do you take?
+\end{enumerate}
+
+

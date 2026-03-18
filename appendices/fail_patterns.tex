@@ -1,0 +1,129 @@
+\chapter{Why Capstone Projects Fail: Twelve Common Patterns}
+\addcontentsline{toc}{chapter}{Appendix B: Why Capstone Projects Fail}
+
+These patterns have been observed across hundreds of capstone projects at Mines and other institutions. Each pattern includes the warning signs and the prevention strategy. Reading this appendix at the start of SDI may save your project.
+
+\section*{Pattern 1: Solution Before Problem}
+\textbf{What happens}: the team falls in love with a technology (``let's use a Raspberry Pi!'') before understanding the problem. The design becomes a technology showcase rather than a client solution.
+\textbf{Warning signs}: concept selection in Sprint~1 before requirements are written; the team cannot articulate the client's need in one sentence.
+\textbf{Prevention}: complete the Five-Element Problem Statement and SDRD before generating concepts. The requirements define the solution space; the solution does not define the requirements.
+
+\section*{Pattern 2: Scope Creep}
+\textbf{What happens}: the client suggests ``one more feature'' at every meeting. The team agrees to each individually reasonable request. By CDR, the project is 50\% larger than the SOW and the schedule is impossible.
+\textbf{Warning signs}: the SOW has no ``Out of Scope'' section; client requests are accepted without impact assessment; the backlog grows every sprint but nothing is removed.
+\textbf{Prevention}: baseline the SOW at Sprint~1. Use the scope change process (Chapter~7) for every addition. Present the trade-off: what is deferred to accommodate the new feature?
+
+\section*{Pattern 3: The Invisible Team Member}
+\textbf{What happens}: one team member stops attending meetings, does not complete assigned tasks, and does not respond to messages. The team compensates by doing the work themselves rather than addressing the issue.
+\textbf{Warning signs}: the Communication Lead's attendance log shows repeated absences; the task board shows tasks assigned to one person with no progress; Feedback Loop scores show a clear outlier.
+\textbf{Prevention}: address the behavior directly at the first occurrence (Chapter~13). Escalate to the PA if direct conversation does not resolve the issue. Initiate a PIP within 2 weeks if the pattern continues.
+
+\section*{Pattern 4: Big-Bang Integration}
+\textbf{What happens}: the team builds all subsystems independently, then connects everything for the first time in Sprint~12. Nothing works. The interactions between subsystems (ground loops, timing conflicts, mechanical interference) produce failures that take weeks to debug.
+\textbf{Warning signs}: no subsystem testing before Sprint~11; the task board shows ``integration'' as a single task rather than a phased process; no test results presented at sprint reviews.
+\textbf{Prevention}: follow the debugging pyramid (Chapter~6). Test at every level: component, interface, subsystem, system. Start integration in Sprint~10.
+
+\section*{Pattern 5: Procurement Paralysis}
+\textbf{What happens}: the team waits until after CDR to order components. Lead times push critical deliveries past Spring Break. The build phase is compressed from 6 weeks to 2 weeks.
+\textbf{Warning signs}: the BOM shows ``Not Ordered'' for critical items at CDR; no components ordered during Sprint~6 of SDI; the procurement timeline does not account for Spring Break closure.
+\textbf{Prevention}: order long-lead items in Sprint~6 of SDI. Order all remaining BOM items within one week of CDR. Build the procurement timeline backward from the test start date.
+
+\section*{Pattern 6: Documentation Debt}
+\textbf{What happens}: the team spends all of SDII building and testing but writes nothing until the last week. The FDR report is a rushed, thin document that does not reflect the quality of the engineering work.
+\textbf{Warning signs}: no report sections drafted before Sprint~12; the team says ``we'll write it all at the end''; sprint retrospectives do not include writing tasks.
+\textbf{Prevention}: write as you go. Update the SDRD when requirements change. Draft report sections during the sprint in which the work occurs. The FDR report should be 80\% written before the final sprint.
+
+\section*{Pattern 7: Ignoring Advisor Feedback}
+\textbf{What happens}: the PA raises concerns at Sprint~2 (``your requirements are vague''), Sprint~4 (``your PoC does not retire the key risk''), and Sprint~5 (PDR feedback). The team dismisses each concern. At CDR, the same weaknesses remain.
+\textbf{Warning signs}: PDR feedback items are not tracked or addressed; the team responds to PA feedback with ``we already thought about that'' without demonstrating the analysis; the same issues recur at each review.
+\textbf{Prevention}: treat PA feedback as action items. Track them on the task board. Report back on how each item was addressed. The PA's experience-based judgment is one of your most valuable resources.
+
+\section*{Pattern 8: The Overengineered Design}
+\textbf{What happens}: the team designs a system far more complex than the client needs. A simple monitoring task becomes a machine-learning-powered, cloud-connected, multi-sensor fusion platform. The complexity exceeds the team's ability to build and test it in the available time.
+\textbf{Warning signs}: the BOM exceeds \$3,000 for a monitoring project; the system architecture has more subsystems than team members; the schedule shows no margin for testing.
+\textbf{Prevention}: design to the requirements, not to your ambitions. The MVP that meets all Must-Have requirements on time is superior to the ambitious design that meets 60\% of requirements because the team ran out of time.
+
+\section*{Pattern 9: The Absent Client}
+\textbf{What happens}: the client attends the kickoff meeting and then stops responding. The team makes assumptions about requirements, design decisions, and priorities without client input. At FDR, the client is disappointed because the system does not match their expectations.
+\textbf{Warning signs}: no client response to emails for $>$2 weeks; team making design decisions without client approval; no client attendance at sprint reviews.
+\textbf{Prevention}: maintain the communication cadence even if the client does not respond (Chapter~17). Escalate to the PA after 2 weeks of non-response. Document every contact attempt.
+
+\section*{Pattern 10: Testing Theater}
+\textbf{What happens}: the team ``tests'' the system by demonstrating it once under ideal conditions and declaring all requirements met. No repeated measurements, no edge cases, no statistical analysis, no documentation of the test setup.
+\textbf{Warning signs}: the VCRM shows all requirements ``Verified'' but no test data is attached; test ``procedures'' are one-sentence descriptions; no measurement uncertainty is reported.
+\textbf{Prevention}: write formal test procedures with pass/fail criteria before testing. Repeat measurements at least 3 times. Test at operating range extremes. Report mean, standard deviation, and comparison to the requirement threshold.
+
+\section*{Pattern 11: The Personality Conflict Spiral}
+\textbf{What happens}: a personal conflict between two team members escalates over the semester. The conflict poisons team meetings, splits the team into factions, and eventually dominates the team dynamic. Engineering work suffers because the team cannot collaborate.
+\textbf{Warning signs}: two members do not speak to each other; meetings become tense; other team members start ``choosing sides''; the PA hears complaints from multiple members about the same individuals.
+\textbf{Prevention}: address conflicts early and directly (Chapter~13). Use the escalation path. Involve the PA before the conflict becomes entrenched. Remember that you do not need to be friends; you need to be professional colleagues.
+
+\section*{Pattern 12: The Last-Week Miracle}
+\textbf{What happens}: the team is behind schedule at Sprint~11 but believes they can ``make it all up'' in the final 2 weeks with an intense push. They pull all-nighters, skip documentation, cut corners on testing, and arrive at FDR exhausted with a prototype that sort of works.
+\textbf{Warning signs}: sprint velocity declining since Sprint~9; critical-path tasks consistently behind schedule; the team's plan requires 80-hour weeks in the final sprint; ``we just need one more week'' is said repeatedly.
+\textbf{Prevention}: the Gantt chart does not lie. If you are behind at Sprint~11, reduce scope---do not compress time. Deliver a complete, well-documented system that meets 80\% of requirements rather than a rushed, poorly documented system that theoretically meets 100\%.
+
+
+
+
+\section*{Project Health Check: Team Self-Assessment}
+Use this form at the end of each semester (or before each design review) to honestly assess your team's risk profile. For each pattern, rate your team Green (no concern), Yellow (early warning signs present), or Red (active problem). Discuss the results as a team and with your PA.
+
+\begin{center}\small
+\begin{longtable}{c p{3.8cm} c p{5.5cm}}
+\toprule
+\textbf{\#} & \textbf{Failure Pattern} & \textbf{G / Y / R} & \textbf{Evidence / Notes} \\
+\midrule
+\endhead
+1 & Solution Before Problem & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+2 & Scope Creep & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+3 & Invisible Team Member & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+4 & Big-Bang Integration & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+5 & Procurement Paralysis & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+6 & Documentation Debt & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+7 & Ignoring Advisor Feedback & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+8 & Overengineered Design & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+9 & Absent Client & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+10 & Testing Theater & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+11 & Personality Conflict Spiral & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+12 & Last-Week Miracle & $\square$\,G $\square$\,Y $\square$\,R & \\[0.4cm]
+\bottomrule
+\end{longtable}
+\end{center}
+
+\textbf{How to use}: any Red rating should be discussed with your PA immediately with a specific action plan. Two or more Yellow ratings indicate systemic process issues that should be addressed at the next retrospective. A team with all Green ratings is either exceptionally well-managed or not being honest with themselves---review the evidence column to verify.
+
+\textbf{When to use}: complete the Health Check at PDR (SDI), at CDR (SDII), and at FDR preparation (SDII). Share the results with your PA. The patterns you catch early are the patterns that do not derail your project.
+
+
+
+
+\section*{Project Health Check: Self-Assessment Tool}
+Use this self-assessment at the end of each sprint (or before each design review) to identify risks before they become crises. For each pattern, rate your team honestly: \textcolor{green!60!black}{\textbf{Green}} (not at risk), \textcolor{orange}{\textbf{Yellow}} (early warning signs present), or \textcolor{red}{\textbf{Red}} (pattern is active). Discuss Yellow and Red items at the next retrospective.
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{c X c}
+\toprule
+\textbf{\#} & \textbf{Pattern} & \textbf{G / Y / R} \\
+\midrule
+1 & Solution Before Problem: Are we designing to requirements, or to a technology we like? & $\square$\,/\,$\square$\,/\,$\square$ \\
+2 & Scope Creep: Has our scope grown since the SOW without formal change control? & $\square$\,/\,$\square$\,/\,$\square$ \\
+3 & Invisible Team Member: Is every member contributing and communicating? & $\square$\,/\,$\square$\,/\,$\square$ \\
+4 & Big-Bang Integration: Are we testing subsystems individually before connecting them? & $\square$\,/\,$\square$\,/\,$\square$ \\
+5 & Procurement Paralysis: Are all critical-path components ordered with adequate lead time? & $\square$\,/\,$\square$\,/\,$\square$ \\
+6 & Documentation Debt: Are we writing report sections as we go, or saving everything for the end? & $\square$\,/\,$\square$\,/\,$\square$ \\
+7 & Ignoring Advisor Feedback: Have we addressed every PA feedback item from the last review? & $\square$\,/\,$\square$\,/\,$\square$ \\
+8 & Overengineered Design: Is our design complexity appropriate for the requirements and timeline? & $\square$\,/\,$\square$\,/\,$\square$ \\
+9 & Absent Client: Has the client heard from us in the last 2 weeks? & $\square$\,/\,$\square$\,/\,$\square$ \\
+10 & Testing Theater: Do we have formal test procedures with pass/fail criteria? & $\square$\,/\,$\square$\,/\,$\square$ \\
+11 & Personality Conflict Spiral: Are all team disagreements being resolved constructively? & $\square$\,/\,$\square$\,/\,$\square$ \\
+12 & Last-Week Miracle: Does our schedule have realistic margin, or does it require heroic effort? & $\square$\,/\,$\square$\,/\,$\square$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{Total Red items}: \_\_\_\_  \textbf{Total Yellow items}: \_\_\_\_} & \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Interpretation}: 0 Red, 0--2 Yellow: healthy project. 1+ Red or 3+ Yellow: discuss at retrospective and develop specific corrective actions. 3+ Red: involve your PA immediately.
+
+

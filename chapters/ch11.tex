@@ -1,0 +1,376 @@
+\chapter{Hybrid Project Management for Capstone}
+
+\section{Why Hybrid, Not Pure Agile or Waterfall}
+Capstone requires both predictability (fixed milestones: PDR, CDR, FDR, Showcase) and adaptability (evolving requirements, unexpected technical challenges, shifting client priorities). Pure Waterfall is too rigid; a detailed plan created in Sprint~1 will be obsolete by Sprint~4 as technical realities emerge. Pure Agile lacks the milestone structure that external stakeholders (clients, PAs, CF) require.
+
+The hybrid approach uses \textbf{Waterfall for the milestone backbone} (fixed gates: SOW, PDR, CDR, FDR, Showcase with non-negotiable dates) and \textbf{Agile (Scrum) for sprint-level execution} within each milestone window. You know \emph{what} must be demonstrated at each gate; you use sprints to figure out \emph{how} to get there.
+
+\section{The Scrum Framework for Capstone}
+In Scrum terminology, your capstone roles map as follows:
+
+\textbf{Product Owner = the Client.} The client owns the \textbf{Product Backlog}---the prioritized list of everything the system should do, ordered by value. The client decides \emph{what} is most important; they do not tell you \emph{how} to build it.
+
+\textbf{Scrum Master = the student team lead.} The Scrum Master facilitates the process: runs sprint planning, conducts stand-ups, removes impediments, and ensures commitments are met. The Scrum Master is \emph{not} the boss; they are the process guardian.
+
+\textbf{Development Team = the project team.} Everyone contributes to the technical work. The team is self-organizing: they decide how to accomplish sprint goals, who works on what, and how to coordinate.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=0.4cm,
+    block/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=3cm, minimum height=0.7cm, align=center, font=\scriptsize\sffamily\bfseries, rounded corners=2pt, line width=0.6pt},
+    arrow/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.6pt}
+]
+\node[block] (plan) at (0,0) {Sprint Planning\\{\tiny Select backlog items}};
+\node[block, right=1.2cm of plan] (exec) {Execution\\{\tiny Daily stand-ups}};
+\node[block, right=1.2cm of exec] (review) {Sprint Review\\{\tiny Demo to PA/client}};
+\node[block, right=1.2cm of review] (retro) {Retrospective\\{\tiny Team reflection}};
+
+\draw[arrow] (plan) -- (exec);
+\draw[arrow] (exec) -- (review);
+\draw[arrow] (review) -- (retro);
+\draw[arrow, dashed, MinesSilver] (retro.south) -- ++(0,-0.5) -| (plan.south) node[pos=0.25, below, font=\tiny\sffamily\color{MinesSilver}]{Next sprint};
+\end{tikzpicture}
+\caption{The sprint cycle. Each 2-week sprint follows the same cadence: planning, execution with daily stand-ups, review (demo completed work), and retrospective (team reflection and improvement).}\label{fig:sprint-cycle}
+\end{figure}
+
+\section{The Sprint Cycle}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    day/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=1.6cm, minimum height=1.0cm, align=center, font=\tiny\sffamily, rounded corners=2pt, line width=0.5pt},
+    header/.style={font=\scriptsize\sffamily\bfseries\color{MinesBlue}},
+    note/.style={font=\tiny\sffamily\color{MinesSilver}, text width=1.6cm, align=center}
+]
+% Day blocks
+\node[day] (mon) at (0,0) {\textbf{Monday}\\Stand-up\\Task board\\update};
+\node[day] (tue) at (2.5,0) {\textbf{Tuesday}\\Class / Lab\\Design work};
+\node[day] (wed) at (5.0,0) {\textbf{Wednesday}\\Work session\\PA check-in};
+\node[day] (thu) at (7.5,0) {\textbf{Thursday}\\Class / Lab\\Client email};
+\node[day] (fri) at (10.0,0) {\textbf{Friday}\\Work session\\Documentation};
+
+% Week labels
+\node[header] at (5.0, 1.2) {Typical Sprint Week (repeats every 2 weeks)};
+
+% Sprint boundary markers
+\node[note, below=0.3cm of mon] {Sprint start:\\Planning};
+\node[note, below=0.3cm of fri] {Sprint end:\\Review + Retro};
+
+% Arrows
+\draw[-{Stealth[length=1.5mm]}, MinesSilver, line width=0.3pt] (mon) -- (tue);
+\draw[-{Stealth[length=1.5mm]}, MinesSilver, line width=0.3pt] (tue) -- (wed);
+\draw[-{Stealth[length=1.5mm]}, MinesSilver, line width=0.3pt] (wed) -- (thu);
+\draw[-{Stealth[length=1.5mm]}, MinesSilver, line width=0.3pt] (thu) -- (fri);
+\end{tikzpicture}
+\caption{A typical sprint week. Monday: stand-up and task board update. Tuesday/Thursday: class and lab sessions. Wednesday/Friday: dedicated work sessions. The PA check-in (Wednesday) and client status email (Thursday) maintain communication cadence. Sprint Reviews and Retrospectives occur on the Friday of the sprint's second week.}\label{fig:sprint-week}
+\end{figure}
+
+The typical sprint week (Figure~\ref{fig:sprint-week}) provides a weekly rhythm that teams should adapt to their specific schedule. The key elements are non-negotiable: the stand-up (coordination), the PA check-in (accountability), and the client communication (professionalism). The work sessions between these touchpoints are where the engineering happens.
+
+Capstone uses approximately 2-week sprint cycles. SDI contains Sprints~0--6 (Weeks~1--15); SDII contains Sprints~7--14 (Weeks~1--16). Each sprint follows the cadence shown in Figure~\ref{fig:sprint-cycle}.
+
+\textbf{Sprint Planning} (beginning of sprint): the team selects items from the Product Backlog for this sprint based on priority and capacity. For each item, define what ``done'' means---this prevents ambiguity at the sprint review. Commit to a Sprint Backlog that is achievable in two weeks. Over-committing and under-delivering is worse than under-committing and over-delivering; adjust your capacity estimate based on the previous sprint's actual throughput.
+
+\textbf{Daily Stand-Ups} (throughout sprint): brief team check-ins (10--15 minutes, standing up to keep it short). Each member answers three questions: (1)~What did I complete since the last meeting? (2)~What will I work on next? (3)~What is blocking me? The Scrum Master tracks blockers and works to remove them between meetings. Stand-ups are about \emph{coordination}, not status reporting---the goal is to identify and resolve impediments quickly.
+
+\textbf{Sprint Review} (end of sprint): demonstrate completed work to the PA (and client when possible). Show \emph{working functionality}, not slide decks about functionality. ``Here is the sensor reading on the screen'' beats ``here is a slide showing our plan to read the sensor.'' The sprint review is evidence-based. Several lectures are devoted to Sprint Reviews/Retrospectives; the Sprint Review and Retrospective assignments are graded.
+
+\textbf{Sprint Retrospective} (end of sprint): the team reflects on the process itself, not the product. Three questions: What went well this sprint? What should we improve? What specific actions will we take in the next sprint to improve? \textbf{Record the actions and assign owners}---a retrospective without follow-through is a waste of time. The Scrum Master checks retrospective action items at the next planning session.
+
+\begin{tipbox}[The Velocity Diagnostic]
+\textbf{Sprint velocity} is the number of backlog items (or story points) completed per sprint. Track it starting with Sprint~1. If velocity is declining over time, the team is losing momentum---investigate burnout, scope creep, or unresolved blockers. If velocity is increasing, the team is improving its process. Present velocity trends to your PA at sprint reviews.
+\end{tipbox}
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    day/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=2.0cm, minimum height=1.0cm, align=center, font=\tiny\sffamily, rounded corners=2pt, line width=0.5pt},
+    header/.style={font=\scriptsize\sffamily\bfseries\color{MinesBlue}},
+    arrow/.style={-{Stealth[length=1.5mm]}, MinesSilver, line width=0.4pt}
+]
+% Week 1
+\node[header] at (0,2.0) {Week 1 of Sprint};
+\node[day] (m1) at (0,0.8) {\textbf{Mon}\\Sprint Planning\\Select backlog};
+\node[day] (t1) at (2.5,0.8) {\textbf{Tue--Wed}\\Execution\\Stand-up + work};
+\node[day] (th1) at (5.0,0.8) {\textbf{Thu}\\PA Check-in\\Progress + blockers};
+\node[day] (f1) at (7.5,0.8) {\textbf{Fri}\\Execution\\Client email};
+\draw[arrow] (m1) -- (t1); \draw[arrow] (t1) -- (th1); \draw[arrow] (th1) -- (f1);
+
+% Week 2
+\node[header] at (0,-0.5) {Week 2 of Sprint};
+\node[day] (m2) at (0,-1.7) {\textbf{Mon}\\Stand-up\\Mid-sprint check};
+\node[day] (t2) at (2.5,-1.7) {\textbf{Tue--Wed}\\Execution\\Final push};
+\node[day] (th2) at (5.0,-1.7) {\textbf{Thu}\\Sprint Review\\Demo to PA};
+\node[day] (f2) at (7.5,-1.7) {\textbf{Fri}\\Retrospective\\Improve process};
+\draw[arrow] (m2) -- (t2); \draw[arrow] (t2) -- (th2); \draw[arrow] (th2) -- (f2);
+
+% Connect weeks
+\draw[arrow, dashed] (f1.south) -- ++(0,-0.4) -| (m2.north);
+\end{tikzpicture}
+\caption{The Capstone Sprint: a typical two-week cycle. Week~1 focuses on planning and execution; Week~2 culminates in the Sprint Review (demo to PA) and Retrospective. Adapt the specific days to your team's schedule.}\label{fig:sprint-week}
+\end{figure}
+
+The weekly cadence in Figure~\ref{fig:sprint-week} is a starting template, not a rigid prescription. Adapt it to your team's class schedule and PA availability. The non-negotiable elements are: sprint planning at the start, at least two stand-ups per week, the PA check-in, the sprint review (with a demo), and the retrospective. Teams that skip any of these elements consistently underperform teams that maintain the full cadence.
+
+\begin{tipbox}[Student Guide Cross-Reference]
+For a quick, sprint-level checklist of deliverables and priorities at each phase, see the \textbf{Student Guide} sections for your current sprint. The Student Guide tells you \emph{what to do this week}; this Course Text explains \emph{why and how}.
+\end{tipbox}
+
+
+\section{Product Backlog and Sprint Backlog}
+The \textbf{Product Backlog} is the master list of all work the project requires, owned by the client and maintained by the Scrum Master. Each item has: a description, an estimate (story points, hours, or T-shirt sizes S/M/L/XL), a priority (from the client), and dependencies on other items. The backlog is a living document; items are added, refined, split, and reprioritized throughout the project.
+
+The \textbf{Sprint Backlog} is the subset selected for the current sprint. The team commits to completing these items within the sprint. Items not completed roll back to the Product Backlog for the next sprint---they are not automatically carried forward. Consistently failing to complete the Sprint Backlog indicates over-commitment; reduce scope in the next sprint and investigate root causes (task estimates too optimistic? external blockers? team availability issues?).
+
+\section{Work Breakdown Structure and Gantt Charts}
+While Scrum manages sprint-level execution, the \textbf{Work Breakdown Structure (WBS)} decomposes the entire project into progressively smaller deliverables and tasks. The WBS ensures no major work element is overlooked. Decompose until each leaf task can be completed in one sprint or less by one person or a small sub-team. Typical capstone WBS has 3--4 levels of decomposition and 50--150 leaf tasks.
+
+The \textbf{Gantt chart} visualizes the WBS over time, showing task durations, dependencies (finish-to-start, start-to-start, etc.), and the \textbf{critical path}---the longest chain of dependent tasks that determines the minimum project duration. Tasks on the critical path have zero float (slack); any delay on the critical path delays the project end date. Non-critical tasks have float and can slip within that margin without affecting the overall schedule.
+
+\begin{tipbox}[Identify Your Critical Path Early]
+Most capstone critical paths run through \textbf{procurement and fabrication}, not through design or analysis. A 3-week PCB fabrication lead time, a 2-week specialty sensor shipping delay, or a 1-week InnoHub Manufacturing Review scheduling wait puts those tasks on the critical path. Identify procurement-dependent tasks in Sprint~1 and order early. The critical path determines your schedule; everything else is secondary.
+\end{tipbox}
+
+\section{Task Tracking Tools}
+Use a visual task management tool that the entire team (and PA) can access: Trello boards, Microsoft Teams Planner, or GitHub Projects. Organize tasks in a Kanban-style board with columns: Backlog $\to$ To Do (this sprint) $\to$ In Progress $\to$ Review $\to$ Done. Update the board at every stand-up. A board that has not been updated in a week is a warning sign that the team has lost process discipline.
+
+Each task card should include: a clear description, the assigned owner, the estimated effort, the deadline, and any blockers. Attach relevant files (drawings, datasheets, code commits) to the card for context.
+
+\section{The Team Charter and Team Contract}
+The \textbf{Team Charter} (SDI) establishes the team's mission, vision, goals, roles, communication norms (tools, response times, meeting schedule), and decision-making process (majority vote? consensus? technical lead decides for technical issues?).
+
+The \textbf{Team Contract} (especially recommended for SDII) goes further, expressing minimum commitments that every member agrees to uphold:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Presence at all team meetings, arriving on time.
+\item Minimum due dates for writing contributions (e.g., 48 hours before the team submission deadline).
+\item Minimum level of weekly contribution to the project.
+\item Expected professional behavior: communicating proactively when late or absent, responding to team messages within 24 hours, completing assigned tasks by the agreed date.
+\item Consequences for repeated violations: escalation to PIP process (Chapter~13).
+\end{itemize}
+
+Share the Team Contract with your PA. SDII teams should write or revise the contract at the start of the second semester.
+
+\section{Project Completion Plan}
+At each semester's start, establish explicit, measurable goals with your PA and client. Document them on Canvas. Goals should follow the SMART framework: Specific, Measurable, Achievable, Relevant, Time-bound. At semester's end, the \textbf{Project Goal Attainment} document evaluates performance against these goals. Teams not accomplishing their agreed-upon goals will not receive an A regardless of other scores.
+
+\section{Effective Meeting Management}
+Capstone teams attend many meetings: team stand-ups, PA meetings, client meetings, sprint reviews, retrospectives, design reviews, and ad-hoc technical discussions. Each meeting should be productive.
+
+\textbf{Before the meeting}: prepare an agenda. For stand-ups, the agenda is fixed (three questions). For all other meetings, circulate the agenda at least 24 hours in advance. The agenda includes: purpose (what decision or outcome is needed), topics (numbered, with time estimates), and pre-reads (documents attendees should review beforehand).
+
+\textbf{During the meeting}: start on time regardless of who is present. Assign a facilitator (keeps discussion on track) and a scribe (records decisions and action items). When a discussion goes off-topic, the facilitator parks it: ``Good point---let us add that to the action items and discuss it at our next meeting.'' Limit meetings to the allocated time.
+
+\textbf{After the meeting}: the scribe distributes meeting minutes within 48 hours. Minutes include: attendees, key decisions (with rationale), action items (owner, description, due date), and open questions. Copy the PA on all client meeting minutes.
+
+\textbf{Remote and hybrid meetings}: in this era of remote work, some team members may need to join by Zoom or Teams. The expectation is face-to-face attendance for class and recitation. For team meetings outside of class, set guidelines with your team and PA. Remote participants should have video on, use a good microphone, and participate actively. A remote participant who is muted with camera off for the entire meeting is not present.
+
+\section{Common PM Anti-Patterns in Capstone}
+\textbf{The Invisible Scrum Master}: the Scrum Master creates a Trello board in Sprint~1 and never updates it again. Without visible task tracking, the team has no idea who is doing what, blockers go unresolved, and sprint reviews reveal that half the planned work was not completed. Fix: the Scrum Master updates the board at every stand-up and checks it before every sprint review.
+
+\textbf{The Perpetual Sprint~1}: the team plans aggressively in Sprint~1, fails to complete the backlog, carries items forward, plans aggressively again in Sprint~2, fails again, and establishes a pattern of perpetual over-commitment. Fix: reduce Sprint~2 scope based on Sprint~1 actual velocity. Plan based on demonstrated capacity, not optimistic estimates.
+
+\textbf{The Retrospective Skip}: ``We don't have time for a retrospective; we need to build.'' This is like saying ``I don't have time to sharpen the saw; I need to keep sawing.'' Retrospectives identify process inefficiencies that, when fixed, save more time than the retrospective consumes. Fix: retrospectives are non-negotiable. Keep them short (15--20 minutes) and focused on 2--3 specific improvements.
+
+\textbf{The Single Point of Failure}: one team member owns a critical subsystem and nobody else understands it. When that person is sick, busy with other courses, or disengaged, the entire project stalls. Fix: pair programming and pair design. Every critical subsystem should have at least two team members who understand it. Document decisions in the project repository, not in one person's head.
+
+\textbf{The Phantom Stand-Up}: stand-ups where everyone says ``I'm still working on the same thing as last time'' and no blockers are raised. This indicates either that the work items are too large (break them into smaller tasks) or that the team is not being honest about challenges. Fix: break backlog items into tasks completable in 1--2 days. If a task has been ``in progress'' for a week, it is either stuck (surface the blocker) or too large (decompose it).
+
+\section{PM Tools Comparison}
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lXXX}
+\toprule
+\textbf{Tool} & \textbf{Strengths} & \textbf{Limitations} & \textbf{Best For} \\
+\midrule
+Trello & Visual Kanban, simple, free tier & No Gantt, limited reporting & Sprint task tracking \\
+Teams Planner & Integrated with Mines O365, assignments & Less flexible than Trello & Teams already using Teams \\
+GitHub Projects & Integrated with code repos & Learning curve, developer-centric & Software-heavy projects \\
+Excel/Sheets & Flexible, familiar, Gantt templates & Manual updates, no automation & WBS and Gantt charts \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Most capstone teams benefit from using \textbf{two tools}: a Kanban board (Trello or Planner) for sprint task tracking, and a spreadsheet (Excel or Sheets) for the WBS, Gantt chart, and budget tracker. Do not over-invest in PM tooling; the tools should serve the process, not become the process.
+
+
+\section{The Complete Sprint Mapping}
+The following table provides the definitive sprint-to-milestone mapping for the two-semester capstone sequence. Use this table to plan your workload and anticipate deliverable deadlines.
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{c c X c}
+\toprule
+\textbf{Sprint} & \textbf{Semester} & \textbf{Focus} & \textbf{Gate} \\
+\midrule
+0 & SDI & Project Expo, team formation, client kickoff & --- \\
+1 & SDI & SOW, Project Plan, Scrum setup, product backlog & SOW \\
+2 & SDI & Concept generation, trade study, Career Day & --- \\
+3 & SDI & Concept development, client approval, SDRD & --- \\
+4 & SDI & Proof-of-concept, ethics assignment, standards & --- \\
+5 & SDI & PDR report, mock PDR, PDR presentation & \textbf{PDR} \\
+6 & SDI & Design refinement, SDII handoff, procurement start & --- \\
+\midrule
+7 & SDII & Re-engagement, goal setting, hazard assessment & --- \\
+8 & SDII & CDR report, eng.\ calc package, CDR presentation & \textbf{CDR} \\
+9 & SDII & Fabrication begins, subsystem testing & --- \\
+10 & SDII & Integration, system testing begins & --- \\
+11 & SDII & V\&V execution, Broader Impacts essay & --- \\
+12 & SDII & FDR preparation, final V\&V, O\&M manual & --- \\
+13 & SDII & FDR report, poster design, final testing & \textbf{FDR} \\
+14 & SDII & FDR presentation, Showcase, final checkout & \textbf{Showcase} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Schedule Risk Management}
+Schedule risk is the probability that a task will take longer than planned. In capstone, schedule risk concentrates in three areas:
+
+\textbf{Procurement risk}: components arrive late, are incorrect, or are out of stock. Mitigation: order early, identify backup sources, and have alternative components pre-selected in the BOM.
+
+\textbf{Fabrication risk}: machining takes longer than estimated, 3D prints fail, PCB revisions are needed. Mitigation: add 50--100\% margin to fabrication time estimates, prototype early, and start with the highest-risk fabrication tasks.
+
+\textbf{Integration risk}: subsystems that work individually fail when connected. This is the most dangerous schedule risk because it occurs late in the project when margin is smallest. Mitigation: use the debugging pyramid approach (test components individually, then interfaces, then subsystems, then the full system), integrate incrementally (not all at once), and start integration testing as early as Sprint~10.
+
+\textbf{The schedule buffer strategy}: instead of distributing slack evenly across all tasks, concentrate it in a \textbf{project buffer} at the end---a block of unallocated time before FDR that absorbs delays from any task. A 2-week project buffer (Sprint~12) that is consumed by integration debugging is far better than no buffer and a compressed FDR.
+
+
+
+\section{Communication Protocols by Sprint Phase}
+The communication cadence should intensify as milestones approach:
+
+\textbf{Normal sprints} (Sprint 1--4, 7, 9--11): weekly team meetings (60--90 min), daily async stand-ups (Slack/Teams channel post), biweekly client status email, sprint review/retrospective at sprint end.
+
+\textbf{Pre-review sprints} (Sprint 5, 8, 12--13): daily team meetings (30 min stand-up + work session), daily task board updates, client communication as needed for review preparation, mock review 3 days before formal review.
+
+\textbf{Crisis mode} (integration failures, component failure, schedule slip): daily stand-ups become twice-daily check-ins, PA is notified immediately, client is notified within 24 hours with a recovery plan. Crisis mode is temporary; if it lasts more than one sprint, the project scope needs adjustment.
+
+\section{Velocity Tracking and Forecasting}
+Sprint velocity---the number of story points (or tasks) completed per sprint---is the most reliable predictor of future performance:
+
+\textbf{Tracking}: at the end of each sprint, record: planned story points, completed story points, and the ratio (completion rate). After 3 sprints, you have enough data to forecast.
+
+\textbf{Forecasting}: if your average velocity is 15 points/sprint and you have 45 points remaining in the backlog, you need $\sim$3 sprints to complete the work. If you have 2 sprints remaining, you must either reduce scope (remove 15 points from the backlog) or increase capacity (more hours, more team members on the critical path, or reduced task overhead).
+
+\textbf{The velocity plateau}: most teams see velocity increase through Sprint 2--4 as they learn the process, then plateau. A velocity that is declining after Sprint 4 indicates: team burnout, unresolved blockers, increasing technical debt, or disengagement. Investigate at the retrospective.
+
+\textbf{Velocity is not comparable across teams}: one team's ``15 points'' is not equivalent to another team's ``15 points'' because estimation calibration differs. Use velocity only for within-team forecasting.
+
+
+
+\section{Building an Effective Gantt Chart}
+The Gantt chart is the primary schedule visualization tool in capstone. Build it correctly:
+
+\textbf{Start with the WBS}: every task in the Gantt must trace to a WBS element. If a task appears in the Gantt but not the WBS, either the WBS is incomplete or the task is unnecessary.
+
+\textbf{Define dependencies}: for each task, identify what must be completed before it can start (predecessors). Common dependency types: Finish-to-Start (FS, most common: ``PCB layout must finish before Gerber generation starts''), Start-to-Start (SS: ``firmware development can start when the hardware design starts, using the pin assignment document'').
+
+\textbf{Estimate durations realistically}: the best estimate is based on experience. Since most capstone tasks are novel (you have not CNC-machined this specific bracket before), estimate conservatively. A useful heuristic: estimate the time, then add 50\%. If you think the PCB layout will take 5 days, plan for 8.
+
+\textbf{Identify the critical path}: the longest chain of dependent tasks. Color-code it in red on the Gantt. Every team member should know which tasks are on the critical path, because a delay on any of them delays the entire project. Tasks not on the critical path have float (schedule margin) and can slip within their float without affecting the project end date.
+
+\textbf{Add milestones}: mark the fixed dates (PDR, CDR, FDR, Showcase, Spring Break) as diamond milestones on the Gantt. These are non-negotiable. The schedule must work backward from these dates.
+
+\textbf{Update weekly}: the Gantt is a living document. At each sprint retrospective, update task progress (percent complete, actual vs. planned dates), add new tasks discovered during the sprint, and recalculate the critical path. A Gantt that was created in Sprint~1 and never updated is not a management tool.
+
+\textbf{Tools}: Microsoft Excel with conditional formatting works for simple Gantts. Microsoft Project provides automated critical path calculation but has a learning curve. Free alternatives include GanttProject and TeamGantt. For most capstone projects, an Excel-based Gantt is sufficient.
+
+
+
+\section{Change Control Process}
+After the SDRD is baselined at PDR and the design is frozen at CDR, changes must follow a formal change control process:
+
+\textbf{Step 1: Change request.} Any team member can submit a change request. The request documents: what is being changed (specific section, requirement, or component), why the change is needed (test result, client request, safety concern, component unavailability), and the proposed new state.
+
+\textbf{Step 2: Impact assessment.} The team evaluates the impact on: other requirements (does changing this requirement cascade?), the design (does the change require redesigning other components?), the schedule (how much time does the change add?), the budget (what does the change cost?), and the risk profile (does the change introduce new risks or retire existing ones?).
+
+\textbf{Step 3: Approval.} The PA must approve all changes. If the change affects scope or performance, the client must also approve. For safety-critical changes, the CF may need to be notified.
+
+\textbf{Step 4: Implementation.} The change is implemented in the design, the SDRD is updated, the BOM is updated, and the change is recorded in the change log with: change ID, date, description, rationale, impact, approver, and implementation status.
+
+\textbf{Step 5: Verification.} After implementation, verify that the change achieves its intended effect and does not introduce new problems (regression testing).
+
+Teams that skip change control arrive at FDR with a design that does not match their documentation. This mismatch makes the VCRM meaningless and undermines the credibility of the entire project.
+
+\section{When to Escalate Schedule Issues}
+Not all schedule problems require PA involvement. Use this escalation guide:
+
+\textbf{Handle within the team}: a single task is 2--3 days late but can be recovered by reallocating effort or adjusting the sprint backlog. The Scrum Master adjusts the plan and reports the adjustment at the next sprint review.
+
+\textbf{Notify the PA}: a task on the critical path is $>$1 week late, a procurement delay affects the build timeline, or the team's sprint velocity has declined for 2+ consecutive sprints. The PA should be aware and may offer advice or resources.
+
+\textbf{Escalate to PA and client}: a milestone (PDR, CDR, FDR) is at risk of not being ready on time, a scope change is needed to maintain the schedule, or an external dependency (client access, facility availability) is blocking progress. Both the PA and client need to be involved in the recovery plan.
+
+\textbf{Escalate to CF}: the project is fundamentally behind schedule with no viable recovery plan within the current scope, or the team has a systemic dysfunction (multiple members disengaged, leadership vacuum) that the PA cannot resolve alone.
+
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=0.2cm,
+    milestone/.style={diamond, draw=MinesBlue, fill=MinesBlue!20, minimum size=0.5cm, inner sep=0pt, font=\tiny\sffamily\bfseries},
+    phase/.style={rectangle, draw=MinesBlue!60, fill=LightBG, minimum height=0.4cm, font=\tiny\sffamily, rounded corners=1pt},
+    label/.style={font=\tiny\sffamily\color{MinesSilver}}
+]
+% Timeline
+\draw[MinesSilver, line width=0.3pt] (0,0) -- (12,0);
+
+% SDI phases
+\node[phase, text width=1.5cm, align=center] at (0.8,0.5) {Define};
+\node[phase, text width=1.5cm, align=center] at (2.8,0.5) {Concepts};
+\node[phase, text width=1.5cm, align=center] at (4.8,0.5) {Refine};
+
+% SDII phases
+\node[phase, text width=1.5cm, align=center] at (6.8,0.5) {Detail};
+\node[phase, text width=2.0cm, align=center] at (8.8,0.5) {Build \& Test};
+\node[phase, text width=1.5cm, align=center] at (11.0,0.5) {Verify};
+
+% Milestones
+\node[milestone] (sow) at (1.8,0) {};
+\node[label, below=0.15cm of sow] {SOW};
+\node[milestone] (pdr) at (4.2,0) {};
+\node[label, below=0.15cm of pdr] {PDR};
+\node[milestone] (cdr) at (6.8,0) {};
+\node[label, below=0.15cm of cdr] {CDR};
+\node[milestone] (fdr) at (10.5,0) {};
+\node[label, below=0.15cm of fdr] {FDR};
+\node[milestone] (show) at (11.8,0) {};
+\node[label, below=0.15cm of show] {Show};
+
+% Semester labels
+\draw[MinesBlue, line width=0.5pt, decorate, decoration={brace, amplitude=3pt}] (0,-0.8) -- (5.3,-0.8) node[midway, below=4pt, font=\tiny\sffamily\bfseries\color{MinesBlue}] {SDI (Sprints 0--6)};
+\draw[MinesBlue, line width=0.5pt, decorate, decoration={brace, amplitude=3pt}] (5.7,-0.8) -- (12,-0.8) node[midway, below=4pt, font=\tiny\sffamily\bfseries\color{MinesBlue}] {SDII (Sprints 7--14)};
+\end{tikzpicture}
+\caption{The capstone project timeline showing the five major milestones (SOW, PDR, CDR, FDR, Showcase) across the two-semester cycle. Phase widths are approximate; actual timing varies by sprint schedule.}\label{fig:project-timeline}
+\end{figure}
+
+The project timeline (Figure~\ref{fig:project-timeline}) shows the milestone backbone that all capstone projects follow. The phases between milestones have different characteristics: the Define and Concepts phases are intellectually exploratory; the Detail phase demands precision; the Build \& Test phase demands execution discipline; and the Verify phase demands honesty. Successful teams adapt their working style to each phase rather than treating the entire project the same way.
+
+\section{The Retrospective Action Item Tracker}
+Retrospective action items that are not tracked are retrospective action items that are not completed. Maintain a simple tracker:
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{c c X c c}
+\toprule
+\textbf{Sprint} & \textbf{ID} & \textbf{Action Item} & \textbf{Owner} & \textbf{Status} \\
+\midrule
+3 & R3-1 & Update task board daily, not weekly & All & Done \\
+3 & R3-2 & Send client status email every Friday & Comm Lead & Done \\
+4 & R4-1 & Start writing report sections during sprint & All & In Progress \\
+4 & R4-2 & Order backup motor before Spring Break & CFO & Done \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Review this tracker at the start of every sprint planning session. Close completed items. Carry forward open items. If an item has been open for 3+ sprints, either do it, delegate it, or delete it with an explanation of why it is no longer relevant.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Your team completed only 60\% of the Sprint~3 backlog. Diagnose three possible causes and propose a corrective action for each.
+\item Draw a simplified WBS for a Build Track project involving a temperature-controlled enclosure. Identify the critical path assuming PCB fabrication takes 3 weeks and all other tasks take 1--2 weeks.
+\item Your retrospective identified that ``we need to communicate better.'' This is too vague to be actionable. Rewrite it as three specific, measurable action items with owners.
+\item Explain the difference between a Product Backlog and a Sprint Backlog. Who owns each, and what happens to items not completed in a sprint?
+\end{enumerate}
+
+

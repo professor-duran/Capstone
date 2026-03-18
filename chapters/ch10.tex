@@ -1,0 +1,353 @@
+\chapter{Final Design Review (FDR) and Design Showcase}
+
+\section{Purpose and Scope}
+
+\begin{tipbox}
+For the sprint-level FDR preparation timeline and final deliverable checklist, see the \textbf{Student Guide, Sprints~12--14 sections}.
+\end{tipbox}
+
+
+\begin{keyconceptbox}[FDR in 60 Seconds]
+FDR answers: ``How well did it work?'' By FDR, you must have: (1)~a complete VCRM with every requirement dispositioned, (2)~test data and analysis demonstrating verification results, (3)~an as-designed vs. as-built comparison, (4)~an O\&M manual, (5)~lessons learned and future work recommendations, and (6)~a Showcase poster submitted for printing.
+\end{keyconceptbox}
+
+FDR answers: \emph{``How well did it work?''} This is the culmination of two semesters. You present the completed design, verification results, honest assessment of successes and failures, lessons learned, and recommendations for future work. FDR is not a sales pitch; it is a technical accounting.
+
+The quality of FDR documentation---depth of engineering evidence, honesty of assessment, professionalism of presentation---is the primary determinant of the final project grade. A team whose prototype works perfectly but whose documentation is thin will score lower than a team that encountered failures but documented them honestly and dispositioned them systematically.
+
+\section{Timeline}
+SDII Sprint~13--14 (Weeks~13--15). FDRt submitted before FDRw. Showcase poster submitted for printing approximately one week before the event (Week~16).
+
+\section{FDR Report (FDRt)}
+The comprehensive final engineering document:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Executive summary}: project overview, key results, recommendations.
+\item \textbf{Final VCRM}: every requirement dispositioned---Verified (with evidence reference), Failed (with disposition), Waived (with client approval), Deferred (with plan). The most important table in the report.
+\item \textbf{As-designed vs. as-built}: every deviation documented with reason, performance impact, and engineering justification.
+\item \textbf{Test data and analysis}: raw data, processed results, statistical analysis, plots, engineering interpretation. Each test mapped to a requirement.
+\item \textbf{O\&M documentation}: operating procedures, maintenance schedule, troubleshooting guide, spare parts list, end-of-life instructions.
+\item \textbf{Sustainability results}: performance against sustainability requirements and CLO~5 evaluation.
+\item \textbf{Lessons learned}: specific, honest reflection.
+\item \textbf{Future work}: specific technical tasks beyond scope or time.
+\item \textbf{Final BOM}: actual vs. budgeted costs.
+\end{itemize}
+
+\section{The Operations and Maintenance Manual}
+The O\&M manual is a standalone document (or report section) that allows someone who was not on the team to operate and maintain the system. It must include:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{System overview}: purpose, capabilities, specifications, block diagram.
+\item \textbf{Operating procedures}: step-by-step startup, normal operation, shutdown.
+\item \textbf{Maintenance schedule}: periodic tasks (calibration, filter replacement, battery check) with intervals.
+\item \textbf{Troubleshooting guide}: common symptoms, probable causes, corrective actions.
+\item \textbf{Spare parts}: list of wear items with part numbers and suppliers.
+\item \textbf{End-of-life}: decommissioning procedures, hazardous material disposal, recycling instructions.
+\end{itemize}
+The O\&M manual demonstrates that you designed for the complete lifecycle, not just for the Showcase demo.
+
+\section{FDR Presentation (FDRw)}
+Structure around \textbf{results, not process}:
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lXc}
+\toprule
+\textbf{Section} & \textbf{Content} & \textbf{Time} \\
+\midrule
+Recap & Problem, requirements, design approach & 1--2 min \\
+Final System & Photos, video, live demo (Build); key results (Paper) & 3--5 min \\
+Verification & Walk through VCRM: passed, failed, dispositioned & 5--8 min \\
+Lessons Learned & Honest assessment, surprises, what you would change & 2--3 min \\
+Recommendations & Future work, next steps for the design & 1--2 min \\
+Q\&A & & 5--10 min \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Design Showcase}
+The public exhibition, typically during finals week:
+
+\textbf{Poster}: follow the Program Format Guide on Canvas. Submit for printing one week before Showcase. Content: problem, approach, key results, significance---designed for a viewer standing 3 feet away. Large fonts ($\geq$24\,pt body), clear graphics, minimal dense text. A good poster communicates the project in 2--3 minutes without the presenter speaking.
+
+\textbf{Live demonstration}: Build Track teams demonstrate the prototype. Paper Track teams present results and visualizations. Prepare a 60-second elevator pitch.
+
+\textbf{Attendance}: mandatory for all SDII students. SDI students send 2 members to attend SDII Showcase.
+
+\textbf{Capstone Awards Breakfast}: recognition event during Showcase week.
+
+\section{The Operations and Maintenance Manual}
+The O\&M manual is a professional deliverable that accompanies the system at handoff. It is not an academic exercise; it is the document that allows the client (or the client's staff) to operate, maintain, troubleshoot, and eventually decommission your system without contacting your team. After graduation, you will not be available for tech support.
+
+Structure the O\&M manual as follows:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{System overview}: what the system does, where it is installed, and what it connects to. Include a labeled photograph and a system block diagram.
+\item \textbf{Startup procedure}: step-by-step instructions for powering on and initializing the system, from ``plug in the power supply'' to ``verify the display shows the home screen.''
+\item \textbf{Normal operation}: how to use the system for its intended purpose. Describe the primary use case from the user's perspective.
+\item \textbf{Shutdown procedure}: how to safely power down and store the system.
+\item \textbf{Routine maintenance schedule}: what needs to be inspected, cleaned, calibrated, or replaced, and how often. Example: ``Clean the sensor probe with isopropyl alcohol every 30 days. Replace the air filter every 90 days.''
+\item \textbf{Troubleshooting guide}: a table of common symptoms, probable causes, and corrective actions. Example: ``Display shows NO SIGNAL $\to$ check sensor cable connection at J3 $\to$ if loose, reseat and restart.''
+\item \textbf{Spare parts list}: components that are likely to need replacement over the system's lifetime, with part numbers and suppliers.
+\item \textbf{End-of-life instructions}: how to safely decommission the system, what materials require special disposal (batteries, chemicals), and where to recycle each component.
+\item \textbf{Contact information}: Mines Capstone Design program contact for future inquiries.
+\end{enumerate}
+
+\begin{tipbox}[Write the O\&M Manual for a Non-Engineer]
+The person who operates your system may not be an engineer. Write clearly, use photographs and diagrams liberally, avoid jargon (or define it), and number every step. If the user must perform a sequence in a specific order, make the order explicit and explain why.
+\end{tipbox}
+
+\section{Poster Design for the Design Showcase}
+The Showcase poster is a visual communication piece, not a miniaturized version of your FDR report. Design for a viewer standing 3 feet away with 2--3 minutes of attention.
+
+\textbf{Layout}: five sections, roughly equal space: (1)~Problem and motivation (why this matters), (2)~Approach and design (how you solved it), (3)~Key results (what happened, with data visualizations), (4)~Lessons learned or impact (what it means), (5)~Team information and acknowledgments. Use large fonts (title $\geq$72pt, body $\geq$24pt), high-quality images (not screenshots of slides), and minimal text (target $<$400 words total on the poster).
+
+\textbf{Data visualization}: use plots and charts, not tables of numbers. A well-designed bar chart showing ``requirement vs. measured performance'' communicates instantly what a 20-row VCRM table takes minutes to parse. Label all axes, include units, and use color consistently.
+
+\textbf{The poster is not the report}: do not try to include everything. Select the 3--5 most important results and communicate them clearly. The poster invites conversation; the conversation provides the depth.
+
+Submit the poster for printing approximately one week before the Showcase. Coordinate with CP for printing logistics and payment.
+
+\section{The SDII Sprint Flow: Build, Test, Document}
+The 14 weeks of SDII have a natural rhythm:
+
+\textbf{Sprints 7--8} (Weeks 1--5): re-engagement, CDR preparation, CDR execution. Design freeze.
+
+\textbf{Sprints 9--11} (Weeks 6--11): the build-and-test core. Fabricate, assemble, debug subsystems, integrate, begin system testing. The Broader Impacts Essay and Mid-Semester Course Survey also fall in this window. Peer Evaluation~2 occurs around Sprint~10.
+
+\textbf{Sprints 12--13} (Weeks 12--14): final testing, V\&V completion, FDR preparation. This is where documentation debt catches up with teams that have not been writing as they go.
+
+\textbf{Sprint 14} (Weeks 15--16): FDR presentation, Design Showcase, final deliverables, and checkout.
+
+The teams that succeed in SDII are the ones that \textbf{start testing early}. If your first test occurs in Sprint~12, you have left zero margin for redesign. If your first test occurs in Sprint~9, you have time to find problems, fix them, and retest.
+
+\section{Final Deliverables and Checkout}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Project Goal Attainment}: evaluation of semester goals.
+\item \textbf{Digital Design Archive}: all files organized by category (CAD, code, simulation, test data, photos, videos, deliverables).
+\item \textbf{``What I Wish I Would Have Known'' team video}: reflective video for future teams. What would you tell a team starting this project tomorrow?
+\item \textbf{Project Synopsis}: short summary for program records.
+\item \textbf{Next Steps Email (post-FDR)}: final client update.
+\item \textbf{Final Checkout}: closing meeting with PA---hand off materials, return equipment, close the project.
+\end{itemize}
+
+\section{Self-Reflection}
+CLO~17 requires self-evaluation and improvement strategies. Specific reflection is valued: ``I underestimated procurement lead times by three weeks, compressing our test schedule from four weeks to one. Next time I would order all critical components at CDR rather than waiting for post-CDR confirmation'' demonstrates more engineering maturity than ``I learned about teamwork.''
+
+\begin{keyconceptbox}[The Three Questions of Capstone]
+\textbf{PDR}: ``Should this design work?'' \textbf{CDR}: ``Will this design work?'' \textbf{FDR}: ``How well did it work?''
+
+The quality of your answer---engineering evidence, honesty of assessment, professionalism of documentation---determines your grade and your growth.
+\end{keyconceptbox}
+
+
+\section{FDR Grading Criteria}
+FDR evaluation focuses on:
+
+\textbf{Verification results} ($\sim$30\%): Is the VCRM complete with all requirements dispositioned? Are test results presented with data, analysis, and acceptance criteria? Are failures honestly reported and dispositioned?
+
+\textbf{Documentation quality} ($\sim$25\%): Is the FDR report comprehensive and professionally written? Is the as-designed vs. as-built comparison complete? Is the O\&M manual usable by a non-expert?
+
+\textbf{Engineering depth} ($\sim$20\%): Does the test data demonstrate rigorous engineering (multiple measurements, statistical treatment, environmental variations)? Are lessons learned specific and actionable?
+
+\textbf{Showcase quality} ($\sim$10\%): Is the poster professional and communicative? Is the demonstration prepared and functional? Can all team members explain the project to visitors?
+
+\textbf{Individual contribution} ($\sim$15\%): Does Feedback Loop evaluation and PA observation indicate equitable, professional contribution from each team member?
+
+\section{The Final Sprint Countdown}
+The last 4 weeks of SDII are the most intense period of capstone. A realistic timeline:
+
+\textbf{4 weeks before FDR}: system integration complete. Begin system-level V\&V testing. Start FDR report outline.
+
+\textbf{3 weeks before FDR}: primary V\&V testing complete. Begin writing FDR report sections. Start O\&M manual.
+
+\textbf{2 weeks before FDR}: FDR report first draft complete. Team peer review. VCRM disposition for all requirements. Submit poster for printing.
+
+\textbf{1 week before FDR}: FDR report finalized and sent to client. Presentation rehearsed. Showcase demonstration tested. All final deliverables in progress.
+
+\textbf{FDR week}: present FDRw. Submit all final deliverables. Attend Showcase. Final Checkout with PA.
+
+\begin{warningbox}[Documentation Debt]
+The number one FDR crisis is documentation debt---teams that spent all their time building and testing but did not write anything until the last week. The FDR report is not a one-week deliverable; it is the culmination of two semesters of engineering documentation. Write as you go: update the SDRD when requirements change, update the VCRM when tests are completed, photograph every fabrication step, and draft report sections during the sprint in which the work was done.
+\end{warningbox}
+
+
+
+\section{Writing the FDR Report: A Chapter-by-Chapter Guide}
+The FDR report is the most comprehensive deliverable of the entire capstone experience. Plan your writing timeline: assign each section to a team member, set internal deadlines for drafts, and schedule a team review session at least one week before submission.
+
+\textbf{Chapter 1: Executive Summary} (write last, 1 page). Problem, approach, key results, and recommendations. A reviewer who reads only this page should understand the project's outcome.
+
+\textbf{Chapter 2: Introduction and Background}. Project context, client, problem statement, operating environment. Update from PDR/CDR versions to reflect the current understanding.
+
+\textbf{Chapter 3: Requirements and VCRM}. The complete, final VCRM is the centerpiece. Present it as a table with clear pass/fail indicators. Discuss the overall verification results: how many requirements passed, failed, were waived, or deferred. For each failure or waiver, provide the disposition rationale.
+
+\textbf{Chapter 4: Design Description}. The final design: CAD renderings, wiring diagrams, software architecture, piping layouts. Use the as-built configuration, not the as-designed (CDR) version.
+
+\textbf{Chapter 5: As-Designed vs. As-Built}. Document every deviation from the CDR design. For each: what changed, why, what is the impact on performance. This section demonstrates engineering honesty and configuration awareness.
+
+\textbf{Chapter 6: Verification Results}. Test data, analysis results, and inspection records organized by requirement. Show raw data, processed results, and engineering interpretation. Include plots, photos, and video references.
+
+\textbf{Chapter 7: Operations and Maintenance}. The O\&M manual (see earlier section). This may be a separate document appended to the report or integrated as a chapter.
+
+\textbf{Chapter 8: Sustainability Assessment}. Results of the CLO~5 evaluation tool applied to the final design.
+
+\textbf{Chapter 9: Lessons Learned and Future Work}. Honest, specific, actionable. See the framework below.
+
+\textbf{Chapter 10: References and Appendices}. IEEE-format bibliography, detailed test data, engineering calculations, component datasheets, and supplementary materials.
+
+\section{The Lessons Learned Framework}
+Effective lessons learned are specific, causal, and actionable. Use this structure for each lesson:
+
+\textbf{What happened}: describe the event factually. ``The first PCB revision had a footprint error on the MOSFET driver IC.''
+
+\textbf{Why it happened}: identify the root cause. ``The footprint was selected from a community library without verifying against the manufacturer datasheet. The library footprint had the drain and source pins swapped.''
+
+\textbf{What was the impact}: quantify the consequence. ``The board required a second revision, adding 3 weeks to the schedule and \$45 in fabrication costs. System testing was compressed from 4 weeks to 1 week.''
+
+\textbf{What we recommend}: state the actionable lesson. ``Always verify PCB footprints against the manufacturer's recommended land pattern before submitting Gerber files. A 5-minute datasheet check would have prevented a 3-week delay.''
+
+Aim for 5--8 lessons learned, covering both technical and process topics. The best lessons learned sections are the ones that future teams can use directly to avoid the same mistakes.
+
+
+
+\section{The ``What I Wish I Would Have Known'' Video}
+Each SDII team produces a short reflective video (3--5 minutes) sharing advice for future capstone teams. This is one of the most valuable resources for incoming students. Structure your video around specific, actionable advice:
+
+\textbf{Strong content}: ``Start ordering long-lead-time components in Sprint~6 of SDI, not Sprint~8 of SDII. We lost 3 weeks waiting for a motor that could have been on our shelf before SDII started.'' ``Schedule your InnoHub Manufacturing Review Meeting in the first week of SDII. We waited until Week~3 and the slots were full for two more weeks.''
+
+\textbf{Weak content}: ``Communication is important.'' ``Start early.'' ``Work as a team.'' These are true but too generic to be useful.
+
+Every team member should appear in the video. Be honest about what went wrong---future teams learn more from your mistakes than from your successes.
+
+\section{The Digital Design Archive}
+The Digital Design Archive is the permanent project record, submitted during Final Checkout. Organize it by category, not by date:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \texttt{/01\_Reports/} --- SOW, PDRt, CDRt, FDRt (final versions)
+\item \texttt{/02\_Presentations/} --- PDRw, CDRw, FDRw slide decks
+\item \texttt{/03\_CAD/} --- SolidWorks/AutoCAD files, assembly and part files
+\item \texttt{/04\_Drawings/} --- Engineering drawings (PDF), wiring diagrams
+\item \texttt{/05\_Code/} --- Firmware, scripts, simulation files (with README)
+\item \texttt{/06\_Analysis/} --- Engineering Calculation Package, FEA/CFD results
+\item \texttt{/07\_Test\_Data/} --- Raw data files, processed results, test photos/videos
+\item \texttt{/08\_BOM\_Budget/} --- Final BOM, Budget Tracker, purchase records
+\item \texttt{/09\_Media/} --- Prototype photos, demo videos, Showcase poster
+\item \texttt{/10\_Admin/} --- Meeting minutes, client correspondence, Team Contract
+\end{itemize}
+
+Include a top-level \texttt{README.txt} describing the project, team members, and archive organization. A future team or researcher should be able to understand and navigate the archive without contacting you.
+
+
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=0.3cm,
+    block/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=2.0cm, minimum height=0.6cm, align=center, font=\tiny\sffamily\bfseries, rounded corners=2pt, line width=0.5pt},
+    decision/.style={diamond, draw=MinesBlue, fill=LightBG, minimum size=0.8cm, align=center, font=\tiny\sffamily\bfseries, inner sep=1pt, line width=0.5pt},
+    arrow/.style={-{Stealth[length=1.5mm]}, MinesBlue, line width=0.5pt}
+]
+\node[block] (test) at (0,0) {Execute Test};
+\node[decision] (pass) at (3,0) {Pass?};
+\node[block, fill=green!15] (verified) at (6,1) {Verified};
+\node[decision] (must) at (6,-1) {Must\\Have?};
+\node[block, fill=orange!15] (redesign) at (9,-0.2) {Redesign\\+ Retest};
+\node[block, fill=yellow!15] (waiver) at (9,-1.8) {Waiver or\\Deferral};
+
+\draw[arrow] (test) -- (pass);
+\draw[arrow] (pass) -- node[above, font=\tiny\sffamily]{Yes} (verified);
+\draw[arrow] (pass) -- node[right, font=\tiny\sffamily]{No} (must);
+\draw[arrow] (must) -- node[above, font=\tiny\sffamily]{Yes} (redesign);
+\draw[arrow] (must) -- node[right, font=\tiny\sffamily]{No} (waiver);
+\end{tikzpicture}
+\caption{The requirement disposition flow at FDR. Every requirement must be dispositioned. Must-Have failures require redesign; Should-Have failures may be waived or deferred with client approval.}\label{fig:disposition-flow}
+\end{figure}
+
+
+\section{Dispositioning Failed Requirements}
+Not every requirement will be met. Professional engineering requires honest disposition of failures:
+
+\textbf{Redesign and retest}: if time and budget permit, modify the design to meet the requirement and re-verify. This is the preferred disposition for Must-Have requirements. Document: what was changed, why, the retest results, and the impact on other requirements.
+
+\textbf{Waiver}: the client agrees to accept the system despite the requirement not being met, because the shortfall is minor and the system is still useful. Document: the specific shortfall (``requirement: $\pm$1.0\,\degC{}; achieved: $\pm$1.3\,\degC{}''), the client's written approval, and the rationale (``the 0.3\,\degC{} excess is within the measurement uncertainty of the reference instrument and does not affect the system's operational utility'').
+
+\textbf{Deferral to future work}: the requirement cannot be met within the current project timeline but can be addressed in a future revision. Document: the technical reason for deferral, the proposed approach for the future revision, and the client's acknowledgment. This is appropriate for Should-Have and Could-Have requirements.
+
+\textbf{Requirement removal}: the requirement is no longer relevant (the client's needs changed, the operating environment changed, or the requirement was based on an incorrect assumption). Document: why the requirement is no longer applicable, the change control approval, and the impact on the overall system.
+
+\textbf{What is NOT acceptable}: ignoring a failed requirement, reporting it as ``in progress'' at FDR, changing the requirement retroactively to match the achieved performance without documented change control, or blaming the failure on external factors without proposing a solution. Every requirement in the VCRM must be dispositioned at FDR. ``Open'' entries are not permitted.
+
+\section{The Showcase Preparation Checklist}
+Two weeks before the Showcase:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Poster content finalized and reviewed by PA.
+\item Poster submitted for printing (coordinate with CP for printing logistics and payment).
+\item Demonstration script written and rehearsed. Every team member can explain the project in 60 seconds.
+\item Backup plan if the live demo fails (video of the demo, screenshots of key results, a prepared explanation of ``what you would see if the demo were working'').
+\item Display materials: table cover, team nameplate, project signage, business cards (optional but impressive).
+\item Dress code: business casual at minimum. Coordinate team attire.
+\item Each team member has prepared 3 talking points they can confidently discuss with any visitor.
+\end{itemize}
+
+
+
+\section{The As-Designed vs. As-Built Comparison}
+Every capstone project deviates from the CDR design during fabrication. The as-designed vs. as-built comparison documents these deviations honestly:
+
+\textbf{What to document}: every change from the CDR design, no matter how small. Examples: ``Mounting hole moved 3\,mm to clear the wire harness,'' ``Resistor value changed from 10\,k$\Omega$ to 12\,k$\Omega$ to reduce amplifier gain by 17\% (eliminated saturation observed during testing),'' ``MOSFET substituted from IRF540N to IRLZ44N due to stock-out (electrically compatible, lower $R_{DS(on)}$).''
+
+\textbf{How to document}: create a table with columns: Item, CDR Design, As-Built, Reason for Change, Impact on Performance. Include the change control approval reference for each modification.
+
+\textbf{Why it matters}: the as-built comparison demonstrates three things: (1)~you maintained configuration awareness throughout the build phase, (2)~you made engineering-justified changes (not random modifications), and (3)~you can account for the differences between your CDR analysis (which was based on the CDR design) and your FDR test results (which are based on the as-built system).
+
+A team that presents identical CDR and FDR designs is either: (a)~extraordinarily disciplined and lucky (rare), or (b)~not tracking changes (common). Reviewers know the difference.
+
+\section{The Design Showcase: Logistics and Setup}
+The Showcase is typically held during finals week in the Labriola Innovation Hub. Logistics:
+
+\textbf{Space allocation}: each team receives a table or display area. Arrive early (at least 30 minutes before the event opens) to set up. Bring: poster (printed and delivered by CP), prototype, demonstration equipment, laptop for video backup, extension cord, table cover, and team nameplate.
+
+\textbf{Power and connectivity}: verify that your display area has power outlets. Bring a power strip. If your demonstration requires internet connectivity, test the WiFi in the Showcase space beforehand; large crowds can overwhelm WiFi networks.
+
+\textbf{Demonstration preparation}: test your demonstration setup in the Showcase space before visitors arrive. Murphy's Law applies: the demo that worked perfectly in the lab may fail in a new location due to different lighting, power quality, WiFi, or simply the stress of performing in front of 50 visitors. Have a backup plan: video of the demo, screenshots of key results, or a prepared explanation.
+
+\textbf{Team coordination at the Showcase}: not all team members need to be at the display at all times. Rotate: 2--3 members at the display engaging visitors while others take breaks, visit other teams' displays, or attend the Capstone Awards Breakfast. Ensure at least one member who can explain the technical depth is always present.
+
+\textbf{Engaging visitors}: stand in front of your display, not behind it. Make eye contact with approaching visitors. Offer the 60-second overview. If the visitor is interested, transition to the 3-minute guided tour of the poster. Let the visitor's questions guide the depth of discussion. Thank every visitor for their time.
+
+
+
+\section{The Project Synopsis}
+The Project Synopsis is a brief (1-page) summary document submitted during Final Checkout. It is used for program records, accreditation documentation, and future reference. Include: project title, team members, client name, problem statement (2--3 sentences), approach (2--3 sentences), key results (2--3 sentences with quantified outcomes), and a representative photograph of the final system.
+
+Write the synopsis for an audience that knows nothing about your project. It should be self-contained, professionally written, and suitable for publication in a program annual report or displayed on a department website.
+
+
+
+\begin{tipbox}[Student Guide Cross-Reference]
+For the complete FDR/Showcase deliverable checklist and final checkout procedure, see the \textbf{Student Guide, SDII Sprints~12--14} sections.
+\end{tipbox}
+
+\section{The FDR Narrative Arc}
+Structure the FDR presentation around results and evidence, not chronology:
+
+\textbf{Opening} (1--2 min): ``We set out to [problem]. We designed and built [system]. Here are the results.'' The audience attended PDR and CDR; they know the background. Provide a brief reminder, not a re-presentation.
+
+\textbf{The system} (3--5 min): show the final system with photos, video, or live demonstration. Paper Track: show key results and validated models. This is the moment the audience has been waiting for---show them the thing you built.
+
+\textbf{Verification results} (7--10 min): walk through the VCRM systematically. Group requirements by category (functional, performance, safety). For each: state the requirement, show the test setup (photo), present the result (data plot or table), and state the disposition (pass/fail/waiver). Spend more time on failures and waivers than on passes---the audience learns more from how you handled problems than from things that worked perfectly.
+
+\textbf{Lessons learned} (2--3 min): be specific, honest, and forward-looking. ``Our biggest lesson was that integration testing should have started two weeks earlier; the three issues we discovered in Sprint~12 could have been found in Sprint~10 if we had followed the debugging pyramid more rigorously.'' Generic lessons (``communication is important'') add no value.
+
+\textbf{Future work} (1--2 min): specific recommendations for what a future team or the client should do next. ``The system meets 20 of 22 requirements. The two unmet requirements (wireless range and battery life) could be addressed by upgrading to the ESP32-S3 with an external antenna and a higher-capacity LiPo cell.''
+
+\textbf{Q\&A} (5--10 min): the most important part. Every team member should be prepared to answer questions about the areas they led.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Your VCRM shows 18 Verified, 2 Failed, 1 Waived. One failure is ``Should'' (data logging rate); the other is ``Must'' (emergency shutoff 0.3\,s over spec). How should each be dispositioned?
+\item Design a Showcase poster layout: identify 5 sections and allocate space percentages. What is the maximum word count a viewer should encounter?
+\item Write a 150-word lessons-learned paragraph about a specific capstone failure demonstrating engineering maturity.
+\item Your O\&M manual is blank two weeks before FDR. Create an O\&M outline for a temperature-controlled enclosure with 8 section headings and 2--3 items per section.
+\end{enumerate}
+
+

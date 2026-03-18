@@ -1,0 +1,262 @@
+\chapter{Team Dynamics, Leadership, and Professional Conduct}
+
+\section{Team Formation and the Tuckman Model}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    stage/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=1.8cm, minimum height=0.7cm, align=center, font=\scriptsize\sffamily\bfseries, rounded corners=2pt, line width=0.6pt},
+    arrow/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.6pt},
+    desc/.style={font=\tiny\sffamily\color{MinesSilver}, text width=1.8cm, align=center}
+]
+\node[stage] (form) at (0,0) {Forming};
+\node[desc, below=0.1cm of form] {Polite\\Cautious};
+\node[stage] (storm) at (3,0) {Storming};
+\node[desc, below=0.1cm of storm] {Conflict\\Tension};
+\node[stage] (norm) at (6,0) {Norming};
+\node[desc, below=0.1cm of norm] {Agreements\\Respect};
+\node[stage] (perf) at (9,0) {Performing};
+\node[desc, below=0.1cm of perf] {Efficient\\Accountable};
+
+\draw[arrow] (form) -- (storm);
+\draw[arrow] (storm) -- (norm);
+\draw[arrow] (norm) -- (perf);
+
+% Sprint labels
+\node[font=\tiny\sffamily\color{AccentTeal}] at (0,0.6) {Sprint 0--1};
+\node[font=\tiny\sffamily\color{AccentTeal}] at (3,0.6) {Sprint 2--3};
+\node[font=\tiny\sffamily\color{AccentTeal}] at (6,0.6) {Sprint 3--4};
+\node[font=\tiny\sffamily\color{AccentTeal}] at (9,0.6) {Sprint 5+};
+\end{tikzpicture}
+\caption{Tuckman's team development stages mapped to typical capstone sprint timing. Storming is normal and necessary; teams that suppress it stall.}\label{fig:tuckman}
+\end{figure}
+
+
+Teams progress through predictable stages (Figure~\ref{fig:tuckman}): \textbf{Forming} (polite, cautious, uncertain), \textbf{Storming} (conflict emerges as work styles and expectations clash), \textbf{Norming} (working agreements established, mutual respect develops), and \textbf{Performing} (efficient operation with shared accountability). Most capstone teams reach Storming by Sprint~2--3 of SDI. Teams that suppress conflict stall permanently; teams that address it constructively reach Performing faster.
+
+\begin{tipbox}[Storming Is Normal and Necessary]
+If your team has not had a disagreement by Sprint~3, either you are exceptionally well-aligned (rare) or conflicts are being suppressed (common and dangerous). Suppressed conflict does not disappear; it surfaces at CDR as passive-aggressive behavior, missed deadlines, and finger-pointing. Address disagreements early, directly, and professionally.
+\end{tipbox}
+
+\section{Team Roles and Responsibilities}
+All roles are captured in the SOW (Chapter~7). Core roles and their specific duties:
+
+\textbf{Scrum Master / Project Manager}: facilitates the sprint process, maintains and updates the task board (Trello recommended), runs stand-ups asking the three questions, tracks attendance for all team members at all meetings. The Scrum Master is the first person the PA talks to about schedule and process. The team may select a new Scrum Master if the current lead wants to step down or if another member wants the experience.
+
+\textbf{Communication Lead}: takes attendance at every team meeting---this documentation is \textbf{essential evidence for PIPs}. Records meeting minutes and distributes them within 48 hours. Manages client communication cadence (Chapter~17). The Communication Lead's attendance records are the team's documentary evidence when performance issues arise; without dates and records, a PIP cannot proceed.
+
+\textbf{Chief Financial Officer (CFO)}: submits all purchase orders through Capstone Purchasing, maintains the Budget Tracker (updated and uploaded to Canvas monthly by the deadline), completes the CFO Form on Canvas, and coordinates all financial transactions. In SDII, the CFO role is \textbf{significantly busier}---purchasing accelerates, reimbursements multiply, and travel coordination may be added. Designate a separate Purchasing Lead if the workload is too high.
+
+\textbf{Technical Lead}: makes architecture and integration decisions, ensures technical consistency across subsystems, oversees subsystem interfaces, and serves as primary contact for Technical Advisors.
+
+\textbf{Fabrication Lead / Documentation Lead}: project-specific roles based on team skills and project needs.
+
+\section{The Team Contract}
+We encourage all teams---and \textbf{strongly recommend for SDII}---to create a Team Contract that expresses minimum expectations every member commits to:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Presence at all team meetings, arriving on time
+\item Writing contributions due 48 hours before team submission deadlines
+\item Minimum weekly contribution level (quantified: hours, tasks, deliverables)
+\item Professional behavior: proactive communication when late/absent, 24-hour message response time
+\item Meeting time outside of class if the build schedule requires it
+\item Consequences for violations: informal warning $\to$ formal discussion $\to$ PIP
+\end{itemize}
+Share the contract with your PA.
+
+\section{Feedback Loop Peer Evaluations}
+Feedback Loop is used for formal peer evaluations. SDI: 2 evaluations. SDII: 3 evaluations. Results directly scale individual grades---if your peers report you did not contribute fairly, your individual scores are adjusted downward.
+
+Every low evaluation must include \textbf{specific, documented evidence}: ``Student X missed team meetings on [specific dates], did not complete their assigned CDR report section by the [specific date] deadline, and did not respond to team messages for [specific duration].'' Vague claims without evidence cannot be acted upon.
+
+\begin{warningbox}[Individual Score Thresholds]
+Students receiving less than \textbf{70\% in SDI} or \textbf{60\% in SDII} on the combined individual assignment scores (Professional Development, Individual Writing, and Individual Performance Evaluations) will receive a \textbf{failing grade}, regardless of team scores. You cannot rely on team scores to compensate for insufficient individual contribution.
+\end{warningbox}
+
+\section{Performance Improvement Plans (PIP)}
+When informal feedback fails to resolve participation issues, the formal PIP process provides structure:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Team documents specific concerns with \textbf{evidence}: missed meetings (dates from Communication Lead's log), incomplete work (what was assigned vs. delivered), communication failures (unanswered messages with timestamps).
+\item Scrum Master or Communication Lead and PA jointly issue the PIP with a \textbf{two-week improvement timeline} and specific, measurable improvement goals.
+\item Copy to Course Faculty.
+\item After two weeks, team and PA evaluate improvement.
+\item If insufficient: team may remove the member. The individual finishes all work products independently or is assigned a different project at CF discretion.
+\end{enumerate}
+Communicate concerns \emph{early}---first to the team member, then to the PA. Waiting until FDR to raise issues that existed since Sprint~2 is neither fair nor helpful.
+
+\section{Individual Performance Evaluations}
+PAs assess individual performance based on: Feedback Loop peer evaluation results and the PA's own observation of your technical and professional contributions at Sprint Reviews, Design Reviews, and other interactions. Both \emph{what} you contributed and \emph{how} you contributed are evaluated.
+
+\section{Creating a Productive Team Culture}
+The best capstone teams share a set of cultural attributes that can be deliberately cultivated:
+
+\textbf{Psychological safety}: team members feel safe to admit mistakes, ask questions, and raise concerns without fear of ridicule or punishment. When a teammate says ``I think my wiring is wrong but I'm not sure how to fix it,'' the productive response is ``let's look at it together,'' not ``how did you mess that up?'' Teams where mistakes are hidden (because admitting them is socially costly) find problems later, when they are harder and more expensive to fix.
+
+\textbf{Shared ownership}: the project belongs to the team, not to the person who designed the subsystem. When a subsystem has a problem, the team rallies to fix it rather than waiting for the ``owner'' to handle it alone. Shared ownership also means shared accountability: every team member should understand the project well enough to explain the overall system to a reviewer, even if they did not design every subsystem.
+
+\textbf{Constructive disagreement}: when team members disagree on a technical approach, the disagreement should be resolved with data and analysis (Chapter~4: decision matrix), not with volume or seniority. A team that cannot disagree productively will either suppress good ideas (the loudest person always wins) or fracture (unresolved disagreements turn personal).
+
+\textbf{Proactive communication}: problems do not improve with silence. If you are behind on a task, tell the team \emph{before} the deadline, not after. If you cannot attend a meeting, notify the team 24 hours in advance. If you disagree with a decision, say so in the meeting, not in a private conversation afterward.
+
+\textbf{Celebrating progress}: acknowledge milestones and individual contributions. ``The sensor subsystem tested perfectly today because Sam spent 8 hours debugging the ground loop last week'' costs nothing to say and builds the kind of mutual respect that sustains teams through difficult sprints.
+
+\section{Managing Hybrid and Remote Team Members}
+Even in a synchronous course, circumstances occasionally require a team member to participate remotely: illness, family emergency, schedule conflicts with other courses, or cooperative education assignments. Managing this effectively:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Set expectations early}: the Team Contract should address remote participation---under what circumstances is it acceptable, how to participate effectively, and what ``present'' means remotely (camera on, microphone tested, actively participating).
+\item \textbf{Use shared digital tools}: maintain all project documents in the shared repository (Teams, Google Drive, or equivalent) so remote members have the same access as in-person members.
+\item \textbf{Assign remote-compatible tasks}: if a member must be remote for a week, assign documentation, analysis, code development, or research tasks rather than fabrication or hands-on testing.
+\item \textbf{Over-communicate}: remote members miss hallway conversations, whiteboard sessions, and casual updates. Compensate by posting key decisions, photos of progress, and meeting minutes promptly.
+\end{itemize}
+
+Being remote is not an excuse for disengagement. A remote team member who does not respond to messages, does not attend virtual meetings, and does not complete assigned tasks is an absent team member---and absence is documented toward PIP thresholds.
+
+\section{Conflict Resolution}
+Most team conflicts fall into three categories: (1)~unequal workload distribution, (2)~disagreement on technical approach, and (3)~communication style clashes. For each:
+
+\textbf{Unequal workload}: make contributions visible through the task board. Assign tasks with deadlines and track completion. If contributions are genuinely unequal, the data speaks for itself in Feedback Loop and PIP documentation.
+
+\textbf{Technical disagreement}: use the decision matrix (Chapter~4). Frame technical disagreements as ``which option best serves the requirements?'' rather than ``whose idea is better?'' Let the data decide.
+
+\textbf{Communication clashes}: establish norms in the Team Contract. If a team member's communication style is causing friction, address it directly and professionally: ``When you [specific behavior], the impact is [specific consequence]. Going forward, I need [specific alternative].''
+
+\section{Self-Reflection and Professional Growth}
+CLO~17 requires self-evaluation and improvement strategies. Deliverables: end-of-semester reflection narrative, ``What I Wish I Would Have Known'' team video (SDII), and the Final Course Survey. Connect capstone to your career: what technical skills did you develop, what professional skills did you practice, what would you do differently?
+
+
+\section{Leveraging Diverse Perspectives}
+Capstone teams are intentionally multidisciplinary: ME, EE, CE, EnvE, CS, and other majors working together on a single project. This diversity is a strength, not a complication. Different disciplines bring different problem-solving approaches, different technical vocabularies, and different design sensibilities.
+
+\textbf{Technical diversity}: an EE sees the power distribution challenge; an ME sees the thermal management challenge; a CS student sees the data processing architecture. When these perspectives are combined early (in requirements and concept generation), the resulting design is more robust than any single-discipline solution.
+
+\textbf{Communication across disciplines}: the biggest challenge of multidisciplinary teams is vocabulary. ``Load'' means something different to an EE (electrical current) than to an ME (mechanical force) than to a CE (structural demand). Establish a shared glossary in your project repository. When you catch yourself using jargon that your teammates do not understand, define it.
+
+\textbf{Inclusive team practices}: ensure that all team members have the opportunity to contribute, not just the most vocal. In meetings, deliberately solicit input from quieter members: ``Alex, you have experience with embedded systems; what do you think about this sensor interface approach?'' Assign tasks based on skills and learning goals, not just on who volunteers first.
+
+\textbf{Respecting different work styles}: some team members are planners who want everything defined before starting; others are experimenters who learn by building. Both approaches have value. The sprint structure accommodates both: the planning happens at sprint start, and the experimentation happens during execution.
+
+
+
+\section{Building a Productive PA Relationship}
+Your PA is your most important professional resource. They have seen dozens of capstone projects and can identify problems before they become crises. Maximize the relationship:
+
+\textbf{Come prepared to meetings}: have an agenda, show progress (working demonstrations, not just slides), and ask specific questions. ``How should we handle this trade-off between cost and accuracy?'' is far more productive than ``What should we do next?''
+
+\textbf{Ask for feedback early}: do not wait until PDR to learn that your requirements are vague. Show draft requirements, concept sketches, and analysis approaches to your PA in Sprint~2--3. Early feedback is cheap; late feedback is expensive.
+
+\textbf{Report problems promptly}: PAs would rather hear about a problem in Sprint~3 (when there is time to adjust) than in Sprint~13 (when there is not). Honest, early reporting of challenges builds trust; late revelation of hidden problems destroys it.
+
+\textbf{Accept feedback gracefully}: your PA's job is to make you better engineers, which sometimes means telling you that your approach has a fundamental flaw. This is not personal criticism; it is professional mentorship. The appropriate response is ``Thank you; how would you recommend we address this?'' not ``We already thought about that.''
+
+\textbf{Leverage their network}: PAs know faculty, industry contacts, and alumni who can serve as Technical Advisors for your project. Ask: ``Do you know anyone with expertise in [specific domain]?'' PAs are usually happy to make introductions.
+
+\section{Cross-Functional Collaboration with Other Teams}
+In some capstone configurations, multiple teams work on related subsystems of a larger project. Cross-team collaboration requires:
+
+\textbf{Interface agreements}: define the physical, electrical, and data interfaces between subsystems early (Sprint~2--3). Document these interfaces in ICDs (Chapter~4). Changes to agreed interfaces require approval from all affected teams.
+
+\textbf{Regular coordination meetings}: hold brief cross-team sync meetings (weekly, 15 minutes) to share progress, surface integration issues, and coordinate testing schedules.
+
+\textbf{Shared testing}: when subsystems must work together, coordinate a joint integration test session where both teams are present. Do not throw your subsystem over the wall and expect the other team to integrate it without your support.
+
+
+
+\section{Team Health Indicators}
+Healthy teams and struggling teams exhibit observable patterns. Monitor these indicators throughout the semester:
+
+\textbf{Healthy team signs}: task board updated regularly, sprint velocity stable or increasing, all members contributing at reviews, retrospective actions being completed, client receiving regular updates, PA hearing about problems early, team members helping each other across subsystem boundaries.
+
+\textbf{Warning signs}: task board stale for $>$1 week, sprint velocity declining, one member doing most of the talking at reviews, retrospective actions not being tracked, client has not heard from the team in $>$2 weeks, PA learning about problems only at reviews, team members working in silos with no cross-pollination.
+
+\textbf{Crisis indicators}: team member has stopped attending meetings (check Communication Lead's attendance log), Feedback Loop scores show $\leq$2 out of 5 for any member, deliverables being submitted incomplete or late, team conflict has become personal rather than professional, PA has had to intervene in team dynamics more than once.
+
+If you observe warning signs, address them at the retrospective. If you observe crisis indicators, involve the PA immediately. The PIP process (described earlier) exists for a reason---use it before the situation becomes unrecoverable.
+
+\section{The Escalation Path for Team Issues}
+Not all team problems can be resolved internally. Here is the escalation path, in order:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Direct conversation}: address the issue one-on-one with the person involved. Use ``I'' statements: ``I notice that the firmware task has been in progress for two weeks without an update. Can we talk about what is blocking you?''
+\item \textbf{Team discussion}: if the direct conversation does not resolve the issue, bring it to a team meeting. Frame it as a process problem, not a personal attack: ``We have a pattern of tasks not being completed on time. How can we adjust our process?''
+\item \textbf{PA involvement}: if team-level discussion does not resolve the issue, bring it to your PA. Bring documented evidence (attendance records, task board history, Feedback Loop scores). The PA may mediate or recommend a PIP.
+\item \textbf{Formal PIP}: if PA-mediated discussion does not produce improvement, initiate the formal PIP process with a two-week timeline and specific, measurable improvement goals.
+\item \textbf{Course Faculty}: if the PIP does not produce improvement, the PA escalates to the CF for potential team removal or course-level consequences.
+\end{enumerate}
+
+Most issues are resolved at Step 1 or 2. Escalation is not failure; it is using the institutional support structure that exists specifically for these situations.
+
+
+
+\section{Making Feedback Loop Evaluations Effective}
+Feedback Loop evaluations are most useful when they are specific, evidence-based, and constructive:
+
+\textbf{For high-performing teammates}: acknowledge specific contributions: ``Alex consistently delivered firmware milestones on time and helped debug the sensor subsystem even though it was not their assigned area. Their initiative during Sprint~10 integration was critical to our on-time CDR.'' Specific praise reinforces the behaviors you want to see continue.
+
+\textbf{For underperforming teammates}: document specific incidents with dates: ``Jordan missed team meetings on 2/15, 2/22, and 3/1. The firmware task assigned on 2/10 (due 2/24) was not completed until 3/8, delaying integration testing by one week.'' Vague criticism (``Jordan doesn't pull their weight'') is not actionable; specific documentation is.
+
+\textbf{For average teammates}: identify both strengths to reinforce and areas for growth: ``Sam consistently completes assigned tasks on time and contributes well to team discussions. An area for growth would be taking more initiative on unassigned tasks---during Sprint~9, several integration issues went unaddressed while Sam waited for them to be formally assigned.''
+
+\textbf{Self-evaluation}: be honest about your own contributions and shortcomings. Over-rating yourself while under-rating teammates is transparent to the PA and undermines your credibility. Acknowledging a specific area where you could improve (``I should have communicated my Sprint~11 delay earlier instead of waiting until the retrospective'') demonstrates professional maturity.
+
+The PA uses Feedback Loop data alongside their own observations. Consistent patterns across multiple evaluators carry more weight than a single outlier evaluation.
+
+
+
+\section{The SDI-to-SDII Team Transition}
+The semester break between SDI and SDII is a critical vulnerability for team dynamics. Momentum is lost, members may disengage, and the client relationship cools. Manage the transition deliberately:
+
+\textbf{Before the break}: complete all Sprint~6 deliverables. Document the current state of the design comprehensively---assume that if a team member reads only the documentation (not their memory), they can resume work in January. Create a ``SDII Ready'' checklist: What components are ordered? What is the build plan? What are the top 3 risks? What are the first actions for Sprint~7?
+
+\textbf{During the break}: the Scrum Master sends a brief check-in email to the team one week before SDII starts: ``We begin Sprint~7 on [date]. Our first priority is the re-engagement email to the client and the Hazard Assessment. Please review the Sprint~6 documentation before class.''
+
+\textbf{First week of SDII}: hold a team reset meeting. Review: what went well in SDI (reinforce), what needs to change (new norms), any role changes (new Scrum Master?), and the updated Team Contract. A team that starts SDII by addressing SDI problems proactively outperforms a team that hopes the problems went away during break.
+
+\textbf{Team membership changes}: occasionally, a student drops the second semester, studies abroad, or is added to the team. When membership changes, redistribute roles and responsibilities explicitly. Update the SOW team section. Ensure the new member (or remaining members) understand the project context by reviewing the PDR report and Sprint~6 documentation.
+
+\section{Celebrating Milestones and Sustaining Morale}
+Capstone is a marathon, not a sprint. Sustaining team energy over 30 weeks requires deliberate attention to morale:
+
+\textbf{Acknowledge achievements}: when the PCB works on the first try, when the client gives positive feedback, when a challenging analysis produces a good result---call it out. ``The motor controller Jordan built works perfectly. That was a difficult design and it is exactly what we needed.'' Recognition costs nothing and builds the kind of mutual respect that carries teams through hard sprints.
+
+\textbf{Mark milestones}: celebrate completing the SOW, passing PDR, receiving the first PCB, achieving the first successful system test. These do not need to be elaborate---a team lunch, a group photo with the prototype, or a brief acknowledgment at the sprint retrospective.
+
+\textbf{Manage the mid-semester slump}: around Sprint~10--11 of SDII, many teams experience fatigue. The initial excitement of building has passed, testing is revealing problems, and FDR feels both distant and looming. This is when process discipline matters most. Stick to the sprint cadence, maintain the task board, and use the retrospective to identify and address morale issues.
+
+
+
+\section{Effective Meeting Facilitation for the Scrum Master}
+The Scrum Master's effectiveness is largely determined by how well they facilitate meetings:
+
+\textbf{The time-boxed stand-up}: stand-ups must be $\leq$15 minutes. Enforce this by: standing (people talk less when standing), using a timer visible to all participants, and intervening when discussions go off-topic (``That sounds like a detailed technical discussion---let's take it offline after the stand-up. Jordan and Sam, can you stay for 5 minutes after?''). The stand-up surfaces blockers; it does not solve them.
+
+\textbf{The productive retrospective}: retrospectives become stale if they follow the same format every sprint. Vary the approach: the ``Start/Stop/Continue'' format (what should we start doing, stop doing, continue doing?), the ``4Ls'' format (Liked, Learned, Lacked, Longed for), or the ``sailboat'' metaphor (wind = what propels us, anchor = what holds us back, rocks = risks ahead). The format matters less than the quality of the discussion and the commitment to action items.
+
+\textbf{Sprint planning discipline}: sprint planning determines the next two weeks of work. The Scrum Master ensures: (1)~items are selected from the Product Backlog in priority order (not cherry-picked by preference), (2)~the team commits to a realistic volume based on previous sprint velocity (not an optimistic wish list), (3)~every selected item has a clear definition of ``done'' that all team members agree on, and (4)~every item has an assigned owner (even if multiple people will contribute, one person is accountable).
+
+\textbf{Facilitating disagreements}: when two team members disagree in a meeting, the Scrum Master's role is not to choose sides but to structure the disagreement productively: ``I hear that Jordan prefers Approach~A for [reasons] and Sam prefers Approach~B for [reasons]. Let's identify the criteria that matter and evaluate both approaches against them. Can we agree on the criteria first?'' This redirects emotional disagreement into analytical evaluation.
+
+
+
+\section{Knowledge Sharing and the Bus Factor}
+The \textbf{bus factor} is the number of team members who would need to be ``hit by a bus'' (or, more realistically, get sick, have a family emergency, or be overwhelmed by another course) before the project stalls. A bus factor of 1 means the project depends entirely on a single person's knowledge.
+
+\textbf{Increase the bus factor} through deliberate knowledge sharing:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Pair work}: for every critical subsystem, have at least two team members who understand it. The primary developer works alongside a ``shadow'' who observes, asks questions, and can take over if needed.
+\item \textbf{Documentation in the repository}: design decisions, wiring diagrams, firmware architecture notes, and calibration procedures must be documented in the shared repository---not in one person's head. If the knowledge exists only in conversation, it is lost when that person is unavailable.
+\item \textbf{Cross-training at sprint reviews}: during sprint reviews, the subsystem owner presents their work to the team with enough detail that another member could debug or modify it. This is not extra work; it is the sprint review's purpose.
+\item \textbf{Code comments and README files}: for firmware and software, comment liberally and maintain a README that explains: how to set up the development environment, how to build and upload, what each major module does, and how to run the test suite.
+\end{itemize}
+
+A team with a bus factor of 1 is one illness away from a project crisis. A team with a bus factor of 3+ can absorb any single disruption without missing a sprint.
+
+
+\section{Practice Questions}
+\begin{enumerate}[leftmargin=1.5em]
+\item Two members consistently arrive 15--20 minutes late. They complete technical work but miss stand-ups. What steps do you take, in what order?
+\item Design a Team Contract for a 5-person Build Track team with at least 6 specific, measurable commitments.
+\item A teammate received low Feedback Loop scores and says the feedback is ``unfair.'' As Scrum Master, how do you handle this productively?
+\item Describe a technical disagreement resolution process that uses evidence rather than opinion.
+\end{enumerate}
+
+

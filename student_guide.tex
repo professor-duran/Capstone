@@ -1,0 +1,704 @@
+\documentclass[11pt,letterpaper]{article}
+
+% --- Packages ---
+\usepackage[margin=1in, headheight=24pt]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+% --- Colors ---
+\definecolor{minesblue}{RGB}{33,69,126}
+\definecolor{minesgold}{RGB}{204,174,0}
+\definecolor{tipgreen}{RGB}{34,120,58}
+\definecolor{warnred}{RGB}{180,30,30}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+\hypersetup{colorlinks=true,linkcolor=minesblue,urlcolor=minesblue,citecolor=minesblue}
+
+% --- Header/Footer ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{minesblue}{\textbf{EDNS 491/492 -- Capstone Design I \& II}}}
+\fancyhead[R]{\textcolor{minesblue}{Spring 2026}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{minesblue}\leaders\hrule height \headrulewidth\hfill}}
+
+% --- Custom tcolorbox environments ---
+\newtcolorbox{faqbox}[1][]{colback=lightgray,colframe=minesblue,fonttitle=\bfseries,title={#1},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{tipbox}{colback=tipgreen!5,colframe=tipgreen,fonttitle=\bfseries\color{tipgreen},title={Tip},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{warnbox}{colback=warnred!5,colframe=warnred,fonttitle=\bfseries\color{warnred},title={Common Pitfall},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{protip}{colback=minesgold!8,colframe=minesgold!80!black,fonttitle=\bfseries\color{minesgold!80!black},title={Pro Tip},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{priorities}{colback=minesblue!5,colframe=minesblue!60,fonttitle=\bfseries\color{minesblue},title={\small$\blacktriangleright$ Top Priorities This Sprint},arc=2pt,boxrule=0.6pt,left=6pt,right=6pt,top=3pt,bottom=3pt,before upper={\small}}
+
+% --- Section formatting ---
+\titleformat{\section}
+    {\Large\bfseries\color{minesblue}}
+    {\thesection}{1em}{}[\vspace{-4pt}\textcolor{minesgold}{\rule{\textwidth}{1.5pt}}]
+\titleformat{\subsection}
+    {\large\bfseries\color{minesblue!80}}
+    {\thesubsection}{0.75em}{}
+
+\begin{document}
+
+% --- Title ---
+\begin{center}
+{\LARGE\bfseries\textcolor{minesblue}{EDNS 491 \& 492 --- Capstone Design I \& II}}\\[6pt]
+{\Large\textcolor{minesblue}{Student Guide}}\\[4pt]
+{\large Spring 2026}\\[6pt]
+{\normalsize Adam Duran $\cdot$ Assistant Teaching Professor $\cdot$ PE, PMP}\\
+{\normalsize Department of Mechanical Engineering}\\
+{\normalsize Colorado School of Mines}\\[8pt]
+\textcolor{minesgold}{\rule{0.7\textwidth}{1.5pt}}
+\end{center}
+
+\vspace{12pt}
+
+\textbf{How to use this guide:} This document is your sprint-by-sprint companion for Capstone Design. Each section covers one sprint (or sprint group) and tells you: what your top priorities are, what deliverables are due, what chapters of the Course Text to read, common mistakes to avoid, and tips from students who have been through this before. Read the relevant section at the \emph{start} of each sprint, not the end.
+
+\textbf{Three documents work together}: (1)~this Student Guide (sprint-level navigation), (2)~the Course Text (deep reference), and (3)~Canvas (assignments, rubrics, deadlines). The Course Syllabus is the authoritative source for grading and policies.
+
+\tableofcontents
+\newpage
+
+
+% ═══════════════════════════════════════
+\section{The Capstone Sprint: A Typical Week}
+
+Your team's weekly rhythm should follow this general pattern (adapt to your specific schedule):
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Day} & \textbf{Activities} \\
+\midrule
+Monday & Team stand-up (15 min). Update task board. Identify blockers. \\
+Tuesday & Class / Lab session. Design, analysis, or fabrication work. \\
+Wednesday & Work session. PA check-in (show progress, surface issues). \\
+Thursday & Class / Lab session. Send client status email (biweekly). \\
+Friday & Work session. Documentation. End of Week 2: Sprint Review + Retrospective. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{protip}
+The three non-negotiable weekly touchpoints: (1)~the stand-up (team coordination), (2)~the PA check-in (accountability), and (3)~the client communication (professionalism). Everything else flexes around your project needs.
+\end{protip}
+
+
+% ═══════════════════════════════════════
+\section{Course Philosophy and the Three-Document Ecosystem}
+
+Capstone Design is not another course; it is a professional practice experience compressed into two semesters. You will define problems, manage a team, communicate with a real client, design and build (or model) a system, verify it against requirements, and present your results publicly at the Design Showcase. The skills you develop here---engineering judgment, project management, client communication, teamwork---are the skills employers value most.
+
+\subsection{How SDI and SDII Fit Together}
+\textbf{SDI} (EDNS~491) is the \textbf{definition semester}: you go from project assignment through requirements, concept selection, and Preliminary Design Review. Sprints~0--6 cover the left side of the V-Model.
+
+\textbf{SDII} (EDNS~492) is the \textbf{execution semester}: you re-engage with the client, complete the Critical Design Review, build/model your system, test it, and present at the Final Design Review and Design Showcase. Sprints~7--14 cover the bottom and right side of the V-Model.
+
+\subsection{Your Three Documents}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{This Student Guide}: tells you what to focus on each sprint.
+\item \textbf{The Course Text}: provides the engineering methodology, process guidance, and technical reference. Organized by topic in 28 chapters across 7 parts.
+\item \textbf{Canvas}: assignment rubrics, submission portals, professional development modules, scheduling, and the Labriola InnoHub enrollment site.
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDI Sprint 0: Project Expo, Team Formation, Client Kickoff}
+\textit{Weeks 1--2 $|$ Course Text: Chapters 1, 2}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Attend the Project Expo and complete the Project Selection Survey.
+\item Meet your team, PA, and client.
+\item Prepare for and conduct the Client Kickoff Meeting.
+\item Set up the team repository (Teams group, file structure).
+\item Begin the Individual Design Log.
+\end{enumerate}
+\end{priorities}
+
+\begin{faqbox}[What should I do before the kickoff meeting?]
+Research the client's organization and industry. Prepare a slide deck for project discovery (Sprint~0 deliverable). Write 10 open-ended questions. Assign roles: facilitator, scribe, timekeeper. See Course Text Ch.~2 for the full kickoff workflow.
+\end{faqbox}
+
+\begin{warnbox}
+Do not start designing during Sprint~0. Your job this sprint is to \emph{understand the problem}, not to solve it. Listen more than you talk at the kickoff meeting. The first idea is rarely the best idea.
+\end{warnbox}
+
+\begin{protip}
+Send a follow-up email to the client within 24 hours of the kickoff meeting summarizing key decisions, open questions, and next steps. Copy your PA. This establishes your professionalism from Day~1.
+\end{protip}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item What to Expect from SD Quiz (Canvas)
+\item Project Selection Survey (by 11:30 AM on the designated date)
+\item Prof.~Dev.~-- IP Module, Licensure Module
+\item Email to client to introduce team with team slide
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDI Sprint 1: The Project Plan, Scrum Training, Client Meeting Prep}
+\textit{Weeks 3--4 $|$ Course Text: Chapters 7, 11, 13}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Develop the Statement of Work (SOW) with scope, deliverables, schedule, budget, and roles.
+\item Establish the Product Backlog and first Sprint Backlog.
+\item Set up task tracking (Trello, Planner, or GitHub Projects).
+\item Complete Scrum training modules on Canvas.
+\item Create the Team Charter.
+\end{enumerate}
+\end{priorities}
+
+\begin{faqbox}[How detailed should the SOW be?]
+Detailed enough that all parties agree on what ``done'' looks like for every deliverable. Include explicit ``Out of Scope'' items. Your PA evaluates the project against the SOW. See Course Text Ch.~7 for the complete SOW structure.
+\end{faqbox}
+
+\begin{warnbox}
+The most common Sprint~1 mistake is skipping the ``Out of Scope'' section. If you don't document what you will \emph{not} do, the client may assume it's included.
+\end{warnbox}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Prof.~Dev.~-- Intro to Scrum, Creating Team Culture Reading
+\item Client Kickoff Meeting slides and meeting minutes
+\item Initial Product Backlog
+\item EHS Safety Training (Canvas module)
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDI Sprint 2: Concept Generation, Trade Study, Career Day}
+\textit{Weeks 5--6 $|$ Course Text: Chapters 4, 20}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Generate $\geq$15 concepts using brainstorming, SCAMPER, and morphological charts.
+\item Screen concepts with Pugh matrix; advance top 3--5 to decision matrix.
+\item Prepare for Career Day (resume, elevator pitch, professional attire).
+\item Sprint 1 Review / Retrospective / Sprint 2 Backlog.
+\end{enumerate}
+\end{priorities}
+
+\begin{protip}
+Career Day is a prime networking opportunity. Bring 10--15 printed resumes and practice your capstone elevator pitch. See Course Text Ch.~20 for Career Day preparation.
+\end{protip}
+
+\begin{warnbox}
+Do not settle on a concept before generating alternatives. Three variations of the same idea are \emph{not} three concepts. Generate genuinely different approaches before converging.
+\end{warnbox}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Concept generation evidence (sketches, morphological chart)
+\item Prof.~Dev.~-- Adv. Scrum Training
+\item Sprint 1 Review / Retrospective documentation
+\item Project Plan emailed to client
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDI Sprint 3: Concept Development, Client Approval of Approach}
+\textit{Weeks 7--8 $|$ Course Text: Chapters 3, 4, 17}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Complete the weighted decision matrix with sensitivity analysis.
+\item Present top 2--3 concepts to client; obtain approval of selected approach.
+\item Draft the SDRD with initial requirements.
+\item Identify applicable engineering standards.
+\item Sprint 2 Review / Retrospective / Sprint 3 Backlog.
+\end{enumerate}
+\end{priorities}
+
+\begin{faqbox}[What if the client doesn't like any of our concepts?]
+Ask which aspects they do like and which concern them. Use their feedback to generate a hybrid concept or explore a new direction. Client approval is a scope commitment; invest the time to get it right.
+\end{faqbox}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Decision matrix with sensitivity analysis
+\item Client approval of proposed solution (documented in meeting minutes)
+\item Engineering Standards identification
+\item Ethics Assignment / Peer Evaluation \#1
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDI Sprint 4: Functional Prototypes / Site Plans, Ethics Assignment}
+\textit{Weeks 9--10 $|$ Course Text: Chapters 5, 12, 28}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Build proof-of-concept prototype or develop analytical model.
+\item Complete the SDRD (all requirements with TAID and MoSCoW).
+\item Apply CLO~5 sustainability tool (LEED, ENVISION, DFE, or ESJ).
+\item Complete the Ethics Assignment.
+\item Sprint 3 Review / Retrospective / Sprint 4 Backlog.
+\end{enumerate}
+\end{priorities}
+
+\begin{warnbox}
+Build Track: the PoC must demonstrate at least one physical function. ``We drew it in CAD'' is not a PoC. Paper Track: the PoC must demonstrate computational goal attainment (e.g., converging simulation, validated sub-model).
+\end{warnbox}
+
+\begin{protip}
+If using InnoHub shops, start machine training \emph{now}. Training slots fill up quickly and you cannot use equipment without completing the required training on the Labriola Canvas site.
+\end{protip}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Proof-of-concept demonstration (photos/video)
+\item Ethics Assignment (1000--1500 word argumentative essay)
+\item Complete SDRD draft
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDI Sprint 5: PDR Preparation, Mock PDR, PDR Execution}
+\textit{Weeks 11--13 $|$ Course Text: Chapters 6, 8, 18, 19}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Finalize PDR Report (PDRt) and send to client in advance.
+\item Conduct Mock PDR (practice presentation with PA or another team).
+\item Deliver PDR presentation (PDRw) to PA, client, and TAs.
+\item Populate the VCRM (plan: all entries ``Open'' with TAID assigned).
+\item Sprint 4 Review / Retrospective / Sprint 5 Backlog.
+\end{enumerate}
+\end{priorities}
+
+\begin{faqbox}[What does a strong PDR look like?]
+Strong PDRs have: testable requirements, $\geq$3 distinct concepts, a decision matrix with sensitivity analysis, proof-of-concept evidence (not just claims), a sustainability assessment, and a team that can answer questions about every section. See Course Text Ch.~8 for the full checklist and common failure patterns.
+\end{faqbox}
+
+\begin{warnbox}
+Do not skip the Mock PDR. Teams that rehearse consistently outperform teams that present cold. Schedule the mock at least 3 days before the formal review.
+\end{warnbox}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item PDR Report (PDRt) submitted to PA and client
+\item PDR Presentation (PDRw) delivered
+\item VCRM plan
+\item Individual Performance Eval \#1
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDI Sprint 6: Design Refinement, Next Steps, SDII Handoff}
+\textit{Weeks 14--15 $|$ Course Text: Chapters 8, 10}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Incorporate PDR feedback---categorize, assign owners, complete.
+\item Baseline the SDRD (freeze; all future changes under change control).
+\item Begin procurement of long-lead-time components for SDII.
+\item Prepare SDII transition documentation.
+\item Send Next Steps Email to client.
+\end{enumerate}
+\end{priorities}
+
+\begin{protip}
+Order long-lead-time components \emph{now}---do not wait until SDII Sprint~8. Custom PCBs take 2--4 weeks. Specialty sensors take 2--4 weeks. Every week you wait in Sprint~6 is a week less margin in SDII.
+\end{protip}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item PDRt Update (incorporating feedback)
+\item Next Steps Email to client
+\item Peer Evaluation \#2
+\item End-of-Semester Course Survey
+\item Sprint 5 Review / Retrospective / Sprint 6 documentation
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDII Sprint 7: Re-engagement, Goal Setting, Hazard Assessment}
+\textit{Week 1 $|$ Course Text: Chapters 2, 11, 27}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Send Re-engagement Email to client (5 required elements: reintroduce team, summarize SDI status, propose SDII goals, request meeting, attach Group Reflection).
+\item Complete the Hazard Assessment and Safety Plan.
+\item Review and update the Product Backlog with client.
+\item Set SDII semester goals with PA and client.
+\end{enumerate}
+\end{priorities}
+
+\begin{warnbox}
+The Hazard Assessment and Safety Plan must be approved by your PA \emph{before} fabrication begins. Do not start building without it. See Course Text Ch.~27 for the template and required content.
+\end{warnbox}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Re-engagement Email and Group Reflection \& Action Plan
+\item EHS Safety Training (SDII module)
+\item Hazard Assessment \& Safety Plan
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDII Sprint 8: CDR Report, Eng Calc Package, CDR Execution}
+\textit{Weeks 2--5 $|$ Course Text: Chapters 6, 9, 14, 15}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Finalize CDR Report (CDRt) and Engineering Calculation Package.
+\item Send CDRt to client before CDR presentation.
+\item Deliver CDR presentation (CDRw) to PA, client, and TAs.
+\item Complete BOM with all components ordered or received.
+\item Complete InnoHub Manufacturing Review Meeting (required before ordering build materials).
+\end{enumerate}
+\end{priorities}
+
+\begin{warnbox}
+The Manufacturing Review Meeting is a \textbf{required checkoff on the purchasing form}. CP will not process material orders until it is complete. Schedule it early---slots fill up around CDR time.
+\end{warnbox}
+
+\begin{protip}
+Freeze the design at CDR. After this point, changes require formal change control. Teams that keep redesigning after CDR arrive at FDR with no working prototype.
+\end{protip}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item CDR Report (CDRt) with Engineering Calculation Package
+\item CDR Presentation (CDRw)
+\item Peer Evaluation \#1 (SDII)
+\item Next Steps Email (post-CDR) to client
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDII Sprints 9--11: Build/Test/Iterate, Broader Impacts Essay}
+\textit{Weeks 6--11 $|$ Course Text: Chapters 5, 12, 25}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Fabricate, assemble, and wire your system (Build Track) or develop full-fidelity models (Paper Track).
+\item Test subsystems individually \emph{before} integrating (debugging pyramid, Ch.~25).
+\item Begin system-level integration testing.
+\item Write the Broader Impacts Essay (SDII, 1000--1500 words argumentative).
+\item Sprint Reviews / Retrospectives every 2 weeks.
+\end{enumerate}
+\end{priorities}
+
+\begin{warnbox}
+\textbf{The Spring Break Shipping Trap}: campus is closed for a full week during Spring Break. If a component fails during testing and you need a replacement, order it \emph{before} break. Plan all critical procurement to arrive at least one week before break starts.
+\end{warnbox}
+
+\begin{protip}
+Start subsystem testing as early as Sprint~9. Do \emph{not} wait until Sprint~12 for your first test. Every week of testing margin you have is a week of margin for redesign if something fails.
+\end{protip}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Broader Impacts Essay
+\item Mid-Semester Course Survey
+\item Peer Evaluation \#2 (SDII) / Individual Performance Eval \#1
+\item Sprint Review / Retrospective documentation (each sprint)
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDII Sprints 12--13: FDR Preparation, System V\&V, Final Testing}
+\textit{Weeks 12--14 $|$ Course Text: Chapters 6, 10, 18}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Complete all verification testing and update the VCRM.
+\item Disposition any failed requirements (redesign, waiver, risk acceptance).
+\item Write the FDR Report (FDRt) including as-designed vs. as-built comparison.
+\item Write the O\&M manual.
+\item Design and submit the Showcase poster for printing ($\sim$1 week before Showcase).
+\end{enumerate}
+\end{priorities}
+
+\begin{warnbox}
+A VCRM with mostly ``Open'' entries at FDR indicates insufficient testing. Every requirement must be dispositioned: Verified, Failed (with disposition), Waived, or Deferred. See Course Text Ch.~6 for failure disposition options.
+\end{warnbox}
+
+\begin{protip}
+Write the O\&M manual for a non-engineer. Use photographs, numbered steps, and clear language. The person who operates your system after you graduate may not have your technical background.
+\end{protip}
+
+\subsection{Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item FDR Report (FDRt) submitted to PA and client
+\item Complete VCRM (all entries dispositioned)
+\item O\&M manual
+\item Showcase poster (submitted for printing)
+\item Design-Build-Test-Redesign Slide
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{SDII Sprint 14: FDR, Showcase, Documentation, Final Checkout}
+\textit{Weeks 15--16 $|$ Course Text: Chapters 10, 19}
+
+\begin{priorities}
+\begin{enumerate}[nosep]
+\item Deliver FDR presentation (FDRw) to PA, client, and TAs.
+\item Present at the Design Showcase (poster + live demonstration).
+\item Complete all final deliverables.
+\item Final Checkout with PA.
+\end{enumerate}
+\end{priorities}
+
+\begin{faqbox}[What is Final Checkout?]
+A closing meeting with your PA to: hand off all project materials, return borrowed equipment, submit the Digital Design Archive, review your Project Goal Attainment, and formally close the project. Schedule it before the last day of class.
+\end{faqbox}
+
+\subsection{Final Deliverables}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item FDR Presentation (FDRw)
+\item Digital Design Archive (all project files organized)
+\item ``What I Wish I Would Have Known'' team video
+\item Project Synopsis
+\item Next Steps Email (post-FDR) to client
+\item Project Goal Attainment
+\item Peer Evaluation \#3 / Individual Performance Eval \#2
+\item Final Course Survey
+\item Final Checkout with PA
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{CFO and Purchasing Survival Guide}
+\textit{Reference $|$ Course Text: Chapters 14, 15}
+
+The CFO role is one of the most time-consuming in SDII. Here is the essential workflow:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Get PA approval} before \emph{every} purchase.
+\item Check the \textbf{approved vendor list} on Canvas.
+\item Complete the \textbf{Manufacturing Review Meeting} before ordering build materials (required checkoff).
+\item Submit the correct form to CP: Purchase Form, Shopping List, or Reimbursement Form.
+\item Email CP (capstonepurchasing@mines.edu) with: team name/number, date, vendor, form used.
+\item Update the \textbf{Budget Tracker} monthly and upload to Canvas by deadline.
+\item Pick up packages promptly from Labriola~204.
+\item Use the Mines \textbf{tax exemption certificate} for all purchases (taxes are not reimbursed).
+\end{enumerate}
+
+\begin{warnbox}
+Purchases made without PA approval may result in \textbf{personal financial liability}. Always get approval first.
+\end{warnbox}
+
+
+% ═══════════════════════════════════════
+\section{Travel Planning Quick Reference}
+\textit{Reference $|$ Course Text: Chapter 16}
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item PA must approve Go/No-Go with CLT before any spending.
+\item Prepare a draft budget before meeting with CP.
+\item Carpooling required; multiple drivers same trip not reimbursed.
+\item Mileage: Mines rate, from 1500 Illinois, Golden CO 80401. Save Google Maps PDF.
+\item Meal receipts: itemized, no alcohol (entire receipt rejected).
+\item Submit all receipts within one month of trip.
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{Resume and Career Day Preparation}
+\textit{Reference $|$ Course Text: Chapter 20}
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Update your resume with capstone contributions (quantify: budget managed, components designed, tests conducted).
+\item Practice your 60-second elevator pitch.
+\item Prepare 5--7 STAR stories from capstone for behavioral interviews.
+\item Dress business casual; bring 10--15 printed resumes.
+\item Connect with PA, client, and TA on LinkedIn after the project.
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{Design Review Preparation Checklist}
+\textit{Reference $|$ Course Text: Chapters 8, 9, 10}
+
+\textbf{1 week before:}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Report draft complete and under team review.
+\item Slide deck outline complete with section owners.
+\item PoC / demo hardware tested and working.
+\end{itemize}
+
+\textbf{3 days before:}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Report finalized and sent to client.
+\item Slides complete; first rehearsal conducted.
+\item Identified and researched likely Q\&A questions.
+\end{itemize}
+
+\textbf{Day of:}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Arrive 15 minutes early; test projector and demo equipment.
+\item Backup slides on USB drive.
+\item Assigned Q\&A responders by topic.
+\item Scribe ready to record feedback.
+\end{itemize}
+
+
+% ═══════════════════════════════════════
+\section{Module Checklist: Sprint-to-Chapter Mapping}
+
+\begin{center}\small
+\begin{longtable}{c c p{5.5cm} p{3.5cm}}
+\toprule
+\textbf{Sprint} & \textbf{Weeks} & \textbf{Primary Activities} & \textbf{Course Text Chapters} \\
+\midrule
+\endhead
+\multicolumn{4}{l}{\textbf{SDI (EDNS 491)}} \\
+\midrule
+0 & 1--2 & Project Expo, team formation, client kickoff & Ch.~1, 2 \\
+1 & 3--4 & Project Plan, Scrum training, product backlog & Ch.~7, 11, 13 \\
+2 & 5--6 & Concept generation, trade study, Career Day & Ch.~4, 20 \\
+3 & 7--8 & Concept development, client approval & Ch.~3, 4, 17 \\
+4 & 9--10 & Prototypes / site plans, ethics assignment & Ch.~5, 12, 22 \\
+5 & 11--13 & PDR preparation, mock PDR, PDR execution & Ch.~6, 8, 18, 19 \\
+6 & 14--15 & Design refinement, next steps, SDII handoff & Ch.~8, 10 \\
+\midrule
+\multicolumn{4}{l}{\textbf{SDII (EDNS 492)}} \\
+\midrule
+7 & 1 & Re-engagement, goal setting, safety plan & Ch.~2, 11, 21 \\
+8 & 2--5 & CDR report, eng.\ calc package, CDR execution & Ch.~6, 9, 14, 15 \\
+9--10 & 6--8 & Build/test/iterate, Broader Impacts essay & Ch.~5, 12 \\
+11 & 9--11 & System integration, V\&V execution & Ch.~6 \\
+12--13 & 12--14 & FDR preparation, final testing, documentation & Ch.~10, 18 \\
+14 & 15--16 & FDR, Showcase, archive, final checkout & Ch.~10, 19 \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+% ═══════════════════════════════════════
+\section{What Your PA Expects}
+\textit{Reference $|$ Course Text: Chapters 11, 13, 17}
+
+Your PA evaluates you based on both \emph{what} you deliver and \emph{how} you deliver it. Meeting the checklist is necessary but not sufficient.
+
+\begin{faqbox}[What separates an A team from a B team?]
+\textbf{A teams}: communicate proactively (PA hears about problems before they become crises), incorporate feedback aggressively (PDR weaknesses are addressed by CDR), demonstrate engineering judgment (trade-offs are analyzed with data, not guesses), and produce professional-quality documentation (reports read like they were written by engineers, not by students rushing at midnight).
+
+\textbf{B teams}: meet deadlines but do not exceed expectations, address feedback partially, make design decisions without data, and produce adequate but unpolished documentation.
+\end{faqbox}
+
+\begin{protip}
+The single most effective way to improve your PA's assessment: \textbf{close the feedback loop}. When your PA gives feedback at a sprint review, write it down, address it, and report back at the next meeting: ``At the last review you asked about our thermal analysis. Here are the results.'' PAs notice when their feedback is taken seriously.
+\end{protip}
+
+
+% ═══════════════════════════════════════
+\section{The Feedback Loop Survival Guide}
+\textit{Reference $|$ Course Text: Chapter 13}
+
+Feedback Loop peer evaluations directly affect your individual grade. SDI has 2 evaluations; SDII has 3.
+
+\begin{warnbox}
+A pattern of low Feedback Loop scores (below 3.0 out of 5.0) combined with PA observation of non-participation can result in individual grade reduction, PIP initiation, or course failure regardless of team scores.
+\end{warnbox}
+
+\textbf{How to receive good evaluations}: attend every meeting on time, complete your tasks by the agreed deadline, communicate proactively when you are behind, help teammates when you finish early, participate actively in discussions (not just silently), and be responsive to messages within 24 hours.
+
+\textbf{How to give useful evaluations}: be specific. ``Jordan was great'' does not help the PA calibrate. ``Jordan completed the firmware ahead of schedule, debugged the I2C communication issue that was blocking the sensor team, and volunteered to write the CDR power analysis section when the original author was overwhelmed'' gives the PA evidence to work with.
+
+\textbf{Self-evaluation}: be honest. PAs cross-check your self-rating against peer ratings and their own observations. Over-rating yourself while peers rate you lower signals a lack of self-awareness. Acknowledging a specific weakness (``I was late on two deliverables in Sprint~10 due to competing course deadlines; I should have communicated the conflict earlier'') signals maturity.
+
+
+% ═══════════════════════════════════════
+\section{Quick Reference: Capstone Abbreviations}
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lXlX}
+\toprule
+\textbf{Abbr.} & \textbf{Meaning} & \textbf{Abbr.} & \textbf{Meaning} \\
+\midrule
+BOM & Bill of Materials & MoSCoW & Must/Should/Could/Won't \\
+CDR & Critical Design Review & MVP & Minimum Viable Product \\
+CF & Course Faculty & O\&M & Operations \& Maintenance \\
+CLO & Course Learning Outcome & PA & Project Advisor \\
+CLT & Capstone Leadership Team & PDR & Preliminary Design Review \\
+CP & Capstone Purchasing & PIP & Performance Improvement Plan \\
+EHS & Environmental Health \& Safety & PoC & Proof of Concept \\
+FDR & Final Design Review & SDI & Senior Design I (EDNS 491) \\
+FMEA & Failure Mode \& Effects Analysis & SDII & Senior Design II (EDNS 492) \\
+ICD & Interface Control Document & SDRD & System Design Req.\ Document \\
+InnoHub & Labriola Innovation Hub & SOW & Statement of Work \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+
+% ═══════════════════════════════════════
+\begin{warnbox}
+Before every design review, complete the \textbf{Project Health Check} self-assessment (Course Text, Appendix~B). Rate your team Green/Yellow/Red on each of the 12 failure patterns. Discuss any Yellow or Red ratings with your PA.
+\end{warnbox}
+
+\section{The Most Common Mistake at Each Sprint}
+
+\begin{center}\small
+\begin{longtable}{c p{4cm} p{6cm}}
+\toprule
+\textbf{Sprint} & \textbf{Most Common Mistake} & \textbf{Prevention} \\
+\midrule
+\endhead
+0 & Starting to design before understanding the problem & Spend Sprint 0 listening, not solving. Ask questions, take notes. \\
+1 & SOW with no ``Out of Scope'' section & Explicitly list what you will NOT do. Get client agreement. \\
+2 & Generating only one concept & Use brainstorming, SCAMPER, morphological chart. Generate $\geq$15 ideas. \\
+3 & Decision matrix rigged to support a predetermined choice & Add sensitivity analysis. Vary weights by $\pm$20\%. \\
+4 & PoC that does not retire the key technical risk & Identify the risk first, then design the PoC to test it specifically. \\
+5 & Skipping the Mock PDR & Schedule the mock 3 days before. Fresh eyes catch problems you miss. \\
+6 & Not ordering long-lead components & Order PCBs and specialty parts NOW. They arrive in time for SDII. \\
+\midrule
+7 & Skipping the Hazard Assessment & Required before fabrication. PA must approve. No shortcuts. \\
+8 & BOM missing fasteners and consumables & Walk through the CAD assembly. Every visible component needs a BOM line. \\
+9--10 & Big-bang integration & Test each subsystem individually before connecting. Debugging pyramid. \\
+11 & Leaving all testing to Sprint 12 & Start V\&V testing NOW. Every week of margin = one redesign cycle. \\
+12--13 & Documentation debt & Write report sections during the sprint the work is done, not at the end. \\
+14 & Incomplete VCRM at FDR & Every requirement must be dispositioned: Verified, Failed, Waived, or Deferred. \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+
+% ═══════════════════════════════════════
+\section{Emergency Contacts and Key Resources}
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Resource} & \textbf{Contact} \\
+\midrule
+Emergency & 911 \\
+Mines Police (non-emergency) & 303-273-3333 \\
+Capstone Program Director & Dr.\ Kristy Csavina, kcsavina@mines.edu \\
+Capstone Purchasing & capstonepurchasing@mines.edu, Labriola 204 \\
+InnoHub Operations & Julia Roos, jroos@mines.edu \\
+InnoHub General & innohub@mines.edu \\
+EHS & 303-273-3316, \url{https://www.mines.edu/ehs/} \\
+Writing Center & \url{https://writing.mines.edu/}, appointments at mines.mywconline.com \\
+Labriola Info & \url{http://labriola.mines.edu/} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\vspace{1cm}
+\begin{center}
+\textcolor{minesgold}{\rule{0.5\textwidth}{1.5pt}}\\[8pt]
+{\small\textit{This guide is a companion to the EDNS 491/492 Course Text. For detailed methodology, technical reference, and worked examples, consult the Course Text chapters referenced in each section above.}}
+\end{center}
+
+\end{document}
