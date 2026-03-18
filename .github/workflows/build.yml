@@ -3,46 +3,49 @@ name: Build LaTeX PDFs
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    paths:
+      - '**.tex'
+      - 'frontmatter/**'
+      - 'chapters/**'
+      - 'appendices/**'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Install LaTeX
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y texlive-full
+      - name: Build Course Text
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          args: -pdf -interaction=nonstopmode -file-line-error
+          extra_packages: tcolorbox etoolbox pgf environ tikzfill pdfcol
 
-    - name: Build Course Text
-      run: |
-        cd ${{ github.workspace }}
-        pdflatex -interaction=nonstopmode main.tex
-        pdflatex -interaction=nonstopmode main.tex
-        pdflatex -interaction=nonstopmode main.tex
+      - name: Build Student Guide
+        if: hashFiles('student_guide.tex') != ''
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: student_guide.tex
+          args: -pdf -interaction=nonstopmode -file-line-error
+          extra_packages: tcolorbox etoolbox pgf environ tikzfill pdfcol
 
-    - name: Build Student Guide
-      run: |
-        cd ${{ github.workspace }}
-        pdflatex -interaction=nonstopmode student_guide.tex
-        pdflatex -interaction=nonstopmode student_guide.tex
-        pdflatex -interaction=nonstopmode student_guide.tex
-
-    - name: Verify build
-      run: |
-        test -f main.pdf && echo "Course Text: OK ($(du -h main.pdf | cut -f1))" || exit 1
-        test -f student_guide.pdf && echo "Student Guide: OK ($(du -h student_guide.pdf | cut -f1))" || exit 1
-
-    - name: Upload PDFs as artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: EDNS491-492-PDFs
-        path: |
-          main.pdf
-          student_guide.pdf
-        retention-days: 90
+      - name: Commit PDFs
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -f main.pdf
+          if [ -f student_guide.pdf ]; then
+            git add -f student_guide.pdf
+          fi
+          git diff --staged --quiet || {
+            git commit -m "Auto-build PDFs [skip ci]"
+            git pull --rebase origin main
+            git push
+          }
