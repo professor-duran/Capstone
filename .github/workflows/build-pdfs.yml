@@ -5,10 +5,9 @@ on:
     branches: [ main ]
     paths:
       - '**.tex'
-      - 'frontmatter/**'
-      - 'chapters/**'
-      - 'appendices/**'
-      - '.github/workflows/build.yml'
+      - 'mrd/**'
+      - 'student_guide/**'
+      - '.github/workflows/build-pdfs.yml'
   workflow_dispatch:
 
 permissions:
@@ -24,26 +23,27 @@ jobs:
       - name: Build Course Text
         uses: xu-cheng/latex-action@v3
         with:
+          working_directory: mrd
           root_file: main.tex
-          args: -pdf -interaction=nonstopmode -file-line-error
-          extra_packages: tcolorbox etoolbox pgf environ tikzfill pdfcol
+          args: -pdf -f -interaction=nonstopmode -file-line-error
 
       - name: Build Student Guide
-        if: hashFiles('student_guide.tex') != ''
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: student_guide.tex
-          args: -pdf -interaction=nonstopmode -file-line-error
-          extra_packages: tcolorbox etoolbox pgf environ tikzfill pdfcol
+          working_directory: student_guide
+          root_file: EDNS491_Student_Guide.tex
+          args: -pdf -f -interaction=nonstopmode -file-line-error
+
+      - name: Copy PDFs to repo root
+        run: |
+          cp mrd/main.pdf edns491_course_text.pdf
+          cp student_guide/EDNS491_Student_Guide.pdf EDNS491_Student_Guide.pdf
 
       - name: Commit PDFs
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add -f main.pdf
-          if [ -f student_guide.pdf ]; then
-            git add -f student_guide.pdf
-          fi
+          git add -f edns491_course_text.pdf EDNS491_Student_Guide.pdf
           git diff --staged --quiet || {
             git commit -m "Auto-build PDFs [skip ci]"
             git pull --rebase origin main

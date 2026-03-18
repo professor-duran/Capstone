@@ -1,0 +1,129 @@
+%% ================================================================
+%% EDNS 491/492 Capstone Design I & II
+%% Student Guide - Main Build File
+%% ================================================================
+%%
+%% Sprint-by-sprint tips, warnings, and quick references.
+%% Each section is stored in its own .tex file under sections/.
+%%
+%% To compile:
+%%   pdflatex EDNS491_Student_Guide.tex
+%%   pdflatex EDNS491_Student_Guide.tex
+%%
+%% Or with latexmk:
+%%   latexmk -pdf EDNS491_Student_Guide.tex
+%%
+%% ================================================================
+
+\documentclass[11pt,letterpaper]{article}
+
+% --- Packages ---
+\usepackage[margin=1in, headheight=24pt]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+% --- Colors ---
+\definecolor{minesblue}{RGB}{33,69,126}
+\definecolor{minesgold}{RGB}{204,174,0}
+\definecolor{tipgreen}{RGB}{34,120,58}
+\definecolor{warnred}{RGB}{180,30,30}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+\hypersetup{colorlinks=true,linkcolor=minesblue,urlcolor=minesblue,citecolor=minesblue}
+
+% --- Header/Footer ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{minesblue}{\textbf{EDNS 491/492 -- Capstone Design I \& II}}}
+\fancyhead[R]{\textcolor{minesblue}{Spring 2026}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{minesblue}\leaders\hrule height \headrulewidth\hfill}}
+
+% --- Custom tcolorbox environments ---
+\newtcolorbox{faqbox}[1][]{colback=lightgray,colframe=minesblue,fonttitle=\bfseries,title={#1},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{tipbox}{colback=tipgreen!5,colframe=tipgreen,fonttitle=\bfseries\color{tipgreen},title={Tip},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{warnbox}{colback=warnred!5,colframe=warnred,fonttitle=\bfseries\color{warnred},title={Common Pitfall},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{protip}{colback=minesgold!8,colframe=minesgold!80!black,fonttitle=\bfseries\color{minesgold!80!black},title={Pro Tip},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{priorities}{colback=minesblue!5,colframe=minesblue!60,fonttitle=\bfseries\color{minesblue},title={\small$\blacktriangleright$ Top Priorities This Sprint},arc=2pt,boxrule=0.6pt,left=6pt,right=6pt,top=3pt,bottom=3pt,before upper={\small}}
+
+% --- Section formatting ---
+\titleformat{\section}
+    {\Large\bfseries\color{minesblue}}
+    {\thesection}{1em}{}[\vspace{-4pt}\textcolor{minesgold}{\rule{\textwidth}{1.5pt}}]
+\titleformat{\subsection}
+    {\large\bfseries\color{minesblue!80}}
+    {\thesubsection}{0.75em}{}
+
+
+\begin{document}
+
+% --- Title ---
+\begin{center}
+{\LARGE\bfseries\textcolor{minesblue}{EDNS 491 \& 492 --- Capstone Design I \& II}}\\[6pt]
+{\Large\textcolor{minesblue}{Student Guide}}\\[4pt]
+{\large Spring 2026}\\[6pt]
+{\normalsize Adam Duran $\cdot$ Assistant Teaching Professor $\cdot$ PE, PMP}\\
+{\normalsize Department of Mechanical Engineering}\\
+{\normalsize Colorado School of Mines}\\[8pt]
+\textcolor{minesgold}{\rule{0.7\textwidth}{1.5pt}}
+\end{center}
+
+\vspace{12pt}
+
+\textbf{How to use this guide:} This document is your sprint-by-sprint companion for Capstone Design. Each section covers one sprint (or sprint group) and tells you: what your top priorities are, what deliverables are due, what chapters of the Course Text to read, common mistakes to avoid, and tips from students who have been through this before. Read the relevant section at the \emph{start} of each sprint, not the end.
+
+\textbf{Three documents work together}: (1)~this Student Guide (sprint-level navigation), (2)~the Course Text (deep reference), and (3)~Canvas (assignments, rubrics, deadlines). The Course Syllabus is the authoritative source for grading and policies.
+
+\tableofcontents
+\newpage
+
+
+% ═══════════════════════════════════════
+
+% ── Sections ────────────────────────────────────────────────────────
+\input{sections/sprint_week}
+\input{sections/philosophy}
+\input{sections/sdi_sprint0}
+\input{sections/sdi_sprint1}
+\input{sections/sdi_sprint2}
+\input{sections/sdi_sprint3}
+\input{sections/sdi_sprint4}
+\input{sections/sdi_sprint5}
+\input{sections/sdi_sprint6}
+\input{sections/sdii_sprint7}
+\input{sections/sdii_sprint8}
+\input{sections/sdii_sprints9_11}
+\input{sections/sdii_sprints12_13}
+\input{sections/sdii_sprint14}
+\input{sections/cfo_purchasing}
+\input{sections/travel}
+\input{sections/career}
+\input{sections/design_review}
+\input{sections/module_checklist}
+\input{sections/pa_expectations}
+\input{sections/feedback_loop}
+\input{sections/abbreviations}
+\input{sections/common_mistakes}
+\input{sections/emergency}
+
+% ── Closing ─────────────────────────────────────────────────────────
+\vspace{1cm}
+\begin{center}
+\textcolor{minesgold}{\rule{0.5\textwidth}{1.5pt}}\\[8pt]
+{\small\textit{This guide is a companion to the EDNS 491/492 Course Text. For detailed methodology, technical reference, and worked examples, consult the Course Text chapters referenced in each section above.}}
+\end{center}
+
+\end{document}

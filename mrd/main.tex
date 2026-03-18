@@ -1,0 +1,124 @@
+%% ================================================================
+%% EDNS 491/492 Capstone Design I & II
+%% Course Text - Main Build File
+%% ================================================================
+%%
+%% Each chapter is stored in its own .tex file under chapters/.
+%% Front matter and appendices are under frontmatter/ and appendices/.
+%%
+%% To compile:
+%%   pdflatex main.tex
+%%   pdflatex main.tex
+%%   pdflatex main.tex
+%%
+%% Or with latexmk:
+%%   latexmk -pdf main.tex
+%%
+%% Fast single-chapter build (uncomment one line):
+%%   \includeonly{chapters/ch14}
+%%
+%% ================================================================
+
+\input{preamble}
+
+\begin{document}
+
+% ========== TITLE PAGE ==========
+\begin{titlepage}
+\begin{center}
+\vspace*{2cm}
+{\Huge\bfseries\sffamily\textcolor{MinesBlue}{EDNS 491 \& 492}}\\[0.5cm]
+{\Huge\bfseries\sffamily\textcolor{MinesBlue}{Capstone Design I \& II}}\\[2cm]
+{\huge\sffamily\textcolor{MinesBlue}{Student Course Text}}\\[1cm]
+{\Large\sffamily The Design Process, Project Management, Professional Skills,}\\[0.2cm]
+{\Large\sffamily for Senior Design}\\[3cm]
+{\large\sffamily\textcolor{MinesSilver}{Colorado School of Mines}}\\[0.3cm]
+{\large\sffamily\textcolor{MinesSilver}{Interdisciplinary Engineering Design}}\\[1.5cm]
+{\Large\sffamily\textbf{Adam Duran}}\\[0.2cm]
+{\normalsize\sffamily Assistant Teaching Professor, Mechanical Engineering}\\[0.2cm]
+{\normalsize\sffamily\textcolor{MinesSilver}{PE \,$\cdot$\, PMP}}\\[1.5cm]
+{\normalsize\sffamily\textcolor{MinesSilver}{Publication Date: March 2026}}\\[0.8cm]
+\textcolor{MinesBlue}{\rule{0.6\textwidth}{1pt}}\\[0.5cm]
+{\normalsize\sffamily A comprehensive reference covering the engineering design process, project milestones, hybrid project management, professional communication, client engagement, fabrication resources, safety, and professional ethics for the two-semester capstone design experience.}
+\end{center}
+\end{titlepage}
+
+% ========== TABLE OF CONTENTS ==========
+\frontmatter
+\tableofcontents
+\newpage
+
+% ========== FRONT MATTER ==========
+\input{frontmatter/how_to_use}
+\input{frontmatter/triage_table}
+\input{frontmatter/lab_safety}
+
+% ========== MAIN MATTER ==========
+\mainmatter
+
+% ================================================================
+% PART I: THE DESIGN PROCESS
+% ================================================================
+\input{chapters/part_the_design_process}
+
+\include{chapters/ch01}
+\include{chapters/ch02}
+\include{chapters/ch03}
+\include{chapters/ch04}
+\include{chapters/ch05}
+\include{chapters/ch06}
+
+% ================================================================
+% PART II: MAJOR PROJECT MILESTONES
+% ================================================================
+\input{chapters/part_major_project_milestones}
+
+\include{chapters/ch07}
+\include{chapters/ch08}
+\include{chapters/ch09}
+\include{chapters/ch10}
+
+% ================================================================
+% PART III: PROJECT MANAGEMENT AND OPERATIONS
+% ================================================================
+\input{chapters/part_project_management}
+
+\include{chapters/ch11}
+\include{chapters/ch12}
+\include{chapters/ch13}
+\include{chapters/ch14}
+\include{chapters/ch15}
+\include{chapters/ch16}
+
+% ================================================================
+% PART IV: PROFESSIONAL SKILLS
+% ================================================================
+\input{chapters/part_professional_skills}
+
+\include{chapters/ch17}
+\include{chapters/ch18}
+\include{chapters/ch19}
+\include{chapters/ch20}
+
+% ================================================================
+% PART V: SAFETY, COMPLIANCE, AND PROFESSIONAL PRACTICE
+% ================================================================
+\input{chapters/part_safety_compliance}
+
+\include{chapters/ch21}
+\include{chapters/ch22}
+
+% ================================================================
+% BACK MATTER
+% ================================================================
+\backmatter
+
+\appendix
+
+\input{appendices/glossary}
+\input{appendices/fail_patterns}
+\input{appendices/checklists}
+
+\input{appendices/references}
+
+\end{document}
