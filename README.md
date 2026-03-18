@@ -1,6 +1,6 @@
 # Capstone — EDNS 491/492 Capstone Design I & II
 
-**Colorado School of Mines · Interdisciplinary Engineering Design**
+**Colorado School of Mines · Interdisciplinary Capstone Engineering Design**
 
 Course materials for the two-semester, multi-disciplinary capstone design sequence.
 
