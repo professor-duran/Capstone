@@ -14,7 +14,7 @@ PDR is your first opportunity to receive formal, structured feedback from the PA
 PDR occurs during SDI Sprint~5 (Weeks~11--13):
 \begin{enumerate}[nosep,leftmargin=1.5em]
 \item \textbf{Week~1}: finalize PDRt. Send front-end material to client in advance.
-\item \textbf{Week~2}: conduct Mock PDR---practice presentation with PA or another team. Incorporate feedback.
+\item \textbf{Week~2}: conduct Mock PDR; practice presentation with PA or another team. Incorporate feedback.
 \item \textbf{Week~3}: deliver formal PDRw to PA, client, and TAs.
 \end{enumerate}
 
@@ -29,7 +29,7 @@ Formal written document submitted to PA and shared with client before the presen
 \item Concept selection: Pugh screening + weighted decision matrix + sensitivity analysis
 \item Preliminary architecture: functional decomposition, block diagram, allocation matrix, interfaces
 \item Risk register and initial FMEA
-\item Proof-of-concept results with data or analysis
+\item Proof-of-Concept results with data or analysis
 \item Sustainability assessment (CLO~5 tool applied)
 \item Engineering standards identified and mapped to requirements
 \item VCRM (plan): all requirements with assigned methods and phases
@@ -76,10 +76,10 @@ Your PA evaluates PDR on:
 \section{Common PDR Failure Patterns}
 \begin{enumerate}[nosep,leftmargin=1.5em]
 \item Requirements that are not testable (``the system shall be reliable'').
-\item Only one concept generated---no evidence of divergent thinking.
+\item Only one concept generated (no evidence of divergent thinking.
 \item Decision matrix with criteria that obviously bias toward a predetermined choice.
 \item Risk register listing only technical risks.
-\item No PoC evidence---just claims of feasibility.
+\item No PoC evidence) just claims of feasibility.
 \item Sustainability as an afterthought appendix.
 \item Running over time or poorly coordinated team transitions.
 \item Team members unable to answer questions about their own sections.
@@ -94,7 +94,7 @@ Your PA evaluates PDR on:
 \end{enumerate}
 
 \section{The Review Culture: Feedback Is a Gift}
-Design reviews exist to improve the design, not to judge the team. The best PDRs are the ones where tough questions lead to real improvements. A reviewer who asks ``What happens if the sensor cable is severed during operation?'' has identified a failure mode you missed. A reviewer who says ``Your decision matrix weights seem arbitrary---how did you determine them?'' is pushing you toward a more defensible selection.
+Design reviews exist to improve the design, not to judge the team. The best PDRs are the ones where tough questions lead to real improvements. A reviewer who asks ``What happens if the sensor cable is severed during operation?'' has identified a failure mode you missed. A reviewer who says ``Your decision matrix weights seem arbitrary; how did you determine them?'' is pushing you toward a more defensible selection.
 
 Adopt this mindset: \textbf{every piece of feedback makes the design better}. Record every question and comment during the review. After the review, categorize feedback into: (1)~actions to take immediately (clear deficiencies), (2)~actions to investigate (questions that need analysis), and (3)~acknowledged but deferred (valid concerns that are out of scope or low priority). Report back to the reviewer on all three categories.
 
@@ -106,8 +106,8 @@ Teams that respond defensively to feedback (``We already thought about that'' or
 \item Requirements are specific, testable, and traced to client needs.
 \item At least three genuinely different concepts were generated, graphically communicated, and systematically evaluated.
 \item The decision matrix includes sensitivity analysis and the team can articulate why the selected concept is best \emph{and} what its weaknesses are.
-\item Proof-of-concept evidence (data, photos, measurements) supports the feasibility claim.
-\item The risk register includes schedule, budget, and team risks---not just technical ones.
+\item Proof-of-Concept evidence (data, photos, measurements) supports the feasibility claim.
+\item The risk register includes schedule, budget, and team risks; not just technical ones.
 \item Every team member can answer questions about the sections they are responsible for.
 \item The presentation has a clear narrative arc and respects the time limit.
 \end{itemize}
@@ -224,7 +224,7 @@ The mock PDR is a rehearsal that dramatically improves the formal PDR. Schedule 
 
 \textbf{Audience}: invite your PA (ideal), another capstone team, or at minimum, run it with just your own team timing each section. Fresh eyes are the most valuable aspect.
 
-\textbf{Full simulation}: run the mock exactly as you would the formal review: timed, with transitions, with Q\&A. Do not stop and fix slides mid-presentation---note the problems and fix them afterward.
+\textbf{Full simulation}: run the mock exactly as you would the formal review: timed, with transitions, with Q\&A. Do not stop and fix slides mid-presentation; note the problems and fix them afterward.
 
 \textbf{Feedback collection}: the mock audience should focus on: (1)~are the key messages clear? (2)~are there claims without evidence? (3)~are there sections that are confusing or too long? (4)~what questions would a hostile reviewer ask? (5)~is the time management on track?
 
@@ -254,7 +254,7 @@ Before submitting the SDRD as part of the PDR package, verify:
 \item The SDRD has been reviewed by at least one team member who did not write it.
 \end{itemize}
 
-An SDRD that passes this checklist is ready for PDR. An SDRD that fails multiple items will receive significant feedback from reviewers---feedback that is much more expensive to incorporate after PDR than before.
+An SDRD that passes this checklist is ready for PDR. An SDRD that fails multiple items will receive significant feedback from reviewers; feedback that is much more expensive to incorporate after PDR than before.
 
 
 
@@ -274,18 +274,18 @@ Before presenting your PoC at PDR, answer this question: ``What was the single b
 
 
 \section{The Top 10 PDR Reviewer Questions}
-Prepare answers for these questions---they are asked at nearly every PDR:
+Prepare answers for these questions (they are asked at nearly every PDR:
 
 \begin{enumerate}[nosep,leftmargin=1.5em]
 \item ``How did you determine the weights in your decision matrix?'' (Trace each weight to a client priority or requirement category.)
-\item ``What happens if your selected concept does not work?'' (Describe your fallback plan---is there a second-ranked concept you could pivot to?)
+\item ``What happens if your selected concept does not work?'' (Describe your fallback plan) is there a second-ranked concept you could pivot to?)
 \item ``How will you verify this requirement?'' (Point to the TAID entry in the VCRM and describe the specific test or analysis.)
 \item ``What is your highest technical risk, and how are you mitigating it?'' (Reference the risk register and the PoC results.)
 \item ``What standards apply to your design?'' (Identify specific clauses, not just standard numbers.)
 \item ``How does your sustainability assessment influence the design?'' (Point to specific requirements or design decisions driven by the assessment.)
 \item ``What is your procurement plan for long-lead items?'' (Show the BOM items with lead times and when they will be ordered.)
 \item ``What did the client think of your concept selection?'' (Describe the client approval meeting and any concerns raised.)
-\item ``How do you plan to manage scope if the project falls behind?'' (Reference the MoSCoW priorities---which Could/Won't requirements would be deferred first?)
+\item ``How do you plan to manage scope if the project falls behind?'' (Reference the MoSCoW priorities; which Could/Won't requirements would be deferred first?)
 \item ``What would you do differently if you started this project again today?'' (Demonstrate self-awareness and learning from the Sprint~0--5 experience.)
 \end{enumerate}
 
@@ -302,7 +302,7 @@ After PDR, the team has 3--4 months before CDR. Use this time deliberately:
 
 \textbf{Sprint 8 (SDII Weeks 2--5)}: complete the detailed design, Engineering Calculation Package, and BOM. Order all remaining components. Complete the Manufacturing Review Meeting. Prepare and deliver CDR.
 
-The teams that use this transition period productively---ordering components, completing training, refining the design---arrive at CDR with confidence. The teams that treat the semester break as a vacation arrive at CDR scrambling to catch up.
+The teams that use this transition period productively (ordering components, completing training, refining the design) arrive at CDR with confidence. The teams that treat the semester break as a vacation arrive at CDR scrambling to catch up.
 
 
 

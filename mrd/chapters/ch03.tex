@@ -14,7 +14,7 @@ Every requirement has four essential components:
 \item \textbf{Unique identifier}: a short, persistent label that allows traceability through the entire project. Convention: FR-001 (functional), PR-001 (performance), NF-001 (non-functional), IF-001 (interface), SF-001 (safety). The identifier never changes, even if the requirement text is revised.
 \item \textbf{SHALL statement}: the requirement itself, using ``shall'' for mandatory requirements and ``should'' for desirable goals. ``The system \textbf{shall} measure temperature with an accuracy of $\pm$1.0\,\degC{} over the range 0--200\,\degC{}.'' Every word matters; every number must be justified.
 \item \textbf{Rationale}: why this requirement exists and what client need it traces to. ``This requirement ensures that the system meets the client's stated need for laboratory-grade temperature measurement (Need N-003).''
-\item \textbf{Verification method}: how you will prove compliance---Test (T), Analysis (A), Inspection (I), or Demonstration (D). Assign the method when you write the requirement.
+\item \textbf{Verification method}: how you will prove compliance; Test (T), Analysis (A), Inspection (I), or Demonstration (D). Assign the method when you write the requirement.
 \end{enumerate}
 
 \begin{warningbox}[Words That Kill Requirements]
@@ -94,14 +94,14 @@ The SDRD is the single authoritative document that captures all system-level req
 The SDRD is a \textbf{living document}. It is baselined at PDR (the first official version that the team, PA, and client agree represents the design intent) and updated under configuration management through CDR and FDR. Every change after baseline requires: a description of the change, the reason for the change, the impact on other requirements and design elements, and approval from the PA (and client, if the change affects scope or performance).
 
 \begin{tipbox}[Start Your RTM on Day 1]
-Maintain the Requirements Traceability Matrix from the first client meeting. A simple spreadsheet with columns for Need ID, Need Description, Requirement ID, Requirement Text, Verification Method, Status, and Notes is sufficient. Update it at every team meeting and after every design decision. By FDR, it becomes the single artifact that tells the complete project story. Teams that skip this step spend hours reconstructing traceability for the final report---and the reconstructed version is always less accurate than a continuously maintained one.
+Maintain the Requirements Traceability Matrix from the first client meeting. A simple spreadsheet with columns for Need ID, Need Description, Requirement ID, Requirement Text, Verification Method, Status, and Notes is sufficient. Update it at every team meeting and after every design decision. By FDR, it becomes the single artifact that tells the complete project story. Teams that skip this step spend hours reconstructing traceability for the final report (and the reconstructed version is always less accurate than a continuously maintained one.
 \end{tipbox}
 
 \section{Requirements Traceability}
 Traceability ensures that every requirement has a \textbf{parent} (the client need it addresses) and a \textbf{child} (the design element or test that addresses it). Bidirectional traceability means you can answer two questions at any time:
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item \textbf{Forward}: ``For each client need, which requirements address it?'' (No need is left unaddressed.)
-\item \textbf{Backward}: ``For each requirement, which need justifies it?'' (No requirement exists without justification---this catches ``gold plating,'' where the team adds features nobody asked for.)
+\item \textbf{Backward}: ``For each requirement, which need justifies it?'' (No requirement exists without justification) this catches ``gold plating,'' where the team adds features nobody asked for.)
 \end{itemize}
 
 The RTM is a table linking every requirement to its parent need, its verification method, and its current status. Open the RTM at every team meeting. By FDR, every entry should show: Verified (with evidence reference), Failed (with disposition), Waived (with client approval), or Deferred (with rationale and plan).
@@ -154,7 +154,7 @@ Requirements and architecture co-evolve. Initial requirements drive a candidate 
 \textbf{Convergence test}: when two consecutive iterations change fewer than 5\% of requirements, the design is stable enough to baseline at PDR. If requirements are still changing rapidly at PDR, the design is not ready for review.
 
 \section{Requirements Change Management After Baselining}
-The SDRD is baselined at PDR---meaning the team, PA, and client agree that this version represents the design intent. After baselining, \emph{every change must be formally documented}. A change request includes:
+The SDRD is baselined at PDR; meaning the team, PA, and client agree that this version represents the design intent. After baselining, \emph{every change must be formally documented}. A change request includes:
 
 \begin{enumerate}[nosep,leftmargin=1.5em]
 \item \textbf{Change description}: exactly what is being changed (old text $\to$ new text).
@@ -224,9 +224,9 @@ The traceability matrix links every requirement to its origin (client need) and 
 
 \textbf{Forward traceability} (needs $\to$ requirements): for each client need identified during elicitation, show which requirement(s) address it. A need that has no corresponding requirement is an unmet need that should be either addressed (add a requirement) or explicitly documented as out of scope. A requirement that traces to no need is gold-plating and should be questioned.
 
-\textbf{Backward traceability} (requirements $\to$ verification): for each requirement, show how it will be verified. The VCRM provides this mapping. A requirement with no verification method will arrive at FDR without evidence of compliance---this is a documentation failure that undermines the entire verification effort.
+\textbf{Backward traceability} (requirements $\to$ verification): for each requirement, show how it will be verified. The VCRM provides this mapping. A requirement with no verification method will arrive at FDR without evidence of compliance (this is a documentation failure that undermines the entire verification effort.
 
-\textbf{The allocation matrix} (requirements $\to$ architecture): show which subsystem or component implements each requirement. This mapping reveals: requirements that are not allocated to any subsystem (orphans---who is responsible?), subsystems that implement too many requirements (complexity risk---single point of failure), and requirements that span multiple subsystems (interface requirements that need ICDs).
+\textbf{The allocation matrix} (requirements $\to$ architecture): show which subsystem or component implements each requirement. This mapping reveals: requirements that are not allocated to any subsystem (orphans) who is responsible?), subsystems that implement too many requirements (complexity risk; single point of failure), and requirements that span multiple subsystems (interface requirements that need ICDs).
 
 Present the traceability matrix as a table in the PDR report. It need not be a separate document; it can be columns in the SDRD itself: Need ID $|$ Requirement ID $|$ SHALL Statement $|$ TAID $|$ Allocated Subsystem $|$ Status.
 
@@ -237,7 +237,7 @@ While client interviews are the primary elicitation method, supplement them with
 
 \textbf{Questionnaires and surveys}: useful when the client represents a larger organization and you need input from multiple stakeholders who cannot all attend meetings. Design questions that are specific and closed-ended (``On a scale of 1--5, how important is wireless connectivity?'') to enable quantitative comparison across respondents. Follow up with interviews for the highest-priority responses.
 
-\textbf{Document analysis}: review existing documentation---previous designs, user manuals, maintenance logs, incident reports, regulatory filings, and competitor product specifications. These documents reveal requirements that stakeholders forget to mention because they take them for granted.
+\textbf{Document analysis}: review existing documentation; previous designs, user manuals, maintenance logs, incident reports, regulatory filings, and competitor product specifications. These documents reveal requirements that stakeholders forget to mention because they take them for granted.
 
 \textbf{Competitive benchmarking}: identify 3--5 existing products or systems that address similar needs. Create a feature comparison matrix. Identify: what do all competitors do (baseline expectations), what do the best competitors do (stretch targets), and what does no competitor do (potential differentiators). This analysis grounds your requirements in market reality.
 

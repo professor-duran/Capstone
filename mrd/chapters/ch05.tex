@@ -48,7 +48,7 @@ At capstone scale, a full quantitative Lifecycle Assessment (LCA) using tools li
 \end{enumerate}
 
 \begin{tipbox}[The 80/20 Rule of Sustainability]
-In most products, 80\% of the environmental impact comes from 20\% of the design decisions. Find the dominant contributor---usually the energy source, the primary structural material, or the single most resource-intensive component---and focus your sustainability effort there. Optimizing the color of the enclosure for recyclability while ignoring a 500\,W continuous power draw misses the point.
+In most products, 80\% of the environmental impact comes from 20\% of the design decisions. Find the dominant contributor; usually the energy source, the primary structural material, or the single most resource-intensive component; and focus your sustainability effort there. Optimizing the color of the enclosure for recyclability while ignoring a 500\,W continuous power draw misses the point.
 \end{tipbox}
 
 \section{Sustainability Evaluation Tools}
@@ -91,6 +91,24 @@ The ESJ framework asks questions that traditional engineering analysis often ove
 
 These are not abstract philosophical questions. They are practical design considerations that affect whether your engineering solution actually solves the problem for the people who need it most. A water treatment system designed without consulting the community it serves may be technically excellent and socially useless.
 
+\subsection{Choosing the Right CLO~5 Tool}
+The following table summarizes when to use each sustainability assessment tool. Select the tool that best matches your project's domain; you are not required to use all four.
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{l>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.2cm}}
+\toprule
+\textbf{Tool} & \textbf{Best For} & \textbf{Evaluation Categories} & \textbf{Output Format} \\
+\midrule
+LEED & Buildings, HVAC, lighting, water, site development & Sustainable Sites, Water Efficiency, Energy \& Atmosphere, Materials \& Resources, Indoor Environmental Quality, Innovation & Credit-based rating (Certified through Platinum) \\[6pt]
+ENVISION & Civil infrastructure: roads, bridges, water treatment, transit, public spaces & Quality of Life, Leadership, Resource Allocation, Natural World, Climate \& Resilience & Credit-based rating (Verified through Platinum) \\[6pt]
+DFE & All product-scale projects (ME, EE, DE); any project with a physical deliverable & Material selection, disassembly, energy efficiency, hazardous materials, packaging, end-of-life & Qualitative checklist with testable requirements \\[6pt]
+ESJ & Projects serving underserved communities or with significant equity dimensions & Access, affordability, cultural appropriateness, community engagement, power dynamics & Qualitative checklist with stakeholder input \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Many projects benefit from combining tools: a building project might use LEED for environmental performance and ESJ for community impact. A consumer product might use DFE for material and energy decisions and ESJ for accessibility and affordability.
+
 \section{Integrating Sustainability into the SDRD}
 Sustainability requirements belong in your SDRD as non-functional requirements, not in a separate ``sustainability'' appendix that gets ignored during design. Examples of testable sustainability requirements:
 
@@ -111,7 +129,7 @@ How will your system be decommissioned? Every product eventually reaches end-of-
 \item \textbf{Disassembly}: can the system be taken apart for recycling, or is it a monolithic block of mixed materials? (DfD, discussed above.)
 \item \textbf{Hazardous materials}: are there lithium batteries, solvents, lead, or other materials requiring special disposal? Who is responsible for disposal, and what regulatory requirements apply?
 \item \textbf{Component reuse}: can any subsystems (motors, sensors, controllers, enclosures) be reused in other applications or returned to the supply chain?
-\item \textbf{Documentation}: the O\&M manual (delivered at FDR) should include end-of-life instructions---how to safely decommission the system, what materials require special handling, and where to recycle or dispose of each component.
+\item \textbf{Documentation}: the O\&M manual (delivered at FDR) should include end-of-life instructions; how to safely decommission the system, what materials require special handling, and where to recycle or dispose of each component.
 \end{itemize}
 
 \section{Simplified LCA Methodology for Capstone}
@@ -121,7 +139,7 @@ A full quantitative Lifecycle Assessment requires specialized software (openLCA,
 
 \textbf{Step 2: Identify the dominant lifecycle phase.} Research published LCA data for products similar to yours:
 \begin{itemize}[nosep,leftmargin=1.5em]
-\item \textbf{Electronics and consumer products}: the use phase typically dominates energy consumption. A device that consumes 50\,W continuously for 5 years uses $\sim$2,200\,kWh---far more energy than was consumed in manufacturing the device. Focus on energy efficiency.
+\item \textbf{Electronics and consumer products}: the use phase typically dominates energy consumption. A device that consumes 50\,W continuously for 5 years uses $\sim$2,200\,kWh; far more energy than was consumed in manufacturing the device. Focus on energy efficiency.
 \item \textbf{Construction materials and infrastructure}: the materials phase dominates embodied energy and carbon. Concrete produces $\sim$0.13\,kg CO$_2$/kg; steel produces $\sim$1.8\,kg CO$_2$/kg; aluminum produces $\sim$8.1\,kg CO$_2$/kg. Focus on material selection and material reduction.
 \item \textbf{Vehicles and mobile systems}: the use phase dominates (fuel consumption). Focus on weight reduction and powertrain efficiency.
 \item \textbf{Short-lived consumer goods}: the materials and end-of-life phases dominate. Focus on recyclability and material selection.
@@ -153,7 +171,7 @@ In SDII, you will write an argumentative essay (1000--1500 words) analyzing the 
 
 The essay follows a standard argumentative structure:
 \begin{enumerate}[nosep,leftmargin=1.5em]
-\item \textbf{Introduction and Thesis}: hook the reader with a compelling opening. State your central claim clearly in the first paragraph. The thesis must be arguable---someone could reasonably disagree with your position.
+\item \textbf{Introduction and Thesis}: hook the reader with a compelling opening. State your central claim clearly in the first paragraph. The thesis must be arguable; someone could reasonably disagree with your position.
 \item \textbf{Background}: briefly explain the technical context of your specific project (not a generic overview of the technology domain). The reader should understand what your system does and how it works in 2--3 paragraphs.
 \item \textbf{Proponent Arguments}: present the arguments supporting your thesis, buttressed by literature, data, and specific examples from your project. This is the core of the essay.
 \item \textbf{Opposing Viewpoints}: present the strongest counterarguments. You must take a stand; this is an argumentative essay, not a balanced report. Present the opposition honestly, then refute it.
@@ -167,7 +185,7 @@ The most common issues in student essays are:
 \item The essay does not follow argumentative format; reads like a book report or informative summary.
 \item Generic or ``robotic'' tone that lacks a distinct human voice or specific connection to the project, suggesting over-reliance on generative AI.
 \item No opposing viewpoints presented or challenged.
-\item Sources not cited, claims not supported by evidence, or references that do not exist (``hallucinated'' AI citations---this is an academic integrity violation).
+\item Sources not cited, claims not supported by evidence, or references that do not exist (``hallucinated'' AI citations; this is an academic integrity violation).
 \item Spelling, grammar, and typographical errors suggesting lack of proofreading.
 \item The essay lacks a thesis or central argument stated in one of the first sentences.
 \end{enumerate}
@@ -183,7 +201,7 @@ Consider how sustainability and equity have played out in real engineering decis
 
 \textbf{Fast fashion supply chains}: products engineered for lowest cost shift environmental and labor burdens to communities with less regulatory protection. A lifecycle perspective reveals costs hidden from the consumer but borne by factory workers and local ecosystems.
 
-These are not hypothetical. Your capstone project---however small in scale---participates in the same system of material flows, energy consumption, and human impacts. The sustainability tools in this chapter help you evaluate and improve your contribution to that system.
+These are not hypothetical. Your capstone project (however small in scale) participates in the same system of material flows, energy consumption, and human impacts. The sustainability tools in this chapter help you evaluate and improve your contribution to that system.
 
 
 \section{Engineering for Social Justice (ESJ)}
@@ -199,7 +217,7 @@ For projects involving community impact, underserved populations, or public infr
 
 
 \begin{keyconceptbox}[The Broader Impacts Essay (SDII)]
-The Broader Impacts Essay is a 1000--1500 word argumentative essay on societal impacts connected to your project. For detailed guidance on structure, common mistakes, and the argumentative format, see Chapter~22 (Section: The Broader Impacts Essay). The sustainability assessment tools in this chapter provide the analytical foundation for the essay.
+The Broader Impacts Essay is a 1000--1500 word argumentative essay on societal impacts connected to your project. The essay structure and common mistakes are covered in Section~5.10 of this chapter. For academic integrity policies related to the essay, see Chapter~22. The sustainability assessment tools in this chapter provide the analytical foundation for the essay.
 \end{keyconceptbox}
 
 \section{Equity Impact Assessment}
@@ -226,7 +244,7 @@ Beyond end-of-life considerations, design your system to participate in the circ
 
 \textbf{Avoid permanent bonding where possible}: screws and snap-fits allow disassembly; adhesives and welds make disassembly difficult or impossible. Design for mechanical fastening as the default; use adhesives only when the joint requires it (sealing, vibration damping, thin material bonding).
 
-\textbf{Battery accessibility}: if the system contains a rechargeable battery, design the enclosure so the battery can be removed and replaced by the user. Batteries degrade over the system's lifetime and are hazardous waste---they must be separable from the rest of the product for proper disposal.
+\textbf{Battery accessibility}: if the system contains a rechargeable battery, design the enclosure so the battery can be removed and replaced by the user. Batteries degrade over the system's lifetime and are hazardous waste; they must be separable from the rest of the product for proper disposal.
 
 \textbf{Modular electronics}: design the PCB for component-level repair rather than board-level replacement. Use socketed ICs where practical (DIP sockets for through-hole, or SMD sockets for BGA/QFP) so failed components can be replaced without discarding the entire board.
 
@@ -241,9 +259,13 @@ Beyond end-of-life considerations, design your system to participate in the circ
 
 \textbf{End-of-life}: LiPo battery requires certified electronics recycler. PLA enclosure is commercially compostable. Solar panel recycled through e-waste program.
 
-This rough analysis took 30 minutes and revealed that panel selection and deployment lifetime are the most impactful design decisions---insight that a purely performance-focused analysis would miss.
+This rough analysis took 30 minutes and revealed that panel selection and deployment lifetime are the most impactful design decisions; insight that a purely performance-focused analysis would miss.
 \end{examplebox}
 
+
+\begin{tipbox}[Student Guide Cross-Reference]
+For the sprint-level checklist covering the Ethics Assignment and sustainability deliverables, see the \textbf{Student Guide}, SDI Sprint~4 section. For the Broader Impacts Essay, see SDII Sprints~9--11.
+\end{tipbox}
 
 \section{Practice Questions}
 \begin{enumerate}[leftmargin=1.5em]

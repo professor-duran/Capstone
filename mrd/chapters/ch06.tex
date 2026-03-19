@@ -3,9 +3,9 @@
 \section{Verification vs. Validation}
 These terms are frequently confused, even by practicing engineers. The distinction matters because they answer fundamentally different questions and require different evidence.
 
-\textbf{Verification} answers ``Did we build the system right?''---does the system meet its specified requirements as written in the SDRD? Verification compares the system's measured performance to the requirements document. It is an engineering activity performed by the design team.
+\textbf{Verification} answers ``Did we build the system right?'' (does the system meet its specified requirements as written in the SDRD? Verification compares the system's measured performance to the requirements document. It is an engineering activity performed by the design team.
 
-\textbf{Validation} answers ``Did we build the right system?''---does the system satisfy the client's actual needs in its intended operating environment? Validation compares the system's behavior to the client's expectations and the ConOps. It requires the client's involvement and often occurs in the real operating context.
+\textbf{Validation} answers ``Did we build the right system?'') does the system satisfy the client's actual needs in its intended operating environment? Validation compares the system's behavior to the client's expectations and the ConOps. It requires the client's involvement and often occurs in the real operating context.
 
 A system can pass all verification tests and still fail validation. Example: your temperature controller meets every requirement in the SDRD (verification passes), but the client discovers that the mounting location you assumed is inaccessible in their facility, making the system unusable (validation fails). The requirements were correct; the ConOps was incomplete. Verification is necessary but not sufficient; validation closes the loop between what was built and what was needed.
 
@@ -52,7 +52,7 @@ Figure~\ref{fig:vv-lifecycle} illustrates how verification and validation activi
 \section{The Four Verification Methods (TAID)}
 Not every requirement is verified by running a physical test. The four methods provide a spectrum of rigor and cost:
 
-\textbf{Test (T)}: measure performance under controlled conditions against quantitative pass/fail criteria. Test is the gold standard---it produces hard data---but it is also the most resource-intensive method. Example: ``Apply a 5.0\,V reference signal to the input. Measure the output with a calibrated multimeter. PASS if the output is $3.30 \pm 0.05$\,V. FAIL if outside this range.'' Use Test for critical performance requirements where analysis alone is insufficient.
+\textbf{Test (T)}: measure performance under controlled conditions against quantitative pass/fail criteria. Test is the gold standard (it produces hard data) but it is also the most resource-intensive method. Example: ``Apply a 5.0\,V reference signal to the input. Measure the output with a calibrated multimeter. PASS if the output is $3.30 \pm 0.05$\,V. FAIL if outside this range.'' Use Test for critical performance requirements where analysis alone is insufficient.
 
 \textbf{Analysis (A)}: verify by calculation, simulation, or modeling. Example: ``Verify structural safety factor $\geq$2.0 by FEA under maximum load case per ASCE~7.'' Analysis is appropriate when physical testing is impractical (extreme conditions, destructive tests on expensive hardware), when the physics is well-understood and the model has been validated, or when the requirement is a design margin that can be verified by calculation. Analysis should be documented in the Engineering Calculation Package (CDR deliverable).
 
@@ -86,7 +86,7 @@ A test procedure is a step-by-step recipe that allows someone who did not design
 
 \textbf{Equipment}: all instruments, fixtures, power supplies, calibration standards, and software needed, with model numbers and calibration status where relevant. If a specific instrument is required (e.g., a calibrated Pt100 RTD reference), state its accuracy and calibration date.
 
-\textbf{Setup}: how to configure the system and test environment, including initial conditions. Diagrams are strongly encouraged---a wiring diagram showing how the test instruments connect to the DUT (device under test) prevents setup errors.
+\textbf{Setup}: how to configure the system and test environment, including initial conditions. Diagrams are strongly encouraged; a wiring diagram showing how the test instruments connect to the DUT (device under test) prevents setup errors.
 
 \textbf{Preconditions}: what must be true before the test begins. Examples: ``System has been powered on for $\geq$15 minutes to reach thermal equilibrium.'' ``Ambient temperature is $22 \pm 3$\,\degC{}.'' ``Firmware version is v2.1.3 or later.''
 
@@ -148,7 +148,7 @@ The PA must review and approve the safety plan before fabrication begins. The pl
 \section{Designing for Testability}
 Testability is a design property, not an afterthought. A system that is difficult to test is difficult to verify, and difficulty in verification translates directly to risk at FDR. Consider testability during the architecture phase (Sprint~3--4), not during the test phase (Sprint~11--13):
 
-\textbf{Test points}: include physical test points (solder pads, header pins, or banana jack connections) on every critical signal path. Being able to measure the sensor output, the amplifier output, the ADC input, and the MCU reading separately---without cutting wires or probing tiny SMD pads---saves hours of debugging.
+\textbf{Test points}: include physical test points (solder pads, header pins, or banana jack connections) on every critical signal path. Being able to measure the sensor output, the amplifier output, the ADC input, and the MCU reading separately (without cutting wires or probing tiny SMD pads) saves hours of debugging.
 
 \textbf{Modular interfaces}: design subsystem interfaces with connectors that allow each subsystem to be tested independently. If the sensor module plugs into the main board via a header, you can test the sensor module on a separate test fixture with known inputs. If it is hard-wired, you must test it in the full system context, which makes fault isolation much harder.
 
@@ -240,6 +240,10 @@ For each requirement verified by Test (T), write a formal test procedure:
 
 \textbf{Results}: actual measured values, calculated error, and pass/fail determination. Sign and date.
 
+
+\begin{tipbox}[Student Guide Cross-Reference]
+For the sprint-level checklist of VCRM deliverables and testing milestones, see the \textbf{Student Guide}, SDI Sprint~5 (VCRM plan) and SDII Sprints~9--13 (V\&V execution) sections.
+\end{tipbox}
 
 \section{Practice Questions}
 \begin{enumerate}[leftmargin=1.5em]

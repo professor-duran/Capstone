@@ -59,7 +59,7 @@ The kickoff meeting (Sprint~0, SDI Weeks~1--2) is your first formal interaction 
 \textbf{After the meeting}: send a follow-up email within 24 hours summarizing key decisions, open questions, and next steps. This email is critical; it serves as a de facto meeting record and gives the client an opportunity to correct misunderstandings while the conversation is still fresh. Copy your PA on this email.
 
 \begin{tipbox}[The Mom Test for Client Interviews]
-Never ask ``Would this feature be useful?''---people say yes to be polite. Instead ask about \emph{past behavior}: ``When did you last face this problem? What did you do? Why didn't that work?'' Past actions predict future needs far better than hypothetical opinions. This principle, from Rob Fitzpatrick's \emph{The Mom Test}, applies to every client conversation throughout the project.
+Never ask ``Would this feature be useful?''; people say yes to be polite. Instead ask about \emph{past behavior}: ``When did you last face this problem? What did you do? Why didn't that work?'' Past actions predict future needs far better than hypothetical opinions. This principle, from Rob Fitzpatrick's \emph{The Mom Test}, applies to every client conversation throughout the project.
 \end{tipbox}
 
 \section{The Re-engagement Email (SDII)}
@@ -77,7 +77,7 @@ The Re-engagement Email should contain:
 The re-engagement meeting is also the time to revisit the Product Backlog (Chapter~11). Priorities may have shifted over the break; the client may have new information, new constraints, or revised expectations. Update the backlog before Sprint~8 planning.
 
 \section{Needs Elicitation}
-The client tells you what they \emph{want}. Your job is to figure out what they \emph{need}. These are not always the same. A client who says ``I want a touchscreen interface'' may actually need ``quick access to real-time data without leaving the work area''---which might be better served by a heads-up display, voice interface, or even a simple LED indicator panel.
+The client tells you what they \emph{want}. Your job is to figure out what they \emph{need}. These are not always the same. A client who says ``I want a touchscreen interface'' may actually need ``quick access to real-time data without leaving the work area''; which might be better served by a heads-up display, voice interface, or even a simple LED indicator panel.
 
 \subsection{Interviews}
 Structured conversations with the client and end users. Prepare questions in advance organized by topic. Record the conversation (with permission) or assign a dedicated scribe. After each interview, synthesize the findings into a needs statement: ``The operator needs to check system status without interrupting the production process.'' A need is not a solution; it is a gap between the current state and the desired state.
@@ -149,15 +149,15 @@ Every client interaction should produce a written record. At minimum:
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item \textbf{Meeting minutes}: who attended, what was discussed, what decisions were made, and what action items were assigned (with owners and due dates). Distribute within 48 hours. Copy your PA.
 \item \textbf{Email summaries}: after phone calls or video meetings, send a follow-up email summarizing key decisions. This gives the client an opportunity to correct misunderstandings while the conversation is fresh.
-\item \textbf{Decision log}: maintain a running log of all client decisions---feature approvals, scope changes, priority changes, requirement modifications. This log becomes invaluable when, three months later, someone asks ``why did we design it this way?''
+\item \textbf{Decision log}: maintain a running log of all client decisions; feature approvals, scope changes, priority changes, requirement modifications. This log becomes invaluable when, three months later, someone asks ``why did we design it this way?''
 \end{itemize}
 
 Documentation protects both you and the client. If a disagreement arises about what was agreed upon, the meeting minutes and decision log are the authoritative record.
 
 \section{AI-Assisted Persona Development}
-When direct stakeholder access is limited---the end user is at a remote facility, the population is too large to interview comprehensively, the users do not yet exist (e.g., designing for future occupants of a building), or cultural or language barriers limit direct engagement---AI tools can supplement (never replace) traditional needs elicitation.
+When direct stakeholder access is limited (the end user is at a remote facility, the population is too large to interview comprehensively, the users do not yet exist (e.g., designing for future occupants of a building), or cultural or language barriers limit direct engagement) AI tools can supplement (never replace) traditional needs elicitation.
 
-\textbf{How to use AI for persona development}: describe the problem domain, the operating environment, and the stakeholder type to the AI. Ask it to role-play as different stakeholder personas: the primary user, the maintenance technician, the safety officer, the purchasing manager, the regulatory inspector. Conduct the same interview questions you would use with real stakeholders. The AI will surface considerations you may not have thought of---accessibility needs, maintenance constraints, regulatory requirements, cultural preferences.
+\textbf{How to use AI for persona development}: describe the problem domain, the operating environment, and the stakeholder type to the AI. Ask it to role-play as different stakeholder personas: the primary user, the maintenance technician, the safety officer, the purchasing manager, the regulatory inspector. Conduct the same interview questions you would use with real stakeholders. The AI will surface considerations you may not have thought of; accessibility needs, maintenance constraints, regulatory requirements, cultural preferences.
 
 \textbf{How to document AI-generated personas}: for each persona, record: persona name and description, key quotes from the AI interaction, identified needs and pain points, implications for requirements, and a clear disclosure that this persona was AI-generated. Always cross-validate AI-generated needs against real stakeholder data when possible.
 
@@ -180,26 +180,26 @@ The richest source of requirements is watching people work in the actual environ
 
 \textbf{What to observe}: how do current users perform the task your system will address? What tools do they use? What workarounds have they developed? Where do they make errors? What takes the most time? What frustrates them? What do they do that they do not mention in interviews (because it is so habitual they do not think of it)?
 
-\textbf{How to conduct}: spend 1--2 hours observing the user performing their normal workflow. Take notes (timestamps, actions, observations). Ask clarifying questions only when the observation is ambiguous: ``I noticed you checked the gauge twice before adjusting the valve---why?'' Do not suggest improvements during observation; your job is to understand, not to redesign.
+\textbf{How to conduct}: spend 1--2 hours observing the user performing their normal workflow. Take notes (timestamps, actions, observations). Ask clarifying questions only when the observation is ambiguous: ``I noticed you checked the gauge twice before adjusting the valve (why?'' Do not suggest improvements during observation; your job is to understand, not to redesign.
 
-\textbf{What it reveals}: contextual inquiry consistently reveals requirements that interviews miss. Users adapt to existing system limitations so thoroughly that they forget to mention them. The maintenance technician who carries a flashlight because the control panel is in a dark corner will not mention ``good lighting'' as a requirement---but you will notice it.
+\textbf{What it reveals}: contextual inquiry consistently reveals requirements that interviews miss. Users adapt to existing system limitations so thoroughly that they forget to mention them. The maintenance technician who carries a flashlight because the control panel is in a dark corner will not mention ``good lighting'' as a requirement) but you will notice it.
 
 \textbf{Capstone application}: not all projects allow site visits, but when they do, contextual inquiry is the highest-value use of your time. For projects where site access is limited, ask the client to record a video of their current process. Analyze the video with the same observational rigor.
 
 
 
-\section{The Five-Element Problem Statement}
-A well-constructed problem statement contains five elements that frame the design challenge precisely:
+\section{Elaborating the Five-Element Problem Statement}
+The Five-Element Problem Statement introduced in Section~2.5 is worth revisiting at this stage. As you refine your problem statement through client feedback, expand each element with the specificity that comes from deeper understanding:
 
-\textbf{Element 1: The user/stakeholder}: who experiences the problem? Be specific: ``Colorado wheat farmers with $<$500 acres'' not ``farmers.'' The more precisely you define the user, the more precisely you can define the solution.
+\textbf{Sharpen the user}: move from ``farmers'' to ``Colorado wheat farmers with $<$500 acres.'' The more precisely you define the user, the more precisely you can constrain the solution.
 
-\textbf{Element 2: The need}: what does the user need that they currently lack? Frame this as a need, not a solution: ``need real-time soil moisture data'' not ``need a moisture sensor.'' The need defines the problem; the solution comes later.
+\textbf{Frame needs, not solutions}: ``need real-time soil moisture data'' not ``need a moisture sensor.'' The need defines the problem; the solution comes later in concept generation (Chapter~4).
 
-\textbf{Element 3: The context}: under what conditions does the need arise? ``During the growing season (May--September) in semi-arid conditions with limited water rights and intermittent cellular connectivity.'' Context constrains the solution space.
+\textbf{Add operational context}: ``during the growing season (May--September) in semi-arid conditions with limited water rights and intermittent cellular connectivity.'' Context constrains the solution space in ways the client may not explicitly state.
 
-\textbf{Element 4: The consequence}: what happens if the need is not met? ``Crop yields decrease by 15--25\% due to over- or under-irrigation, costing the farmer \$10,000--25,000 annually.'' Quantified consequences justify the investment in a solution.
+\textbf{Quantify consequences}: ``Crop yields decrease by 15--25\% due to over- or under-irrigation, costing the farmer \$10,000--25,000 annually.'' Quantified consequences justify the project investment.
 
-\textbf{Element 5: The gap}: why do existing solutions fail to meet the need? ``Commercial irrigation controllers cost \$5,000+ and require reliable cellular service, pricing out small farmers and failing in areas with poor coverage.'' The gap defines the market opportunity and the design target.
+\textbf{Identify the gap in existing solutions}: ``Commercial irrigation controllers cost \$5,000+ and require reliable cellular service, pricing out small farmers and failing in areas with poor coverage.'' The gap defines your design target and competitive opportunity.
 
 A complete Five-Element Problem Statement typically runs 3--5 sentences and provides enough context for any engineer to understand why the project matters, who it serves, and what success looks like. Draft it during Sprint~0 and refine it through client feedback in Sprint~1.
 
@@ -208,14 +208,18 @@ A complete Five-Element Problem Statement typically runs 3--5 sentences and prov
 \section{Distinguishing Needs from Wants}
 During client discussions, carefully distinguish between what the client \emph{needs} (essential for the system to deliver value) and what they \emph{want} (desirable but not essential):
 
-\textbf{Needs} are problems that must be solved for the system to be useful. ``I need to know the tank level without climbing the ladder'' is a need---without it, the system has no value. Needs become Must-Have requirements.
+\textbf{Needs} are problems that must be solved for the system to be useful. ``I need to know the tank level without climbing the ladder'' is a need; without it, the system has no value. Needs become Must-Have requirements.
 
-\textbf{Wants} are features that enhance the system but are not essential. ``I'd like the data displayed on my phone'' is a want---the system is useful even with a local display. Wants become Should-Have or Could-Have requirements.
+\textbf{Wants} are features that enhance the system but are not essential. ``I'd like the data displayed on my phone'' is a want; the system is useful even with a local display. Wants become Should-Have or Could-Have requirements.
 
-\textbf{Unstated needs} are the most dangerous. These are things the client assumes are obvious and does not mention: ``Of course it needs to work in the rain---it's an outdoor system.'' Unstated needs are discovered through contextual inquiry (observing the operating environment), through systematic questioning (``What environmental conditions will the system encounter?''), and through experience (your PA has seen these gaps before).
+\textbf{Unstated needs} are the most dangerous. These are things the client assumes are obvious and does not mention: ``Of course it needs to work in the rain (it's an outdoor system.'' Unstated needs are discovered through contextual inquiry (observing the operating environment), through systematic questioning (``What environmental conditions will the system encounter?''), and through experience (your PA has seen these gaps before).
 
-\textbf{The ``5 Whys'' technique}: when the client states a want, ask ``Why?'' five times to uncover the underlying need. Client: ``I want a touchscreen display.'' Why? ``So operators can see the data easily.'' Why is that important? ``Because the current gauge is hard to read from across the room.'' Why? ``Because the numbers are small and the gauge is behind a pipe.'' The real need is not a touchscreen; it is a display that is \textbf{readable from 3 meters away in an obstructed sightline}. This need could be met by a large LED display, a remote indicator, or a touchscreen---the touchscreen is one solution among several.
+\textbf{The ``5 Whys'' technique}: when the client states a want, ask ``Why?'' five times to uncover the underlying need. Client: ``I want a touchscreen display.'' Why? ``So operators can see the data easily.'' Why is that important? ``Because the current gauge is hard to read from across the room.'' Why? ``Because the numbers are small and the gauge is behind a pipe.'' The real need is not a touchscreen; it is a display that is \textbf{readable from 3 meters away in an obstructed sightline}. This need could be met by a large LED display, a remote indicator, or a touchscreen) the touchscreen is one solution among several.
 
+
+\begin{tipbox}[Student Guide Cross-Reference]
+For the sprint-level checklist of kickoff deliverables and client meeting preparation, see the \textbf{Student Guide}, SDI Sprint~0 and Sprint~7 (SDII re-engagement) sections.
+\end{tipbox}
 
 \section{Practice Questions}
 \begin{enumerate}[leftmargin=1.5em]

@@ -8,7 +8,7 @@ Research in design methodology consistently shows that teams generating more con
 \section{Ideation Techniques}
 
 \subsection{Brainstorming}
-The classic group ideation method. Rules: (1)~defer all judgment---no criticizing ideas during generation, (2)~encourage wild ideas---they trigger useful associations, (3)~build on others' ideas (``yes, and\ldots'' not ``no, but\ldots''), (4)~go for quantity over quality. A productive brainstorming session generates 30--50 ideas in 20 minutes. Most will be impractical; that is the point. The few gems are worth the pile of duds.
+The classic group ideation method. Rules: (1)~defer all judgment (no criticizing ideas during generation, (2)~encourage wild ideas) they trigger useful associations, (3)~build on others' ideas (``yes, and\ldots'' not ``no, but\ldots''), (4)~go for quantity over quality. A productive brainstorming session generates 30--50 ideas in 20 minutes. Most will be impractical; that is the point. The few gems are worth the pile of duds.
 
 Tips for effective sessions: set a timer (time pressure increases output), designate a facilitator who enforces the rules, use sticky notes or a whiteboard so ideas are visible to everyone, and do not allow laptops during brainstorming (they invite distraction and reduce participation).
 
@@ -27,7 +27,7 @@ A structured creativity prompt that forces you to transform existing solutions. 
 SCAMPER is particularly useful when you have one decent concept but need alternatives for the decision matrix. Apply each letter to your existing concept and see what emerges.
 
 \subsection{Morphological Chart}
-The morphological chart is the most systematic ideation technique. Decompose the system into independent functions (rows) and list multiple solution approaches for each function (columns). Then systematically combine solutions across functions to generate novel system-level concepts.
+The morphological chart is the most systematic ideation technique. Decompose the system into independent functions (rows) and list multiple solution approaches for each function (columns), as shown in Table~\ref{tab:morph-chart}. Then systematically combine solutions across functions to generate novel system-level concepts.
 
 \begin{table}[htbp]
 \centering\small
@@ -106,7 +106,7 @@ The weighted decision matrix is the formal, quantitative selection tool presente
 \end{enumerate}
 
 \begin{warningbox}[The Decision Matrix Is Not a Black Box]
-The decision matrix is a tool for organizing your engineering judgment, not a substitute for it. If the matrix recommends a concept that your team's collective experience says is problematic, examine the criteria and weights---the matrix is revealing \emph{where} the disagreement lies. This enables a focused technical discussion rather than an opinion battle. Present the matrix at PDR, explain the sensitivity analysis, and be prepared to defend the selection with engineering arguments.
+The decision matrix is a tool for organizing your engineering judgment, not a substitute for it. If the matrix recommends a concept that your team's collective experience says is problematic, examine the criteria and weights; the matrix is revealing \emph{where} the disagreement lies. This enables a focused technical discussion rather than an opinion battle. Present the matrix at PDR, explain the sensitivity analysis, and be prepared to defend the selection with engineering arguments.
 \end{warningbox}
 
 \section{Client Approval of the Selected Approach}
@@ -149,14 +149,14 @@ For safety-critical projects, a formal Hazard Analysis identifies each hazard, a
 \section{Architecture Definition}
 Once the concept is selected and approved, define the system architecture: how the system is organized into subsystems and how they interact.
 
-\textbf{Functional decomposition}: break the system into functions using verb-noun pairs (``measure temperature,'' ``transmit data,'' ``actuate valve,'' ``display status''). Functions are stable---they describe \emph{what} the system does regardless of \emph{how} it is implemented. A function tree with 3--4 levels of decomposition is typical for capstone projects.
+\textbf{Functional decomposition}: break the system into functions using verb-noun pairs (``measure temperature,'' ``transmit data,'' ``actuate valve,'' ``display status''). Functions are stable; they describe \emph{what} the system does regardless of \emph{how} it is implemented. A function tree with 3--4 levels of decomposition is typical for capstone projects.
 
 \textbf{Allocation matrix}: map each leaf-level function to a physical module (subsystem, PCB, software module, mechanical assembly). This mapping reveals integration complexity: modules that implement many functions are high-risk single points of failure. Modules that share functions with other modules require careful interface definition.
 
-\textbf{Interface Control Documents (ICDs)}: for each interface between subsystems, define what crosses the boundary (signals, power, data, fluid, mechanical force), in what format (voltage level, protocol, data rate, connector type), and with what constraints (maximum latency, impedance, temperature rating). Clear ICDs are what enable parallel development---team members can work on their subsystems independently if the interfaces are well-defined.
+\textbf{Interface Control Documents (ICDs)}: for each interface between subsystems, define what crosses the boundary (signals, power, data, fluid, mechanical force), in what format (voltage level, protocol, data rate, connector type), and with what constraints (maximum latency, impedance, temperature rating). Clear ICDs are what enable parallel development; team members can work on their subsystems independently if the interfaces are well-defined.
 
 \section{Documenting the Trade Study}
-The trade study---concept generation, screening, selection, and sensitivity analysis---is a PDR deliverable. It must be presented as a narrative engineering argument, not just a table of numbers. The trade study section of your PDR report should include:
+The trade study (concept generation, screening, selection, and sensitivity analysis) is a PDR deliverable. It must be presented as a narrative engineering argument, not just a table of numbers. The trade study section of your PDR report should include:
 
 \begin{enumerate}[nosep,leftmargin=1.5em]
 \item \textbf{Criteria definition}: where did the evaluation criteria come from? Trace each criterion to a requirement or client need. Justify the weights: why is cost weighted 25\% and performance 35\%? The weights reflect the client's priorities and the project's constraints.
@@ -168,7 +168,7 @@ The trade study---concept generation, screening, selection, and sensitivity anal
 \end{enumerate}
 
 \begin{tipbox}[The Trade Study Is Not a Formality]
-Reviewers at PDR can tell when the trade study was performed retroactively to justify a decision already made. Signs: criteria that perfectly align with the pre-selected concept, no sensitivity analysis, and competitors rated suspiciously low on subjective criteria. A genuine trade study may surprise you---the best concept is not always the one you initially favored.
+Reviewers at PDR can tell when the trade study was performed retroactively to justify a decision already made. Signs: criteria that perfectly align with the pre-selected concept, no sensitivity analysis, and competitors rated suspiciously low on subjective criteria. A genuine trade study may surprise you; the best concept is not always the one you initially favored.
 \end{tipbox}
 
 \section{Prototyping Materials and Methods}
@@ -182,7 +182,7 @@ Different prototyping objectives call for different materials and methods:
 
 \textbf{3D-printed TPU}: flexible filament for gaskets, grips, vibration isolators, and compliant mechanisms. Requires a direct-drive extruder; not all InnoHub printers support it.
 
-\textbf{Laser-cut acrylic or wood}: excellent for flat parts, panels, enclosure faces, and structural frames. Fast turnaround. Dimensional accuracy better than FDM ($\pm$0.1\,mm in-plane). Acrylic is transparent---useful for visual access to internals.
+\textbf{Laser-cut acrylic or wood}: excellent for flat parts, panels, enclosure faces, and structural frames. Fast turnaround. Dimensional accuracy better than FDM ($\pm$0.1\,mm in-plane). Acrylic is transparent; useful for visual access to internals.
 
 \textbf{CNC-machined aluminum}: for structural parts requiring high strength, tight tolerances ($\pm$0.05\,mm), or metal-to-metal interfaces. More expensive and slower than 3D printing. Requires InnoHub training.
 
@@ -224,6 +224,10 @@ During concept generation, be aware of intellectual property (IP) considerations
 
 \textbf{Documenting inventive contributions}: if your design includes a novel approach that could be patentable, document it in your engineering notebook with: the date of conception, a clear description, the names of all contributors, and a witness signature. This establishes priority. Discuss potential patents with your PA and the Mines Office of Technology Transfer.
 
+
+\begin{tipbox}[Student Guide Cross-Reference]
+For the sprint-level deliverable checklists and common mistakes during concept generation and selection, see the \textbf{Student Guide}, SDI Sprint~2 and Sprint~3 sections.
+\end{tipbox}
 
 \section{Practice Questions}
 \begin{enumerate}[leftmargin=1.5em]
