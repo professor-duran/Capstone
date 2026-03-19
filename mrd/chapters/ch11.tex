@@ -1,5 +1,7 @@
 \chapter{Hybrid Project Management for Capstone}
 
+This chapter covers everything your team needs to manage the capstone project from Sprint~0 through Final Checkout. It starts with the framework (why hybrid, how Scrum adapts to capstone) and sprint mechanics, then moves into the tools and artifacts you will use day-to-day (backlog, Gantt chart, task tracking, velocity), and concludes with the processes that keep the project under control when things change (change control, escalation, retrospective tracking). Refer back to specific sections as they become relevant to your current sprint.
+
 \section{Why Hybrid, Not Pure Agile or Waterfall}
 Capstone requires both predictability (fixed milestones: PDR, CDR, FDR, Showcase) and adaptability (evolving requirements, unexpected technical challenges, shifting client priorities). Pure Waterfall is too rigid; a detailed plan created in Sprint~1 will be obsolete by Sprint~4 as technical realities emerge. Pure Agile lacks the milestone structure that external stakeholders (clients, PAs, CF) require.
 
@@ -8,7 +10,7 @@ The hybrid approach uses \textbf{Waterfall for the milestone backbone} (fixed ga
 \section{The Scrum Framework for Capstone}
 In Scrum terminology, your capstone roles map as follows:
 
-\textbf{Product Owner = the Client.} The client owns the \textbf{Product Backlog}---the prioritized list of everything the system should do, ordered by value. The client decides \emph{what} is most important; they do not tell you \emph{how} to build it.
+\textbf{Product Owner = the Client.} The client owns the \textbf{Product Backlog}; the prioritized list of everything the system should do, ordered by value. The client decides \emph{what} is most important; they do not tell you \emph{how} to build it.
 
 \textbf{Scrum Master = the student team lead.} The Scrum Master facilitates the process: runs sprint planning, conducts stand-ups, removes impediments, and ensures commitments are met. The Scrum Master is \emph{not} the boss; they are the process guardian.
 
@@ -18,13 +20,13 @@ In Scrum terminology, your capstone roles map as follows:
 \centering
 \begin{tikzpicture}[
     node distance=0.4cm,
-    block/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=3cm, minimum height=0.7cm, align=center, font=\scriptsize\sffamily\bfseries, rounded corners=2pt, line width=0.6pt},
+    block/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=2.7cm, minimum height=0.7cm, align=center, font=\scriptsize\sffamily\bfseries, rounded corners=2pt, line width=0.6pt},
     arrow/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.6pt}
 ]
 \node[block] (plan) at (0,0) {Sprint Planning\\{\tiny Select backlog items}};
-\node[block, right=1.2cm of plan] (exec) {Execution\\{\tiny Daily stand-ups}};
-\node[block, right=1.2cm of exec] (review) {Sprint Review\\{\tiny Demo to PA/client}};
-\node[block, right=1.2cm of review] (retro) {Retrospective\\{\tiny Team reflection}};
+\node[block, right=1.0cm of plan] (exec) {Execution\\{\tiny Daily stand-ups}};
+\node[block, right=1.0cm of exec] (review) {Sprint Review\\{\tiny Demo to PA/client}};
+\node[block, right=1.0cm of review] (retro) {Retrospective\\{\tiny Team reflection}};
 
 \draw[arrow] (plan) -- (exec);
 \draw[arrow] (exec) -- (review);
@@ -70,16 +72,16 @@ The typical sprint week (Figure~\ref{fig:sprint-week}) provides a weekly rhythm 
 
 Capstone uses approximately 2-week sprint cycles. SDI contains Sprints~0--6 (Weeks~1--15); SDII contains Sprints~7--14 (Weeks~1--16). Each sprint follows the cadence shown in Figure~\ref{fig:sprint-cycle}.
 
-\textbf{Sprint Planning} (beginning of sprint): the team selects items from the Product Backlog for this sprint based on priority and capacity. For each item, define what ``done'' means---this prevents ambiguity at the sprint review. Commit to a Sprint Backlog that is achievable in two weeks. Over-committing and under-delivering is worse than under-committing and over-delivering; adjust your capacity estimate based on the previous sprint's actual throughput.
+\textbf{Sprint Planning} (beginning of sprint): the team selects items from the Product Backlog for this sprint based on priority and capacity. For each item, define what ``done'' means; this prevents ambiguity at the sprint review. Commit to a Sprint Backlog that is achievable in two weeks. Over-committing and under-delivering is worse than under-committing and over-delivering; adjust your capacity estimate based on the previous sprint's actual throughput.
 
-\textbf{Daily Stand-Ups} (throughout sprint): brief team check-ins (10--15 minutes, standing up to keep it short). Each member answers three questions: (1)~What did I complete since the last meeting? (2)~What will I work on next? (3)~What is blocking me? The Scrum Master tracks blockers and works to remove them between meetings. Stand-ups are about \emph{coordination}, not status reporting---the goal is to identify and resolve impediments quickly.
+\textbf{Daily Stand-Ups} (throughout sprint): brief team check-ins (10--15 minutes, standing up to keep it short). Each member answers three questions: (1)~What did I complete since the last meeting? (2)~What will I work on next? (3)~What is blocking me? The Scrum Master tracks blockers and works to remove them between meetings. Stand-ups are about \emph{coordination}, not status reporting; the goal is to identify and resolve impediments quickly.
 
 \textbf{Sprint Review} (end of sprint): demonstrate completed work to the PA (and client when possible). Show \emph{working functionality}, not slide decks about functionality. ``Here is the sensor reading on the screen'' beats ``here is a slide showing our plan to read the sensor.'' The sprint review is evidence-based. Several lectures are devoted to Sprint Reviews/Retrospectives; the Sprint Review and Retrospective assignments are graded.
 
-\textbf{Sprint Retrospective} (end of sprint): the team reflects on the process itself, not the product. Three questions: What went well this sprint? What should we improve? What specific actions will we take in the next sprint to improve? \textbf{Record the actions and assign owners}---a retrospective without follow-through is a waste of time. The Scrum Master checks retrospective action items at the next planning session.
+\textbf{Sprint Retrospective} (end of sprint): the team reflects on the process itself, not the product. Three questions: What went well this sprint? What should we improve? What specific actions will we take in the next sprint to improve? \textbf{Record the actions and assign owners}; a retrospective without follow-through is a waste of time. The Scrum Master checks retrospective action items at the next planning session.
 
 \begin{tipbox}[The Velocity Diagnostic]
-\textbf{Sprint velocity} is the number of backlog items (or story points) completed per sprint. Track it starting with Sprint~1. If velocity is declining over time, the team is losing momentum---investigate burnout, scope creep, or unresolved blockers. If velocity is increasing, the team is improving its process. Present velocity trends to your PA at sprint reviews.
+\textbf{Sprint velocity} is the number of backlog items (or story points) completed per sprint. Track it starting with Sprint~1. If velocity is declining over time, the team is losing momentum; investigate burnout, scope creep, or unresolved blockers. If velocity is increasing, the team is improving its process. Present velocity trends to your PA at sprint reviews.
 \end{tipbox}
 
 
@@ -109,10 +111,10 @@ Capstone uses approximately 2-week sprint cycles. SDI contains Sprints~0--6 (Wee
 % Connect weeks
 \draw[arrow, dashed] (f1.south) -- ++(0,-0.4) -| (m2.north);
 \end{tikzpicture}
-\caption{The Capstone Sprint: a typical two-week cycle. Week~1 focuses on planning and execution; Week~2 culminates in the Sprint Review (demo to PA) and Retrospective. Adapt the specific days to your team's schedule.}\label{fig:sprint-week}
+\caption{The Capstone Sprint: a typical two-week cycle. Week~1 focuses on planning and execution; Week~2 culminates in the Sprint Review (demo to PA) and Retrospective. Adapt the specific days to your team's schedule.}\label{fig:sprint-two-week}
 \end{figure}
 
-The weekly cadence in Figure~\ref{fig:sprint-week} is a starting template, not a rigid prescription. Adapt it to your team's class schedule and PA availability. The non-negotiable elements are: sprint planning at the start, at least two stand-ups per week, the PA check-in, the sprint review (with a demo), and the retrospective. Teams that skip any of these elements consistently underperform teams that maintain the full cadence.
+The weekly cadence in Figure~\ref{fig:sprint-two-week} is a starting template, not a rigid prescription. Adapt it to your team's class schedule and PA availability. The non-negotiable elements are: sprint planning at the start, at least two stand-ups per week, the PA check-in, the sprint review (with a demo), and the retrospective. Teams that skip any of these elements consistently underperform teams that maintain the full cadence.
 
 \begin{tipbox}[Student Guide Cross-Reference]
 For a quick, sprint-level checklist of deliverables and priorities at each phase, see the \textbf{Student Guide} sections for your current sprint. The Student Guide tells you \emph{what to do this week}; this Course Text explains \emph{why and how}.
@@ -122,12 +124,12 @@ For a quick, sprint-level checklist of deliverables and priorities at each phase
 \section{Product Backlog and Sprint Backlog}
 The \textbf{Product Backlog} is the master list of all work the project requires, owned by the client and maintained by the Scrum Master. Each item has: a description, an estimate (story points, hours, or T-shirt sizes S/M/L/XL), a priority (from the client), and dependencies on other items. The backlog is a living document; items are added, refined, split, and reprioritized throughout the project.
 
-The \textbf{Sprint Backlog} is the subset selected for the current sprint. The team commits to completing these items within the sprint. Items not completed roll back to the Product Backlog for the next sprint---they are not automatically carried forward. Consistently failing to complete the Sprint Backlog indicates over-commitment; reduce scope in the next sprint and investigate root causes (task estimates too optimistic? external blockers? team availability issues?).
+The \textbf{Sprint Backlog} is the subset selected for the current sprint. The team commits to completing these items within the sprint. Items not completed roll back to the Product Backlog for the next sprint; they are not automatically carried forward. Consistently failing to complete the Sprint Backlog indicates over-commitment; reduce scope in the next sprint and investigate root causes (task estimates too optimistic? external blockers? team availability issues?).
 
 \section{Work Breakdown Structure and Gantt Charts}
 While Scrum manages sprint-level execution, the \textbf{Work Breakdown Structure (WBS)} decomposes the entire project into progressively smaller deliverables and tasks. The WBS ensures no major work element is overlooked. Decompose until each leaf task can be completed in one sprint or less by one person or a small sub-team. Typical capstone WBS has 3--4 levels of decomposition and 50--150 leaf tasks.
 
-The \textbf{Gantt chart} visualizes the WBS over time, showing task durations, dependencies (finish-to-start, start-to-start, etc.), and the \textbf{critical path}---the longest chain of dependent tasks that determines the minimum project duration. Tasks on the critical path have zero float (slack); any delay on the critical path delays the project end date. Non-critical tasks have float and can slip within that margin without affecting the overall schedule.
+The \textbf{Gantt chart} visualizes the WBS over time, showing task durations, dependencies (finish-to-start, start-to-start, etc.), and the \textbf{critical path}; the longest chain of dependent tasks that determines the minimum project duration. Tasks on the critical path have zero float (slack); any delay on the critical path delays the project end date. Non-critical tasks have float and can slip within that margin without affecting the overall schedule.
 
 \begin{tipbox}[Identify Your Critical Path Early]
 Most capstone critical paths run through \textbf{procurement and fabrication}, not through design or analysis. A 3-week PCB fabrication lead time, a 2-week specialty sensor shipping delay, or a 1-week InnoHub Manufacturing Review scheduling wait puts those tasks on the critical path. Identify procurement-dependent tasks in Sprint~1 and order early. The critical path determines your schedule; everything else is secondary.
@@ -160,7 +162,7 @@ Capstone teams attend many meetings: team stand-ups, PA meetings, client meeting
 
 \textbf{Before the meeting}: prepare an agenda. For stand-ups, the agenda is fixed (three questions). For all other meetings, circulate the agenda at least 24 hours in advance. The agenda includes: purpose (what decision or outcome is needed), topics (numbered, with time estimates), and pre-reads (documents attendees should review beforehand).
 
-\textbf{During the meeting}: start on time regardless of who is present. Assign a facilitator (keeps discussion on track) and a scribe (records decisions and action items). When a discussion goes off-topic, the facilitator parks it: ``Good point---let us add that to the action items and discuss it at our next meeting.'' Limit meetings to the allocated time.
+\textbf{During the meeting}: start on time regardless of who is present. Assign a facilitator (keeps discussion on track) and a scribe (records decisions and action items). When a discussion goes off-topic, the facilitator parks it: ``Good point; let us add that to the action items and discuss it at our next meeting.'' Limit meetings to the allocated time.
 
 \textbf{After the meeting}: the scribe distributes meeting minutes within 48 hours. Minutes include: attendees, key decisions (with rationale), action items (owner, description, due date), and open questions. Copy the PA on all client meeting minutes.
 
@@ -179,7 +181,7 @@ Capstone teams attend many meetings: team stand-ups, PA meetings, client meeting
 
 \section{PM Tools Comparison}
 \begin{center}\small
-\begin{tabularx}{\textwidth}{lXXX}
+\begin{tabularx}{\textwidth}{l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
 \toprule
 \textbf{Tool} & \textbf{Strengths} & \textbf{Limitations} & \textbf{Best For} \\
 \midrule
@@ -202,20 +204,20 @@ The following table provides the definitive sprint-to-milestone mapping for the 
 \toprule
 \textbf{Sprint} & \textbf{Semester} & \textbf{Focus} & \textbf{Gate} \\
 \midrule
-0 & SDI & Project Expo, team formation, client kickoff & --- \\
+0 & SDI & Project Expo, team formation, client kickoff & ;  \\
 1 & SDI & SOW, Project Plan, Scrum setup, product backlog & SOW \\
-2 & SDI & Concept generation, trade study, Career Day & --- \\
-3 & SDI & Concept development, client approval, SDRD & --- \\
-4 & SDI & Proof-of-concept, ethics assignment, standards & --- \\
+2 & SDI & Concept generation, trade study, Career Day & ;  \\
+3 & SDI & Concept development, client approval, SDRD & ;  \\
+4 & SDI & Proof-of-Concept, ethics assignment, standards & ;  \\
 5 & SDI & PDR report, mock PDR, PDR presentation & \textbf{PDR} \\
-6 & SDI & Design refinement, SDII handoff, procurement start & --- \\
+6 & SDI & Design refinement, SDII handoff, procurement start & ;  \\
 \midrule
-7 & SDII & Re-engagement, goal setting, hazard assessment & --- \\
+7 & SDII & Re-engagement, goal setting, hazard assessment & ;  \\
 8 & SDII & CDR report, eng.\ calc package, CDR presentation & \textbf{CDR} \\
-9 & SDII & Fabrication begins, subsystem testing & --- \\
-10 & SDII & Integration, system testing begins & --- \\
-11 & SDII & V\&V execution, Broader Impacts essay & --- \\
-12 & SDII & FDR preparation, final V\&V, O\&M manual & --- \\
+9 & SDII & Fabrication begins, subsystem testing & ;  \\
+10 & SDII & Integration, system testing begins & ;  \\
+11 & SDII & V\&V execution, Broader Impacts essay & ;  \\
+12 & SDII & FDR preparation, final V\&V, O\&M manual & ;  \\
 13 & SDII & FDR report, poster design, final testing & \textbf{FDR} \\
 14 & SDII & FDR presentation, Showcase, final checkout & \textbf{Showcase} \\
 \bottomrule
@@ -231,7 +233,7 @@ Schedule risk is the probability that a task will take longer than planned. In c
 
 \textbf{Integration risk}: subsystems that work individually fail when connected. This is the most dangerous schedule risk because it occurs late in the project when margin is smallest. Mitigation: use the debugging pyramid approach (test components individually, then interfaces, then subsystems, then the full system), integrate incrementally (not all at once), and start integration testing as early as Sprint~10.
 
-\textbf{The schedule buffer strategy}: instead of distributing slack evenly across all tasks, concentrate it in a \textbf{project buffer} at the end---a block of unallocated time before FDR that absorbs delays from any task. A 2-week project buffer (Sprint~12) that is consumed by integration debugging is far better than no buffer and a compressed FDR.
+\textbf{The schedule buffer strategy}: instead of distributing slack evenly across all tasks, concentrate it in a \textbf{project buffer} at the end; a block of unallocated time before FDR that absorbs delays from any task. A 2-week project buffer (Sprint~12) that is consumed by integration debugging is far better than no buffer and a compressed FDR.
 
 
 
@@ -245,7 +247,7 @@ The communication cadence should intensify as milestones approach:
 \textbf{Crisis mode} (integration failures, component failure, schedule slip): daily stand-ups become twice-daily check-ins, PA is notified immediately, client is notified within 24 hours with a recovery plan. Crisis mode is temporary; if it lasts more than one sprint, the project scope needs adjustment.
 
 \section{Velocity Tracking and Forecasting}
-Sprint velocity---the number of story points (or tasks) completed per sprint---is the most reliable predictor of future performance:
+Once your communication cadence is established, the next question is whether your team is making progress fast enough. Sprint velocity (the number of story points (or tasks) completed per sprint) is the most reliable predictor of future performance:
 
 \textbf{Tracking}: at the end of each sprint, record: planned story points, completed story points, and the ratio (completion rate). After 3 sprints, you have enough data to forecast.
 
@@ -258,7 +260,7 @@ Sprint velocity---the number of story points (or tasks) completed per sprint---i
 
 
 \section{Building an Effective Gantt Chart}
-The Gantt chart is the primary schedule visualization tool in capstone. Build it correctly:
+Velocity tells you how fast you are moving; the Gantt chart tells you whether you are moving in the right direction and whether you will finish on time. It is the primary schedule visualization tool in capstone. Build it correctly:
 
 \textbf{Start with the WBS}: every task in the Gantt must trace to a WBS element. If a task appears in the Gantt but not the WBS, either the WBS is incomplete or the task is unnecessary.
 

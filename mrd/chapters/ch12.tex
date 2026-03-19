@@ -22,14 +22,14 @@ The InnoHub includes specialized shops, each staffed and equipped for specific f
 
 \textbf{Makerspace}: FDM and resin 3D printers, laser cutters, vinyl cutters, general hand tools, and fabrication workspace.
 
-\begin{warningbox}[Training Is Mandatory---No Exceptions]
-Complete machine-specific safety training on the \textbf{Labriola InnoHub Canvas site} for every piece of equipment you plan to use. No drop-ins are accepted---you will be turned away. Trainings from other facilities (ME Machine Shop, physics lab, personal experience) do \textbf{not} substitute for InnoHub training. CNC training requires completion of the corresponding manual machine training first. Training prioritization: if a TA needs a machine or work area for safety training, you will be asked to return at a different time.
+\begin{warningbox}[Training Is Mandatory; No Exceptions]
+Complete machine-specific safety training on the \textbf{Labriola InnoHub Canvas site} for every piece of equipment you plan to use. No drop-ins are accepted; you will be turned away. Trainings from other facilities (ME Machine Shop, physics lab, personal experience) do \textbf{not} substitute for InnoHub training. CNC training requires completion of the corresponding manual machine training first. Training prioritization: if a TA needs a machine or work area for safety training, you will be asked to return at a different time.
 \end{warningbox}
 
 \textbf{Extended machine use}: if you plan to use manual mills/lathes, welders, wood lathe, or table saw for more than a \textbf{4-hour period}, get manager approval in advance.
 
 \section{Manufacturing Review Meeting}
-If your team plans to build your final project in \emph{any} Labriola facility---Metal Shop, Wood Shop, Electronics Shop, Composites Shop, or Makerspace---you \textbf{must schedule a 30-minute Manufacturing Review Meeting} with one of the shop managers or the operations manager before ordering materials.
+If your team plans to build your final project in \emph{any} Labriola facility (Metal Shop, Wood Shop, Electronics Shop, Composites Shop, or Makerspace) you \textbf{must schedule a 30-minute Manufacturing Review Meeting} with one of the shop managers or the operations manager before ordering materials.
 
 This meeting is a \textbf{required checkoff item on your purchasing form}. It must be completed before CP will process material orders for your build. Bring your design materials (CAD, drawings, BOM) to the meeting. The InnoHub team will:
 \begin{itemize}[nosep,leftmargin=1.5em]
@@ -39,7 +39,7 @@ This meeting is a \textbf{required checkoff item on your purchasing form}. It mu
 \item Identify which InnoHub machines and resources can improve your process
 \end{itemize}
 
-Schedule through the booking link on Canvas. The InnoHub team has blocked time specifically for these meetings. Do not wait until the last minute---scheduling fills up quickly around CDR.
+Schedule through the booking link on Canvas. The InnoHub team has blocked time specifically for these meetings. Do not wait until the last minute; scheduling fills up quickly around CDR.
 
 \section{3D Printing Policies}
 3D printing is the most commonly used fabrication method in capstone. InnoHub policies balance access across all teams:
@@ -185,7 +185,7 @@ Beyond the basic guidelines in Chapter~4, optimize your 3D prints for capstone-s
 
 \textbf{Infill strategy}: 20\% infill is the default; adequate for most non-structural parts. For structural parts (brackets, mounts, enclosures under stress): use 50--100\% infill with 4+ perimeter walls. For weight-sensitive parts: use 10\% infill with gyroid pattern. For water-tight parts: use 100\% infill or vapor-smooth the exterior.
 
-\textbf{Iteration strategy}: print version 1 at 0.3\,mm layer height (fast, rough) to check fit and form. Print version 2 at 0.2\,mm (standard) after confirming dimensions. Print the final version at 0.15\,mm (fine) only if surface quality matters for the client or showcase. Each quality step doubles print time---use the lowest quality that meets your need.
+\textbf{Iteration strategy}: print version 1 at 0.3\,mm layer height (fast, rough) to check fit and form. Print version 2 at 0.2\,mm (standard) after confirming dimensions. Print the final version at 0.15\,mm (fine) only if surface quality matters for the client or showcase. Each quality step doubles print time; use the lowest quality that meets your need.
 
 \textbf{Heat-set inserts}: for any part that will be assembled/disassembled more than once, use heat-set brass inserts (M3 are the most common in capstone). Press them into undersized holes using a soldering iron at 220\,\degC{} for PLA, 250\,\degC{} for PETG. The result is a metal thread in a plastic part that survives dozens of assembly cycles.
 
@@ -209,20 +209,20 @@ The Electronics Shop in the InnoHub provides soldering stations, a hot air rewor
 
 \textbf{Soldering technique}: use a temperature-controlled iron at 300--350\,\degC{} for leaded solder or 350--380\,\degC{} for lead-free. Apply flux to the joint, heat the pad and component lead simultaneously (not just one), then touch solder to the heated joint (not to the iron). A good joint is shiny (leaded) or slightly matte (lead-free), concave, and wets both the pad and the lead.
 
-\textbf{Common soldering defects}: cold joint (dull, grainy---insufficient heat), solder bridge (excess solder connecting adjacent pads---use solder wick to remove), tombstoned component (one end lifted---reheat both pads), insufficient solder (pad visible through the solder---add more). Inspect every joint under 10$\times$ magnification before powering the board.
+\textbf{Common soldering defects}: cold joint (dull, grainy (insufficient heat), solder bridge (excess solder connecting adjacent pads) use solder wick to remove), tombstoned component (one end lifted (reheat both pads), insufficient solder (pad visible through the solder) add more). Inspect every joint under 10$\times$ magnification before powering the board.
 
 \textbf{SMD soldering by hand}: for SOT-23, SOIC, and 0805/0603 passives, use fine-tip solder and a magnifier. Tack one pad first, then solder the remaining pads. For QFP and TQFP packages ($\leq$0.5\,mm pitch), use drag soldering with flux: apply generous flux, tack one corner pin, then drag the solder-loaded iron tip across the row of pins. The flux prevents bridges; use solder wick to clean any that form.
 
 \textbf{Through-hole assembly}: solder from the bottom of the board. Insert the component from the top, flip the board, solder, and trim the leads. For multi-pin connectors, tack one pin first to verify alignment before soldering the rest.
 
-\textbf{ESD protection}: electrostatic discharge can damage CMOS ICs invisibly---the component appears functional but has reduced reliability. Use an ESD wrist strap connected to a grounded surface when handling bare ICs, PCBs, and sensitive modules. The InnoHub Electronics Shop provides ESD mats and wrist straps.
+\textbf{ESD protection}: electrostatic discharge can damage CMOS ICs invisibly; the component appears functional but has reduced reliability. Use an ESD wrist strap connected to a grounded surface when handling bare ICs, PCBs, and sensitive modules. The InnoHub Electronics Shop provides ESD mats and wrist straps.
 
 
 
 \section{Material Sourcing and Stock Preparation}
 Before starting fabrication, ensure all materials are on hand and prepared:
 
-\textbf{Metal stock}: order from McMaster-Carr or Online Metals. Allow 3--5 days for delivery. Verify dimensions with calipers upon receipt---raw stock can be slightly over or under nominal dimensions. Cut stock to rough size (leaving 3--5\,mm excess per side) before machining to final dimensions.
+\textbf{Metal stock}: order from McMaster-Carr or Online Metals. Allow 3--5 days for delivery. Verify dimensions with calipers upon receipt; raw stock can be slightly over or under nominal dimensions. Cut stock to rough size (leaving 3--5\,mm excess per side) before machining to final dimensions.
 
 \textbf{3D printing filament}: verify you have enough filament remaining in your free allotment (check with InnoHub TAs). If additional filament is needed, purchase through the InnoHub payment portal before printing. Different colors of the same material have identical mechanical properties; choose color for aesthetics, not performance.
 
@@ -233,11 +233,11 @@ Before starting fabrication, ensure all materials are on hand and prepared:
 \section{Workspace Organization and Waste Management}
 \textbf{The clean workspace principle}: a messy workspace is a slow workspace. You waste time searching for tools, risk losing small components, and increase the chance of assembly errors (wrong screw in the wrong hole because everything is jumbled together). Spend 10 minutes at the end of every build session organizing your workspace.
 
-\textbf{Component organization}: use labeled bins, bags, or compartmentalized boxes for: received components (organized by vendor/order), installed components (keep a running installation checklist), spare components (clearly marked as spares), and rejected/damaged components (do not discard---they may be needed for failure analysis at FDR).
+\textbf{Component organization}: use labeled bins, bags, or compartmentalized boxes for: received components (organized by vendor/order), installed components (keep a running installation checklist), spare components (clearly marked as spares), and rejected/damaged components (do not discard (they may be needed for failure analysis at FDR).
 
-\textbf{Waste disposal}: dispose of materials properly. Metal chips and shavings: sweep into the designated metal waste bin (never vacuum---metal chips damage vacuum motors). 3D printing supports and failed prints: PLA is not recyclable through standard recycling; dispose in general waste unless your facility has a filament recycling program. Chemical waste (solvents, adhesives, resin): follow the SDS disposal instructions and use the designated chemical waste containers in the InnoHub.
+\textbf{Waste disposal}: dispose of materials properly. Metal chips and shavings: sweep into the designated metal waste bin (never vacuum) metal chips damage vacuum motors). 3D printing supports and failed prints: PLA is not recyclable through standard recycling; dispose in general waste unless your facility has a filament recycling program. Chemical waste (solvents, adhesives, resin): follow the SDS disposal instructions and use the designated chemical waste containers in the InnoHub.
 
-\textbf{Tool return}: return all InnoHub tools to the Tool Crib before leaving each session. Check out tools through the designated system. If a tool is damaged during use, report it to the TA immediately---do not return it silently. The next team to use a damaged tool may be injured.
+\textbf{Tool return}: return all InnoHub tools to the Tool Crib before leaving each session. Check out tools through the designated system. If a tool is damaged during use, report it to the TA immediately; do not return it silently. The next team to use a damaged tool may be injured.
 
 
 
