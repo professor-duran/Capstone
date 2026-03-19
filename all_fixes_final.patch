@@ -155,10 +155,136 @@ index ba2c970..0d066ce 100644
  \end{itemize}
  
 diff --git a/mrd/chapters/ch01.tex b/mrd/chapters/ch01.tex
-index f00ff27..ef6366d 100644
+index f00ff27..19ff1a3 100644
 --- a/mrd/chapters/ch01.tex
 +++ b/mrd/chapters/ch01.tex
-@@ -142,9 +142,9 @@ Capstone uses two complementary frameworks. \textbf{Design thinking} emphasizes
+@@ -70,59 +70,74 @@ The V-Model is the overarching framework for capstone. It connects the process o
+ 
+ \begin{figure}[htbp]
+ \centering
++\resizebox{\textwidth}{!}{%
+ \begin{tikzpicture}[
+-    node distance=0.5cm,
+-    block/.style={rectangle, draw=MinesBlue, fill=LightBG, text width=3cm, minimum height=0.8cm, align=center, font=\scriptsize\sffamily\bfseries, rounded corners=2pt, line width=0.7pt},
+-    arrow/.style={-{Stealth[length=2mm]}, MinesBlue, line width=0.7pt},
+-    dasharr/.style={-{Stealth[length=2mm]}, AccentTeal, line width=0.6pt, dashed}
++    >=Stealth,
++    defblock/.style={
++        rectangle, rounded corners=4pt, draw=MinesBlue, fill=MinesBlue!6,
++        text width=3.4cm, minimum height=1.0cm, align=center,
++        font=\small\sffamily\bfseries, line width=0.8pt
++    },
++    verblock/.style={
++        rectangle, rounded corners=4pt, draw=AccentTeal, fill=AccentTeal!6,
++        text width=3.4cm, minimum height=1.0cm, align=center,
++        font=\small\sffamily\bfseries, line width=0.8pt
++    },
++    botblock/.style={
++        rectangle, rounded corners=4pt, draw=MinesSilver, fill=MinesSilver!10,
++        text width=3.4cm, minimum height=1.0cm, align=center,
++        font=\small\sffamily\bfseries, line width=0.8pt
++    },
++    flow/.style={->, line width=1.1pt, color=#1, shorten <=1pt, shorten >=1pt},
++    trace/.style={densely dashed, AccentTeal!45, line width=0.7pt, <->, shorten <=3pt, shorten >=3pt},
++    tracelabel/.style={font=\footnotesize\itshape, text=AccentTeal!60, fill=white, inner sep=2pt, rounded corners=1pt},
++    revlabel/.style={font=\scriptsize\sffamily\bfseries, color=WarnOrange}
+ ]
+-% Left side (Definition)
+-\node[block] (needs) at (0,0) {Client Needs \\ \& ConOps};
+-\node[block] (req) at (-1.5,-1.3) {System \\ Requirements};
+-\node[block] (arch) at (-3,-2.6) {Architecture \\ \& Design};
+-\node[block] (detail) at (-4.5,-3.9) {Detailed Design \\ \& Analysis};
+-
+-% Bottom
+-\node[block, fill=AccentTeal!15] (impl) at (0,-5.2) {Build / Model \\ / Code};
+-
+-% Right side (Verification)
+-\node[block] (accept) at (0,0) {Client Needs \\ \& ConOps};
+-\node[block] (unit) at (4.5,-3.9) {Component \\ Testing};
+-\node[block] (integ) at (3,-2.6) {Integration \\ Testing};
+-\node[block] (sys) at (1.5,-1.3) {System \\ Verification};
+-\node[block] (val) at (0,0) {Validation \\ \& Acceptance};
+-
+-% Reposition top
+-\node[block] (needs2) at (-4,0.4) {Client Needs};
+-\node[block] (val2) at (4,0.4) {Validation};
+-
+-% Arrows down
+-\draw[arrow] (needs2) -- (req);
+-\draw[arrow] (req) -- (arch);
+-\draw[arrow] (arch) -- (detail);
+-\draw[arrow] (detail) -- (impl);
+-
+-% Arrows up
+-\draw[arrow] (impl) -- (unit);
+-\draw[arrow] (unit) -- (integ);
+-\draw[arrow] (integ) -- (sys);
+-\draw[arrow] (sys) -- (val2);
+-
+-% Horizontal traces
+-\draw[dasharr] (needs2) -- node[above, font=\tiny\sffamily, AccentTeal]{validates} (val2);
+-\draw[dasharr] (req) -- node[above, font=\tiny\sffamily, AccentTeal]{verifies} (sys);
+-\draw[dasharr] (arch) -- node[above, font=\tiny\sffamily, AccentTeal]{verifies} (integ);
+-\draw[dasharr] (detail) -- node[above, font=\tiny\sffamily, AccentTeal]{verifies} (unit);
+-
+-% Labels
+-\node[font=\footnotesize\sffamily\color{MinesBlue}, rotate=55] at (-4.2,-2) {Definition};
+-\node[font=\footnotesize\sffamily\color{MinesBlue}, rotate=-55] at (4.2,-2) {Verification};
+-
+-% Review labels
+-\node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (-2.3,-0.3) {PDR};
+-\node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (-3.8,-3.2) {CDR};
+-\node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (2.8,-0.3) {FDR};
+-\end{tikzpicture}
++% === Symmetric V with matched definition-verification pairs ===
++
++% --- LEFT ARM (Definition) ---
++\node[defblock] (L1) at (0, 0)      {Client Needs\\{}\& ConOps};
++\node[defblock] (L2) at (1.2, -2.8) {System\\Requirements};
++\node[defblock] (L3) at (2.4, -5.6) {Detailed Design\\{}\& Analysis};
++
++% --- BOTTOM VERTEX (Build) ---
++\node[botblock] (B) at (6.75, -7.8) {Build / Model\\/ Code};
++
++% --- RIGHT ARM (Verification) ---
++\node[verblock] (R3) at (11.1, -5.6) {Component\\Testing};
++\node[verblock] (R2) at (12.3, -2.8) {System\\Verification};
++\node[verblock] (R1) at (13.5, 0)    {Validation\\{}\& Acceptance};
++
++% --- Flow arrows ---
++\draw[flow=MinesBlue] (L1.south) -- (L2.north);
++\draw[flow=MinesBlue] (L2.south) -- (L3.north);
++\draw[flow=MinesSilver] (L3.south) -- (B.north west);
++\draw[flow=MinesSilver] (B.north east) -- (R3.south);
++\draw[flow=AccentTeal] (R3.north) -- (R2.south);
++\draw[flow=AccentTeal] (R2.north) -- (R1.south);
++
++% --- Horizontal traceability arrows ---
++\draw[trace] (L1.east) -- node[tracelabel, midway, above=2pt]
++    {Needs $\longleftrightarrow$ Validation} (R1.west);
++\draw[trace] (L2.east) -- node[tracelabel, midway, above=2pt]
++    {Reqs $\longleftrightarrow$ System V\&V} (R2.west);
++\draw[trace] (L3.east) -- node[tracelabel, midway, above=2pt]
++    {Design $\longleftrightarrow$ Test} (R3.west);
++
++% --- Design review markers ---
++\node[revlabel] at (-0.3, -1.2) {PDR};
++\node[revlabel] at (1.5, -4.4) {CDR};
++\node[revlabel] at (12.8, -1.2) {FDR};
++
++% --- Arm labels ---
++\node[rotate=62, font=\normalsize\sffamily\bfseries, color=MinesBlue!45]
++    at (-2.0, -2.8) {DEFINITION};
++\node[rotate=-62, font=\normalsize\sffamily\bfseries, color=AccentTeal!45]
++    at (15.5, -2.8) {VERIFICATION};
++\node[font=\normalsize\sffamily\bfseries, color=MinesSilver!60]
++    at (6.75, -9.3) {BUILD / MODEL};
++\end{tikzpicture}%
++}% end resizebox
+ \caption{The V-Model for capstone design. The left side defines requirements and design; the right side verifies compliance. Dashed horizontal lines show the traceability between definition and verification at each level. Design reviews (PDR, CDR, FDR) are positioned at their corresponding V-Model phases.}\label{fig:v-model}
+ \end{figure}
+ 
+@@ -142,9 +157,9 @@ Capstone uses two complementary frameworks. \textbf{Design thinking} emphasizes
  In practice, design thinking drives the early sprints (understanding the problem, generating concepts, getting client feedback) while systems engineering drives the later sprints (detailed design, analysis, build, and verification). The transition is not abrupt; both mindsets operate throughout the project, but the emphasis shifts as the project matures from exploration to execution.
  
  \begin{keyconceptbox}[When to Use Which Framework]
@@ -170,7 +296,7 @@ index f00ff27..ef6366d 100644
  
  Both are always present. The question is which one is leading at any given moment.
  \end{keyconceptbox}
-@@ -211,9 +211,9 @@ Understanding the roles in capstone prevents miscommunication and misplaced expe
+@@ -211,9 +226,9 @@ Understanding the roles in capstone prevents miscommunication and misplaced expe
  \section{Project Tracks}
  All capstone projects are classified into one of three tracks at the start of SDI. Track classification is proposed by the team, confirmed by the PA, and approved by the client and CF. The classification is documented in the Statement of Work (Chapter~7) and cannot be changed after PDR without written approval from the Capstone Program Director.
  
@@ -182,7 +308,7 @@ index f00ff27..ef6366d 100644
  
  \textbf{Competition Track}: the project is driven by an \textbf{external competition event} (SAE Collegiate Design Series, AIAA Design/Build/Fly, ASCE Steel Bridge, Formula SAE, EcoCAR, etc.) with a fixed, externally imposed competition schedule. Competition Track teams complete all requirements of the Build or Paper Track, as appropriate, with milestone dates adjusted to align with the competition calendar. The competition event serves as an additional public evidence point, but \textbf{competition outcomes (placement, awards) are not used in grading}. Engineering process and deliverable quality are assessed on the same standards as the corresponding base track.
  
-@@ -223,7 +223,7 @@ All three tracks are held to equivalent standards of engineering rigor and profe
+@@ -223,7 +238,7 @@ All three tracks are held to equivalent standards of engineering rigor and profe
  
  
  \section{The Individual Design Log}
