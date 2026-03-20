@@ -68,7 +68,7 @@ DFE is a design philosophy that systematically considers environmental impacts a
 
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item \textbf{Minimize material variety}: fewer material types simplifies recycling. A product with 15 different plastics is nearly impossible to recycle economically; one with 2--3 types is viable.
-\item \textbf{Select lower-impact materials}: prefer recycled content, renewable materials, and materials with lower embodied energy. Aluminum has 8$\times$ the embodied energy of steel per kg but is infinitely recyclable.
+\item \textbf{Select lower-impact materials}: prefer recycled content, renewable materials, and materials with lower embodied energy. Aluminum has $8\times$ the embodied energy of steel per kg but is infinitely recyclable.
 \item \textbf{Design for disassembly (DfD)}: use reversible fasteners (screws, snap-fits) instead of permanent bonds (adhesives, welding, overmolding). The requirement ``the system shall be fully disassembled into its base material categories using only standard hand tools in under 5 minutes'' is testable by demonstration at FDR.
 \item \textbf{Minimize packaging}: reduce material, use recycled content, design for reusable shipping.
 \item \textbf{Design for energy efficiency}: during the use phase, which is typically the dominant lifecycle phase for powered products.
@@ -146,12 +146,12 @@ A full quantitative Lifecycle Assessment requires specialized software (openLCA,
 \textbf{Step 2: Identify the dominant lifecycle phase.} Research published LCA data for products similar to yours:
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item \textbf{Electronics and consumer products}: the use phase typically dominates energy consumption. A device that consumes 50\,W continuously for 5 years uses $\sim$2,200\,kWh; far more energy than was consumed in manufacturing the device. Focus on energy efficiency.
-\item \textbf{Construction materials and infrastructure}: the materials phase dominates embodied energy and carbon. Concrete produces $\sim$0.13\,kg CO$_2$/kg; steel produces $\sim$1.8\,kg CO$_2$/kg; aluminum produces $\sim$8.1\,kg CO$_2$/kg (values from the ICE Database; verify against current data for your materials). Focus on material selection and material reduction.
+\item \textbf{Construction materials and infrastructure}: the materials phase dominates embodied energy and carbon. Concrete produces $\sim$0.13\,kg CO\textsubscript{2}/kg; steel produces $\sim$1.8\,kg CO\textsubscript{2}/kg; aluminum produces $\sim$8.1\,kg CO\textsubscript{2}/kg (values from the ICE Database; verify against current data for your materials). Focus on material selection and material reduction.
 \item \textbf{Vehicles and mobile systems}: the use phase dominates (fuel consumption). Focus on weight reduction and powertrain efficiency.
 \item \textbf{Short-lived consumer goods}: the materials and end-of-life phases dominate. Focus on recyclability and material selection.
 \end{itemize}
 
-\textbf{Step 3: Estimate the dominant impact.} Use published data to estimate the primary environmental metric for your dominant phase. For energy consumption: estimate annual kWh and multiply by the local grid emission factor (Colorado: $\sim$0.6\,kg CO$_2$/kWh). For material impact: estimate mass of each material and multiply by the embodied energy or CO$_2$ factor from published databases (e.g., Granta Edupack, ICE Database).
+\textbf{Step 3: Estimate the dominant impact.} Use published data to estimate the primary environmental metric for your dominant phase. For energy consumption: estimate annual kWh and multiply by the local grid emission factor (Colorado: $\sim$0.6\,kg CO\textsubscript{2}/kWh). For material impact: estimate mass of each material and multiply by the embodied energy or CO\textsubscript{2} factor from published databases (e.g., Granta Edupack, ICE Database).
 
 \textbf{Step 4: Identify design levers.} What design changes would reduce the dominant impact? Can you reduce power consumption by 30\% with a more efficient algorithm or a sleep mode? Can you reduce material mass by 20\% with topology optimization or material substitution? Can you increase product lifetime from 3 years to 10 years, spreading the embodied energy over a longer useful period?
 
