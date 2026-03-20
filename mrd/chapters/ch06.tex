@@ -3,9 +3,9 @@
 \section{Verification vs. Validation}
 These terms~[34,\,2] are frequently confused, even by practicing engineers. The distinction matters because they answer fundamentally different questions and require different evidence.
 
-\textbf{Verification} answers ``Did we build the system right?'' (does the system meet its specified requirements as written in the SDRD? Verification compares the system's measured performance to the requirements document. It is an engineering activity performed by the design team.
+\textbf{Verification} answers ``Did we build the system right?'' (does the system meet its specified requirements as written in the SDRD?). Verification compares the system's measured performance to the requirements document. It is an engineering activity performed by the design team.
 
-\textbf{Validation} answers ``Did we build the right system?'') does the system satisfy the client's actual needs in its intended operating environment? Validation compares the system's behavior to the client's expectations and the ConOps. It requires the client's involvement and often occurs in the real operating context.
+\textbf{Validation} answers ``Did we build the right system?'' (does the system satisfy the client's actual needs in its intended operating environment?). Validation compares the system's behavior to the client's expectations and the ConOps. It requires the client's involvement and often occurs in the real operating context.
 
 A system can pass all verification tests and still fail validation. Example: your temperature controller meets every requirement in the SDRD (verification passes), but the client discovers that the mounting location you assumed is inaccessible in their facility, making the system unusable (validation fails). The requirements were correct; the ConOps was incomplete. Verification is necessary but not sufficient; validation closes the loop between what was built and what was needed.
 
@@ -219,7 +219,7 @@ For each component or function in your system, identify:
 
 \textbf{Mitigation}: for high-RPN items, design a specific mitigation that reduces S, O, or D. After mitigation, re-score to verify the RPN has decreased. Document the before and after scores.
 
-\begin{tipbox}
+\begin{tipbox}[FMEA Across Design Reviews]
 Present the FMEA as a table in the PDR and CDR reports, updated at each review. The PDR FMEA identifies potential failures in the proposed concept. The CDR FMEA reflects the detailed design with specific mitigations incorporated. The FDR FMEA shows the final state with test results confirming that mitigations are effective.
 \end{tipbox}
 

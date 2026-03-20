@@ -58,7 +58,7 @@ Figure~\ref{fig:design-process} illustrates the iterative nature of the process.
 
 \draw[backarrow] (req) -- ++(0,0.8) -| (prob);
 \draw[backarrow] (concept) -- ++(0,0.8) -| (req);
-\draw[backarrow] (detail) -- ++(0,-0.8) -| (build);
+\draw[backarrow] (build) -- ++(0,-0.8) -| (detail);
 \draw[backarrow] (test) -- ++(-1.2,0) |- (prob);
 \end{tikzpicture}
 \caption{The iterative engineering design process. Solid arrows show the primary flow; dashed arrows show feedback loops where later phases trigger refinement of earlier phases.}\label{fig:design-process}
@@ -86,7 +86,7 @@ The V-Model~[2] is the overarching framework for capstone. It connects the proce
 \node[block, fill=AccentTeal!15] (impl) at (0,-5.2) {Build / Model \\ / Code};
 
 % Right side (Verification)
-\node[block] (unit) at (0,-3.9) {Component \\ Testing};
+\node[block] (unit) at (1,-3.9) {Component \\ Testing};
 \node[block] (integ) at (1,-2.6) {Integration \\ Testing};
 \node[block] (sys) at (2.5,-1.3) {System \\ Verification};
 \node[block] (val2) at (4,0) {Validation \\ \& Acceptance};
@@ -115,7 +115,7 @@ The V-Model~[2] is the overarching framework for capstone. It connects the proce
 
 % Review labels
 \node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (-2.3,-0.3) {PDR};
-\node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (-3.8,-3.2) {CDR};
+\node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (-0.8,-4.6) {CDR};
 \node[font=\tiny\sffamily\bfseries\color{WarnOrange}] at (2.8,-0.3) {FDR};
 \end{tikzpicture}
 \caption{The V-Model for capstone design. The left side defines requirements and design; the right side verifies compliance. Dashed horizontal lines show the traceability between definition and verification at each level. Design reviews (PDR, CDR, FDR) are positioned at their corresponding V-Model phases.}\label{fig:v-model}
