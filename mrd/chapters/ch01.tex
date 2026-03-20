@@ -77,24 +77,19 @@ The V-Model is the overarching framework for capstone. It connects the process o
     dasharr/.style={-{Stealth[length=2mm]}, AccentTeal, line width=0.6pt, dashed}
 ]
 % Left side (Definition)
-\node[block] (needs) at (0,0) {Client Needs \\ \& ConOps};
-\node[block] (req) at (-1.5,-1.3) {System \\ Requirements};
-\node[block] (arch) at (-3,-2.6) {Architecture \\ \& Design};
-\node[block] (detail) at (-4.5,-3.9) {Detailed Design \\ \& Analysis};
+\node[block] (needs2) at (-4,0) {Client Needs \\ \& ConOps};
+\node[block] (req) at (-2.5,-1.3) {System \\ Requirements};
+\node[block] (arch) at (-1,-2.6) {Architecture \\ \& Design};
+\node[block] (detail) at (0,-3.9) {Detailed Design \\ \& Analysis};
 
 % Bottom
 \node[block, fill=AccentTeal!15] (impl) at (0,-5.2) {Build / Model \\ / Code};
 
 % Right side (Verification)
-\node[block] (accept) at (0,0) {Client Needs \\ \& ConOps};
-\node[block] (unit) at (4.5,-3.9) {Component \\ Testing};
-\node[block] (integ) at (3,-2.6) {Integration \\ Testing};
-\node[block] (sys) at (1.5,-1.3) {System \\ Verification};
-\node[block] (val) at (0,0) {Validation \\ \& Acceptance};
-
-% Reposition top
-\node[block] (needs2) at (-4,0.4) {Client Needs};
-\node[block] (val2) at (4,0.4) {Validation};
+\node[block] (unit) at (0,-3.9) {Component \\ Testing};
+\node[block] (integ) at (1,-2.6) {Integration \\ Testing};
+\node[block] (sys) at (2.5,-1.3) {System \\ Verification};
+\node[block] (val2) at (4,0) {Validation \\ \& Acceptance};
 
 % Arrows down
 \draw[arrow] (needs2) -- (req);
