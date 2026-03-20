@@ -96,7 +96,9 @@ A test procedure is a step-by-step recipe that allows someone who did not design
 
 \textbf{Safety}: any hazards associated with the test and the precautions required. ``High voltage present at test point TP3. Do not touch exposed terminals. Use insulated probes.''
 
-\textbf{Data recording}: what to record (raw measurements, calculated values, environmental conditions), in what format (table, datasheet, electronic log), and where to store it (project repository, lab notebook).
+\textbf{Data recording}: what to record (raw measurements, calculated values, environmental conditions), in what format (table, datasheet, electronic log), and where to store it (project repository, lab notebook). Raw data files should be saved in the test data directory of the project repository with a naming convention: \texttt{TP-PR-004\_run01\_2026-04-10.csv}.
+
+\textbf{Results}: actual measured values, calculated error, and pass/fail determination. Sign and date.
 
 \begin{warningbox}[The Test Procedure Is a Legal Document]
 In professional practice, test procedures and their results are legal evidence of design compliance. They may be reviewed by regulators, auditors, or opposing counsel in litigation. Write test procedures as if someone with no knowledge of your project will read them five years from now and need to understand exactly what was tested, how, and what the results mean. In capstone, this standard of clarity is what distinguishes professional engineering documentation from lab reports.
@@ -197,6 +199,8 @@ A well-documented failure that is honestly reported and intelligently dispositio
 
 
 \section{FMEA: Failure Mode and Effects Analysis}
+For FMEA fundamentals, see Chapter~4. This section covers the capstone-specific application of FMEA to verification and test planning.
+
 FMEA is a systematic technique for identifying potential failure modes, assessing their risk, and prioritizing mitigation actions. The methodology is covered in depth in MEGN~301; here is the capstone application.
 
 For each component or function in your system, identify:
@@ -219,26 +223,6 @@ For each component or function in your system, identify:
 Present the FMEA as a table in the PDR and CDR reports, updated at each review. The PDR FMEA identifies potential failures in the proposed concept. The CDR FMEA reflects the detailed design with specific mitigations incorporated. The FDR FMEA shows the final state with test results confirming that mitigations are effective.
 \end{tipbox}
 
-
-
-\section{The Test Procedure Template}
-For each requirement verified by Test (T), write a formal test procedure:
-
-\textbf{Test ID}: TP-XXX (matching the requirement ID, e.g., TP-PR-004 tests PR-004).
-
-\textbf{Objective}: ``Verify that the system maintains temperature within $\pm$1.0\,\degC{} of the setpoint over the operating range of 20--200\,\degC{}.''
-
-\textbf{Equipment required}: list every piece of test equipment with model numbers and calibration status. ``Fluke 179 multimeter (calibrated 2026-01-15), Type~K thermocouple (NIST-traceable reference), Bench power supply (BK Precision 1672A).''
-
-\textbf{Test setup}: describe (and photograph) the physical configuration. How is the device under test connected to the measurement equipment? What is the ambient environment?
-
-\textbf{Procedure}: numbered steps that anyone on the team can follow to reproduce the test. Include: setup steps, measurement steps, data recording instructions, and cleanup steps.
-
-\textbf{Pass/fail criteria}: derived directly from the requirement. ``PASS: measured error $\leq \pm$1.0\,\degC{} at all 5 test points. FAIL: measured error $> \pm$1.0\,\degC{} at any test point.''
-
-\textbf{Data recording}: specify what data to record, in what format, and where to store it. Raw data files should be saved in the test data directory of the project repository with a naming convention: \texttt{TP-PR-004\_run01\_2026-04-10.csv}.
-
-\textbf{Results}: actual measured values, calculated error, and pass/fail determination. Sign and date.
 
 
 \begin{tipbox}[Student Guide Cross-Reference]

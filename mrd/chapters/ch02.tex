@@ -86,10 +86,24 @@ Structured conversations with the client and end users. Prepare questions in adv
 Watch how the current system or process is used in its actual environment. Observation reveals unstated needs that interviews miss. When an operator says ``the system works fine'' but you observe them taping a sensor cable to the frame to prevent it from catching on passing carts, you have discovered a cable management need the operator never thought to mention.
 
 \subsection{Contextual Inquiry}
-Combine observation with real-time interviewing. Visit the site where the system will operate. Ask questions as the user performs their tasks: ``Why do you do it that way?'' ``What happens when this goes wrong?'' ``Is this step always the same, or does it vary?'' Contextual inquiry is the most powerful needs elicitation technique because it grounds the conversation in reality rather than abstraction.
+Combine observation with real-time interviewing. See Section~\ref{sec:contextual-inquiry} for a detailed treatment of contextual inquiry methods and what they reveal.
 
-\subsection{AI-Assisted Persona Development}
-When direct stakeholder access is limited (the end user is in a remote facility, the population is too large to interview comprehensively, or the project involves future users who do not yet exist), AI tools can help generate customer personas. Describe the problem domain and ask the AI to role-play as different stakeholder types: the primary user, the maintenance technician, the safety officer, the purchasing manager. Conduct the same interview questions you would use with real stakeholders. This is a complement to real interviews, not a substitute. Document each persona with: description, key quotes, identified needs, and implications for requirements. Always disclose AI-generated content per the course GenAI policy (Chapter~22).
+\subsection{AI-Assisted Persona Development}\label{subsec:ai-persona}
+When direct stakeholder access is limited (the end user is in a remote facility, the population is too large to interview comprehensively, the project involves future users who do not yet exist, or cultural or language barriers limit direct engagement), AI tools can supplement---never replace---traditional needs elicitation.
+
+\textbf{How to use AI for persona development}: describe the problem domain, the operating environment, and the stakeholder type to the AI. Ask it to role-play as different stakeholder personas: the primary user, the maintenance technician, the safety officer, the purchasing manager, the regulatory inspector. Conduct the same interview questions you would use with real stakeholders. The AI will surface considerations you may not have thought of: accessibility needs, maintenance constraints, regulatory requirements, cultural preferences.
+
+\textbf{How to document AI-generated personas}: for each persona, record: persona name and description, key quotes from the AI interaction, identified needs and pain points, implications for requirements, and a clear disclosure that this persona was AI-generated. Always cross-validate AI-generated needs against real stakeholder data when possible.
+
+\textbf{Limitations}: AI personas reflect training data biases, may miss context-specific constraints, and cannot replace the insight that comes from observing real users in their actual environment. Use AI personas to broaden your thinking, not to shortcut your research. Always disclose AI-generated content per the course GenAI policy (Chapter~22).
+
+\begin{examplebox}[AI Persona Example]
+\textbf{Prompt}: ``You are a maintenance technician at a wastewater treatment plant in rural Colorado. Our team is designing an automated chemical dosing system. What are your biggest concerns about a new system being installed in your plant?''
+
+\textbf{Key needs surfaced}: easy access for calibration without confined space entry, compatibility with existing SCADA system, alarm notification to personal cell phone (plant is not continuously staffed), resistance to freeze-thaw cycles, clear labeling of all chemical connections to prevent cross-contamination.
+
+Several of these needs would not emerge from a specification-focused engineering discussion but are critical for operational success.
+\end{examplebox}
 
 \section{The Five-Element Problem Statement}
 Before you jump to solutions, articulate the problem clearly. A vague problem statement leads to a vague design. A precise problem statement constrains the solution space and focuses the team's effort. A good problem statement contains five elements:
@@ -154,33 +168,16 @@ Every client interaction should produce a written record. At minimum:
 
 Documentation protects both you and the client. If a disagreement arises about what was agreed upon, the meeting minutes and decision log are the authoritative record.
 
-\section{AI-Assisted Persona Development}
-When direct stakeholder access is limited (the end user is at a remote facility, the population is too large to interview comprehensively, the users do not yet exist (e.g., designing for future occupants of a building), or cultural or language barriers limit direct engagement) AI tools can supplement (never replace) traditional needs elicitation.
-
-\textbf{How to use AI for persona development}: describe the problem domain, the operating environment, and the stakeholder type to the AI. Ask it to role-play as different stakeholder personas: the primary user, the maintenance technician, the safety officer, the purchasing manager, the regulatory inspector. Conduct the same interview questions you would use with real stakeholders. The AI will surface considerations you may not have thought of; accessibility needs, maintenance constraints, regulatory requirements, cultural preferences.
-
-\textbf{How to document AI-generated personas}: for each persona, record: persona name and description, key quotes from the AI interaction, identified needs and pain points, implications for requirements, and a clear disclosure that this persona was AI-generated. Always cross-validate AI-generated needs against real stakeholder data when possible.
-
-\textbf{Limitations}: AI personas reflect training data biases, may miss context-specific constraints, and cannot replace the insight that comes from observing real users in their actual environment. Use AI personas to broaden your thinking, not to shortcut your research. Always disclose AI-generated content per the course GenAI policy (Chapter~22).
-
-\begin{examplebox}[AI Persona Example]
-\textbf{Prompt}: ``You are a maintenance technician at a wastewater treatment plant in rural Colorado. Our team is designing an automated chemical dosing system. What are your biggest concerns about a new system being installed in your plant?''
-
-\textbf{Key needs surfaced}: easy access for calibration without confined space entry, compatibility with existing SCADA system, alarm notification to personal cell phone (plant is not continuously staffed), resistance to freeze-thaw cycles, clear labeling of all chemical connections to prevent cross-contamination.
-
-Several of these needs would not emerge from a specification-focused engineering discussion but are critical for operational success.
-\end{examplebox}
-
 \section{The Statement of Work}
 The Statement of Work (SOW) is the formal agreement between your team, the PA, and the client on what will be done, by when, and within what constraints. It is the foundation document for the entire project. Chapter~7 covers the SOW structure and content in detail. The SOW is developed during Sprint~1, incorporates findings from the kickoff meeting and needs elicitation, and is submitted to the PA and client for approval. It documents your track classification (Build, Paper, or Competition), team roles and responsibilities, project scope, deliverables, schedule, budget, and assumptions.
 
 
-\section{Contextual Inquiry: Observing Users in Their Environment}
+\section{Contextual Inquiry: Observing Users in Their Environment}\label{sec:contextual-inquiry}
 The richest source of requirements is watching people work in the actual environment where your system will be deployed. Contextual inquiry goes beyond interviews:
 
 \textbf{What to observe}: how do current users perform the task your system will address? What tools do they use? What workarounds have they developed? Where do they make errors? What takes the most time? What frustrates them? What do they do that they do not mention in interviews (because it is so habitual they do not think of it)?
 
-\textbf{How to conduct}: spend 1--2 hours observing the user performing their normal workflow. Take notes (timestamps, actions, observations). Ask clarifying questions only when the observation is ambiguous: ``I noticed you checked the gauge twice before adjusting the valve (why?'' Do not suggest improvements during observation; your job is to understand, not to redesign.
+\textbf{How to conduct}: spend 1--2 hours observing the user performing their normal workflow. Take notes (timestamps, actions, observations). Ask clarifying questions only when the observation is ambiguous: ``I noticed you checked the gauge twice before adjusting the valve (why?)'' Do not suggest improvements during observation; your job is to understand, not to redesign.
 
 \textbf{What it reveals}: contextual inquiry consistently reveals requirements that interviews miss. Users adapt to existing system limitations so thoroughly that they forget to mention them. The maintenance technician who carries a flashlight because the control panel is in a dark corner will not mention ``good lighting'' as a requirement) but you will notice it.
 
