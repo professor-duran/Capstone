@@ -59,7 +59,7 @@ The kickoff meeting (Sprint~0, SDI Weeks~1--2) is your first formal interaction 
 \textbf{After the meeting}: send a follow-up email within 24 hours summarizing key decisions, open questions, and next steps. This email is critical; it serves as a de facto meeting record and gives the client an opportunity to correct misunderstandings while the conversation is still fresh. Copy your PA on this email.
 
 \begin{tipbox}[The Mom Test for Client Interviews]
-Never ask ``Would this feature be useful?''; people say yes to be polite. Instead ask about \emph{past behavior}: ``When did you last face this problem? What did you do? Why didn't that work?'' Past actions predict future needs far better than hypothetical opinions. This principle, from Rob Fitzpatrick's \emph{The Mom Test}, applies to every client conversation throughout the project.
+Never ask ``Would this feature be useful?''; people say yes to be polite. Instead ask about \emph{past behavior}: ``When did you last face this problem? What did you do? Why didn't that work?'' Past actions predict future needs far better than hypothetical opinions. This principle, from Rob Fitzpatrick's \emph{The Mom Test}~[9], applies to every client conversation throughout the project.
 \end{tipbox}
 
 \section{The Re-engagement Email (SDII)}
@@ -125,7 +125,7 @@ If your problem statement implies only one possible solution, you have jumped in
 \end{examplebox}
 
 \section{Concept of Operations (ConOps)}
-The ConOps describes how the system will be used from the user's perspective. It is a narrative, not a specification. Walk through the primary use cases in plain language that the client can review and approve: who operates the system, in what sequence, under what conditions, what inputs they provide, what outputs they expect, and what happens when something goes wrong.
+The ConOps~[32] describes how the system will be used from the user's perspective. It is a narrative, not a specification. Walk through the primary use cases in plain language that the client can review and approve: who operates the system, in what sequence, under what conditions, what inputs they provide, what outputs they expect, and what happens when something goes wrong.
 
 The ConOps bridges the gap between the client's needs and the engineering requirements. A requirement like ``the system shall display soil moisture data updated every 15 minutes'' does not tell you how the user accesses that data, what they do with it, or what happens if the sensor fails. The ConOps does.
 
@@ -143,7 +143,7 @@ Before defining your solution, understand what already exists. Competitive bench
 
 \textbf{Product survey}: identify 3--5 competing products or existing solutions. For each, document: name, manufacturer, features, strengths, weaknesses, price point, and user reviews. Synthesize: What features are universally present (table stakes that your design must match)? What features are missing or poorly executed (your opportunity)? What do users complain about most (your value proposition)?
 
-\textbf{Patent landscape}: search Google Patents (\url{https://patents.google.com}) for relevant utility patents. Document: patent number, filing date (patents expire after 20 years), abstract, and key claims. Expired patents contain detailed engineering you can freely use. Active patents define design boundaries you must avoid. This is not a legal opinion; it is an engineering awareness exercise that reveals prior art and protected approaches.
+\textbf{Patent landscape}: search Google Patents (\url{https://patents.google.com}) for relevant utility patents. Document: patent number, filing date (utility patents expire after 20 years; design patents last 15 years from grant), abstract, and key claims. Expired patents contain detailed engineering you can freely use. Active patents define design boundaries you must avoid. This is not a legal opinion; it is an engineering awareness exercise that reveals prior art and protected approaches.
 
 \textbf{Standards and regulations}: identify applicable codes early. UL/CSA for electrical safety, FCC Part~15 for radiated emissions, IP ratings for environmental protection, building codes for civil projects, EPA regulations for environmental projects, food-contact regulations if applicable. Standards become non-functional requirements in your SDRD. Discovering a regulatory requirement at CDR instead of PDR causes expensive, schedule-breaking redesign.
 

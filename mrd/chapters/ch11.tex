@@ -5,10 +5,10 @@ This chapter covers everything your team needs to manage the capstone project fr
 \section{Why Hybrid, Not Pure Agile or Waterfall}
 Capstone requires both predictability (fixed milestones: PDR, CDR, FDR, Showcase) and adaptability (evolving requirements, unexpected technical challenges, shifting client priorities). Pure Waterfall is too rigid; a detailed plan created in Sprint~1 will be obsolete by Sprint~4 as technical realities emerge. Pure Agile lacks the milestone structure that external stakeholders (clients, PAs, CF) require.
 
-The hybrid approach uses \textbf{Waterfall for the milestone backbone} (fixed gates: SOW, PDR, CDR, FDR, Showcase with non-negotiable dates) and \textbf{Agile (Scrum) for sprint-level execution} within each milestone window. You know \emph{what} must be demonstrated at each gate; you use sprints to figure out \emph{how} to get there.
+The hybrid approach uses \textbf{Waterfall for the milestone backbone}~[8] (fixed gates: SOW, PDR, CDR, FDR, Showcase with non-negotiable dates) and \textbf{Agile (Scrum) for sprint-level execution}~[6] within each milestone window. You know \emph{what} must be demonstrated at each gate; you use sprints to figure out \emph{how} to get there.
 
 \section{The Scrum Framework for Capstone}
-In Scrum terminology, your capstone roles map as follows:
+In Scrum terminology~[6], your capstone roles map as follows:
 
 \textbf{Product Owner = the Client.} The client owns the \textbf{Product Backlog}; the prioritized list of everything the system should do, ordered by value. The client decides \emph{what} is most important; they do not tell you \emph{how} to build it.
 
@@ -74,14 +74,14 @@ Capstone uses approximately 2-week sprint cycles. SDI contains Sprints~0--6 (Wee
 
 \textbf{Sprint Planning} (beginning of sprint): the team selects items from the Product Backlog for this sprint based on priority and capacity. For each item, define what ``done'' means; this prevents ambiguity at the sprint review. Commit to a Sprint Backlog that is achievable in two weeks. Over-committing and under-delivering is worse than under-committing and over-delivering; adjust your capacity estimate based on the previous sprint's actual throughput.
 
-\textbf{Daily Stand-Ups} (throughout sprint): brief team check-ins (10--15 minutes, standing up to keep it short). Each member answers three questions: (1)~What did I complete since the last meeting? (2)~What will I work on next? (3)~What is blocking me? The Scrum Master tracks blockers and works to remove them between meetings. Stand-ups are about \emph{coordination}, not status reporting; the goal is to identify and resolve impediments quickly.
+\textbf{Daily Stand-Ups}~[6] (throughout sprint): brief team check-ins (10--15 minutes, standing up to keep it short). Each member answers three questions: (1)~What did I complete since the last meeting? (2)~What will I work on next? (3)~What is blocking me? The Scrum Master tracks blockers and works to remove them between meetings. Stand-ups are about \emph{coordination}, not status reporting; the goal is to identify and resolve impediments quickly.
 
 \textbf{Sprint Review} (end of sprint): demonstrate completed work to the PA (and client when possible). Show \emph{working functionality}, not slide decks about functionality. ``Here is the sensor reading on the screen'' beats ``here is a slide showing our plan to read the sensor.'' The sprint review is evidence-based. Several lectures are devoted to Sprint Reviews/Retrospectives; the Sprint Review and Retrospective assignments are graded.
 
 \textbf{Sprint Retrospective} (end of sprint): the team reflects on the process itself, not the product. Three questions: What went well this sprint? What should we improve? What specific actions will we take in the next sprint to improve? \textbf{Record the actions and assign owners}; a retrospective without follow-through is a waste of time. The Scrum Master checks retrospective action items at the next planning session.
 
 \begin{tipbox}[The Velocity Diagnostic]
-\textbf{Sprint velocity} is the number of backlog items (or story points) completed per sprint. Track it starting with Sprint~1. If velocity is declining over time, the team is losing momentum; investigate burnout, scope creep, or unresolved blockers. If velocity is increasing, the team is improving its process. Present velocity trends to your PA at sprint reviews.
+\textbf{Sprint velocity}~[6] is the number of backlog items (or story points) completed per sprint. Track it starting with Sprint~1. If velocity is declining over time, the team is losing momentum; investigate burnout, scope creep, or unresolved blockers. If velocity is increasing, the team is improving its process. Present velocity trends to your PA at sprint reviews.
 \end{tipbox}
 
 
@@ -127,9 +127,9 @@ The \textbf{Product Backlog} is the master list of all work the project requires
 The \textbf{Sprint Backlog} is the subset selected for the current sprint. The team commits to completing these items within the sprint. Items not completed roll back to the Product Backlog for the next sprint; they are not automatically carried forward. Consistently failing to complete the Sprint Backlog indicates over-commitment; reduce scope in the next sprint and investigate root causes (task estimates too optimistic? external blockers? team availability issues?).
 
 \section{Work Breakdown Structure and Gantt Charts}
-While Scrum manages sprint-level execution, the \textbf{Work Breakdown Structure (WBS)} decomposes the entire project into progressively smaller deliverables and tasks. The WBS ensures no major work element is overlooked. Decompose until each leaf task can be completed in one sprint or less by one person or a small sub-team. Typical capstone WBS has 3--4 levels of decomposition and 50--150 leaf tasks.
+While Scrum manages sprint-level execution, the \textbf{Work Breakdown Structure (WBS)}~[8] decomposes the entire project into progressively smaller deliverables and tasks. The WBS ensures no major work element is overlooked. Decompose until each leaf task can be completed in one sprint or less by one person or a small sub-team. Typical capstone WBS has 3--4 levels of decomposition and 50--150 leaf tasks.
 
-The \textbf{Gantt chart} visualizes the WBS over time, showing task durations, dependencies (finish-to-start, start-to-start, etc.), and the \textbf{critical path}; the longest chain of dependent tasks that determines the minimum project duration. Tasks on the critical path have zero float (slack); any delay on the critical path delays the project end date. Non-critical tasks have float and can slip within that margin without affecting the overall schedule.
+The \textbf{Gantt chart}~[8] visualizes the WBS over time, showing task durations, dependencies (finish-to-start, start-to-start, etc.), and the \textbf{critical path}; the longest chain of dependent tasks that determines the minimum project duration. Tasks on the critical path have zero float (slack); any delay on the critical path delays the project end date. Non-critical tasks have float and can slip within that margin without affecting the overall schedule.
 
 \begin{tipbox}[Identify Your Critical Path Early]
 Most capstone critical paths run through \textbf{procurement and fabrication}, not through design or analysis. A 3-week PCB fabrication lead time, a 2-week specialty sensor shipping delay, or a 1-week InnoHub Manufacturing Review scheduling wait puts those tasks on the critical path. Identify procurement-dependent tasks in Sprint~1 and order early. The critical path determines your schedule; everything else is secondary.

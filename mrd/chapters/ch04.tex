@@ -8,12 +8,12 @@ Research in design methodology consistently shows that teams generating more con
 \section{Ideation Techniques}
 
 \subsection{Brainstorming}
-The classic group ideation method. Rules: (1)~defer all judgment (no criticizing ideas during generation, (2)~encourage wild ideas) they trigger useful associations, (3)~build on others' ideas (``yes, and\ldots'' not ``no, but\ldots''), (4)~go for quantity over quality. A productive brainstorming session generates 30--50 ideas in 20 minutes. Most will be impractical; that is the point. The few gems are worth the pile of duds.
+The classic group ideation method~[26]. Rules: (1)~defer all judgment (no criticizing ideas during generation, (2)~encourage wild ideas) they trigger useful associations, (3)~build on others' ideas (``yes, and\ldots'' not ``no, but\ldots''), (4)~go for quantity over quality. A productive brainstorming session generates 30--50 ideas in 20 minutes. Most will be impractical; that is the point. The few gems are worth the pile of duds.
 
 Tips for effective sessions: set a timer (time pressure increases output), designate a facilitator who enforces the rules, use sticky notes or a whiteboard so ideas are visible to everyone, and do not allow laptops during brainstorming (they invite distraction and reduce participation).
 
 \subsection{SCAMPER}
-A structured creativity prompt that forces you to transform existing solutions. For each existing solution or concept, systematically ask:
+SCAMPER~[27] is a structured creativity prompt that forces you to transform existing solutions. For each existing solution or concept, systematically ask:
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item \textbf{S}ubstitute: can you replace a component, material, or process?
 \item \textbf{C}ombine: can you merge two functions, systems, or ideas?
@@ -27,7 +27,7 @@ A structured creativity prompt that forces you to transform existing solutions. 
 SCAMPER is particularly useful when you have one decent concept but need alternatives for the decision matrix. Apply each letter to your existing concept and see what emerges. Apply SCAMPER to your top 2--3 concepts from initial brainstorming to generate 10--20 variations.
 
 \subsection{Morphological Chart}
-The morphological chart is the most systematic ideation technique. Decompose the system into independent functions (rows) and list multiple solution approaches for each function (columns), as shown in Table~\ref{tab:morph-chart}. Then systematically combine solutions across functions to generate novel system-level concepts.
+The morphological chart~[28] is the most systematic ideation technique. Decompose the system into independent functions (rows) and list multiple solution approaches for each function (columns), as shown in Table~\ref{tab:morph-chart}. Then systematically combine solutions across functions to generate novel system-level concepts.
 
 \begin{table}[htbp]
 \centering\small
@@ -48,7 +48,7 @@ Enclosure & IP67 molded & 3D-printed PLA & NEMA 4X box & Epoxy potted \\
 A chart with 5 functions and 4 options per function yields $4^5 = 1{,}024$ possible combinations. Not all are viable, but the chart reveals combinations that no single brainstorming session would produce. Select 3--5 promising combinations for further development.
 
 \subsection{Biomimicry}
-Study how nature solves analogous problems. Natural systems have been optimized by billions of years of evolution for efficiency, resilience, and adaptability. Ask: ``How does nature handle this function?'' Examples: gecko feet for reversible adhesion, shark skin for drag reduction, termite mounds for passive ventilation, bone structure for lightweight high-strength materials, spider silk for tensile strength, elephant ears for large-surface-area heat exchangers, Namibian beetle for fog harvesting through surface wettability gradients, and woodpecker skull for layered energy absorption. The AskNature database (\url{https://asknature.org}) catalogs biological strategies organized by function. Biomimicry is particularly useful for structural, thermal, fluid, and materials challenges, and often produces concepts that are lighter, more efficient, and more elegant than conventional engineering solutions.
+Biomimicry~[29] studies how nature solves analogous problems. Natural systems have been optimized by billions of years of evolution for efficiency, resilience, and adaptability. Ask: ``How does nature handle this function?'' Examples: gecko feet for reversible adhesion, shark skin for drag reduction, termite mounds for passive ventilation, bone structure for lightweight high-strength materials, spider silk for tensile strength, elephant ears for large-surface-area heat exchangers, Namibian beetle for fog harvesting through surface wettability gradients, and woodpecker skull for layered energy absorption (note: recent research [Van Wassenbergh et~al., 2022, \emph{Current Biology}] has challenged this interpretation, finding the skull is rigid and does not absorb shock; always verify biomimicry claims against current literature). The AskNature database (\url{https://asknature.org}) catalogs biological strategies organized by function. Biomimicry is particularly useful for structural, thermal, fluid, and materials challenges, and often produces concepts that are lighter, more efficient, and more elegant than conventional engineering solutions.
 
 \section{Graphical Communication of Concepts}
 Every concept must be communicated visually. A verbal description of a concept is insufficient; your PA, client, and teammates need to \emph{see} how it works. For each concept, produce:
@@ -83,7 +83,7 @@ The PDR deliverable requires graphical communication of at least three distinct 
 
 The concept selection process (Figure~\ref{fig:concept-funnel}) is deliberately structured as a funnel: wide at the top (many ideas) and narrow at the bottom (one justified selection). The width of thinking at the top determines the quality of the selection at the bottom. Teams that start with 3 concepts and select one have not explored the design space adequately; teams that start with 15+ and screen to 3--5 before scoring have genuine confidence in their selection.
 
-The Pugh matrix is a quick, qualitative screening tool for reducing a large set of concepts to a manageable shortlist. Steps:
+The Pugh matrix~[3] is a quick, qualitative screening tool for reducing a large set of concepts to a manageable shortlist. Steps:
 \begin{enumerate}[nosep,leftmargin=1.5em]
 \item Select one concept as the \textbf{datum} (baseline for comparison). Choose a middling concept, not the one you think is best.
 \item Define evaluation criteria from your requirements (performance, cost, manufacturability, schedule risk, maintainability, safety, sustainability).
@@ -135,7 +135,7 @@ Plot each identified risk on a Likelihood (1--5) vs. Impact (1--5) grid. Risks i
 A living document listing each risk with: unique ID, description, likelihood rating, impact rating, risk score (L$\times$I), mitigation strategy, responsible team member, status (Open, Mitigated, Closed), and notes. Review the register at every sprint retrospective. Add new risks as they emerge; close risks that have been mitigated.
 
 \subsection{FMEA: Failure Modes and Effects Analysis}
-For each component or function in your design: how can it fail (failure mode)? What happens to the system if it fails (effect)? Three ratings:
+FMEA~[15] is a systematic risk analysis technique. For each component or function in your design: how can it fail (failure mode)? What happens to the system if it fails (effect)? Three ratings:
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item \textbf{Severity (S)}: 1--10. How bad is the effect? (1 = negligible, 10 = safety hazard without warning.)
 \item \textbf{Occurrence (O)}: 1--10. How likely is this failure mode? (1 = extremely unlikely, 10 = near-certain.)

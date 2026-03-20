@@ -11,7 +11,7 @@ For the sprint-level CDR preparation timeline, see the \textbf{Student Guide, Sp
 CDR answers: ``Will this design work?'' By CDR, you must have: (1)~a complete detailed design with CAD and drawings, (2)~an Engineering Calculation Package proving feasibility, (3)~a BOM with all components ordered or received, (4)~a manufacturing plan with the InnoHub Manufacturing Review complete, and (5)~an updated FMEA with mitigations. The design freezes after CDR.
 \end{keyconceptbox}
 
-CDR answers: \emph{``Will this design work?''} The design must be complete enough to build or model in full fidelity. Every component specified with vendor part numbers. Every interface defined. Every critical analysis complete. Procurement in progress or complete. CDR is the \textbf{design freeze}; after CDR, architectural changes require formal change control.
+CDR answers: \emph{``Will this design work?''} The design must be complete enough to build or model in full fidelity. Every component specified with vendor part numbers. Every interface defined. Every critical analysis complete. Procurement in progress or complete. CDR is the \textbf{design freeze}~[2], [35]; after CDR, architectural changes require formal change control.
 
 CDR separates the conceptual work of SDI from the execution work of SDII. If the design is not solid at CDR, the build phase will be a series of crises. The question is not ``is the design perfect?'' but ``is the design complete enough to build with confidence?''
 
@@ -30,9 +30,9 @@ Builds on updated PDR report and adds:
 \item \textbf{Complete detailed design}: CAD assembly with dimensions/tolerances, wiring diagrams with values and pin assignments, software architecture with state machines, piping layouts, structural drawings.
 \item \textbf{Bill of Materials}: every component with description, manufacturer, part number, vendor, unit cost, quantity, total cost, lead time, status (ordered/received/backordered).
 \item \textbf{Engineering Calculation Package}: formal analyses; hand calculations, FEA/CFD, circuit simulation, thermal analysis, structural analysis. Each calculation: purpose, assumptions, methodology, results with units, conclusion, and source citations. This is a narrative engineering document.
-\item \textbf{Updated FMEA}: showing mitigations since PDR and reduced RPNs.
+\item \textbf{Updated FMEA}~[15]: showing mitigations since PDR and reduced RPNs.
 \item \textbf{Manufacturing plan}: fabrication sequence, tools and facilities needed, procurement status. InnoHub Manufacturing Review must be completed.
-\item \textbf{Updated VCRM}: analysis verifications complete. Some subsystem test results available.
+\item \textbf{Updated VCRM}~[34]: analysis verifications complete. Some subsystem test results available.
 \item \textbf{Updated budget and schedule}: actuals vs. planned with projections.
 \end{itemize}
 
@@ -243,7 +243,7 @@ The Eng Calc Package is often the weakest CDR deliverable. Reviewers expect:
 
 \textbf{Electrical analysis}: for any power distribution design, show the voltage regulation chain (source $\to$ regulators $\to$ loads), the current budget (maximum current draw per rail, sum vs. regulator capacity), the power budget ($P = V \times I$ per rail, total system power vs. source capacity), and the battery life calculation (capacity in Ah / average current draw = runtime in hours).
 
-\textbf{Control analysis}: for any feedback control system, show the plant model (transfer function or state-space representation), the controller design rationale (PID gains with tuning method), the predicted closed-loop response (settling time, overshoot, steady-state error vs. requirements), and the stability margin (gain margin $>$6\,dB, phase margin $>$30\degC{}).
+\textbf{Control analysis}: for any feedback control system, show the plant model (transfer function or state-space representation), the controller design rationale (PID gains with tuning method), the predicted closed-loop response (settling time, overshoot, steady-state error vs. requirements), and the stability margin (gain margin $>$6\,dB, phase margin $>$30$^\circ$).
 
 Each analysis section concludes with a clear statement: ``The calculated [metric] is [value] with units, which [meets/does not meet] the requirement of [value]. The safety factor is [value].'' A calculation without a conclusion is incomplete.
 

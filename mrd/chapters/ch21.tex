@@ -52,18 +52,18 @@ The safety plan must include:
 
 \item \textbf{Engineering controls}: design-level safety features. Examples: fuses on every power rail, current-limited bench supplies, thermal cutoffs on heaters, mechanical guards on rotating equipment, interlocks that disconnect power when enclosures are opened, ventilation for soldering and painting. Engineering controls are preferred because they do not depend on human behavior.
 \item \textbf{Administrative controls}: procedures, training, signage, and work practices. Examples: the buddy system for shop work (never operate power tools alone), mandatory safety briefing before each build session, posted hazard warnings at the workstation, lockout/tagout procedures for equipment maintenance. Administrative controls supplement engineering controls.
-\item \textbf{Required PPE}: personal protective equipment matched to each hazard. Safety glasses (all shop work), hearing protection ($>$85\,dBA), closed-toe shoes (all shop spaces), nitrile gloves (chemical handling, resin printing; \textbf{not} for rotating machinery, which can catch gloves and pull your hand in), face shield (grinding, cutting), welding helmet and gloves (welding), dust mask (sanding, cutting composites).
+\item \textbf{Required PPE}: personal protective equipment matched to each hazard. Safety glasses (all shop work), hearing protection ($>$85\,dBA~[43]), closed-toe shoes (all shop spaces), nitrile gloves (chemical handling, resin printing; \textbf{not} for rotating machinery, which can catch gloves and pull your hand in), face shield (grinding, cutting), welding helmet and gloves (welding), dust mask (sanding, cutting composites).
 \item \textbf{Emergency procedures}: specific to your project's hazards. Lithium battery thermal runaway: evacuate, place in metal container with sand, call 911. Chemical spill: evacuate, consult SDS, contact EHS. Electrical shock: de-energize before touching the victim, call 911. Injury: first aid, incident report, EHS notification.
 \end{enumerate}
 
 The PA must \textbf{review and approve} the safety plan before fabrication begins. The plan is a living document; update it as the project evolves and new hazards are identified. If your design changes significantly after CDR (new materials, new processes, higher voltages, larger forces), update the safety plan.
 
 \section{Electrical Safety}
-Electrical shock severity depends on current through the body, which is determined by voltage and body resistance (approximately 100\,k$\Omega$ for dry, intact skin but as low as 1\,k$\Omega$ hand-to-hand with wet or broken skin). \textbf{No voltage should be treated as unconditionally safe.} A source as low as 24\,VDC can deliver dangerous current under the right conditions (wet skin, cuts, conductive jewelry, medical implants). IEC~61010 designates voltages below 30\,VDC / 25\,VAC~RMS as ``extra-low voltage,'' but this classification assumes dry-skin contact with intact insulation, not that the source is harmless. \textbf{The safest practice is always to de-energize before working.} Above 48\,V, including all AC mains: \textbf{de-energize and lock out before touching any conductor}.
+Electrical shock severity depends on current through the body, which is determined by voltage and body resistance (approximately 100\,k$\Omega$ for dry, intact skin but as low as 1\,k$\Omega$ hand-to-hand with wet or broken skin)~[42]. \textbf{No voltage should be treated as unconditionally safe.} A source as low as 24\,VDC can deliver dangerous current under the right conditions (wet skin, cuts, conductive jewelry, medical implants). IEC~61010~[21] designates voltages below 30\,VDC / 25\,VAC~RMS as ``extra-low voltage,'' but this classification assumes dry-skin contact with intact insulation, not that the source is harmless. \textbf{The safest practice is always to de-energize before working.} Above 48\,V, including all AC mains: \textbf{de-energize and lock out before touching any conductor}.
 
 Design-level controls: fuse every power rail (fuse rating = 150\% of maximum expected current), use current-limited bench supplies during development, include an emergency shutoff switch accessible without reaching into the enclosure, use connectors that cannot be reversed (keyed headers, Anderson Powerpole), and \textbf{never design your own AC-DC converter}. Always use a UL/CE-listed wall adapter.
 
-\textbf{Lockout/tagout (LOTO)}: when working on energized equipment, disconnect the power source and apply a physical lock to prevent re-energization. In capstone, this means disconnecting the battery or unplugging the power supply before modifying wiring, not just turning off the switch.
+\textbf{Lockout/tagout (LOTO)}~[22],~[23]: when working on energized equipment, disconnect the power source and apply a physical lock to prevent re-energization. In capstone, this means disconnecting the battery or unplugging the power supply before modifying wiring, not just turning off the switch.
 
 \section{Mechanical Safety}
 Rotating equipment (lathes, mills, drill presses, grinders) presents entanglement, pinch, and projectile hazards. Before operating any rotating machinery: tie back long hair, remove dangling jewelry, roll up loose sleeves, and remove gloves (counterintuitively, gloves increase the danger by providing a surface for the machine to grab). Wear safety glasses; a chip from a lathe can cause permanent eye damage.
@@ -84,18 +84,18 @@ Lithium-ion and lithium-polymer cells are energy-dense and present fire and expl
 
 \textbf{Never}: short-circuit, overcharge, over-discharge, puncture, crush, or overheat cells. \textbf{Always}: use a Battery Management System (BMS) for charging and discharge protection, charge in a fireproof LiPo safety bag, never charge unattended, use a charger designed for the specific chemistry (LiPo/Li-ion), and inspect cells before each use (swelling, hissing, or heat are warning signs of imminent failure).
 
-If a cell swells, hisses, smokes, or begins to heat uncontrollably: \textbf{clear the area immediately}. If safe to do so, move the battery to a fireproof container (metal bucket with sand) using insulated tools. Call 911 if fire occurs. Do not attempt to extinguish a lithium battery fire with water (use a Class~D fire extinguisher, dry sand, or CO$_2$.
+If a cell swells, hisses, smokes, or begins to heat uncontrollably: \textbf{clear the area immediately}. If safe to do so, move the battery outdoors to a metal container (e.g., ammo can or metal bucket with sand) using insulated tools. Call 911 if fire occurs. For lithium-ion or LiPo battery fires: use water in large quantities to cool the cells and prevent thermal runaway propagation. Do \textbf{not} use a Class~D extinguisher (those are designed for combustible metals such as magnesium or sodium, not lithium-ion cells). For small fires, an ABC dry chemical extinguisher may also be used.
 
 \section{Compressed Gas and Pneumatic Safety}
 Compressed gas cylinders contain enormous stored energy. A cylinder that falls and breaks its valve becomes an unguided missile. \textbf{Always}: chain cylinders upright to a wall, cart, or bench; use the correct regulator for the gas type; close the valve when not in use; and transport with the protective cap installed.
 
-Pneumatic systems store energy in compressed air lines. Before disconnecting any fitting, \textbf{relieve all pressure} by closing the supply valve and exhausting the downstream line. Never direct compressed air at a person) even shop air at 90\,psi can cause serious injury.
+Pneumatic systems store energy in compressed air lines. Before disconnecting any fitting, \textbf{relieve all pressure} by closing the supply valve and exhausting the downstream line. Never direct compressed air at a person---even shop air at 90\,psi can cause serious injury.
 
 \section{Noise Exposure}
-Power tools, CNC machines, and compressed air tools can produce noise levels above 85\,dBA, which causes permanent hearing damage with prolonged exposure. Wear hearing protection (earplugs or earmuffs) when working near loud equipment. If you must shout to be heard at arm's length, the noise exceeds 85\,dBA.
+Power tools, CNC machines, and compressed air tools can produce noise levels above 85\,dBA~[43], which causes permanent hearing damage with prolonged exposure. Wear hearing protection (earplugs or earmuffs) when working near loud equipment. If you must shout to be heard at arm's length, the noise exceeds 85\,dBA.
 
 \section{Emergency Procedures}
-Before beginning any work in any facility, identify the location of: the nearest fire extinguisher (CO$_2$ or dry chemical for electrical fires (\textbf{never} use water on electrical equipment), the first aid kit, the nearest eyewash station (for chemical splashes) flush for 15 minutes minimum), the nearest emergency exit, and the emergency phone number (911 from any campus phone).
+Before beginning any work in any facility, identify the location of: the nearest fire extinguisher (CO$_2$ or dry chemical for electrical fires (\textbf{never} use water on electrical equipment), the first aid kit, the nearest eyewash station (for chemical splashes; flush for 15 minutes minimum), the nearest emergency exit, and the emergency phone number (911 from any campus phone).
 
 \textbf{Incident reporting}: report all incidents, injuries, and near-misses to your PA, the InnoHub Operations Manager, and Mines EHS. Near-miss reporting is not a sign of weakness; it is a sign of professional safety culture. A near-miss report today prevents a real injury tomorrow.
 
@@ -119,7 +119,7 @@ Some capstone projects require work at client sites, field locations, or outdoor
 
 
 \section{PPE Selection Guide}
-Personal Protective Equipment (PPE) is the last line of defense) use it in conjunction with engineering and administrative controls, not as a substitute. Select PPE based on the specific hazard:
+Personal Protective Equipment (PPE) is the last line of defense---use it in conjunction with engineering and administrative controls, not as a substitute. Select PPE based on the specific hazard:
 
 \begin{center}\small
 \begin{tabularx}{\textwidth}{lXX}
@@ -154,7 +154,7 @@ For projects involving outdoor work in Colorado:
 
 \textbf{Altitude}: Golden is at 5,675 ft. Field sites in the mountains may be at 8,000--14,000 ft. Altitude reduces oxygen availability, causing headache, nausea, fatigue, and impaired judgment. Hydrate aggressively, ascend gradually, and do not perform strenuous or precision work until acclimated (24--48 hours at elevation).
 
-\textbf{Lightning}: Colorado has the highest lightning fatality rate of any state. Afternoon thunderstorms are common May--September. If you hear thunder, seek shelter immediately. The 30/30 rule: if the time between lightning flash and thunder is $<$30 seconds, seek shelter and stay sheltered for 30 minutes after the last thunder.
+\textbf{Lightning}: Colorado consistently ranks among the states with the highest lightning fatality rates per capita (NOAA Storm Data). Afternoon thunderstorms are common May--September. If you hear thunder, seek shelter immediately. The 30/30 rule: if the time between lightning flash and thunder is $<$30 seconds, seek shelter and stay sheltered for 30 minutes after the last thunder.
 
 \textbf{Temperature extremes}: Colorado temperatures can range from $-20$\,\degC{} in winter to $+38$\,\degC{} in summer, sometimes with 20\,\degC{} swings in a single day. Dress in layers. Carry water. Monitor team members for heat exhaustion and hypothermia symptoms.
 
@@ -183,7 +183,7 @@ Your FDR report should include a safety section documenting:
 \item All safety-related design features (fuses, current limiters, emergency stops, guards, interlocks, ventilation, labeling).
 \item Any incidents or near-misses that occurred during the project, with the corrective actions taken.
 \item Safety considerations for the end user documented in the O\&M manual: operating hazards, required PPE, emergency procedures, and safe decommissioning instructions.
-\item Compliance with applicable safety standards (IEC~61010, OSHA requirements, competition rules, site-specific requirements).
+\item Compliance with applicable safety standards (IEC~61010~[21], OSHA requirements~[22], NFPA~70E~[23], competition rules, site-specific requirements).
 \end{itemize}
 
 This documentation demonstrates that safety was integrated into the design process, not treated as an afterthought. Employers and PE boards view safety consciousness as a core engineering competency.
@@ -199,9 +199,9 @@ Lithium-ion and lithium-polymer cells are common in capstone projects (portable 
 
 \textbf{Inspection before every use}: check for: swelling (puffy cells are damaged and must be retired), physical damage (dents, tears in the pouch), unusual odor (sweet chemical smell indicates electrolyte leakage), and hot spots (feel for localized heat). Any of these signs requires immediate retirement of the cell.
 
-\textbf{Battery Management System (BMS)}: every multi-cell battery pack must include a BMS that provides: overcharge protection (disconnects at $\sim$4.2\,V/cell), over-discharge protection (disconnects at $\sim$3.0\,V/cell), overcurrent protection (disconnects at the maximum safe discharge rate), and cell balancing (equalizes voltage across cells in series). Do not operate a multi-cell pack without a BMS (an unbalanced pack will overcharge the weakest cell, leading to thermal runaway.
+\textbf{Battery Management System (BMS)}: every multi-cell battery pack must include a BMS that provides: overcharge protection (disconnects at $\sim$4.2\,V/cell), over-discharge protection (disconnects at $\sim$3.0\,V/cell), overcurrent protection (disconnects at the maximum safe discharge rate), and cell balancing (equalizes voltage across cells in series). Do not operate a multi-cell pack without a BMS (an unbalanced pack will overcharge the weakest cell, leading to thermal runaway).
 
-\textbf{Emergency response}: if a cell swells, hisses, smokes, or begins to heat uncontrollably: (1)~clear the area immediately, (2)~if safe to do so, move the battery to a metal container with sand using insulated tools, (3)~call 911 if fire occurs, (4)~do not use water on a lithium battery fire) use CO$_2$, dry sand, or a Class~D fire extinguisher, (5)~ventilate the area (lithium battery fires produce toxic hydrogen fluoride gas).
+\textbf{Emergency response}: if a cell swells, hisses, smokes, or begins to heat uncontrollably: (1)~clear the area immediately, (2)~if safe to do so, move the battery to a metal container with sand using insulated tools, (3)~call 911 if fire occurs, (4)~for lithium-ion or LiPo fires, use water in large quantities to cool the cells and prevent thermal runaway propagation; do \textbf{not} use a Class~D extinguisher (those are for combustible metals, not Li-ion cells); for small fires, an ABC dry chemical extinguisher may also be used, (5)~ventilate the area (lithium battery fires produce toxic hydrogen fluoride gas).
 
 \textbf{Disposal}: damaged or end-of-life lithium cells must not be placed in regular trash. Use the campus battery recycling program or a certified electronics recycler. Tape the terminals of used cells before disposal to prevent short circuits in the recycling bin.
 

@@ -8,7 +8,7 @@ For the sprint-level PDR preparation timeline and deliverable checklist, see the
 
 PDR answers: \emph{``Should this design work?''} You demonstrate that you understand the problem, have well-defined requirements, have generated and evaluated multiple concepts, have selected a feasible approach with engineering justification, and have a credible plan to develop it further. PDR is not a final design; it is a \textbf{commitment to a direction}, backed by analysis and evidence.
 
-PDR is your first opportunity to receive formal, structured feedback from the PA, client, and TAs on the entirety of your engineering approach. Teams that treat PDR as a checkbox exercise produce weak designs; teams that use PDR as a genuine review emerge with stronger designs and clearer paths forward.
+PDR serves as a design gate~[35] and is your first opportunity to receive formal, structured feedback from the PA, client, and TAs on the entirety of your engineering approach. Teams that treat PDR as a checkbox exercise produce weak designs; teams that use PDR as a genuine review emerge with stronger designs and clearer paths forward.
 
 \section{Timeline}
 PDR occurs during SDI Sprint~5 (Weeks~11--13):
@@ -23,10 +23,10 @@ Formal written document submitted to PA and shared with client before the presen
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item Executive summary (1 page)
 \item Problem statement and stakeholder analysis
-\item Complete SDRD with IDs, SHALL/SHOULD, rationale, traceability, TAID, MoSCoW
+\item Complete SDRD with IDs, SHALL/SHOULD, rationale, traceability, TAID~[2], MoSCoW~[10]
 \item Competitive benchmarking and prior art (product survey, patents, standards)
 \item Concept generation: $\geq$3 distinct, graphically communicated concepts
-\item Concept selection: Pugh screening + weighted decision matrix + sensitivity analysis
+\item Concept selection: Pugh screening~[3] + weighted decision matrix + sensitivity analysis
 \item Preliminary architecture: functional decomposition, block diagram, allocation matrix, interfaces
 \item Risk register and initial FMEA
 \item Proof-of-Concept results with data or analysis
@@ -185,7 +185,7 @@ PA reviewers consistently identify these patterns in strong vs. weak PDR reports
 \section{Presenting Concepts Effectively at PDR}
 The concept generation and selection section is often the weakest part of student PDR presentations. Strengthen it:
 
-\textbf{Show the divergent thinking}: present all concepts generated, not just the final three. A slide showing ``we generated 15 concepts using brainstorming, SCAMPER, and morphological chart analysis, then screened to 3 using Pugh matrix'' demonstrates creative rigor. Show the morphological chart or the brainstorming results briefly.
+\textbf{Show the divergent thinking}: present all concepts generated, not just the final three. A slide showing ``we generated 15 concepts using brainstorming, SCAMPER~[27], and morphological chart analysis~[28], then screened to 3 using Pugh matrix~[3]'' demonstrates creative rigor. Show the morphological chart or the brainstorming results briefly.
 
 \textbf{Make each concept visually distinct}: use annotated sketches or block diagrams, not paragraphs of text. Each concept should be immediately visually distinguishable from the others. Side-by-side comparison on a single slide is powerful.
 
@@ -211,7 +211,7 @@ A PoC that does not clearly state what risk it retires, what was measured, and w
 \section{The Sustainability Assessment at PDR}
 CLO~5 requires a sustainability, equity, or societal impact assessment. At PDR, this assessment should be integrated into the design rationale, not relegated to an afterthought appendix:
 
-\textbf{Tool selection}: choose the appropriate assessment framework based on your project type. LEED (building-related projects), ENVISION (infrastructure projects), Design for Environment (product design), or Engineering for Social Justice (community-focused projects). If none of these fits your project precisely, consult with your PA to select an appropriate framework or adapt one.
+\textbf{Tool selection}: choose the appropriate assessment framework based on your project type. LEED~[17] (building-related projects), Envision~[18] (infrastructure projects), Design for Environment (product design), or Engineering for Social Justice (community-focused projects). If none of these fits your project precisely, consult with your PA to select an appropriate framework or adapt one.
 
 \textbf{Integration with requirements}: the sustainability assessment should produce at least 2--3 non-functional requirements in your SDRD. Examples: ``The system shall consume $\leq$50\,W during normal operation'' (energy efficiency), ``All materials shall be RoHS-compliant'' (hazardous substance restriction), ``The enclosure shall be designed for disassembly using standard hand tools'' (end-of-life recyclability).
 
