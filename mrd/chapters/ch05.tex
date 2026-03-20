@@ -8,7 +8,7 @@ CLO~5 requires you to evaluate your design using a project-appropriate tool (LEE
 These are not abstract exercises. In professional practice, sustainability assessments are increasingly required by clients, regulators, and investors. The ability to evaluate environmental and social impacts alongside technical performance is a core engineering competency, not an optional add-on.
 
 \section{The Triple Bottom Line}
-The Triple Bottom Line (TBL) framework, illustrated in Figure~\ref{fig:tbl}, evaluates sustainability across three dimensions that must be balanced simultaneously:
+The Triple Bottom Line (TBL) framework~[30], illustrated in Figure~\ref{fig:tbl}, evaluates sustainability across three dimensions that must be balanced simultaneously:
 
 \begin{figure}[htbp]
 \centering
@@ -37,7 +37,7 @@ The Triple Bottom Line (TBL) framework, illustrated in Figure~\ref{fig:tbl}, eva
 A design that maximizes profit while dumping toxic waste is not sustainable. A design that minimizes environmental impact at ten times the client's budget will never be implemented and therefore has zero impact. Sustainability requires balancing all three dimensions within the constraints of your project.
 
 \section{Lifecycle Thinking}
-Every product has a lifecycle: raw material extraction $\to$ material processing $\to$ manufacturing $\to$ distribution $\to$ use phase $\to$ end-of-life (disposal, recycling, or reuse). \textbf{Cradle-to-grave} thinking accounts for impacts from extraction through disposal. \textbf{Cradle-to-cradle} thinking goes further, designing products so that end-of-life materials become inputs for new products, creating a closed loop.
+Every product has a lifecycle: raw material extraction $\to$ material processing $\to$ manufacturing $\to$ distribution $\to$ use phase $\to$ end-of-life (disposal, recycling, or reuse). \textbf{Cradle-to-grave} thinking accounts for impacts from extraction through disposal. \textbf{Cradle-to-cradle} thinking~[31] goes further, designing products so that end-of-life materials become inputs for new products, creating a closed loop.
 
 At capstone scale, a full quantitative Lifecycle Assessment (LCA) using tools like openLCA or SimaPro is typically beyond scope and budget. However, you can and should perform a \textbf{simplified lifecycle assessment}:
 
@@ -54,12 +54,12 @@ In most products, 80\% of the environmental impact comes from 20\% of the design
 \section{Sustainability Evaluation Tools}
 
 \subsection{LEED (Leadership in Energy and Environmental Design)}
-LEED is the most widely used green building rating system in the world. It evaluates buildings and infrastructure across categories: Sustainable Sites, Water Efficiency, Energy and Atmosphere, Materials and Resources, Indoor Environmental Quality, and Innovation. Projects earn credits in each category; total credits determine the certification level (Certified, Silver, Gold, Platinum).
+LEED~[17] is the most widely used green building rating system in the world. It evaluates buildings and infrastructure across categories: Sustainable Sites, Water Efficiency, Energy and Atmosphere, Materials and Resources, Indoor Environmental Quality, and Innovation. Projects earn credits in each category; total credits determine the certification level (Certified, Silver, Gold, Platinum).
 
 Even if your project is not a building, the LEED categories provide a structured framework for evaluating environmental impact. Use LEED when your project involves building systems, HVAC, lighting, water management, or site development. For capstone, apply the relevant LEED categories as a checklist: does your design address water efficiency? Energy consumption? Material selection? Indoor air quality?
 
 \subsection{ENVISION}
-ENVISION is the sustainability rating system for civil infrastructure projects: roads, bridges, water treatment systems, energy systems, transit, and public spaces. It evaluates projects across five categories: Quality of Life (purpose, community, well-being), Leadership (collaboration, planning, economy), Resource Allocation (materials, energy, water), Natural World (siting, conservation, ecology), and Climate and Resilience (emissions, resilience).
+ENVISION~[18] is the sustainability rating system for civil infrastructure projects: roads, bridges, water treatment systems, energy systems, transit, and public spaces. It evaluates projects across five categories: Quality of Life (purpose, community, well-being), Leadership (collaboration, planning, economy), Resource Allocation (materials, energy, water), Natural World (siting, conservation, ecology), and Climate and Resilience (emissions, resilience).
 
 Use ENVISION for civil and environmental engineering projects. It is particularly relevant for CE and EnvE capstone teams working on infrastructure, water systems, and site development.
 
@@ -146,7 +146,7 @@ A full quantitative Lifecycle Assessment requires specialized software (openLCA,
 \textbf{Step 2: Identify the dominant lifecycle phase.} Research published LCA data for products similar to yours:
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item \textbf{Electronics and consumer products}: the use phase typically dominates energy consumption. A device that consumes 50\,W continuously for 5 years uses $\sim$2,200\,kWh; far more energy than was consumed in manufacturing the device. Focus on energy efficiency.
-\item \textbf{Construction materials and infrastructure}: the materials phase dominates embodied energy and carbon. Concrete produces $\sim$0.13\,kg CO$_2$/kg; steel produces $\sim$1.8\,kg CO$_2$/kg; aluminum produces $\sim$8.1\,kg CO$_2$/kg. Focus on material selection and material reduction.
+\item \textbf{Construction materials and infrastructure}: the materials phase dominates embodied energy and carbon. Concrete produces $\sim$0.13\,kg CO$_2$/kg; steel produces $\sim$1.8\,kg CO$_2$/kg; aluminum produces $\sim$8.1\,kg CO$_2$/kg (values from the ICE Database; verify against current data for your materials). Focus on material selection and material reduction.
 \item \textbf{Vehicles and mobile systems}: the use phase dominates (fuel consumption). Focus on weight reduction and powertrain efficiency.
 \item \textbf{Short-lived consumer goods}: the materials and end-of-life phases dominate. Focus on recyclability and material selection.
 \end{itemize}
@@ -160,7 +160,7 @@ A full quantitative Lifecycle Assessment requires specialized software (openLCA,
 \section{Environmental and Regulatory Compliance}
 Beyond voluntary sustainability assessment, your design may need to comply with mandatory environmental regulations:
 
-\textbf{RoHS} (Restriction of Hazardous Substances): restricts lead, mercury, cadmium, hexavalent chromium, PBBs, and PBDEs in electrical and electronic equipment sold in the EU. Most modern electronic components are RoHS-compliant; verify by checking datasheets.
+\textbf{RoHS}~[44] (Restriction of Hazardous Substances): restricts lead, mercury, cadmium, hexavalent chromium, PBBs, and PBDEs in electrical and electronic equipment sold in the EU. Most modern electronic components are RoHS-compliant; verify by checking datasheets.
 
 \textbf{REACH} (Registration, Evaluation, Authorization, and Restriction of Chemicals): EU regulation requiring registration of chemical substances. Relevant if your project uses specialty chemicals, coatings, or adhesives.
 
@@ -232,7 +232,7 @@ Document your equity assessment in the sustainability section of the PDR and FDR
 \section{Design for Recyclability and Circular Economy}
 Beyond end-of-life considerations, design your system to participate in the circular economy:
 
-\textbf{Material labeling}: mark all plastic parts with the resin identification code (the recycling triangle with a number). This helps recyclers sort materials correctly. PLA: Code 7 (Other). PETG: Code 1 (PET family). ABS: Code 7 (Other). Acrylic: Code 7 (Other).
+\textbf{Material labeling}: mark all plastic parts with the resin identification code (the recycling triangle with a number). This helps recyclers sort materials correctly. PLA: Code 7 (Other). PETG: although technically in the PET family, PETG contaminates standard PET (Code~1) recycling streams; dispose of as Code~7 (Other) or check local recycling guidelines. ABS: Code 7 (Other). Acrylic: Code 7 (Other).
 
 \textbf{Minimize material variety}: a product made from 3 materials is easier to recycle than one made from 12 materials. Where functionally equivalent, choose the same material for multiple components. An enclosure made entirely from PLA with brass inserts is more recyclable than one made from PLA, acrylic, aluminum, and nylon.
 

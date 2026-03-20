@@ -1,7 +1,7 @@
 \chapter{Verification, Validation, and Test Planning}
 
 \section{Verification vs. Validation}
-These terms are frequently confused, even by practicing engineers. The distinction matters because they answer fundamentally different questions and require different evidence.
+These terms~[34,\,2] are frequently confused, even by practicing engineers. The distinction matters because they answer fundamentally different questions and require different evidence.
 
 \textbf{Verification} answers ``Did we build the system right?'' (does the system meet its specified requirements as written in the SDRD? Verification compares the system's measured performance to the requirements document. It is an engineering activity performed by the design team.
 
@@ -50,7 +50,7 @@ Figure~\ref{fig:vv-lifecycle} illustrates how verification and validation activi
 \end{figure}
 
 \section{The Four Verification Methods (TAID)}
-Not every requirement is verified by running a physical test. The four methods provide a spectrum of rigor and cost:
+Not every requirement is verified by running a physical test. The four methods~[2] provide a spectrum of rigor and cost:
 
 \textbf{Test (T)}: measure performance under controlled conditions against quantitative pass/fail criteria. Test is the gold standard (it produces hard data) but it is also the most resource-intensive method. Example: ``Apply a 5.0\,V reference signal to the input. Measure the output with a calibrated multimeter. PASS if the output is $3.30 \pm 0.05$\,V. FAIL if outside this range.'' Use Test for critical performance requirements where analysis alone is insufficient.
 
@@ -78,7 +78,7 @@ Demonstration (D) & Function is binary: works or does not & Video, witness signa
 \end{keyconceptbox}
 
 \section{Writing Test Procedures}
-A test procedure is a step-by-step recipe that allows someone who did not design the system to verify a requirement independently. Every test procedure should include:
+A test procedure is a step-by-step recipe that allows someone who did not design the system to verify a requirement independently~[2]. Every test procedure should include:
 
 \textbf{Header}: test procedure ID (TP-001), associated requirement IDs (FR-003, PR-007), date written, author, revision number.
 
@@ -199,7 +199,7 @@ A well-documented failure that is honestly reported and intelligently dispositio
 
 
 \section{FMEA: Failure Mode and Effects Analysis}
-For FMEA fundamentals, see Chapter~4. This section covers the capstone-specific application of FMEA to verification and test planning.
+For FMEA fundamentals, see Chapter~4. This section covers the capstone-specific application of FMEA~[15,\,16] to verification and test planning.
 
 FMEA is a systematic technique for identifying potential failure modes, assessing their risk, and prioritizing mitigation actions. The methodology is covered in depth in MEGN~301; here is the capstone application.
 

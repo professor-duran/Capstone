@@ -5,7 +5,7 @@ Requirements are the contract between the problem and the solution. They are the
 
 Poorly written requirements are the single largest source of capstone project failure. If your requirements are vague, your design has no anchor. If they are wrong, your design solves the wrong problem. If they are missing, your design has gaps that surface at FDR when it is too late to fix them. If they are untraceable, you cannot prove that your design addresses the client's actual needs.
 
-The time you invest in writing clear, testable, traceable requirements during Sprint~1--2 will save you ten times that effort during build and test. Every hour spent refining requirements saves 10--100 hours of rework downstream. This is not a platitude; it is an empirically observed pattern across decades of engineering project data.
+The time you invest in writing clear, testable, traceable requirements during Sprint~1--2 will save you ten times that effort during build and test. Every hour spent refining requirements saves 10--100 hours of rework downstream~[36]. This is not a platitude; it is an empirically observed pattern across decades of engineering project data.
 
 \section{The Anatomy of a Good Requirement}
 Every requirement has four essential components:
@@ -14,7 +14,7 @@ Every requirement has four essential components:
 \item \textbf{Unique identifier}: a short, persistent label that allows traceability through the entire project. Convention: FR-001 (functional), PR-001 (performance), NF-001 (non-functional), IF-001 (interface), SF-001 (safety). The identifier never changes, even if the requirement text is revised.
 \item \textbf{SHALL statement}: the requirement itself, using ``shall'' for mandatory requirements and ``should'' for desirable goals. ``The system \textbf{shall} measure temperature with an accuracy of $\pm$1.0\,\degC{} over the range 0--200\,\degC{}.'' Every word matters; every number must be justified.
 \item \textbf{Rationale}: why this requirement exists and what client need it traces to. ``This requirement ensures that the system meets the client's stated need for laboratory-grade temperature measurement (Need N-003).''
-\item \textbf{Verification method}: how you will prove compliance; Test (T), Analysis (A), Inspection (I), or Demonstration (D). Assign the method when you write the requirement.
+\item \textbf{Verification method}: how you will prove compliance; Test (T), Analysis (A), Inspection (I), or Demonstration (D)~[2]. Assign the method when you write the requirement.
 \end{enumerate}
 
 \begin{warningbox}[Words That Kill Requirements]
@@ -51,7 +51,7 @@ Figure~\ref{fig:req-hierarchy} shows how requirements flow from client needs thr
 \end{figure}
 
 \section{Requirement Priority: MoSCoW}
-Not all requirements are equally critical. Classify each requirement using the MoSCoW framework:
+Not all requirements are equally critical. Classify each requirement using the MoSCoW framework~[10]:
 
 \textbf{Must Have} (M): the system fails without this capability. It is a hard constraint that cannot be negotiated away. If a Must requirement is not met, the project has not succeeded. These become SHALL statements. Example: ``The system shall shut off the heater if the temperature exceeds 200\,\degC{}.'' (Safety-critical; non-negotiable.)
 
@@ -81,7 +81,7 @@ MoSCoW prevents scope creep by forcing the team and client to agree on what is e
 \end{itemize}
 
 \section{The System Design Requirements Document (SDRD)}
-The SDRD is the single authoritative document that captures all system-level requirements. It is the foundational engineering document for the entire project. Standard structure:
+The SDRD is the single authoritative document that captures all system-level requirements~[33]. It is the foundational engineering document for the entire project. Standard structure:
 
 \begin{enumerate}[nosep,leftmargin=1.5em]
 \item \textbf{Introduction}: system overview, scope, purpose, applicable documents, glossary of terms.
@@ -107,7 +107,7 @@ Traceability ensures that every requirement has a \textbf{parent} (the client ne
 The RTM is a table linking every requirement to its parent need, its verification method, and its current status. Open the RTM at every team meeting. By FDR, every entry should show: Verified (with evidence reference), Failed (with disposition), Waived (with client approval), or Deferred (with rationale and plan).
 
 \section{The Verification Cross-Reference Matrix (VCRM)}
-The VCRM extends the RTM by adding test procedure references and results. For each requirement, the VCRM records:
+The VCRM~[34] extends the RTM by adding test procedure references and results. For each requirement, the VCRM records:
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item Requirement ID and text
 \item Verification method (T, A, I, or D)
