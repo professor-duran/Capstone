@@ -1,0 +1,105 @@
+\section{Track-Specific PA Guidance}
+\textit{Reference $|$ Course Text: Chapters 7, 10, 12}
+
+Not all capstone projects follow the same trajectory. The course accommodates four project tracks---Build, Paper, Competition, and Hybrid---each with distinct PA considerations. This section highlights what to watch for in each track.
+
+\subsection{Build Track}
+
+Build Track projects produce a physical prototype or system. This is the most common track and the one with the most logistical complexity.
+
+\textbf{Key PA considerations:}
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Fabrication timeline awareness.} Physical builds are constrained by material lead times, InnoHub availability, and fabrication sequencing. A schedule that shows ``fabrication'' as a single three-week block is not a real schedule. Push for a detailed fabrication plan with subtasks and dependencies.
+
+\item \textbf{InnoHub coordination.} Teams must reserve InnoHub time and equipment in advance. If multiple teams need the same machine (e.g., laser cutter, CNC mill) during the same sprint, conflicts arise. Encourage early reservations.
+
+\item \textbf{Procurement pacing.} Purchasing at Mines follows institutional procedures (see Course Text, Ch.~15). Lead times for purchase orders, vendor quotes, and shipping can exceed two weeks for routine items and six or more weeks for specialty components. Teams that do not initiate procurement by Sprint~6 will face delays in SDII.
+\end{itemize}
+
+\begin{redflag}
+A Build Track team that enters SDII without having ordered long-lead components (PCBs, custom machined parts, specialty sensors) is already behind schedule. Verify procurement status at the Sprint~6 review.
+\end{redflag}
+
+\begin{paquestion}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item What is your longest lead-time component, and when does it need to arrive?
+\item Have you reserved InnoHub time for your fabrication milestones?
+\item What is your integration sequence, and what interfaces have you tested?
+\end{itemize}
+\end{paquestion}
+
+\subsection{Paper Track}
+
+Paper Track projects produce an analytical deliverable (feasibility study, design analysis, simulation, optimization) rather than a physical prototype. The PA challenge is ensuring that analytical rigor matches what Build Track teams demonstrate through physical testing.
+
+\textbf{Key PA considerations:}
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Analytical rigor equals build rigor.} Paper Track teams sometimes treat the project as a literature review with some calculations appended. Push for the same depth of engineering analysis that a Build Track team would invest in design, fabrication, and testing.
+
+\item \textbf{What a Paper Track PoC looks like.} The PoC for a Paper Track project is a preliminary analysis or simulation that retires the key technical uncertainty. For example: a mesh convergence study for an FEA model, a sensitivity analysis for an optimization, or a validation of a simulation against published experimental data.
+
+\item \textbf{V\&V for analysis.} Verification and validation still apply. Verification: does the model solve the equations correctly (mesh convergence, time-step independence, unit consistency)? Validation: do the model results agree with reality (comparison to experimental data, published benchmarks, or independent methods)?
+\end{itemize}
+
+\begin{bestpractice}
+For Paper Track teams, replace the question ``Show me your prototype'' with ``Show me your model validation.'' The intellectual rigor standard is the same; the artifact is different.
+\end{bestpractice}
+
+\begin{paquestion}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item How have you validated your model against experimental data or published results?
+\item What assumptions does your analysis rely on, and how sensitive are your results to those assumptions?
+\item If a decision-maker used your results to make a \$100K investment, would you be confident in the recommendation?
+\end{itemize}
+\end{paquestion}
+
+\subsection{Competition Track}
+
+Competition Track projects are driven by external competition rules, deadlines, and judging criteria. These projects introduce unique scheduling and scoping challenges.
+
+\textbf{Key PA considerations:}
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Mapping competition rules to course gates.} Competition deadlines rarely align with the course sprint structure. Help the team create a dual timeline showing both competition milestones and course gates (PDR, CDR, FDR). Identify conflicts early and plan accordingly.
+
+\item \textbf{Travel logistics.} Competitions often require travel. Travel planning at Mines involves institutional approval, funding requests, and logistical coordination (see Course Text, Ch.~16). Start travel planning at least 8 weeks before the event. Escalate funding or approval issues to the CLT Director.
+
+\item \textbf{External deadlines take precedence operationally.} If the competition submission deadline falls before CDR, the team must meet the competition deadline even if CDR preparation suffers. Work with the CF to adjust course gate timing if needed.
+
+\item \textbf{Scope management.} Competition rules often define requirements. The PA's role shifts from helping define scope to helping the team make strategic decisions about which competition criteria to prioritize given course constraints.
+\end{itemize}
+
+\begin{redflag}
+A Competition Track team that has not started travel planning by Sprint~4 (for a spring competition) will face a last-minute logistics scramble. Verify travel status early.
+\end{redflag}
+
+\begin{paquestion}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Show me your dual timeline: competition milestones and course gates. Where are the conflicts?
+\item Which competition criteria will you prioritize, and which will you deprioritize?
+\item What is the status of travel approvals and funding?
+\end{itemize}
+\end{paquestion}
+
+\subsection{Hybrid Projects}
+
+Hybrid projects combine elements of multiple tracks---for example, a Build Track project with a significant analytical component, or a Competition Track project that also produces a standalone deliverable for a client. These are the most complex to manage.
+
+\textbf{Key PA considerations:}
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Managing dual deliverable streams.} Hybrid projects require the team to produce deliverables for two audiences or two standards simultaneously. Help the team identify which deliverables serve both purposes (reducing duplication) and which are unique to each stream.
+
+\item \textbf{Preventing scope creep.} Hybrid projects are especially vulnerable to scope creep because two sets of requirements (course + competition, or course + client extension) create pressure to do everything. Enforce a clear scope boundary.
+
+\item \textbf{Balancing effort.} Watch for teams that invest disproportionately in one stream (e.g., the competition build) while neglecting the other (e.g., the course report). Both streams must meet quality standards.
+\end{itemize}
+
+\begin{tipbox}
+For Hybrid projects, establish a clear priority framework in Sprint~0: which deliverable stream takes precedence when resources are constrained? Document this agreement with the team and the client. Revisit it at CDR.
+\end{tipbox}
+
+
+% ═══════════════════════════════════════

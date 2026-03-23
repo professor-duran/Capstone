@@ -1,0 +1,111 @@
+\section{Student Misconceptions by Topic}
+\textit{Reference $|$ Course Text: Chapters 3, 4, 5, 6, 7, 14, 18, 19, 22}
+
+Students arrive in Capstone with strong technical skills but predictable gaps in engineering practice. This section catalogs the most common misconceptions by topic area, how to identify them, and how to address them. Recognizing these patterns early allows you to intervene before they become entrenched in deliverables.
+
+\subsection{Requirements}
+
+\begin{redflag}
+\textbf{Misconception:} Confusing specifications with requirements.\\
+\textit{How it appears:} ``The system shall use an Arduino Mega 2560'' instead of ``The system shall process sensor inputs at a minimum rate of 100~Hz.''\\
+\textit{How to address:} Ask: ``Why an Arduino? What performance need drives that choice?'' Redirect to the functional need. The hardware choice is a design decision, not a requirement.
+\end{redflag}
+
+\begin{redflag}
+\textbf{Misconception:} Requirements do not need to be verifiable.\\
+\textit{How it appears:} ``The system shall be user-friendly'' or ``The device shall be reliable.''\\
+\textit{How to address:} For every requirement, ask: ``How will you prove this is met?'' If they cannot describe a test, the requirement needs rewriting.
+\end{redflag}
+
+\begin{redflag}
+\textbf{Misconception:} The client's wish list is the requirements list.\\
+\textit{How it appears:} A verbatim copy of the client brief rephrased as ``shall'' statements with no engineering analysis or prioritization.\\
+\textit{How to address:} Have the team classify requirements as Must-Have, Should-Have, or Nice-to-Have. Ask which requirements they would cut if budget or schedule were halved.
+\end{redflag}
+
+\subsection{Scope}
+
+\begin{redflag}
+\textbf{Misconception:} Saying yes to everything the client asks for.\\
+\textit{How it appears:} An SOW with no ``Out of Scope'' section, or one that lists only trivial exclusions.\\
+\textit{How to address:} Ask: ``What will you \emph{not} deliver?'' A well-scoped project has clear boundaries. The ``Out of Scope'' section is as important as the ``In Scope'' section.
+\end{redflag}
+
+\begin{redflag}
+\textbf{Misconception:} Scope can be expanded mid-project without consequences.\\
+\textit{How it appears:} The team agrees to additional client requests without updating the schedule, budget, or requirements.\\
+\textit{How to address:} Introduce the concept of a scope change request. Every addition requires a corresponding trade-off: more time, more money, or something else removed.
+\end{redflag}
+
+\subsection{Testing}
+
+\begin{redflag}
+\textbf{Misconception:} Testing only what works (testing theater).\\
+\textit{How it appears:} Test results show 100\% pass rate, but the tests were designed to confirm the design rather than challenge it. No edge cases, no stress tests, no failure-mode testing.\\
+\textit{How to address:} Ask: ``What did you test that you expected to fail?'' and ``What are the boundary conditions of your design?'' Good testing tries to break things.
+\end{redflag}
+
+\begin{redflag}
+\textbf{Misconception:} Testing can wait until the build is ``done.''\\
+\textit{How it appears:} No V\&V activity until Sprint~12. The team plans to ``test everything at the end.''\\
+\textit{How to address:} Point to the Course Text, Ch.~6. Testing should begin as soon as the first subsystem is functional. Every week of testing margin is one potential redesign cycle.
+\end{redflag}
+
+\subsection{Budget}
+
+\begin{redflag}
+\textbf{Misconception:} Zero contingency in the budget.\\
+\textit{How it appears:} A budget that accounts for exactly the components needed with no margin for failed parts, design changes, or price fluctuations.\\
+\textit{How to address:} Industry practice is 10--20\% contingency for well-defined projects. Ask: ``What happens to your budget if a motor burns out during testing and you need to reorder?''
+\end{redflag}
+
+\begin{redflag}
+\textbf{Misconception:} Ignoring consumables and incidentals.\\
+\textit{How it appears:} BOM omits fasteners, wire, solder, adhesives, sandpaper, and 3D printing filament.\\
+\textit{How to address:} Have the team walk through the CAD assembly and fabrication steps. Every material they touch needs a cost line, even if it comes from shared lab stock.
+\end{redflag}
+
+\subsection{Communication}
+
+\begin{redflag}
+\textbf{Misconception:} Dumping information instead of communicating.\\
+\textit{How it appears:} Reports that present every calculation performed without a narrative explaining why the calculation matters or what it means for the design. Presentations that are dense walls of text.\\
+\textit{How to address:} Ask: ``What is the one thing you want the reader to take away from this section?'' Every section of a report should answer a design question, not just display work.
+\end{redflag}
+
+\begin{redflag}
+\textbf{Misconception:} The PA or client will read between the lines.\\
+\textit{How it appears:} Critical decisions are undocumented because ``everyone on the team knows.''\\
+\textit{How to address:} Apply the ``bus test'': if one team member were unavailable, could someone else reconstruct the reasoning from the documentation alone?
+\end{redflag}
+
+\subsection{Ethics}
+
+\begin{redflag}
+\textbf{Misconception:} Ethics is a checkbox exercise, not a design input.\\
+\textit{How it appears:} The ethics section of the report is a two-paragraph afterthought listing generic professional codes without connecting them to specific design decisions.\\
+\textit{How to address:} Ask: ``Name one design decision on this project that has an ethical dimension.'' Push for specificity: whose safety, privacy, or welfare is affected by this design, and how did that influence your choices?
+\end{redflag}
+
+\begin{redflag}
+\textbf{Misconception:} If it is legal, it is ethical.\\
+\textit{How it appears:} Team dismisses ethical concerns by citing compliance with regulations.\\
+\textit{How to address:} Regulations define the floor, not the ceiling. Ask: ``Who could be harmed by this design even if every regulation is followed?'' Reference the FDVSE framework (Course Text, Ch.~5) for structured ethical analysis.
+\end{redflag}
+
+\subsection{Sustainability}
+
+\begin{redflag}
+\textbf{Misconception:} Generic sustainability statements instead of project-specific analysis.\\
+\textit{How it appears:} ``Our project is sustainable because we used recycled materials.'' No lifecycle analysis, no quantitative comparison of alternatives, no connection to the FDVSE framework.\\
+\textit{How to address:} Ask: ``Compared to the alternative approach, what is the quantitative environmental impact difference?'' Sustainability claims must be specific, measurable, and comparative---not aspirational platitudes. See Course Text, Ch.~5.
+\end{redflag}
+
+\begin{redflag}
+\textbf{Misconception:} Sustainability only means environmental impact.\\
+\textit{How it appears:} No consideration of economic sustainability (can the client maintain this after handoff?) or social sustainability (does this solution work for all intended users?).\\
+\textit{How to address:} Broaden the conversation using the FDVSE framework. Sustainability encompasses environmental, economic, and social dimensions.
+\end{redflag}
+
+
+% ═══════════════════════════════════════

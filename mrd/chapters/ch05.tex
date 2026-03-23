@@ -7,6 +7,49 @@ CLO~5 requires you to evaluate your design using a project-appropriate tool (LEE
 
 These are not abstract exercises. In professional practice, sustainability assessments are increasingly required by clients, regulators, and investors. The ability to evaluate environmental and social impacts alongside technical performance is a core engineering competency, not an optional add-on.
 
+\section{The FDVSE Value Framework}\label{sec:fdvse}
+Before evaluating sustainability with specialized tools (LEED, ENVISION, DFE, ESJ), it is useful to step back and ask a broader question: \textbf{is this product worth building---and should it be built at all?} The FDVSE framework (Figure~\ref{fig:fdvse-pentagon}) provides a structured method for answering that question by examining five dimensions of value:
+
+\begin{figure}[htbp]\centering
+\begin{tikzpicture}[
+    dim/.style={circle, draw=#1, fill=#1!10, minimum size=2.2cm, align=center, font=\small\sffamily\bfseries, line width=0.8pt},
+    dlabel/.style={font=\tiny\sffamily\itshape, text width=2.3cm, align=center, color=#1}
+]
+% Five dimensions arranged in a pentagon
+\node[dim=MinesBlue] (feas) at (90:2.4) {Feasibility\\{\tiny Can we build it?}};
+\node[dim=AccentTeal] (des) at (162:2.4) {Desirability\\{\tiny Does anyone\\want it?}};
+\node[dim=WarnOrange] (via) at (234:2.4) {Viability\\{\tiny Can it sustain\\itself?}};
+\node[dim=GreenShield] (sus) at (306:2.4) {Sustainability\\{\tiny Is it responsible\\long-term?}};
+\node[dim=WarnOrange!80!black] (eth) at (18:2.4) {Ethical\\Responsibility\\{\tiny Should we\\build it?}};
+
+% Center label
+\node[rectangle, rounded corners=4pt, draw=MinesBlue, fill=white,
+    font=\small\sffamily\bfseries, inner sep=4pt, line width=1.2pt] at (0,0) {VALUE};
+
+% Failure labels around the outside
+\node[dlabel=MinesBlue] at (90:4.2) {Feasible but unwanted\\``Solution seeking a problem''};
+\node[dlabel=AccentTeal] at (162:4.2) {Desired but unbuildable\\``Vaporware''};
+\node[dlabel=WarnOrange] at (234:4.2) {Affordable but nobody wants it\\``Race to the bottom''};
+\node[dlabel=GreenShield] at (306:4.2) {Sustainable but impractical\\``Green fantasy''};
+\node[dlabel=WarnOrange!80!black] at (18:4.2) {Capable but irresponsible\\``Can doesn't mean should''};
+\end{tikzpicture}
+\caption{The FDVSE value framework. A product must satisfy all five dimensions to create genuine value. Meeting only some dimensions produces the characteristic failure modes shown at each edge. The fifth dimension---ethical responsibility---asks the question that the other four do not: even if we \emph{can} build it, \emph{should} we?}\label{fig:fdvse-pentagon}
+\end{figure}
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Feasibility}: Can we build it? Is the proposed solution technically achievable within the project's constraints (technology readiness, team skills, budget, timeline)?
+\item \textbf{Desirability}: Does anyone want it? Does the solution address a genuine need, validated through stakeholder engagement, not assumed by the engineering team?
+\item \textbf{Viability}: Can it sustain itself? Can the product be produced, maintained, and supported within real-world economic and organizational constraints?
+\item \textbf{Sustainability}: Is it responsible long-term? Do the product's benefits outweigh its environmental and social costs over its complete lifecycle?
+\item \textbf{Ethical Responsibility}: Should we build it? Does the product align with professional ethical obligations (NSPE Code of Ethics, Canon~1: engineers shall hold paramount the safety, health, and welfare of the public)? Does it protect public welfare, distribute benefits and burdens equitably, and avoid foreseeable misuse?
+\end{enumerate}
+
+\textbf{Applying FDVSE in capstone}: the FDVSE analysis should be completed during the concept evaluation phase (SDI Sprints~3--5) and presented at PDR. Each dimension maps to specific deliverables: feasibility to the back-of-envelope calculations and PoC, desirability to stakeholder interviews and competitive benchmarking (Chapter~2), viability to the budget and business case (Chapter~14), sustainability to the CLO~5 assessment tools (this chapter), and ethical responsibility to the broader impacts analysis and the NSPE Code alignment (Chapter~22).
+
+\begin{keyconceptbox}[FDVSE Value Proposition Statement]
+At PDR, your team should present a one-paragraph value proposition that synthesizes all five FDVSE dimensions: what value are we creating, for whom, and why does it matter---including why it is the responsible thing to build? A strong value proposition names specific stakeholders, integrates all five dimensions, acknowledges trade-offs, and is grounded in evidence (interview quotes, cost estimates, technical analysis, ethical reasoning), not wishful thinking.
+\end{keyconceptbox}
+
 \section{The Triple Bottom Line}
 The Triple Bottom Line (TBL) framework~[30], illustrated in Figure~\ref{fig:tbl}, evaluates sustainability across three dimensions that must be balanced simultaneously:
 

@@ -1,0 +1,120 @@
+%% ================================================================
+%% EDNS 491/492 Capstone Design I & II
+%% Project Advisor's Instructor Guide - Main Build File
+%% ================================================================
+%%
+%% A practical, sprint-by-sprint reference for Project Advisors.
+%% Each section is stored in its own .tex file under sections/.
+%%
+%% To compile:
+%%   pdflatex PA_Instructors_Guide.tex
+%%   pdflatex PA_Instructors_Guide.tex
+%%
+%% Or with latexmk:
+%%   latexmk -pdf PA_Instructors_Guide.tex
+%%
+%% ================================================================
+
+\documentclass[11pt,letterpaper]{article}
+
+% --- Packages ---
+\usepackage[margin=1in, headheight=24pt]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+% --- Colors ---
+\definecolor{minesblue}{RGB}{33,69,126}
+\definecolor{minesgold}{RGB}{204,174,0}
+\definecolor{tipgreen}{RGB}{34,120,58}
+\definecolor{warnred}{RGB}{180,30,30}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+\hypersetup{colorlinks=true,linkcolor=minesblue,urlcolor=minesblue,citecolor=minesblue}
+
+% --- Header/Footer ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{minesblue}{\textbf{EDNS 491/492: Capstone Design I \& II}}}
+\fancyhead[R]{\textcolor{minesblue}{PA Instructor's Guide}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{minesblue}\leaders\hrule height \headrulewidth\hfill}}
+
+% --- Custom tcolorbox environments ---
+% Shared with Student Guide
+\newtcolorbox{tipbox}{colback=tipgreen!5,colframe=tipgreen,fonttitle=\bfseries\color{tipgreen},title={Tip},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{warnbox}{colback=warnred!5,colframe=warnred,fonttitle=\bfseries\color{warnred},title={Warning},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{faqbox}[1][]{colback=lightgray,colframe=minesblue,fonttitle=\bfseries,title={#1},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+
+% PA-specific environments
+\newtcolorbox{paquestion}{colback=minesblue!5,colframe=minesblue,fonttitle=\bfseries\color{minesblue},title={Suggested Review Questions},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{redflag}{colback=warnred!8,colframe=warnred!80!black,fonttitle=\bfseries\color{warnred!80!black},title={Red Flag},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{paaction}{colback=minesgold!8,colframe=minesgold!80!black,fonttitle=\bfseries\color{minesgold!80!black},title={PA Action Item},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{bestpractice}{colback=tipgreen!5,colframe=tipgreen!80!black,fonttitle=\bfseries\color{tipgreen!80!black},title={Best Practice},arc=2pt,boxrule=0.8pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+
+% --- Section formatting ---
+\titleformat{\section}
+    {\Large\bfseries\color{minesblue}}
+    {\thesection}{1em}{}[\vspace{-4pt}\textcolor{minesgold}{\rule{\textwidth}{1.5pt}}]
+\titleformat{\subsection}
+    {\large\bfseries\color{minesblue!80}}
+    {\thesubsection}{0.75em}{}
+
+
+\begin{document}
+
+% --- Title ---
+\begin{center}
+{\LARGE\bfseries\textcolor{minesblue}{EDNS 491 \& 492: Capstone Design I \& II}}\\[6pt]
+{\Large\textcolor{minesblue}{Project Advisor's Guide}}\\[4pt]
+{\large Academic Year 2025--2026}\\[6pt]
+{\normalsize Adam Duran $\cdot$ Assistant Teaching Professor $\cdot$ PE, PMP}\\
+{\normalsize Department of Mechanical Engineering}\\
+{\normalsize Colorado School of Mines}\\[8pt]
+\textcolor{minesgold}{\rule{0.7\textwidth}{1.5pt}}
+\end{center}
+
+\vspace{12pt}
+
+\textbf{Purpose of this guide:} This document is a practical reference for Project Advisors (PAs) supervising teams in Capstone Design. It covers the PA role, sprint-by-sprint facilitation notes, design review scripts, grading guidance, and strategies for managing team dynamics. Each section is self-contained---you can read only the sections relevant to your immediate need. For deep technical and pedagogical reference, consult the Course Text chapters cited in each section.
+
+\textbf{Four documents work together}: (1)~this PA Guide (instructor-facing reference), (2)~the Course Text (22-chapter deep reference for students and PAs), (3)~the Student Guide (sprint-level navigation for students), and (4)~Canvas (assignments, rubrics, deadlines, and the Course Syllabus).
+
+\textbf{A note on terminology:} This guide uses Colorado School of Mines terminology---PA (Project Advisor), CF (Capstone Faculty), CP (Client Partner), CLT (Capstone Leadership Team), InnoHub (Innovation Hub fabrication space). At other institutions, the PA role may be called ``faculty mentor,'' ``project advisor,'' ``capstone instructor,'' or ``section leader.'' The principles are the same; adapt the labels to your context.
+
+\tableofcontents
+\newpage
+
+
+% ── Sections ────────────────────────────────────────────────────────
+\input{sections/overview}
+\input{sections/role_of_pa}
+\input{sections/sprint_facilitation}
+\input{sections/design_review_facilitation}
+\input{sections/common_misconceptions}
+\input{sections/grading_guidance}
+\input{sections/team_dynamics}
+\input{sections/fdvse_facilitation}
+\input{sections/project_health}
+\input{sections/track_specific}
+
+% ── Closing ─────────────────────────────────────────────────────────
+\vspace{1cm}
+\begin{center}
+\textcolor{minesgold}{\rule{0.5\textwidth}{1.5pt}}\\[8pt]
+{\small\textit{This guide is a companion to the EDNS 491/492 Course Text and Student Guide. For detailed methodology, technical reference, and worked examples, consult the Course Text chapters referenced in each section above.}}
+\end{center}
+
+\end{document}
