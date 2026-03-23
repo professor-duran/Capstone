@@ -1,0 +1,113 @@
+\section{Facilitating Design Reviews (PDR/CDR/FDR)}
+\textit{Reference $|$ Course Text: Chapters 8, 9, 10}
+
+Design reviews are the primary gate-keeping mechanism in Capstone Design. Your role as PA is to ensure that reviews are rigorous, fair, and educational. A well-run design review teaches students more about engineering judgment than any lecture.
+
+\subsection{General Facilitation Principles}
+
+\begin{bestpractice}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Start with a brief (2-minute) context reset: project name, client, problem statement. Reviewers who are not the PA need this.
+\item Let the team present without interruption for the first 5--8 minutes, then open Q\&A by section.
+\item Direct questions to specific team members, not just the presenter. This surfaces individual understanding and draws out quieter members.
+\item End every review with two categories of feedback: (1) strengths to preserve and (2) specific items to address before the next gate.
+\item Document all feedback in writing. The team's scribe should capture it, but verify the list before adjournment.
+\end{itemize}
+\end{bestpractice}
+
+\subsection{Mock PDR Reviewer Script}
+
+Use the following questions as a starter set for mock PDRs. Organize your questioning by topic area, and adapt based on the specific project.
+
+\subsubsection*{Problem Definition and Requirements}
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item What is the core problem you are solving, stated in one sentence?
+\item How did you validate that this is the right problem? Did the client confirm?
+\item Walk me through your top five requirements. How will you verify each one?
+\item Which requirement is the hardest to meet, and why?
+\item Are there requirements that conflict with each other? How will you resolve the trade-off?
+\end{enumerate}
+
+\subsubsection*{Concept Selection and Design}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=6]
+\item How many concepts did you generate before down-selection?
+\item What were the top two alternatives to your chosen concept? Why did you reject them?
+\item Vary your decision matrix weights by 20\%. Does the winner change?
+\item What is the single biggest technical risk in your design?
+\item How does your PoC address that risk? Show me the data.
+\end{enumerate}
+
+\subsubsection*{Project Management and Feasibility}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=11]
+\item What is your project budget, and how did you estimate it?
+\item What is your longest lead-time item?
+\item Show me your project schedule. Where is the critical path?
+\item What happens to your schedule if the PoC fails?
+\item Who is responsible for each major subsystem?
+\end{enumerate}
+
+\subsubsection*{Communication and Professionalism}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=16]
+\item Is this report something you would send to a client? What would you improve?
+\item Your figures lack axis labels (or units, or legends). Fix this.
+\item I notice several team members have not spoken. [Name], can you explain the thermal analysis?
+\item What question are you most afraid I will ask?
+\item What is the one thing you wish you had done differently this semester?
+\end{enumerate}
+
+\subsection{CDR Readiness Assessment}
+
+Before approving a team for CDR, verify the following. If more than two items are incomplete, consider delaying the review.
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item[$\square$] All PDR feedback items have been addressed (closed or explicitly deferred with justification).
+\item[$\square$] Detailed design is complete: CAD models, schematics, or analytical models are at fabrication-ready level.
+\item[$\square$] Bill of Materials is complete with part numbers, quantities, unit costs, and suppliers.
+\item[$\square$] Hazard Assessment is drafted and reviewed.
+\item[$\square$] Fabrication plan includes timeline, facility reservations, and responsible individuals.
+\item[$\square$] V\&V test plan maps every requirement to a specific test procedure.
+\item[$\square$] Budget is updated with actual procurement costs.
+\item[$\square$] CDR report is a complete draft (not an outline or a collection of bullet points).
+\end{itemize}
+
+\subsection{FDR Evaluation: What Distinguishes A-Level Work}
+
+\begin{faqbox}[What separates an A-level FDR from a B-level FDR?]
+\textbf{A-level FDR:}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Every requirement in the VCRM is dispositioned with evidence (test data, analysis, or inspection records).
+\item The engineering calculation package demonstrates mastery: assumptions are stated, methods are justified, results include uncertainty analysis, and conclusions connect back to requirements.
+\item The team demonstrates engineering judgment---they made trade-offs, documented the reasoning, and can defend their decisions under questioning.
+\item Documentation quality is professional: consistent formatting, proper citations, clear figures with labeled axes, and coherent narrative flow.
+\item The team articulates lessons learned with specificity, not generic platitudes.
+\end{itemize}
+
+\textbf{B-level FDR:}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Requirements are mostly verified, but some lack clear evidence or have weak test procedures.
+\item Calculations are correct but lack uncertainty analysis or stated assumptions.
+\item Design decisions are justified but only at a surface level.
+\item Documentation meets minimum standards but has inconsistencies or gaps.
+\end{itemize}
+\end{faqbox}
+
+\subsection{Managing Q\&A Sessions}
+
+\begin{tipbox}
+\textbf{Drawing out quiet members:} Direct questions by name: ``[Name], you led the structural analysis---can you walk us through the loading assumptions?'' This is not punitive; it ensures individual accountability and gives every team member a chance to demonstrate competence.
+\end{tipbox}
+
+\textbf{Redirecting off-topic answers:} When a student veers into tangential detail, use: ``That is interesting, but let us come back to the specific question: does the test data confirm the requirement is met?'' Be direct without being dismissive.
+
+\textbf{Handling answers the team does not know:} It is acceptable---and even commendable---for a team to say ``We do not have that data yet; we plan to test that in Sprint~X.'' It is not acceptable for the answer to be ``We had not thought about that.'' The former shows planning; the latter shows a gap.
+
+\subsection{Calibrating Expectations Across PAs}
+
+Consistency across PAs is essential for fairness. If one PA considers an FDR report acceptable and another considers the same quality level insufficient, students receive mixed signals and grade disputes increase.
+
+\begin{paaction}
+Attend PA calibration sessions before each design review cycle. Bring a sample deliverable from one of your teams (anonymized if needed) and compare your assessment with other PAs. The CF facilitates these sessions to establish shared expectations.
+\end{paaction}
+
+
+% ═══════════════════════════════════════

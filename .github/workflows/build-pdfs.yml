@@ -7,6 +7,7 @@ on:
       - '**.tex'
       - 'mrd/**'
       - 'student_guide/**'
+      - 'pa_guide/**'
       - '.github/workflows/build-pdfs.yml'
   workflow_dispatch:
 
@@ -34,16 +35,24 @@ jobs:
           root_file: EDNS491_Student_Guide.tex
           args: -pdf -f -interaction=nonstopmode -file-line-error
 
+      - name: Build PA Instructors Guide
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: pa_guide
+          root_file: PA_Instructors_Guide.tex
+          args: -pdf -f -interaction=nonstopmode -file-line-error
+
       - name: Copy PDFs to repo root
         run: |
           cp mrd/main.pdf edns491_course_text.pdf
           cp student_guide/EDNS491_Student_Guide.pdf EDNS491_Student_Guide.pdf
+          cp pa_guide/PA_Instructors_Guide.pdf PA_Instructors_Guide.pdf
 
       - name: Commit PDFs
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add -f edns491_course_text.pdf EDNS491_Student_Guide.pdf
+          git add -f edns491_course_text.pdf EDNS491_Student_Guide.pdf PA_Instructors_Guide.pdf
           git diff --staged --quiet || {
             git commit -m "Auto-build PDFs [skip ci]"
             git pull --rebase origin main

@@ -1,0 +1,138 @@
+\section{Facilitating the FDVSE Value Assessment}
+\textit{Reference $|$ Course Text: Chapter 5}
+
+The FDVSE framework---Feasibility, Desirability, Viability, Sustainability, and Ethical Responsibility---provides a structured approach to evaluating whether a design is not just technically sound but also worth pursuing. This section covers how to facilitate FDVSE discussions with your teams and assess FDVSE quality in deliverables.
+
+\subsection{Overview of the FDVSE Framework}
+
+FDVSE asks five questions about a proposed design:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Feasibility.} Can we build it? Is it technically achievable with available resources, skills, and timeline?
+\item \textbf{Desirability.} Do stakeholders want it? Does it solve a real problem that people care about?
+\item \textbf{Viability.} Can it sustain itself? Is there a viable business model, maintenance plan, or operational pathway?
+\item \textbf{Sustainability.} What are the environmental, economic, and social impacts across the lifecycle?
+\item \textbf{Ethical Responsibility.} Who is affected, and are their interests adequately considered? What are the potential harms, and how are they mitigated?
+\end{enumerate}
+
+\begin{tipbox}
+FDVSE is not a sequential checklist---it is an integrative lens. Each dimension interacts with the others. A design that is feasible but not viable, or desirable but not ethical, has not been fully evaluated. Encourage teams to discuss the tensions \emph{between} dimensions, not just within each one.
+\end{tipbox}
+
+\subsection{Integration with the PDR/CDR/FDR Gate Structure}
+
+FDVSE assessment should deepen as the project progresses through gates:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{PDR:} Teams should demonstrate that they have \emph{considered} all five dimensions. The assessment may be preliminary, but it should not be absent. Focus on Feasibility and Desirability---the team should have evidence that the concept is technically achievable and that stakeholders want it.
+
+\item \textbf{CDR:} Teams should present a more rigorous FDVSE analysis. Viability and Sustainability dimensions should now include quantitative data where possible (e.g., lifecycle cost estimates, energy consumption comparisons, maintenance requirements).
+
+\item \textbf{FDR:} The FDVSE assessment should be comprehensive and evidence-based. Ethical Responsibility analysis should reference specific design decisions and their consequences, not generic statements about professional codes.
+\end{itemize}
+
+\subsection{Session Facilitation Notes}
+
+When facilitating an FDVSE discussion (whether in a sprint review, design review, or dedicated session), use the following structure:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Set the frame (2 minutes).} Remind the team that FDVSE is not a grading exercise---it is a design tool. The goal is to surface risks and opportunities, not to produce polished prose.
+
+\item \textbf{Walk through each dimension (3--5 minutes each).} For each dimension, ask the guiding questions below. Let the team discuss before you offer observations.
+
+\item \textbf{Identify tensions (5 minutes).} Ask: ``Where do two dimensions pull in opposite directions?'' For example: the most feasible option may have the worst sustainability profile. The most desirable feature may raise ethical concerns. These tensions are where engineering judgment lives.
+
+\item \textbf{Determine action items (3 minutes).} For each dimension rated Yellow or Red, identify one concrete action the team will take before the next gate.
+\end{enumerate}
+
+\subsection{Guiding Questions by Dimension}
+
+\subsubsection*{Feasibility}
+\begin{paquestion}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item What is the single biggest technical risk, and how will you retire it?
+\item Do you have the skills on the team to execute this design, or do you need to learn something new?
+\item Is this achievable within the course timeline and budget?
+\item What is your fallback if the primary approach fails?
+\end{itemize}
+\end{paquestion}
+
+\subsubsection*{Desirability}
+\begin{paquestion}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Who are the end users, and how did you validate that they want this?
+\item What evidence (beyond the client's statement) supports the need for this solution?
+\item If the end user is different from the client, whose needs take priority when they conflict?
+\item How will you measure user satisfaction with the final product?
+\end{itemize}
+\end{paquestion}
+
+\subsubsection*{Viability}
+\begin{paquestion}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item After handoff, who will maintain and operate this system? Do they have the necessary skills and resources?
+\item What are the ongoing costs (maintenance, consumables, energy, labor)?
+\item What is the expected operational lifetime?
+\item If the client cannot maintain this, what is the alternative?
+\end{itemize}
+\end{paquestion}
+
+\subsubsection*{Sustainability}
+\begin{paquestion}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item What is the environmental impact of this design compared to the alternative or the status quo?
+\item Have you considered the full lifecycle: materials, manufacturing, use, and end-of-life?
+\item Is this solution economically sustainable for the client organization over the intended lifetime?
+\item Does this solution create or exacerbate any social inequities?
+\end{itemize}
+\end{paquestion}
+
+\subsubsection*{Ethical Responsibility}
+\begin{paquestion}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Who could be harmed by this design, directly or indirectly?
+\item What data does the system collect, and how is it protected?
+\item Are there dual-use concerns (could this be misused in ways you did not intend)?
+\item If this design fails, what are the consequences, and for whom?
+\item Name one design decision on this project that has an ethical dimension. How did ethics influence the decision?
+\end{itemize}
+\end{paquestion}
+
+\subsection{Common Student Struggles with Ethical Responsibility}
+
+The Ethical Responsibility dimension is consistently the weakest in student FDVSE assessments. Common struggles include:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Defaulting to codes of ethics.} Students cite the NSPE or ASME code of ethics without connecting specific code provisions to specific design decisions. Push for concrete application.
+
+\item \textbf{Confusing legality with ethicality.} Students assume that if their design meets regulations, it is ethical. Regulations are the floor, not the ceiling.
+
+\item \textbf{Inability to identify affected parties.} Students consider only the direct user and the client, ignoring bystanders, maintainers, communities near manufacturing or disposal sites, and future generations.
+
+\item \textbf{Treating ethics as an afterthought.} The ethics analysis appears in the last paragraph of the report, disconnected from design decisions. Effective ethical analysis should be woven into the design narrative.
+\end{itemize}
+
+\begin{bestpractice}
+When students struggle with ethical analysis, try the ``newspaper test'': ``If the local newspaper ran a story about your design going wrong, what would the headline be? Who would be quoted? What would they say?'' This concrete scenario helps students move from abstract principles to specific consequences.
+\end{bestpractice}
+
+\subsection{Assessing FDVSE Quality in PDR Presentations}
+
+At PDR, evaluate FDVSE using the following criteria:
+
+{\centering\small
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Level} & \textbf{Description} & \textbf{Indicator} \\
+\midrule
+Strong & All five dimensions addressed with project-specific evidence. Tensions between dimensions identified and discussed. & Team can articulate trade-offs between dimensions without prompting. \\
+\addlinespace
+Adequate & All five dimensions mentioned. Some project-specific content, but analysis is surface-level or relies on generic statements. & Team addresses dimensions when asked but does not proactively discuss tensions. \\
+\addlinespace
+Weak & One or more dimensions missing or treated as a checkbox. No connection between FDVSE analysis and design decisions. & Team cannot explain how FDVSE influenced any design choice. \\
+\bottomrule
+\end{tabularx}
+\par}
+
+
+% ═══════════════════════════════════════
