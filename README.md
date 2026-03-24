@@ -3,6 +3,8 @@
 **Colorado School of Mines | Interdisciplinary Engineering Design**
 
 [![Build LaTeX PDFs](https://github.com/professor-duran/Capstone/actions/workflows/build-pdfs.yml/badge.svg)](https://github.com/professor-duran/Capstone/actions/workflows/build-pdfs.yml)
+![Built](https://img.shields.io/badge/built-YYYY--MM--DD-blue)
+![Version](https://img.shields.io/badge/version-v1.0.0-green)
 
 ---
 

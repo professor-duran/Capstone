@@ -9,6 +9,7 @@ on:
       - 'student_guide/**'
       - 'pa_guide/**'
       - '.github/workflows/build-pdfs.yml'
+      - 'VERSION'
   workflow_dispatch:
 
 permissions:
@@ -74,11 +75,18 @@ jobs:
           [ -f student_guide/EDNS491_Student_Guide.pdf ] && cp student_guide/EDNS491_Student_Guide.pdf EDNS491_Student_Guide.pdf
           [ -f pa_guide/PA_Instructors_Guide.pdf ] && cp pa_guide/PA_Instructors_Guide.pdf PA_Instructors_Guide.pdf
 
+      - name: Update README badges
+        run: |
+          VERSION=$(cat VERSION)
+          DATE=$(date -u +%Y--%m--%d)
+          sed -i "s|https://img.shields.io/badge/built-[^)]*|https://img.shields.io/badge/built-${DATE}-blue|g" README.md
+          sed -i "s|https://img.shields.io/badge/version-[^)]*|https://img.shields.io/badge/version-v${VERSION}-green|g" README.md
+
       - name: Commit PDFs
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add -f edns491_course_text.pdf EDNS491_Student_Guide.pdf PA_Instructors_Guide.pdf 2>/dev/null || true
+          git add -f edns491_course_text.pdf EDNS491_Student_Guide.pdf PA_Instructors_Guide.pdf README.md 2>/dev/null || true
           git diff --staged --quiet || {
             git commit -m "Auto-build PDFs [skip ci]"
             git pull --rebase origin main
