@@ -82,6 +82,86 @@ Capstone/
 
 ---
 
+## Course Text Structure (22 Chapters)
+
+### Part I: The Design Process
+1. **Engineering Design as a Professional Practice** — Capstone vs. coursework, engineering judgment, the contracted design firm model, project tracks (Build, Paper, Competition)
+2. **Understanding Your Client and Defining the Problem** — Client kickoff, stakeholder engagement, contextual inquiry, scope negotiation
+3. **Requirements Engineering** — Anatomy of good requirements, MoSCoW prioritization, SDRD, traceability
+4. **Concept Generation, Selection, and Early Design** — Divergent/convergent ideation, morphological charts, decision matrices, trade studies
+5. **Sustainability, Equity, and Societal Impact Assessment** — FDVSE value framework, LEED/ENVISION/DFE/ESJ tools, ethical responsibility
+6. **Verification, Validation, and Test Planning** — V&V distinction, TAID methods, lifecycle mapping, test procedure design
+
+### Part II: Major Project Milestones
+7. **The Statement of Work and Project Plan** — SOW structure, scope definition, Gantt charts, track-specific SOW considerations
+8. **Preliminary Design Review (PDR)** — "Should this design work?" Design gate concept, preparation timeline, review expectations
+9. **Critical Design Review (CDR)** — "Will this design work?" Design freeze, detailed design completeness, BOM, manufacturing plan
+10. **Final Design Review (FDR) and Design Showcase** — "How well did it work?" V&V results, as-built documentation, lessons learned, showcase poster
+
+### Part III: Project Management and Operations
+11. **Hybrid Project Management for Capstone** — Waterfall milestones + Agile sprints, Scrum framework, roles, sprint planning
+12. **Fabrication Spaces, Resources, and Manufacturing** — Labriola Innovation Hub, Thorson Center, xWorks bays, InnoHub shop access and training
+13. **Team Dynamics, Leadership, and Professional Conduct** — Tuckman model, conflict resolution, leadership roles, professional standards
+14. **Budgeting and Financial Management** — Budget creation, contingency planning (15–20%), financial accountability
+15. **Purchasing Procedures** — Purchasing workflow, PA approval requirements, vendor selection, tax-exempt documentation
+16. **Travel Planning and Policies** — Go/no-go decisions, travel approval timeline, Mines travel policies, competition logistics
+
+### Part IV: Professional Skills
+17. **Client Engagement and Management** — Professional services model, communication protocols, scope and timeline management
+18. **Professional Communication: Written** — Engineering report structure, technical writing best practices, executive summaries
+19. **Professional Communication: Oral** — Design review presentations, narrative arc, slide design, data visualization
+20. **Resumes, Interviews, and Career Preparation** — Capstone as career asset, quantifying contributions, interview preparation
+
+### Part V: Safety, Compliance, and Professional Practice
+21. **Environmental Health and Safety (EHS)** — Mines EHS framework, hazard identification, 5×5 risk matrix, engineering controls
+22. **Professional Ethics, Licensure, and Course Policies** — PE licensure path, NCEES Model Rules, professional responsibility
+
+---
+
+## Student Guide Structure
+
+The Student Guide provides sprint-by-sprint navigation for both semesters:
+
+| Section | Coverage | Course Text Reference |
+|---------|----------|----------------------|
+| Course Philosophy | Contracted design firm model, independence, the three-document ecosystem | Ch. 1 |
+| Project Track Pathways | Paper Track, Competition Track, and Hybrid project deep-dives | Ch. 1, 7, 10 |
+| **SDI Sprint 0** | Project Expo, team formation, client kickoff | Ch. 1–2 |
+| **SDI Sprint 1** | Project plan, Scrum training, client meeting prep | Ch. 7, 11, 13 |
+| **SDI Sprint 2** | Concept generation, trade study, career day | Ch. 4, 20 |
+| **SDI Sprint 3** | Concept development, client approval of approach | Ch. 3–4, 17 |
+| **SDI Sprint 4** | Functional prototypes, FDVSE assessment, ethics essay | Ch. 5, 12, 22 |
+| **SDI Sprint 5** | PDR preparation, mock PDR, PDR execution | Ch. 6, 8, 18–19 |
+| **SDI Sprint 6** | Design refinement, SDII handoff, long-lead procurement | Ch. 8, 10 |
+| **SDII Sprint 7** | Re-engagement, goal setting, hazard assessment | Ch. 2, 11, 21 |
+| **SDII Sprint 8** | CDR report, engineering calculation package, CDR execution | Ch. 6, 9, 14–15 |
+| **SDII Sprints 9–11** | Build/test/iterate, broader impacts essay | Ch. 5–6, 12 |
+| **SDII Sprints 12–13** | FDR preparation, system V&V, final testing | Ch. 6, 10, 18 |
+| **SDII Sprint 14** | FDR, design showcase, documentation, final checkout | Ch. 10, 19 |
+| Operations | CFO purchasing, travel, career prep, module checklist, abbreviations | Ch. 14–16, 20 |
+
+---
+
+## PA Instructor's Guide Structure
+
+The PA Guide provides facilitation playbooks for Project Advisors:
+
+| Section | Description |
+|---------|-------------|
+| Overview & Quick-Start | Document ecosystem, "Your First Week as a PA" checklist |
+| The PA Role | Five core responsibilities, authority boundaries, time commitment (~3–5 hrs/week per team) |
+| Sprint-by-Sprint Facilitation | Half-page facilitation notes for all 15 sprints with health indicators and red flags |
+| Design Review Facilitation | 20-question mock PDR reviewer script, CDR readiness checklist, FDR evaluation criteria |
+| Common Student Misconceptions | 2–3 misconceptions per topic area across 7 domains with remediation strategies |
+| Grading Guidance | Grade determination process, rubric philosophy, individual differentiation methods |
+| Team Dynamics | Tuckman model mapped to sprints, underperformer identification, 4-step escalation path |
+| FDVSE Facilitation | Integration with PDR/CDR/FDR gates, guiding questions for all five dimensions |
+| Project Health Monitoring | Green/Yellow/Red indicators, productive vs. destructive struggle, documentation debt |
+| Track-Specific Guidance | Build, Paper, Competition, and Hybrid track considerations with sprint-by-sprint PA focus |
+| Purchasing & Travel Oversight | PA approval workflow, budget tracker review, travel logistics and safety |
+
+---
+
 ## Editing Workflow
 
 Each chapter is a self-contained `.tex` file. Edit any file under `mrd/`, `student_guide/`, or `pa_guide/`, commit, and push. GitHub Actions recompiles all three PDFs automatically.
