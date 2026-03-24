@@ -10,6 +10,7 @@
 |----------|----------|
 | **Student Course Text** | [📥 Download PDF](https://raw.githubusercontent.com/professor-duran/Capstone/main/edns491_course_text.pdf) |
 | **Student Guide** | [📥 Download PDF](https://raw.githubusercontent.com/professor-duran/Capstone/main/EDNS491_Student_Guide.pdf) |
+| **PA Instructor's Guide** | [📥 Download PDF](https://raw.githubusercontent.com/professor-duran/Capstone/main/PA_Instructors_Guide.pdf) |
 
 > PDFs are automatically rebuilt on every push to `main` via GitHub Actions.
 
@@ -36,17 +37,32 @@ mrd/                                 Course Text (modular LaTeX)
 
 student_guide/                       Student Guide (modular LaTeX)
 ├── EDNS491_Student_Guide.tex           Driver file
-└── sections/                           24 section files
+└── sections/                           25 section files
     ├── philosophy.tex                  Course philosophy
     ├── sprint_week.tex                 Typical sprint week
     ├── sdi_sprint0.tex – sdi_sprint6.tex    SDI sprints
     ├── sdii_sprint7.tex – sdii_sprint14.tex SDII sprints
+    ├── assignments_rubrics.tex         Assignment & rubric reference appendix
     └── ...                             Operations, checklists, quick references
+
+pa_guide/                            PA Instructor's Guide (modular LaTeX)
+├── PA_Instructors_Guide.tex            Driver file
+└── sections/                           10 section files
+    ├── overview.tex                    Document ecosystem, PA quick-start
+    ├── role_of_pa.tex                  Responsibilities, authority, time commitment
+    ├── sprint_facilitation.tex         Sprint-by-sprint facilitation notes
+    ├── design_review_facilitation.tex  Mock PDR/CDR/FDR scripts
+    ├── common_misconceptions.tex       Student misconceptions by topic
+    ├── grading_guidance.tex            Grade determination, Feedback Loop
+    ├── team_dynamics.tex               Managing teams, escalation paths
+    ├── fdvse_facilitation.tex          FDVSE value assessment facilitation
+    ├── project_health.tex              Health Check as management tool
+    └── track_specific.tex              Build/Paper/Competition track guidance
 ```
 
 ## Editing Workflow
 
-Each chapter is a self-contained `.tex` file. Edit any file under `mrd/` or `student_guide/`, commit, push. GitHub Actions recompiles **both** PDFs automatically.
+Each chapter is a self-contained `.tex` file. Edit any file under `mrd/`, `student_guide/`, or `pa_guide/`, commit, push. GitHub Actions recompiles **all three** PDFs automatically.
 
 **Fast local build of a single chapter:**
 ```bash
@@ -64,6 +80,9 @@ cd mrd && pdflatex main.tex && pdflatex main.tex && pdflatex main.tex
 
 # Student Guide (2-pass)
 cd student_guide && pdflatex EDNS491_Student_Guide.tex && pdflatex EDNS491_Student_Guide.tex
+
+# PA Instructor's Guide (2-pass)
+cd pa_guide && pdflatex PA_Instructors_Guide.tex && pdflatex PA_Instructors_Guide.tex
 ```
 
 ## Author

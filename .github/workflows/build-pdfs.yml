@@ -42,6 +42,24 @@ jobs:
           root_file: PA_Instructors_Guide.tex
           args: -pdf -f -interaction=nonstopmode -file-line-error
 
+      - name: Verify build outputs
+        run: |
+          echo "=== Build output check ==="
+          for f in mrd/main.pdf student_guide/EDNS491_Student_Guide.pdf pa_guide/PA_Instructors_Guide.pdf; do
+            if [ -f "$f" ]; then
+              echo "OK: $f ($(stat -c%s "$f") bytes)"
+            else
+              echo "MISSING: $f"
+              # Show the log to diagnose
+              logdir=$(dirname "$f")
+              logfile=$(basename "$f" .pdf).log
+              if [ -f "$logdir/$logfile" ]; then
+                echo "--- Last 40 lines of $logdir/$logfile ---"
+                tail -40 "$logdir/$logfile"
+              fi
+            fi
+          done
+
       - name: Copy PDFs to repo root
         run: |
           cp mrd/main.pdf edns491_course_text.pdf
