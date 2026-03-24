@@ -55,6 +55,59 @@ For Paper Track teams, replace the question ``Show me your prototype'' with ``Sh
 \end{itemize}
 \end{paquestion}
 
+\subsubsection{Paper Track Sprint-by-Sprint PA Focus}
+
+Use the following as a checklist for what to probe at each major sprint milestone when advising a Paper Track team.
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} X}
+\toprule
+\textbf{Sprint} & \textbf{What the PA Should Be Looking For} \\
+\midrule
+Sprint 2--3 &
+Are requirements \emph{quantitative}? Do they include convergence criteria, accuracy targets, and validation benchmarks? Requirements that read ``develop a model'' or ``analyze the system'' are too vague. Push for measurable pass/fail criteria: mesh convergence within X\%, agreement with published data within Y\%, sensitivity sweep across parameter range Z. \\
+\midrule
+Sprint 4 (PoC) &
+Is there actual computational evidence? A converging mesh study, a validated sub-model, or a parametric sweep that confirms viability? ``I set up the software'' or ``the simulation runs without crashing'' is not a PoC. The result must be \emph{quantitative} and must retire a key technical uncertainty. \\
+\midrule
+Sprint 5 (PDR) &
+Is the model architecture clearly described? Are preliminary results shown with appropriate uncertainty? Is the validation plan specified---what data will the model be compared against, and what constitutes acceptable agreement? Are all major assumptions documented and justified? \\
+\midrule
+Sprint 8 (CDR) &
+Is the full model producing results? Has a sensitivity analysis been performed to identify which parameters drive the output? Are results validated against published data, experimental measurements, or independent analytical methods? Has an independent verification check been conducted (e.g., a hand calculation on a limiting case)? \\
+\midrule
+Sprint 12--13 &
+Is the V\&V documentation complete? Is there an assumptions log with justification for every major assumption? Is a user guide or methodology description included so that another engineer could reproduce the work? Are all results reproducible from documented inputs? \\
+\midrule
+Sprint 14 (FDR) &
+Is the technical package complete? Are recommendations defensible and tied to quantitative results? Are model limitations explicitly acknowledged, including the parameter ranges and conditions under which the results should \emph{not} be applied? \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsubsection{Assessing Paper Track Engineering Judgment}
+
+Paper Track teams must demonstrate engineering judgment equivalent to what Build Track teams show through fabrication decisions, testing, and iterative redesign. The form is different, but the standard is the same. Use these four lenses when evaluating a Paper Track team's maturity.
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Assumption quality.} Are the team's assumptions physically reasonable and well-justified? Every simplification should be accompanied by a rationale: why is this assumption acceptable, and what is the expected impact on results? Arbitrary assumptions (``we assumed a friction coefficient of 0.3 because it seemed reasonable'') indicate weak engineering judgment.
+
+\item \textbf{Sensitivity awareness.} Does the team know which parameters drive their results? A team with strong judgment can tell you: ``Our output is most sensitive to X and Y, relatively insensitive to Z, and we have bounded the uncertainty in X by doing a parametric sweep.'' A team that cannot articulate parameter sensitivity does not yet understand their own model.
+
+\item \textbf{Validation rigor.} Is the team comparing their results to appropriate benchmarks---published experimental data, analytical solutions for limiting cases, or independent computational results? ``The model runs and produces numbers'' is not validation. The team must demonstrate \emph{quantitative} agreement (or explain discrepancies) against a credible reference.
+
+\item \textbf{Professional applicability.} Could a practicing engineer use this deliverable to make a real decision? If the answer is no---because the assumptions are unclear, the validation is missing, or the limitations are unstated---then the work does not meet the capstone standard, regardless of how sophisticated the model appears.
+\end{itemize}
+
+\begin{bestpractice}
+For Paper Track teams, the CDR readiness question is not ``Is the prototype fabrication-ready?'' but ``Are the model results trustworthy enough to inform an engineering decision?'' If the team cannot articulate the bounds of their model's validity, they are not ready for CDR.
+\end{bestpractice}
+
+\begin{redflag}
+A Paper Track team that describes their PoC as ``setting up the software'' or ``getting the simulation to run'' has not demonstrated a PoC. The PoC must show a quantitative result that retires a key technical uncertainty---a converging mesh study, a validated sub-model, or a parametric sweep that confirms the approach is viable.
+\end{redflag}
+
 \subsection{Competition Track}
 
 Competition Track projects are driven by external competition rules, deadlines, and judging criteria. These projects introduce unique scheduling and scoping challenges.
@@ -83,6 +136,76 @@ A Competition Track team that has not started travel planning by Sprint~4 (for a
 \end{itemize}
 \end{paquestion}
 
+\subsubsection{Competition Track Timeline Management}
+
+The central challenge for Competition Track PAs is managing two timelines simultaneously: the course sprint structure and the external competition calendar. Neither timeline will accommodate the other, so the PA must help the team build an integrated plan that satisfies both.
+
+\textbf{Creating the integrated timeline overlay.} In Sprint~0, have the team list every competition milestone (registration deadline, design report submission, tech inspection, competition dates) alongside every course gate (PDR, CDR, FDR). Plot both on a single Gantt chart or timeline. Identify every point of conflict---places where a competition deliverable is due within one week of a course gate, or where competition travel overlaps with a sprint review. Bring these conflicts to the CF in Sprint~1 so that gate timing can be adjusted before it becomes a crisis.
+
+\textbf{When competition deadlines conflict with course gates.} This will happen. The general principle is: external deadlines take precedence operationally (you cannot ask a competition organizer to reschedule), but course gates take precedence for grading. Work with the CF to shift course gate timing by one to two weeks if needed. If a shift is not possible, help the team plan to complete the course deliverable early so that competition preparation does not crowd it out.
+
+\textbf{Working with the CF on gate adjustments.} PAs do not have authority to move course gates unilaterally. Present the conflict to the CF with a proposed alternative date and a justification. Most CFs will accommodate reasonable requests if they are made early. Last-minute requests (less than two weeks before a gate) are much harder to approve.
+
+\textbf{Sprint-by-sprint Competition Track PA focus:}
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} X}
+\toprule
+\textbf{Sprint} & \textbf{What the PA Should Be Looking For} \\
+\midrule
+Sprint 0--1 &
+Has the team read the \emph{entire} competition rulebook, including appendices and safety requirements? Is there a compliance matrix mapping every rule to a design decision or verification method? Teams that skim the rules inevitably miss a critical requirement. \\
+\midrule
+Sprint 2--3 &
+Do the requirements capture \emph{both} competition rules and engineering requirements? Competition safety rules must be classified as MUST HAVE. Verify that the team is not treating competition rules as the only source of requirements---course-level engineering requirements (e.g., maintainability, documentation, testability) still apply. \\
+\midrule
+Sprint 4 (PoC) &
+Does the PoC address the highest-risk competition requirement? For example, if the competition requires a specific performance threshold, the PoC should demonstrate feasibility of meeting that threshold, not just general system functionality. \\
+\midrule
+Sprint 5 (PDR) &
+Is the competition compliance checklist part of the PDR presentation? Is competition registration confirmed? If registration requires a design report or abstract, is that deliverable on the team's timeline? \\
+\midrule
+Sprint 6 &
+Has the team initiated travel planning? Mines institutional travel approvals require a minimum of 8 weeks. If travel planning has not started by Sprint~6, escalate to the CF immediately. Verify that funding sources have been identified and requested. \\
+\midrule
+Sprint 8 (CDR) &
+Is the travel plan finalized (approvals submitted, flights/hotels identified, funding confirmed)? Is competition compliance nearly complete---does the team have a clear list of remaining compliance items with a plan to close each one? \\
+\midrule
+Sprint 9--11 &
+Is the team testing against \emph{competition-specific} criteria, not just general performance? Are they practicing for tech inspection (if applicable)? Is someone tracking rule updates and organizer communications? \\
+\midrule
+Sprint 12--13 &
+Are competition logistics finalized (packing lists, shipping plans for equipment, travel itineraries)? Have practice runs or mock competitions been completed? Is the course documentation (final report, poster) also on track, or has competition prep crowded it out? \\
+\midrule
+Sprint 14 (FDR) &
+Are competition results presented and analyzed regardless of placement? The FDR should include lessons learned, performance against competition criteria, and honest assessment of what worked and what did not. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsubsection{Managing Competition Disappointment}
+
+Competition outcomes are inherently uncertain. A well-engineered design can lose due to judging subjectivity, rule interpretations, equipment failures during transport, or simply facing stronger competitors. PAs must be prepared to help teams navigate the emotional and academic aftermath of competition results.
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Teams that perform poorly at competition.} The most important PA intervention is helping the team refocus on course deliverables and learning outcomes. A poor competition result does not mean the project failed. Guide the team to analyze \emph{why} things went wrong using engineering analysis (root cause, failure mode identification) rather than emotional narratives. The FDR should present this analysis honestly---it often produces more learning than a first-place finish.
+
+\item \textbf{Teams that neglect documentation for competition focus.} Some teams become so absorbed in competition preparation that they neglect course documentation (final report, poster, FDR preparation). Watch for this pattern starting around Sprint~9. If the team's documentation is falling behind while competition prep accelerates, intervene early and help them allocate effort to both streams.
+
+\item \textbf{Competition placement is not part of the grade.} Remind teams of this explicitly and repeatedly. The course evaluates engineering process, documentation quality, technical rigor, and professional development. A team that places last at competition but produces excellent documentation, demonstrates strong engineering reasoning, and learns from the experience can earn a top grade. Conversely, a team that wins the competition but submits a weak report has not met the course standard.
+
+\item \textbf{Extracting engineering learning from results.} Regardless of placement, help the team turn competition results into engineering data. What did the competition reveal about their design that testing did not? How did their performance compare to their predictions? What would they change with another design cycle? These questions produce the kind of reflection that distinguishes capstone from a class project.
+\end{itemize}
+
+\begin{paaction}
+If a Competition Track team has not confirmed registration and initiated travel planning by Sprint~6, escalate to the CF immediately. Mines travel approvals require 8 weeks minimum, and late travel requests create administrative burdens for the department.
+\end{paaction}
+
+\begin{tipbox}
+Encourage Competition Track teams to attend all competition organizer webinars and info sessions. Rule interpretations often come from Q\&A sessions, not from the written rulebook. Assign one team member as the ``Competition Manager'' responsible for tracking all competition communications.
+\end{tipbox}
+
 \subsection{Hybrid Projects}
 
 Hybrid projects combine elements of multiple tracks---for example, a Build Track project with a significant analytical component, or a Competition Track project that also produces a standalone deliverable for a client. These are the most complex to manage.
@@ -100,6 +223,20 @@ Hybrid projects combine elements of multiple tracks---for example, a Build Track
 \begin{tipbox}
 For Hybrid projects, establish a clear priority framework in Sprint~0: which deliverable stream takes precedence when resources are constrained? Document this agreement with the team and the client. Revisit it at CDR.
 \end{tipbox}
+
+\subsubsection{Common Hybrid Configurations}
+
+Most Hybrid projects fall into one of the following patterns. Recognizing the configuration early helps the PA anticipate the specific tensions and integration challenges that will arise.
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Build + Paper.} A physical prototype with significant analytical validation---for example, a structural design that includes FEA validation, or a thermal system with a companion computational model. The PA challenge is ensuring that both the physical and analytical work streams meet their respective rigor standards and that the two inform each other (model predictions compared to test results, test results used to refine the model).
+
+\item \textbf{Competition + Client.} A competition entry that also serves a client need---for example, a SAE competition vehicle sponsored by an industry partner with specific performance requirements beyond the competition rules. The PA must help the team manage two sets of stakeholder expectations and ensure that client deliverables (reports, presentations, data packages) are not sacrificed for competition preparation.
+
+\item \textbf{Multi-disciplinary integration.} Projects requiring ME + EE + CS integration (or similar cross-disciplinary scope) where different team members produce fundamentally different deliverable types---mechanical drawings, circuit schematics, software repositories. The PA challenge is ensuring coherent system-level integration and documentation that captures the interfaces between disciplines, not just the individual subsystems.
+
+\item \textbf{Research + Build.} A faculty research project with a physical demonstrator component---for example, a novel mechanism concept that requires both theoretical analysis (kinematics, dynamics) and a proof-of-concept prototype. The PA must help the team balance the open-ended nature of research (where negative results are valuable) with the course requirement for concrete, demonstrable deliverables.
+\end{itemize}
 
 
 % ═══════════════════════════════════════

@@ -1,0 +1,203 @@
+\section{Understanding Your Project Track}
+
+All three project tracks---Build, Paper, and Competition---are held to equivalent standards of rigor, engineering process, and documentation quality. Your track determines the \emph{form} of your deliverables, not the \emph{level of effort} or the \emph{depth of analysis}. A Paper Track team that delivers a validated simulation is held to the same standard as a Build Track team that delivers a tested prototype. A Competition Track team that places last but executes a strong engineering process will outperform a team that wins the competition but cuts corners on documentation and verification.
+
+The Build Track is well-covered throughout the rest of this guide. This section provides dedicated guidance for Paper Track and Competition Track teams, including sprint-by-sprint adaptations, common pitfalls, and deliverable expectations.
+
+
+% ═══════════════════════════════════════
+\subsection{Paper Track Projects}
+
+\subsubsection{What a Paper Track Project IS and ISN'T}
+
+A Paper Track project produces a complete, verified technical package that a qualified engineer could use to \emph{implement} the solution. The deliverable replaces the physical prototype---it does not replace the engineering rigor.
+
+\textbf{A Paper Track project IS:}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item An analytical model, simulation, or computational study
+\item A feasibility study with quantitative analysis
+\item An optimization or parametric design study
+\item A site plan, civil design, or infrastructure analysis
+\item A policy analysis grounded in engineering data
+\end{itemize}
+
+\textbf{A Paper Track project is NOT:}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item A literature review with calculations appended
+\item A reduced-effort alternative to building something
+\item A report \emph{about} engineering without \emph{doing} engineering
+\item A collection of vendor quotes and spec sheets
+\end{itemize}
+
+\subsubsection{Sprint-by-Sprint Paper Track Adaptations}
+
+The table below maps key course sprints to their Paper Track equivalents. Sprints not listed follow the standard Build Track guidance.
+
+{\centering\small
+\begin{longtable}{c >{\raggedright\arraybackslash}p{5cm} >{\raggedright\arraybackslash}p{5.5cm}}
+\toprule
+\textbf{Sprint} & \textbf{Build Track Focus} & \textbf{Paper Track Adaptation} \\
+\midrule
+\endhead
+0--1 & Problem definition, stakeholder engagement & Same as Build Track \\
+2--3 & Physical test specs, hardware requirements & Requirements include analytical performance targets: convergence criteria, accuracy thresholds, validation benchmarks. Concept generation focuses on modeling approaches, solver selection, boundary conditions. \\
+4 (PoC) & Hardware proof-of-concept & Must demonstrate computational goal attainment: converging simulation, validated sub-model, mesh independence study. ``I set up the model'' is not a PoC. \\
+5 (PDR) & Preliminary hardware design & Present model architecture, preliminary results, validation plan. Reviewers will ask about assumptions, boundary conditions, mesh sensitivity. \\
+6 & Baseline design, long-lead orders & Baseline analytical approach. Begin full-fidelity model development. \\
+7--8 (CDR) & Detailed design, fabrication-ready package & Complete model/simulation with preliminary results. Present validation against experimental data or published benchmarks. Must include sensitivity analysis. \\
+9--11 & Fabrication, integration, subsystem testing & Full model development, parametric studies, optimization runs. This is your ``fabrication'' phase. \\
+12--13 & System-level V\&V testing & Model verification and validation. Independent checks. Documentation of all assumptions. \\
+14 (FDR) & Prototype demo, final results & Present complete results, visualizations, recommendations. Deliverable is the technical package, not a prototype demo. \\
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection{Paper Track V\&V}
+
+\begin{faqbox}[What counts as Verification and Validation for a model?]
+\textbf{Verification}: Does the model solve the equations correctly?
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Mesh convergence or grid independence studies
+\item Time-step independence checks
+\item Conservation checks (mass, energy, momentum)
+\item Unit consistency and dimensional analysis
+\item Comparison to known analytical solutions
+\end{itemize}
+
+\textbf{Validation}: Do the results agree with reality?
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Comparison to experimental data (yours or published)
+\item Comparison to published benchmarks
+\item Comparison to independent analytical methods
+\item Quantified error metrics (RMSE, percent error, confidence intervals)
+\end{itemize}
+
+Both are required. A model that runs without errors is \emph{not} verified. A model that matches one data point is \emph{not} validated.
+\end{faqbox}
+
+\subsubsection{Paper Track Deliverable Checklist}
+
+Your ``complete technical package'' must contain all of the following:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Model/simulation files} --- documented and version-controlled (Git, not email attachments)
+\item \textbf{Input parameter documentation} --- every input justified with a traceable source
+\item \textbf{Assumptions log} --- every assumption listed with rationale and sensitivity impact
+\item \textbf{Verification evidence} --- convergence studies, conservation checks, analytical comparisons
+\item \textbf{Validation evidence} --- comparison to experimental or published data with quantified error
+\item \textbf{Results and visualizations} --- publication-quality figures with labeled axes and units
+\item \textbf{Recommendations and limitations} --- what the model can and cannot predict, and what should be done next
+\item \textbf{User guide} --- step-by-step instructions to reproduce results, including required software, licenses, and computational resources
+\end{enumerate}
+
+\begin{warnbox}
+Paper Track teams often fall behind because they underestimate the time needed for model validation. Plan to spend at least 30\% of your SDII time on V\&V, not 100\% on running simulations. A beautiful model that cannot be validated is not a successful project.
+\end{warnbox}
+
+
+% ═══════════════════════════════════════
+\subsection{Competition Track Projects}
+
+\subsubsection{How Competition Track Differs}
+
+Competition Track teams operate in a unique environment with dual constraints:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Your requirements come from \textbf{two sources}: the course AND the competition rules.
+\item You manage \textbf{two timelines}: course sprints AND competition deadlines.
+\item Competition placement is \textbf{NOT} part of your course grade---process and deliverable quality are assessed on the same standards as every other team.
+\item You still produce \textbf{all course deliverables}: SOW, SDRD, PDRt, CDRt, FDRt.
+\end{itemize}
+
+\subsubsection{The Dual Timeline}
+
+You must create a single integrated timeline in Sprint~0 and update it every sprint. When course and competition deadlines conflict, competition deadlines take precedence \emph{operationally}, but course deliverables must still be completed on time.
+
+{\centering\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{4.5cm}}
+\toprule
+\textbf{Competition Milestone} & \textbf{Typical Timing} & \textbf{Course Gate Alignment} \\
+\midrule
+\endhead
+Registration / team declaration & Early SDI & Sprint 0--1 (SOW) \\
+Design report submission & Mid SDI -- Early SDII & Sprint 5--6 (PDR) \\
+Technical inspection / safety review & Mid SDII & Sprint 8--10 (CDR through build) \\
+Qualifying / practice runs & Late SDII & Sprint 11--12 (V\&V testing) \\
+Competition event & End of SDII or later & Sprint 13--14 (FDR) \\
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection{Competition Track Sprint Adaptations}
+
+\begin{description}[leftmargin=1.5em,style=nextline]
+\item[Sprint 0--1:] Read the competition rules \emph{cover-to-cover}. Create a compliance matrix mapping every rule to a design requirement. Identify which rules are design-driving vs.\ administrative. Start the SOW with both course and competition scope.
+
+\item[Sprint 2--3:] Requirements capture must include both course requirements AND competition rules. Use MoSCoW prioritization: competition safety rules are \textbf{Must Have}, scoring criteria inform \textbf{Should Have}. Non-scoring rules are still mandatory.
+
+\item[Sprint 4 (PoC):] Demonstrate compliance with the highest-risk competition rule. If the competition has a safety inspection, build toward passing it. Your PoC should retire the biggest technical risk, which is often a competition constraint.
+
+\item[Sprint 5 (PDR):] Present the competition compliance checklist alongside the standard PDR content. Reviewers will ask how you plan to pass tech inspection. Have answers ready.
+
+\item[Sprint 6:] Confirm competition registration. Start travel planning \textbf{NOW} if the competition is in spring---Mines travel approvals require an 8-week lead time. Order all competition-specific components.
+
+\item[Sprint 7--8 (CDR):] Competition compliance checklist should be nearly complete. Travel plan must be finalized. Registration confirmed. Present your integrated timeline showing the path from CDR to competition day.
+
+\item[Sprints 9--11:] Build and test against competition criteria. Prioritize passing tech inspection and safety requirements \emph{before} optimizing for performance. A car that passes inspection but is slow still competes; a fast car that fails inspection does not.
+
+\item[Sprint 12--13:] Final competition preparation. Practice runs under competition conditions. Logistics finalized: vehicle reserved, hotel booked, equipment shipping arranged. Contingency plans documented.
+
+\item[Sprint 14 (FDR):] Present results regardless of competition placement. FDR evaluates your \emph{engineering process and deliverables}, not your ranking. A team that placed 15th but executed excellent engineering judgment, documentation, and V\&V can earn a higher grade than a team that placed 1st with poor process.
+\end{description}
+
+\subsubsection{Travel and Logistics}
+
+\begin{tipbox}
+Reference the Travel section of this Student Guide for detailed Mines travel policies. Key timeline for competition travel:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{8 weeks out}: Submit travel request through Mines approval system
+\item \textbf{6 weeks out}: Book flights/transportation
+\item \textbf{4 weeks out}: Vehicle rental and hotel confirmed
+\item \textbf{2 weeks out}: Equipment shipping arranged (if applicable)
+\item \textbf{Day of}: Execute the plan
+\end{itemize}
+International competitions add passport, visa, and customs requirements. See Course Text Ch.~16 for international travel guidance.
+\end{tipbox}
+
+\subsubsection{Competition Team Roles}
+
+\begin{protip}
+Consider assigning a \textbf{Competition Manager} role alongside your standard Scrum Master, CFO, and other team roles. The Competition Manager is responsible for:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Tracking competition rules, deadlines, and rule changes
+\item Managing registration and team enrollment
+\item Attending all competition organizer webinars and info sessions
+\item Coordinating travel logistics with the CFO
+\item Maintaining the competition compliance matrix
+\end{itemize}
+This role prevents competition logistics from falling through the cracks while the rest of the team focuses on design and build.
+\end{protip}
+
+\begin{warnbox}
+Do not assume the competition rules are your requirements document. Competition rules tell you what your system must \emph{do}; your SDRD tells you how \emph{well} it must do it and how you will \emph{verify} it. You still need engineering requirements with quantitative acceptance criteria, not just ``pass tech inspection.''
+\end{warnbox}
+
+
+% ═══════════════════════════════════════
+\subsection{Hybrid Projects}
+
+Some projects span multiple tracks---for example, a team that builds a prototype \emph{and} enters a competition, or a team that produces both a simulation and a physical test article. If your project is a hybrid, establish the following in Sprint~0:
+
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item \textbf{Clearly define which deliverables serve both tracks and which are unique.} A single SDRD can capture requirements for both streams, but you may need separate V\&V plans.
+\item \textbf{Establish a priority framework}: When resources (time, budget, personnel) are constrained, which stream takes precedence? Document this decision and get agreement from your PA and client.
+\item \textbf{Watch for scope creep.} Hybrid projects are inherently larger in scope. Resist the temptation to do everything for both streams. Use MoSCoW prioritization aggressively.
+\item \textbf{Document the agreement.} Your SOW should explicitly describe the hybrid nature of the project, the priority framework, and what ``done'' looks like for each stream. Get written agreement from your PA and client.
+\end{enumerate}
+
+\begin{warnbox}
+Hybrid projects are the highest-risk track for scope creep. If you find yourself saying ``we'll just add this for the competition'' or ``we should also simulate this,'' stop and check whether the addition is in your SOW. If not, it requires a formal scope change with PA and client approval.
+\end{warnbox}
+
+
+% ═══════════════════════════════════════
