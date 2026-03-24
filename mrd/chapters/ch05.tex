@@ -12,26 +12,36 @@ Before evaluating sustainability with specialized tools (LEED, ENVISION, DFE, ES
 
 \begin{figure}[htbp]\centering
 \begin{tikzpicture}[
-    dim/.style={circle, draw=#1, fill=#1!10, minimum size=2.2cm, align=center, font=\small\sffamily\bfseries, line width=0.8pt},
-    dlabel/.style={font=\tiny\sffamily\itshape, text width=2.3cm, align=center, color=#1}
+    dim/.style={circle, draw=#1, fill=#1!10, minimum size=2.2cm,
+        align=center, font=\small\sffamily\bfseries, line width=0.8pt,
+        text width=2cm},
+    dimcaption/.style={font=\tiny\sffamily, align=center, text width=2cm, color=#1},
+    dlabel/.style={font=\tiny\sffamily\itshape, text width=2.8cm, align=center, color=#1}
 ]
 % Five dimensions arranged in a pentagon
-\node[dim=MinesBlue] (feas) at (90:2.4) {Feasibility\\{\tiny Can we build it?}};
-\node[dim=AccentTeal] (des) at (162:2.4) {Desirability\\{\tiny Does anyone\\want it?}};
-\node[dim=WarnOrange] (via) at (234:2.4) {Viability\\{\tiny Can it sustain\\itself?}};
-\node[dim=GreenShield] (sus) at (306:2.4) {Sustainability\\{\tiny Is it responsible\\long-term?}};
-\node[dim=WarnOrange!80!black] (eth) at (18:2.4) {Ethical\\Responsibility\\{\tiny Should we\\build it?}};
+\node[dim=MinesBlue]          (feas) at (90:2.4)  {Feasibility};
+\node[dim=AccentTeal]         (des)  at (162:2.4) {Desirability};
+\node[dim=WarnOrange]         (via)  at (234:2.4) {Viability};
+\node[dim=GreenShield]        (sus)  at (306:2.4) {Sustainability};
+\node[dim=WarnOrange!80!black](eth)  at (18:2.4)  {Ethical Resp.};
+
+% Sub-captions beneath each dimension
+\node[dimcaption=MinesBlue]          at (90:3.5)  {Can we build it?};
+\node[dimcaption=AccentTeal]         at (162:3.5) {Does anyone want it?};
+\node[dimcaption=WarnOrange]         at (234:3.5) {Can it sustain itself?};
+\node[dimcaption=GreenShield]        at (306:3.5) {Is it responsible long-term?};
+\node[dimcaption=WarnOrange!80!black]at (18:3.5)  {Should we build it?};
 
 % Center label
 \node[rectangle, rounded corners=4pt, draw=MinesBlue, fill=white,
     font=\small\sffamily\bfseries, inner sep=4pt, line width=1.2pt] at (0,0) {VALUE};
 
-% Failure labels around the outside
-\node[dlabel=MinesBlue] at (90:4.2) {Feasible but unwanted\\``Solution seeking a problem''};
-\node[dlabel=AccentTeal] at (162:4.2) {Desired but unbuildable\\``Vaporware''};
-\node[dlabel=WarnOrange] at (234:4.2) {Affordable but nobody wants it\\``Race to the bottom''};
-\node[dlabel=GreenShield] at (306:4.2) {Sustainable but impractical\\``Green fantasy''};
-\node[dlabel=WarnOrange!80!black] at (18:4.2) {Capable but irresponsible\\``Can doesn't mean should''};
+% Failure-mode labels around the outside
+\node[dlabel=MinesBlue]           at (90:4.8)  {Feasible but unwanted};
+\node[dlabel=AccentTeal]          at (162:4.8) {Desired but unbuildable};
+\node[dlabel=WarnOrange]          at (234:4.8) {Affordable but unwanted};
+\node[dlabel=GreenShield]         at (306:4.8) {Sustainable but impractical};
+\node[dlabel=WarnOrange!80!black] at (18:4.8)  {Capable but irresponsible};
 \end{tikzpicture}
 \caption{The FDVSE value framework. A product must satisfy all five dimensions to create genuine value. Meeting only some dimensions produces the characteristic failure modes shown at each edge. The fifth dimension---ethical responsibility---asks the question that the other four do not: even if we \emph{can} build it, \emph{should} we?}\label{fig:fdvse-pentagon}
 \end{figure}
