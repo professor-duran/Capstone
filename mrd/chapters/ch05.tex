@@ -150,6 +150,30 @@ These are not abstract philosophical questions. They are practical design consid
 
 \textbf{Practical actions}: (1)~include community members as stakeholders in the needs elicitation process (Chapter~2), (2)~design for the actual operating context (available infrastructure, local skills, cultural practices), not for an idealized context, (3)~consider the total cost of ownership (not just purchase price but installation, training, maintenance, and disposal), (4)~plan for technology transfer (the community must be able to operate and maintain the system without your ongoing involvement).
 
+\subsection{Designing for Accessibility: Techniques and Auditing}
+The ESJ accessibility question---``can people with different physical abilities, cognitive abilities, and technology access use this system?''---requires more than a yes/no answer. It requires specific design techniques and systematic evaluation.
+
+\textbf{Universal Design in engineering products.} Universal Design (Ronald Mace, NC State) provides seven principles that translate directly into engineering requirements: equitable use, flexibility in use, simple and intuitive operation, perceptible information (redundant sensory modes), tolerance for error, low physical effort, and adequate size and space for approach. Apply these principles during concept evaluation (Sprint~3--5), not as a post-CDR afterthought. For each principle, ask: does our current concept satisfy this, and if not, what specific design change would address it?
+
+\textbf{Inclusive user testing.} Testing with a homogeneous group of able-bodied, college-age engineers does not validate accessibility. Inclusive testing methods include:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Simulation}: wear thick gloves to simulate reduced dexterity, use vision-limiting goggles to simulate low vision, or use noise-canceling headphones to simulate hearing loss during usability testing.
+\item \textbf{Diverse test participants}: recruit testers with a range of physical abilities, ages, and technical backgrounds. Even 2--3 non-typical users reveal issues that a dozen typical users will not.
+\item \textbf{One-handed operation test}: attempt all primary tasks using only one hand. If a task requires two hands, document it as a limitation and evaluate whether a redesign (lever instead of twist-knob, magnetic latch instead of screw cap) can eliminate the barrier.
+\item \textbf{Screen reader audit}: for any digital interface, verify that all interactive elements are labeled, navigable by keyboard, and readable by a screen reader (NVDA or VoiceOver).
+\end{itemize}
+
+\textbf{Accessibility auditing checklist for FDR.} Before FDR, evaluate the final design against these criteria and document findings in the sustainability section of the FDR report:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item All controls operable with one hand and $\leq$5\,lbf actuation force.
+\item All critical status indicators use at least two sensory modes (visual + audible, or visual + tactile).
+\item Text on displays and labels is $\geq$12\,pt with $\geq$4.5:1 contrast ratio against background.
+\item Physical interfaces reachable from a seated position (15--48~in.\ above finished floor per ADA reach range).
+\item Digital interfaces navigable by keyboard alone (no mouse-only interactions).
+\item Error states are recoverable without specialized knowledge or tools.
+\end{itemize}
+Document any criteria that the design does not meet, along with the rationale (technical constraint, scope limitation) and a recommendation for future versions.
+
 \subsection{Choosing the Right CLO~5 Tool}
 The following table summarizes when to use each sustainability assessment tool. Select the tool that best matches your project's domain; you are not required to use all four.
 

@@ -80,6 +80,18 @@ MoSCoW prevents scope creep by forcing the team and client to agree on what is e
 \item \textbf{Usability}: setup time, training requirements, error message clarity, physical accessibility.
 \end{itemize}
 
+\begin{tipbox}[Turning ``Accessible'' into Testable Requirements]
+``The device shall be accessible'' is not a testable requirement. Universal Design principles (Ronald Mace, NC State) provide a framework for translating accessibility goals into measurable, verifiable SHALL statements. Instead of vague intent, write specific requirements:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Vague}: ``The device shall be accessible to users with disabilities.''
+\item \textbf{Testable}: ``The device shall be operable with one hand and require no more than 5\,lbf of force on any control.'' (TAID: Test)
+\item \textbf{Testable}: ``All status indicators shall provide both visual and audible output.'' (TAID: Demonstration)
+\item \textbf{Testable}: ``The touchscreen interface shall maintain a minimum contrast ratio of 4.5:1 per WCAG~2.1 Level~AA.'' (TAID: Inspection)
+\item \textbf{Testable}: ``All controls shall be reachable within 15--48~in.\ above finished floor from a seated position per ADA reach range.'' (TAID: Inspection)
+\end{itemize}
+Apply this pattern to every accessibility-related need: identify the specific barrier (mobility, vision, hearing, cognition), then write a requirement with a measurable threshold and a verification method. These requirements belong in the non-functional section of the SDRD alongside environmental and safety constraints.
+\end{tipbox}
+
 \section{The System Design Requirements Document (SDRD)}
 The SDRD is the single authoritative document that captures all system-level requirements~[33]. It is the foundational engineering document for the entire project. Standard structure:
 

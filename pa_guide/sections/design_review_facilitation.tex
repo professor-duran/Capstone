@@ -55,6 +55,81 @@ Use the following questions as a starter set for mock PDRs. Organize your questi
 \item What is the one thing you wish you had done differently this semester?
 \end{enumerate}
 
+\subsection{Mock CDR Reviewer Script}
+
+Use the following questions as a starter set for mock CDRs. By CDR the design should be at fabrication-ready level, so questioning shifts from ``what will you build?'' to ``how will you build it and how do you know it will work?''
+
+\subsubsection*{Design Maturity}
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Show me the engineering calculations that size your critical components. What are your assumptions?
+\item What is your design margin on [key parameter]? How did you determine that margin is sufficient?
+\item Walk me through the CAD model. Point to one area where the design changed since PDR and explain why.
+\item What engineering standards govern this design, and how have you ensured compliance?
+\end{enumerate}
+
+\subsubsection*{Manufacturing Readiness}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=5]
+\item Walk me through your fabrication sequence from raw material to assembled subsystem.
+\item What is your longest lead-time item and when is it ordered?
+\item What fabrication processes require equipment or expertise your team does not currently have?
+\item Show me the BOM. Is every line item accounted for, including fasteners, consumables, and wiring?
+\end{enumerate}
+
+\subsubsection*{Integration and Interfaces}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=9]
+\item How do the electrical and mechanical subsystems interface? Show me the interface drawing or diagram.
+\item What happens to the schedule if subsystem~X is late?
+\end{enumerate}
+
+\subsubsection*{Testing and Verification}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=11]
+\item What tests have you run so far, and what tests remain after CDR?
+\item Show me your VCRM---which requirements are verified, and which still need testing?
+\item What is your test plan for the most difficult requirement?
+\end{enumerate}
+
+\subsubsection*{Risk}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=14]
+\item What is your top technical risk right now and what is the mitigation plan?
+\item What would you do if your mitigation fails? Is there a fallback?
+\end{enumerate}
+
+\subsection{Mock FDR Reviewer Script}
+
+Use the following questions as a starter set for mock FDRs. At FDR the focus shifts from design intent to demonstrated performance: ``show me the evidence.''
+
+\subsubsection*{System Performance}
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item Demonstrate the system meeting requirement~[X]. Walk me through the test setup and results.
+\item What is the measured versus predicted performance for your key parameters? Explain any discrepancies.
+\item Under what conditions does the system fail or degrade? How do you know?
+\end{enumerate}
+
+\subsubsection*{Verification Completeness}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=4]
+\item Walk me through your VCRM---are all Must-Have requirements verified?
+\item What requirements did you not meet, and why? What is your recommended path forward?
+\item For any waived or deferred requirements, does the client agree with that disposition?
+\end{enumerate}
+
+\subsubsection*{Operations and Maintenance}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=7]
+\item How would a new user set up and operate this system without your team present?
+\item What maintenance does the system require, and at what intervals?
+\end{enumerate}
+
+\subsubsection*{Lessons Learned}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=9]
+\item What would you do differently if you started this project over?
+\item What was your biggest technical surprise, and how did you adapt?
+\end{enumerate}
+
+\subsubsection*{Documentation and Handoff}
+\begin{enumerate}[nosep,leftmargin=1.5em,start=11]
+\item Is your Digital Design Archive complete? Could someone reproduce your design from your documentation alone?
+\item What information does the client need to maintain, repair, or extend this system after handoff?
+\end{enumerate}
+
 \subsection{CDR Readiness Assessment}
 
 Before approving a team for CDR, verify the following. If more than two items are incomplete, consider delaying the review.
