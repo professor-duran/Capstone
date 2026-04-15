@@ -204,12 +204,20 @@ cd pa_guide && pdflatex PA_Instructors_Guide.tex && pdflatex PA_Instructors_Guid
 
 ---
 
-## License and Use
+## Adoption and License
 
-These materials are open educational resources developed at Colorado School of Mines. Documents are living resources that evolve each semester as the course is refined.
+These materials are open educational resources developed at Colorado School of Mines and licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You are free to **share** and **adapt** the materials for any purpose, including commercially, provided you give appropriate credit. See [LICENSE](LICENSE) for full details.
+
+**Suggested attribution:**
+> EDS 491/492: Senior Capstone Design course materials by Adam W. Duran, Colorado School of Mines, used under CC BY 4.0. Source: https://github.com/professor-duran/Capstone
+
+Documents are living resources that evolve each semester as the course is refined. If you adopt these materials, I'd love to hear about it -- please reach out so I can learn from your experience.
 
 ---
 
-## Author
+## Author and Contact
 
-**Adam Duran** | Assistant Teaching Professor, PE, PMP | Department of Mechanical Engineering | Colorado School of Mines
+**Adam W. Duran** | Assistant Teaching Professor, PE, PMP | Department of Mechanical Engineering | Colorado School of Mines
+
+Email: [aduran@mines.edu](mailto:aduran@mines.edu)
+Website: [adamwduran.com](https://adamwduran.com)
